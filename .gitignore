@@ -1,0 +1,69 @@
+###
+# Unity folders and files
+###
+[Aa]ssets/AssetStoreTools*
+[Bb]uild/
+[Ll]ibrary/
+[Ll]ocal[Cc]ache/
+[Oo]bj/
+[Tt]emp/
+[Uu]nityGenerated/
+# file on crash reports
+sysinfo.txt
+# Unity3D generated meta files
+*.pidb.meta
+
+###
+# VS/MD solution and project files
+###
+*.vs/
+[Ee]xportedObj/
+*.booproj
+*.csproj
+*.sln
+*.suo
+*.svd
+*.unityproj
+*.user
+*.userprefs
+*.pidb
+.DS_Store
+*.ide
+
+###
+# OS generated
+###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Don't commit builds, put them in Builds
+[Bb]uilds/
+*.app
+*.apk
+*.exe
+#########################################
+
+##############################
+#### FMOD Generated Files ####
+##############################
+Assets/FMODAssets/*
+Assets/StreamingAssets/*
+Assets/StreamingAssets.meta
+Assets/FMODStudioCache.asset
+Assets/FMODStudioCache.asset.meta
+Assets/FMODStudioCache.meta
+fmod_editor.log
+fmod.log
+Assets/Resources/*
+
+Assets/FmodIntegration_1.10.03/Resources/FMODStudioSettings.asset 
+Assets/FmodIntegration_1.10.03/Resources/FMODStudioSettings.asset.meta
