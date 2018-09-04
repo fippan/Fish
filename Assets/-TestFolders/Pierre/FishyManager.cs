@@ -6,6 +6,8 @@ public class FishyManager : MonoBehaviour {
 
     public int lowest;
     public int highest;
+    public float waitTime;
+    public GameObject[] fishies;
     public FishingStates theStates;
 
     public enum FishingStates
@@ -23,19 +25,35 @@ public class FishyManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		if(theStates == FishingStates.FISHING)
         {
-            Debug.Log("We are fishing for fishies");
+            waitTime -= Time.deltaTime;
+
+            int tempfish = Random.Range(0, fishies.Length);
+
+            if (waitTime <= 0)
+            {
+                Instantiate(fishies[tempfish], transform);
+                theStates = FishingStates.NOTFISHING;
+            }
         }
         else if(theStates == FishingStates.NOTFISHING)
         {
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
-	}
 
-    void StartFishing()
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartFishing();
+        }
+    }
+
+    public void StartFishing()
     {
-        int wait = Random.Range(lowest, highest);
+        waitTime = Random.Range(lowest, highest);
+        theStates = FishingStates.FISHING;
     }
 
 }
