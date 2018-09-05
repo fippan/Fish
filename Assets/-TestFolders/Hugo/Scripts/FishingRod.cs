@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
+    public float throwingMultiplier = 300f;
+    [Space(20)]
+    public bool thrown = false;
     public GameObject bob;
-    public Vector3 throwPoint;
+    public Transform throwPoint;
     public GameObject bobHolder;
 
-	public void ThrowBob (Vector3 direction)
+    private GameObject newBob;
+
+    public void ThrowBob (Vector3 direction)
     {
-        GameObject newBob = Instantiate(bob, throwPoint, transform.rotation);
-        newBob.GetComponent<Rigidbody>().AddForce(direction);
+        thrown = true;
+        newBob = Instantiate(bob, throwPoint.position, transform.rotation);
+        newBob.GetComponent<Rigidbody>().AddForce(direction * throwingMultiplier);
     }
 }

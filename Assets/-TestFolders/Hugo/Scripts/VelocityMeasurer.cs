@@ -19,7 +19,7 @@ public class VelocityMeasurer : MonoBehaviour
 
     void Update ()
     {
-        if (holdingRod)
+        if (holdingRod && fishingRod.thrown != true)
         {
             currentSpeed = velocityEst.GetVelocityEstimate();
             if (currentSpeed.x > throwSpeed.x || currentSpeed.z > throwSpeed.z || currentSpeed.x < -throwSpeed.x || currentSpeed.z < -throwSpeed.z)
