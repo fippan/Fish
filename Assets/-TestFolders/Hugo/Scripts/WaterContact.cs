@@ -5,13 +5,17 @@ using UnityEngine.Events;
 
 public class WaterContact : MonoBehaviour
 {
-    public UnityEvent onWaterHit;
+    FishingRod fR;
+
+    public void Start()
+    {
+        fR = FindObjectOfType<FishingRod>();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Water")
         {
-            onWaterHit.Invoke();
         }
     }
 }
