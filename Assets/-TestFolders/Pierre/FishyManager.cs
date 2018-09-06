@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class FishyManager : MonoBehaviour {
 
@@ -9,6 +10,9 @@ public class FishyManager : MonoBehaviour {
     public float waitTime;
     public GameObject[] fishies;
     public FishingStates theStates;
+    public GameObject coinSpray;
+    public GameObject fish;
+    //public VRTK_InteractGrab grab;
 
     public enum FishingStates
     {
@@ -34,7 +38,7 @@ public class FishyManager : MonoBehaviour {
 
             if (waitTime <= 0)
             {
-                Instantiate(fishies[tempfish], transform);
+                fish = Instantiate(fishies[tempfish], transform);
                 theStates = FishingStates.NOTFISHING;
             }
         }
@@ -55,5 +59,12 @@ public class FishyManager : MonoBehaviour {
         waitTime = Random.Range(lowest, highest);
         theStates = FishingStates.FISHING;
     }
+
+    //public void PickupFish(int amount)
+    //{
+    //    Instantiate(coinSpray, fish.transform);
+    //    Destroy(fish.gameObject);
+    //    Destroy(coinSpray);
+    //}
 
 }

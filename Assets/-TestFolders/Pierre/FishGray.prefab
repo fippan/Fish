@@ -26,9 +26,10 @@ GameObject:
   - component: {fileID: 54556575329703018}
   - component: {fileID: 114355747093643580}
   - component: {fileID: 65141291482635232}
+  - component: {fileID: 114380402048913534}
   m_Layer: 0
   m_Name: FishGray
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1084349641036622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.472, z: 0}
+  m_LocalPosition: {x: -0.959, y: 0.472, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4825594155402884}
@@ -330,7 +331,7 @@ MonoBehaviour:
   durationOnTouch: 0
   intervalOnTouch: 0.05
   cancelOnUntouch: 1
-  clipOnGrab: {fileID: 0}
+  clipOnGrab: {fileID: 8300000, guid: 15600f8c2934c564ea7e7135bcd74120, type: 3}
   strengthOnGrab: 0
   durationOnGrab: 0
   intervalOnGrab: 0.05
@@ -341,6 +342,23 @@ MonoBehaviour:
   intervalOnUse: 0.05
   cancelOnUnuse: 1
   objectToAffect: {fileID: 0}
+--- !u!114 &114380402048913534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084349641036622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390930c8e018ff844bd34f0dbd950b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinSpray: {fileID: 0}
+  coin:
+  - {fileID: 4300000, guid: 45743e8374d40cb4aacb2abdfb1f0430, type: 3}
+  - {fileID: 4300000, guid: e9388b1b7b779fb42bb05b7efea7696f, type: 3}
+  - {fileID: 4300000, guid: 508d7f57a7717be4989f012041e1f280, type: 3}
+  ps: {fileID: 198442208210045482, guid: 900087b326a6b09458440a6be3576382, type: 2}
 --- !u!114 &114775130271851222
 MonoBehaviour:
   m_ObjectHideFlags: 1
