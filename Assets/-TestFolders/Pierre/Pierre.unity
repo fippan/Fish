@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 494004382}
   - component: {fileID: 494004381}
   - component: {fileID: 494004380}
+  - component: {fileID: 494004385}
   m_Layer: 0
   m_Name: LeftController
   m_TagString: Untagged
@@ -708,6 +709,25 @@ MonoBehaviour:
   interactUse: {fileID: 0}
   customOrigin: {fileID: 0}
   controller: {fileID: 494004382}
+--- !u!114 &494004385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 494004378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4487ee0beddbc4c805d2ff12d9c070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabButton: 7
+  grabPrecognition: 0
+  throwMultiplier: 1
+  createRigidBodyWhenNotTouching: 0
+  controllerAttachPoint: {fileID: 0}
+  controllerEvents: {fileID: 0}
+  interactTouch: {fileID: 0}
+  lmao: {fileID: 494004380}
 --- !u!1 &659325239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1429,7 @@ MonoBehaviour:
   controllerAttachPoint: {fileID: 0}
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
-  lmao: {fileID: 0}
+  lmao: {fileID: 1582352222}
 --- !u!1 &1731312662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 147176, guid: 4d293c8e162f3874b982baadd71153d2,

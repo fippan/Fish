@@ -19,6 +19,7 @@ public class FishController : VRTK_InteractGrab {
        if(e.target.transform.tag == "Fish")
         {
             e.target.GetComponent<GrabFish>().PickupFish(e.target.gameObject);
+            Debug.Log(e.target.name);
         }
     }
 }

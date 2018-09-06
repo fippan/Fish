@@ -27,9 +27,11 @@ GameObject:
   - component: {fileID: 114355747093643580}
   - component: {fileID: 65141291482635232}
   - component: {fileID: 114380402048913534}
+  - component: {fileID: 114590974200515452}
+  - component: {fileID: 114707581506153572}
   m_Layer: 0
   m_Name: FishGray
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -325,7 +327,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
@@ -384,10 +386,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390930c8e018ff844bd34f0dbd950b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinSpray: {fileID: 0}
+  coinSpray: {fileID: 1411032598247060}
   coin:
   - {fileID: 4300000, guid: 45743e8374d40cb4aacb2abdfb1f0430, type: 3}
   ps: {fileID: 198442208210045482, guid: 900087b326a6b09458440a6be3576382, type: 2}
+--- !u!114 &114590974200515452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084349641036622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08517e04830d6d44a13c5ea5f574181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  unhighlightOnDisable: 1
+  thickness: 1
+  customOutlineModels: []
+  customOutlineModelPaths: []
+  enableSubmeshHighlight: 0
+--- !u!114 &114707581506153572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084349641036622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc4b5dd2be1cea4aaea2850b910d3f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nearTouchHighlight: {r: 0, g: 0, b: 0, a: 0}
+  touchHighlight: {r: 1, g: 1, b: 1, a: 0}
+  grabHighlight: {r: 0, g: 0, b: 0, a: 0}
+  useHighlight: {r: 0, g: 0, b: 0, a: 0}
+  objectToMonitor: {fileID: 0}
+  objectToHighlight: {fileID: 0}
+  objectHighlighter: {fileID: 0}
+  objectToAffect: {fileID: 0}
 --- !u!114 &114775130271851222
 MonoBehaviour:
   m_ObjectHideFlags: 1

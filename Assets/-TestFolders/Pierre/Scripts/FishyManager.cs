@@ -14,6 +14,8 @@ public class FishyManager : MonoBehaviour {
     public GameObject fish;
     //public VRTK_InteractGrab grab;
 
+    private Transform spawnPos;
+
     public enum FishingStates
     {
         FISHING,
@@ -38,7 +40,7 @@ public class FishyManager : MonoBehaviour {
 
             if (waitTime <= 0)
             {
-                fish = Instantiate(fishies[tempfish], transform);
+                fish = Instantiate(fishies[tempfish], spawnPos);
                 theStates = FishingStates.NOTFISHING;
             }
         }
@@ -47,15 +49,17 @@ public class FishyManager : MonoBehaviour {
             //gameObject.SetActive(false);
         }
 
-
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             StartFishing();
         }
+        */
     }
 
-    public void StartFishing()
+    public void StartFishing(Transform newSpawnPos)
     {
+        spawnPos = newSpawnPos;
         waitTime = Random.Range(lowest, highest);
         theStates = FishingStates.FISHING;
     }

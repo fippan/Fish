@@ -26,6 +26,7 @@ public class GrabFish : MonoBehaviour {
         var coins = particle.GetComponentInChildren<ParticleSystem>();
 
         coins.Play(true);
+        Destroy(gameObject, 3f);
         //Instantiate(ps, transform);
         //coins.GetComponent<ParticleSystemRenderer>().renderMode = ParticleSystemRenderMode.Mesh;
         //coins.GetComponent<ParticleSystemRenderer>().SetMeshes(coin);

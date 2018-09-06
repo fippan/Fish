@@ -18,6 +18,8 @@ public class FishingRod : MonoBehaviour
 
     Spinner spinner;
 
+    private bool closeEnough = false;
+
     private void Start()
     {
         spinner = FindObjectOfType<Spinner>();
@@ -39,13 +41,16 @@ public class FishingRod : MonoBehaviour
             float dist = D.magnitude;
             Vector3 pullDir = D.normalized;
 
-            if (dist < .5f)
+            if (dist > 1)
             {
-                Destroy(newBob);
-                thrown = false;
-            }
+                if (dist < .5f)
+                {
+                    Destroy(newBob);
+                    thrown = false;
+                }
 
-            newBob.GetComponent<Rigidbody>().velocity += pullDir * (floaterSpeed * Time.deltaTime * spinner.rotationSpeed);
+                newBob.GetComponent<Rigidbody>().velocity += pullDir * (floaterSpeed * Time.deltaTime * spinner.rotationSpeed);
+            }
         }
     }
 }

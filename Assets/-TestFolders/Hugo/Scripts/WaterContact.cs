@@ -5,17 +5,18 @@ using UnityEngine.Events;
 
 public class WaterContact : MonoBehaviour
 {
-    FishingRod fR;
+    public FishyManager fishM;
 
     public void Start()
     {
-        fR = FindObjectOfType<FishingRod>();
+        fishM = FindObjectOfType<FishyManager>();
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Water")
         {
+            fishM.StartFishing(transform);
         }
     }
 }
