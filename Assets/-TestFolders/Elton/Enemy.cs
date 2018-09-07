@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
+        health -= damage;
+
         if(health <= 0)
         {
             Death();
@@ -19,7 +21,7 @@ public class Enemy : MonoBehaviour {
     public void Death()
     {
         Dead = true;
-        Destroy(transform);
+        Destroy(gameObject);
         //kil
     }
 }
