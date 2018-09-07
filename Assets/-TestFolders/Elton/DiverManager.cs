@@ -24,24 +24,10 @@ public class DiverManager : MonoBehaviour {
 
         SpawningDivers();
     }
-    //Waiting for call to activate Divers
     void Update () {
-        //if (waitForActive)
-        //{
-        //    SendingDivers();
-        //}
+
 	}
 
-    //Sending 10 Divers at a random time through 4-7 seconds
-    //void SendingDivers()
-    //{
-    //    //randomSpawnTimer = Random.Range(4, 7);
-    //    InvokeRepeating("SpawningDivers", 10f, 7);
-        
-    //    waitForActive = false;
-    //}
-
-    //Spawning a random Diver 1-4
     void SpawningDivers()
     {
         //check if Diver is alive, if not make the space unoccupied and destroy old diver.

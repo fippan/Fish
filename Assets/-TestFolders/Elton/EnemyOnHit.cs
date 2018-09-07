@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EnemyOnHit : MonoBehaviour {
 
+    public Enemy enemy;
+    public Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        enemy = GetComponent<Enemy>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,7 +22,8 @@ public class EnemyOnHit : MonoBehaviour {
 
         if (collision.gameObject.tag == ("FishingRod"))
         {
-            //TODO take a certain damage and play animation.
+            enemy.TakeDamage(25);
+            anim.SetBool("Punched", true);
         }
     }
 }
