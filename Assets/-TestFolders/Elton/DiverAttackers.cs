@@ -14,6 +14,7 @@ public class DiverAttackers : Enemy {
         Player = GameObject.FindGameObjectWithTag("Player");
         health = 100;
         enemyModel = diver;
+        transform.LookAt(Player.transform);
         //DiverBehaviour(spawns);
     }
     void Update () {
@@ -27,7 +28,6 @@ public class DiverAttackers : Enemy {
     public void DiverBehaviour(SpawnPoints spawns)
     {
         spawns.occupied = true;
-        transform.LookAt(Player.transform);
         if(diver.transform.position.y < 10f)
         {
             //diver.transform.position += new Vector3(diver.transform.position.x, diver.transform.position.y + 10, diver.transform.position.z) * Time.deltaTime;
