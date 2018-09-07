@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
     void Death()
     {
         //TODO: death screen/behaiviour.
+        //Make enemies dissapear and objects non usable - activate Watch menu and choose to restart or exit game
     }
 
 }
