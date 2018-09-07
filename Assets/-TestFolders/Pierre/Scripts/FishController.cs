@@ -8,8 +8,6 @@ public class FishController : VRTK_InteractGrab {
 
     VRTK_InteractGrab_UnityEvents events;
     public VRTK_InteractGrab lmao;
-    ObjectInteractEventArgs e;
-    ObjectInteractEventHandler h;
     // Use this for initialization
     void Start () {
         lmao = GetComponent<VRTK_InteractGrab>();
@@ -20,7 +18,7 @@ public class FishController : VRTK_InteractGrab {
     {
        if(e.target.transform.tag == "Fish")
         {
-            e.target.GetComponent<GrabFish>().PickupFish();
+            e.target.GetComponent<GrabFish>().PickupFish(e.target.gameObject);
         }
     }
 }

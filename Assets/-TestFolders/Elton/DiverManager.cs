@@ -8,6 +8,7 @@ public class DiverManager : MonoBehaviour {
     private int randomDiver;
     public List<SpawnPoints> spawnPointers;
     public DiverAttackers diveratt;
+    public GameObject Diver;
 
     private void Start()
     {
@@ -43,21 +44,42 @@ public class DiverManager : MonoBehaviour {
         //Spawns Diver one
         if (spawnPointers[0].occupied == false && randomDiver == 1)
         {
-            diveratt.spawnDiverOne();
+            var diver = Instantiate(Diver, transform);
+            spawnPointers[0].occupied = true;
+            if(diver.GetComponent<DiverAttackers>().Dead == true)
+            {
+                spawnPointers[0].occupied = false;
+            }
         }
 
         else if (spawnPointers[1].occupied == false && randomDiver == 2)
         {
-            diveratt.spawnDiverTwo();
+            var diver = Instantiate(Diver, transform);
+            spawnPointers[1].occupied = true;
+            if (diver.GetComponent<DiverAttackers>().Dead == true)
+            {
+                spawnPointers[1].occupied = false;
+            }
         }
         else if (spawnPointers[2].occupied == false && randomDiver == 3)
         {
-            diveratt.spawnDiverThree();
+            var diver = Instantiate(Diver, transform);
+            spawnPointers[2].occupied = true;
+            if (diver.GetComponent<DiverAttackers>().Dead == true)
+            {
+                spawnPointers[2].occupied = false;
+            }
         }
         else if (spawnPointers[3].occupied == false && randomDiver == 4)
         {
-            diveratt.spawnDiverFour();
+            var diver = Instantiate(Diver, transform);
+            spawnPointers[3].occupied = true;
+            if (diver.GetComponent<DiverAttackers>().Dead == true)
+            {
+                spawnPointers[3].occupied = false;
+            }
         }
+
         else if (spawnPointers[0].occupied == true && spawnPointers[1].occupied == true && spawnPointers[2].occupied == true && spawnPointers[3].occupied == true)
         {
             return;
