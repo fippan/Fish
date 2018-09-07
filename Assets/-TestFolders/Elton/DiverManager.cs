@@ -62,7 +62,7 @@ public class DiverManager : MonoBehaviour {
         //Spawns Diver one
         if (spawnPointers[0].occupied == false && randomDiver == 1)
         {
-            var diver = Instantiate(Diver, spawnPointers[0].spawnpoint);
+            var diver = Instantiate(Diver, spawnPointers[0].spawnpoint.position, new Quaternion(0,0,0,0), spawnPointers[0].transform);
             diver.GetComponent<DiverAttackers>().DiverBehaviour(spawnPointers[0]);
         }
 

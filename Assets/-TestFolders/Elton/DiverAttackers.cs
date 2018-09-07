@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 public class DiverAttackers : Enemy {
 
@@ -10,6 +11,7 @@ public class DiverAttackers : Enemy {
 
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         health = 100;
         enemyModel = diver;
         //DiverBehaviour(spawns);
@@ -18,11 +20,14 @@ public class DiverAttackers : Enemy {
 
     }
 
+    private void AttackPlayer()
+    {
 
+    }
     public void DiverBehaviour(SpawnPoints spawns)
     {
         spawns.occupied = true;
-        diver.transform.LookAt(Player.transform);
+        transform.LookAt(Player.transform);
         if(diver.transform.position.y < 10f)
         {
             //diver.transform.position += new Vector3(diver.transform.position.x, diver.transform.position.y + 10, diver.transform.position.z) * Time.deltaTime;
