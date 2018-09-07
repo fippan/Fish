@@ -28,7 +28,6 @@ public class VelocityMeasurer : MonoBehaviour
                 {
                     //TODO: Send out the "Flöte" from the rod!
                     fishingRod.ThrowBob(currentSpeed);
-                    Debug.Log("its working");
                 }
             }
         }

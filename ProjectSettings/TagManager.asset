@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Leg
+  - SnapCube
+  - Arm
+  - SnapCylinder
+  - Saucers
+  - ExcludeTeleport
+  - Torso
+  - Head
+  - Water
+  - Spinner
   layers:
   - Default
   - TransparentFX
