@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using VRTK.Controllables;
+﻿using UnityEngine;
 
 public class Spinner : MonoBehaviour
 {

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
@@ -14,11 +12,12 @@ public class FishingRod : MonoBehaviour
     [Space(20)]
     public float floaterSpeed = 11f;
 
-    private GameObject newBob;
-
+    GameObject newBob;
+    Rigidbody newBobRB;
     Spinner spinner;
 
-    private bool closeEnough = false;
+    [HideInInspector]
+    public bool closeEnough = false;
 
     private void Start()
     {
@@ -29,27 +28,40 @@ public class FishingRod : MonoBehaviour
     {
         thrown = true;
         newBob = Instantiate(bob, throwPoint.position, transform.rotation);
-        newBob.GetComponent<Rigidbody>().AddForce(direction * throwingMultiplier);
+        newBobRB = newBob.GetComponent<Rigidbody>();
+        newBobRB.AddForce(direction * throwingMultiplier);
         spinner.isGrabbed = false;
     }
 
     public void Update()
     {
-        if (spinner.isGrabbed)
+        if (spinner.isGrabbed && !closeEnough && newBob != null)
         {
             Vector3 D = throwPoint.position - newBob.transform.position;
             float dist = D.magnitude;
             Vector3 pullDir = D.normalized;
 
-            if (dist > 1)
+            newBobRB.velocity += pullDir * ((floaterSpeed * spinner.rotationSpeed) * Time.deltaTime);
+        }
+
+        if (closeEnough)
+        {
+            Vector3 D = throwPoint.position - newBob.transform.position;
+            float dist = D.magnitude;
+            Vector3 pullDir = D.normalized;
+            pullDir.y = pullDir.y * 5;
+            newBobRB.velocity += pullDir * Time.deltaTime * 3.5f;
+            
+            if (dist < .3f)
             {
-                if (dist < .5f)
+                if (newBob.GetComponent<CoughtFish>().hasFish)
                 {
-                    Destroy(newBob);
-                    thrown = false;
+                    //TODO: Spawn The particle effect!!! and Get the MoNeYYY!
                 }
 
-                newBob.GetComponent<Rigidbody>().velocity += pullDir * (floaterSpeed * Time.deltaTime * spinner.rotationSpeed);
+                thrown = false;
+                closeEnough = false;
+                Destroy(newBob);
             }
         }
     }

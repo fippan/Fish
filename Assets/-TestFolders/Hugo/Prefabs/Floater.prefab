@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114066372585775366}
   - component: {fileID: 54068798884262210}
   - component: {fileID: 65971217382579372}
+  - component: {fileID: 114107414252911578}
   m_Layer: 0
   m_Name: Floater
   m_TagString: Untagged
@@ -124,7 +125,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -154,3 +155,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishM: {fileID: 0}
+--- !u!114 &114107414252911578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937999167206094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca86bff00ab71749b9f26d6d79f0086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasFish: 0

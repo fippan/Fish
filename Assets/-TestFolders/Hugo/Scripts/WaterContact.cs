@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 public class WaterContact : MonoBehaviour
 {
@@ -16,7 +13,7 @@ public class WaterContact : MonoBehaviour
     {
         if (other.gameObject.tag == "Water")
         {
-            fishM.StartFishing(transform);
+            //fishM.StartFishing(transform);
         }
     }
 }
