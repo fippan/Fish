@@ -6,8 +6,6 @@ public class CoughtFish : MonoBehaviour
 {
     FishingRod fishingRod;
 
-    public bool hasFish = false;
-
     public void Start()
     {
         fishingRod = FindObjectOfType<FishingRod>();

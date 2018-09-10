@@ -13,7 +13,15 @@ public class WaterContact : MonoBehaviour
     {
         if (other.gameObject.tag == "Water")
         {
-            //fishM.StartFishing(transform);
+            fishM.StartFishing(transform);
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            fishM.StopFishing();
         }
     }
 }

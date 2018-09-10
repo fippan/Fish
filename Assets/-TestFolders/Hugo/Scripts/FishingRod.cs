@@ -54,8 +54,9 @@ public class FishingRod : MonoBehaviour
             
             if (dist < .3f)
             {
-                if (newBob.GetComponent<CoughtFish>().hasFish)
+                if (FishyManager.Instance.HasFish())
                 {
+                    FishyManager.Instance.ResetFish();
                     //TODO: Spawn The particle effect!!! and Get the MoNeYYY!
                 }
 

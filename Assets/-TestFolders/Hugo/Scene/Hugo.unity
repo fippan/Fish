@@ -1128,7 +1128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &570204347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,7 +1142,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowest: 0
   highest: 5
-  waitTime: 0
   fishies:
   - {fileID: 1822760667942034, guid: 9456e21981c95de40b702562468e323d, type: 2}
   - {fileID: 1084349641036622, guid: 53db10431c1ebc846adb966d7a061036, type: 2}
@@ -1902,7 +1901,7 @@ Prefab:
     - target: {fileID: 114059069399838974, guid: 48e8eefe2843e4044bea088a8685bbaf,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65915628792812576, guid: 48e8eefe2843e4044bea088a8685bbaf, type: 2}

@@ -16,6 +16,7 @@ public class FishyManager : MonoBehaviour
 	//public VRTK_InteractGrab grab;
 
 	private Transform spawnPos;
+    private bool caughtFish = false;
 
 	public enum FishingStates
 	{
@@ -23,9 +24,18 @@ public class FishyManager : MonoBehaviour
 		NOTFISHING
 	}
 
+    public static FishyManager Instance
+    {
+        get; private set;
+    }
 
-	// Update is called once per frame
-	void Update()
+    void Awake()
+    {
+        Instance = this;    
+    }
+
+    // Update is called once per frame
+    void Update()
 	{
 		if (theStates == FishingStates.FISHING)
 		{
@@ -37,8 +47,9 @@ public class FishyManager : MonoBehaviour
 				fish = Instantiate(fishies[tempfish], spawnPos);
 
 				StopFishing();
-			}
-		}
+                caughtFish = true;
+            }
+        }
 		else if (theStates == FishingStates.NOTFISHING)
 		{
 			//gameObject.SetActive(false);
@@ -53,9 +64,12 @@ public class FishyManager : MonoBehaviour
 
 	public void StartFishing(Transform newSpawnPos)
 	{
-		spawnPos = newSpawnPos;
-		waitTime = Random.Range(lowest, highest);
-		theStates = FishingStates.FISHING;
+        if (!caughtFish)
+        {
+		    spawnPos = newSpawnPos;
+		    waitTime = Random.Range(lowest, highest);
+		    theStates = FishingStates.FISHING;
+        }
 	}
 
 	public void StopFishing()
@@ -63,6 +77,16 @@ public class FishyManager : MonoBehaviour
 		timeCounter = 0f;
 		theStates = FishingStates.NOTFISHING;
 	}
+
+    public bool HasFish ()
+    {
+        return caughtFish;
+    }
+
+    public void ResetFish ()
+    {
+        caughtFish = false;
+    }
 
 	//public void PickupFish(int amount)
 	//{
