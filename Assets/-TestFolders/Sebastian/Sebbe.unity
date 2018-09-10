@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c1f04bcb58c5e3e40b5fa586f6c25ae4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18263808, g: 0.22834924, b: 0.30714598, a: 1}
+  m_Sun: {fileID: 170076734}
+  m_IndirectSpecularColor: {r: 0.07063799, g: 0.048527934, b: 0.043325197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -332,9 +332,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 170076733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4793ca3cf50e294c80f8f081ece2b0f, type: 3}
+  m_Script: {fileID: 11500000, guid: ca663283ef9398745a245d8f3d38393a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _days: 0
+  _hours: 0
+  _minutes: 0
+  _seconds: 0
+  _counter: 0
+  _dawnStartTime: 6
+  _dayStartTime: 8
+  _duskStartTime: 18
+  _nightStartTime: 20
+  _sunDimTime: 0.01
+  _dawnSunIntensity: 0.5
+  _daySunIntencity: 1
+  _duskSunIntensity: 0.25
+  _nightSunIntensity: 0
+  _dayPhases: 0
 --- !u!1001 &174769319
 Prefab:
   m_ObjectHideFlags: 0
@@ -2310,7 +2325,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1918764859}
   - component: {fileID: 1918764860}
-  - component: {fileID: 1918764861}
   m_Layer: 0
   m_Name: Moon
   m_TagString: Untagged
@@ -2368,17 +2382,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1918764861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1918764858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4793ca3cf50e294c80f8f081ece2b0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!43 &1924525709
 Mesh:
   m_ObjectHideFlags: 0
