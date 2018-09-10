@@ -42,9 +42,13 @@ public class DiverManager : MonoBehaviour {
                     spawnPointers[i].occupied = false;
                 }
             }
+            else
+            {
+                spawnPointers[i].occupied = false;
+            }
 
         }
-        randomDiver = Random.Range(1, 4);
+        randomDiver = Random.Range(1, 5);
         //Spawns Diver one
         if (spawnPointers[0].occupied == false && randomDiver == 1)
         {

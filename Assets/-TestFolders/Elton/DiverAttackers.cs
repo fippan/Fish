@@ -9,12 +9,17 @@ public class DiverAttackers : Enemy {
 
     public GameObject Player;
 
+    [SerializeField] private Transform throwingStart;
+
+    [SerializeField] private GameObject bomb;
+
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        health = 100;
+        //health = 100;
         enemyModel = diver;
         transform.LookAt(Player.transform);
+        InvokeRepeating("AttackPlayer", 2f,15f);
         //DiverBehaviour(spawns);
     }
     void Update () {
@@ -23,8 +28,10 @@ public class DiverAttackers : Enemy {
 
     private void AttackPlayer()
     {
-
+        GameObject newBomb = Instantiate(bomb, throwingStart.position, Quaternion.identity);
+        newBomb.GetComponent<Bomb>().Throw(throwingStart, Player.transform);
     }
+
     public void DiverBehaviour(SpawnPoints spawns)
     {
         spawns.occupied = true;
@@ -44,5 +51,10 @@ public class DiverAttackers : Enemy {
             {
                 Destroy(gameObject);
             }
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }

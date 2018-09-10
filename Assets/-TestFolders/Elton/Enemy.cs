@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-    public int health;
+public class Enemy : MonoBehaviour, ICanTakeDamage{
+    public float health;
     public bool Dead;
     public GameObject enemyModel;
 
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
 
@@ -22,6 +22,6 @@ public class Enemy : MonoBehaviour {
     {
         Dead = true;
         Destroy(gameObject);
-        //kil
+        //kill
     }
 }

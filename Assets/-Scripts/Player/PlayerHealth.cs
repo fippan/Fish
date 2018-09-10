@@ -1,28 +1,14 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-using UnityEngine.SceneManagement;
 
-
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, ICanTakeDamage
 {
-    public int startingHealth = 100;
-    public int currentHealth;
+    public float startingHealth = 100;
+    public float currentHealth;
 
     void Awake()
     {
         currentHealth = startingHealth;
     }
-
-    public void TakeDamage(int amount)
-    {
-        currentHealth -= amount;
-        if (currentHealth <= 0)
-        {
-            Death();
-        }
-    }
-
 
     void Death()
     {
@@ -30,4 +16,12 @@ public class PlayerHealth : MonoBehaviour
         //Make enemies dissapear and objects non usable - activate Watch menu and choose to restart or exit game
     }
 
+    public void TakeDamage(float amount)
+    {
+        currentHealth -= amount;
+        if (currentHealth <= 0)
+        {
+            Death();
+        }
+    }
 }
