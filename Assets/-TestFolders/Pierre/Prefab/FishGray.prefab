@@ -422,7 +422,7 @@ MonoBehaviour:
   gameObjectToFollow: {fileID: 0}
   gameObjectToChange: {fileID: 0}
   followsPosition: 1
-  smoothsPosition: 0
+  smoothsPosition: 1
   maxAllowedPerFrameDistanceDifference: 0.003
   followsRotation: 0
   smoothsRotation: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   followsScale: 0
   smoothsScale: 0
   maxAllowedPerFrameSizeDifference: 0.003
-  _moment: 3
+  _moment: 0
 --- !u!114 &114707581506153572
 MonoBehaviour:
   m_ObjectHideFlags: 1

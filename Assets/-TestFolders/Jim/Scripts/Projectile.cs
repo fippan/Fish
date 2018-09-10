@@ -20,8 +20,9 @@ public class Projectile : MonoBehaviour
         {
             item.isTrigger = true;
         }
+        rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
-        rb.velocity = Vector3.forward * speed;
+        rb.velocity = transform.forward * speed;
         if (trail != null) Instantiate(trail, transform);
         Invoke("OnRangeReached", range);
     }

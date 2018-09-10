@@ -18,6 +18,7 @@ TagManager:
   - FishingRod
   - Bullet
   - FinishBox
+  - Weapon
   layers:
   - Default
   - TransparentFX
