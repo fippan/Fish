@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using VRTK;
 
 public class Weapon : MonoBehaviour
 {
@@ -29,7 +30,12 @@ public class Weapon : MonoBehaviour
 
     private bool canFire = true;
     private float shotsFired;
-    
+
+    private void Start()
+    {
+        //GetComponent<VRTK_InteractableObject>().
+    }
+
     public void Shoot()
     {
         if (!canFire) return;
