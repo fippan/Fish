@@ -24,13 +24,13 @@ public class DayAndNightCycle : MonoBehaviour {
     public float _ambientDimTime = 0.0001f;             //Defines speed at which ambient light is adjusted
     public float _dawnAmbientIntensity = 0.5f;          //Dawn ambient strength
     public float _dayAmbientIntensity = 1f;             //Day ambient strength
-    public float _duskAmbientIntensity = 0.25f;          //Dusk ambient strength
-    public float _nightAmbientIntensity = 0f;         //Dawn ambient strength
+    public float _duskAmbientIntensity = 0.25f;         //Dusk ambient strength
+    public float _nightAmbientIntensity = 0f;           //Dawn ambient strength
 
     public float _dawnSkyboxBlendFactor = 0.5f;         //Defines dawn skybox blend value
     public float _daySkyboxBlendFactor = 1f;            //Defines day skybox blend value
-    public float _duskSkyboxBlendFactor = 0.25f;            //Defines dusk skybox blend value
-    public float _nightSkyboxBlendFactor = 0f;            //Defines night skybox blend value
+    public float _duskSkyboxBlendFactor = 0.25f;        //Defines dusk skybox blend value
+    public float _nightSkyboxBlendFactor = 0f;          //Defines night skybox blend value
 
     public float _skyboxBlendFactor;                    //Defines the current skybox blend value
     public float _skyboxBlendSpeed = 0.01f;             //Defines Speed at which the skybox will blend
@@ -150,7 +150,7 @@ public class DayAndNightCycle : MonoBehaviour {
         if (_hours == 24)                              //if hours counter equals twentyfour hour
         {
             DaysCounter();                             //call DayCounter function
-            _hours = 0;                                //and then mae hours equal zero
+            _hours = 0;                                //and then make hours equal zero
         }
 
     }
@@ -166,17 +166,8 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         Debug.Log("Dawn");
 
-        if (GetComponent<Light>().intensity < _duskSunIntensity) //if sun intensity is less than dawn
-            GetComponent<Light>().intensity += _sunDimTime * Time.deltaTime; //then increase the intensity by the sun dim time
-
-        if (GetComponent<Light>().intensity > _dawnSunIntensity)
-            GetComponent<Light>().intensity = _dawnSunIntensity;
-
-        if (RenderSettings.ambientIntensity < _dawnAmbientIntensity) //if ambient intensity is less than dawn
-            RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
-
-        if (RenderSettings.ambientIntensity > _dawnAmbientIntensity) //if ambient intensity is greater than dawn
-            RenderSettings.ambientIntensity = _dawnAmbientIntensity; //then make ambient intensity equal to dawn
+        DawnSunLightManager();                                      //Call DawnSunlightManager function
+        DawnAmbientLightManager();                                  //Call DawnAmbientLightManager function
 
         if (_hours == _dayStartTime && _hours < _duskStartTime)//if hours equas day start time AND hours is still less thank dusk start time
         {
@@ -184,16 +175,72 @@ public class DayAndNightCycle : MonoBehaviour {
         }
     }
 
+    void DawnSunLightManager()
+    {
+        Debug.Log("DawnSunLightManager");
+
+        if (GetComponent<Light>().intensity == _dawnSunIntensity)       //if light intensity is equal to dawn intensity
+            return;                                                     //then do nothing
+
+
+        if (GetComponent<Light>().intensity < _dawnSunIntensity) //if sun intensity is less than dawn
+            GetComponent<Light>().intensity += _sunDimTime * Time.deltaTime; //then increase the intensity by the sun dim time
+
+        if (GetComponent<Light>().intensity > _dawnSunIntensity)    //if intensity is greater than dawn
+            GetComponent<Light>().intensity = _dawnSunIntensity;    //then make intensity equal to dawn
+    }
+
+    void DawnAmbientLightManager()
+    {
+        Debug.Log("DawnSunLightManager");
+
+        if (RenderSettings.ambientIntensity == _dawnAmbientIntensity)       //if ambient intensity is equal to dawn ambient intensity
+            return;
+
+        if (RenderSettings.ambientIntensity < _dawnAmbientIntensity) //if ambient intensity is less than dawn
+            RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
+
+        if (RenderSettings.ambientIntensity > _dawnAmbientIntensity) //if ambient intensity is greater than dawn
+            RenderSettings.ambientIntensity = _dawnAmbientIntensity; //then make ambient intensity equal to dawn
+
+
+    }
+
     void Day()
     {
         Debug.Log("Day");
 
+        DaySunLightManager();                                       //Call DaySunLightManager
+        DayAmbientLightManager();                                   //Call DayAmbientLightManager
+
+        if (_hours == _duskStartTime && _hours < _nightStartTime)//if hours equas dusk start time AND hours is still less thank night start time
+        {
+            _dayPhases = DayPhases.Dusk;                 //Set day Phase to dusk
+        }
+    }
+
+    void DaySunLightManager()
+    {
+        Debug.Log("DaySunLightManager");
+
+        if (GetComponent<Light>().intensity == _daySunIntensity)       //if light intensity is equal to day intensity
+            return;                                                     //then do nothing
+
         if (GetComponent<Light>().intensity < _daySunIntensity) //if sun intensity is less than dawn
             GetComponent<Light>().intensity += _sunDimTime * Time.deltaTime; //then increase the intensity by the sun dim time
 
-        if (GetComponent<Light>().intensity > _daySunIntensity)
-            GetComponent<Light>().intensity = _daySunIntensity;
+        if (GetComponent<Light>().intensity > _daySunIntensity)     //if intensity is greater than day
+            GetComponent<Light>().intensity = _daySunIntensity;     //then make intensity equal to day
 
+
+    }
+
+    void DayAmbientLightManager()
+    {
+        Debug.Log("DaySunLightManager");
+
+        if (RenderSettings.ambientIntensity == _dayAmbientIntensity)       //if ambient intensity is equal to dawn ambient intensity
+            return;
 
         if (RenderSettings.ambientIntensity < _dayAmbientIntensity) //if ambient intensity is less than day
             RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
@@ -202,27 +249,14 @@ public class DayAndNightCycle : MonoBehaviour {
             RenderSettings.ambientIntensity = _dayAmbientIntensity; //then make ambient intensity equal to day
 
 
-        if (_hours == _duskStartTime && _hours < _nightStartTime)//if hours equas dusk start time AND hours is still less thank night start time
-        {
-            _dayPhases = DayPhases.Dusk;                 //Set day Phase to dusk
-        }
     }
 
     void Dusk()
     {
         Debug.Log("Dusk");
 
-        if (GetComponent<Light>().intensity > _duskSunIntensity) //if sun intensity is greater than dusk
-            GetComponent<Light>().intensity -= _sunDimTime * Time.deltaTime; //then increase the intensity by the sun dim time
-
-        if (GetComponent<Light>().intensity > _duskSunIntensity)
-            GetComponent<Light>().intensity = _duskSunIntensity;
-
-        if (RenderSettings.ambientIntensity < _dayAmbientIntensity) //if ambient intensity is less than day
-            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
-
-        if (RenderSettings.ambientIntensity > _dayAmbientIntensity) //if ambient intensity is greater than day
-            RenderSettings.ambientIntensity = _dayAmbientIntensity; //then make ambient intensity equal to day
+        DuskSunLightManager();
+        DuskAmbientLightManager();
 
 
 
@@ -232,28 +266,86 @@ public class DayAndNightCycle : MonoBehaviour {
         }
     }
 
+    void DuskSunLightManager()
+    {
+        Debug.Log("DuskSunLightManager");
+
+        if (GetComponent<Light>().intensity == _duskSunIntensity)       //if light intensity is equal to dusk intensity
+            return;                                                     //then do nothing
+
+        if (GetComponent<Light>().intensity > _duskSunIntensity) //if sun intensity is greater than dusk
+            GetComponent<Light>().intensity -= _sunDimTime * Time.deltaTime; //then increase the intensity by the sun dim time
+
+        if (GetComponent<Light>().intensity > _duskSunIntensity)            //if intensity is greater than dusk
+            GetComponent<Light>().intensity = _duskSunIntensity;            //then make intensity equal to dusk
+
+
+    }
+
+    void DuskAmbientLightManager()
+    {
+        Debug.Log("DuskSunLightManager");
+
+        if (RenderSettings.ambientIntensity == _duskAmbientIntensity)       //if ambient intensity is equal to dusk ambient intensity
+            return;
+
+        if (RenderSettings.ambientIntensity < _duskAmbientIntensity) //if ambient intensity is less than dusk
+            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
+
+        if (RenderSettings.ambientIntensity > _duskAmbientIntensity) //if ambient intensity is greater than dusk
+            RenderSettings.ambientIntensity = _duskAmbientIntensity; //then make ambient intensity equal to dusk
+
+
+
+    }
+
+
     void Night()
     {
         Debug.Log("Night");
 
-        if (GetComponent<Light>().intensity > _nightSunIntensity) //if sun intensity is less than night
-            GetComponent<Light>().intensity -= _sunDimTime * Time.deltaTime; //then increase the intensity by the sun dim time
+        NightSunLightManager();                                         //Call function NightSunManager
+        NightAmbientLightManager();                                     //Call function NightAmbientLightManager
 
-        if (GetComponent<Light>().intensity > _nightSunIntensity)
-            GetComponent<Light>().intensity = _nightSunIntensity;
-
-        if (RenderSettings.ambientIntensity > _dayAmbientIntensity) //if ambient intensity is less than day
-            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
-
-        if (RenderSettings.ambientIntensity > _dayAmbientIntensity) //if ambient intensity is greater than day
-            RenderSettings.ambientIntensity = _dayAmbientIntensity; //then make ambient intensity equal to day
-
-
-        if (_hours == _dawnStartTime && _hours < _dayStartTime)//if hours equas dawn start time AND hours is still less thank day start time
+        if (_hours == _dawnStartTime && _hours < _dayStartTime)         //if hours equas dawn start time AND hours is still less thank day start time
         {
-            _dayPhases = DayPhases.Dawn;                 //Set day Phase to dawn
+            _dayPhases = DayPhases.Dawn;                                //Set day Phase to dawn
         }
     }
+
+    void NightSunLightManager()
+    {
+        Debug.Log("NightSunLightManager");
+
+        if (GetComponent<Light>().intensity == _nightSunIntensity)       //if light intensity is equal to night intensity
+            return;                                                      //then do nothing
+
+        if (GetComponent<Light>().intensity > _nightSunIntensity)        //if sun intensity is less than night
+            GetComponent<Light>().intensity -= _sunDimTime * Time.deltaTime; //then increase the intensity by the sun dim time
+
+        if (GetComponent<Light>().intensity > _nightSunIntensity)       //if intensity is greater than night
+            GetComponent<Light>().intensity = _nightSunIntensity;       //then make intensity equal to night
+
+
+    }
+
+    void NightAmbientLightManager()
+    {
+        Debug.Log("NightSunLightManager");
+
+        if (RenderSettings.ambientIntensity == _nightAmbientIntensity)       //if ambient intensity is equal to night ambient intensity
+            return;
+
+        if (RenderSettings.ambientIntensity > _nightAmbientIntensity) //if ambient intensity is less than night
+            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
+
+        if (RenderSettings.ambientIntensity > _nightAmbientIntensity)  //if ambient intensity is greater than night
+            RenderSettings.ambientIntensity = _nightAmbientIntensity; //then make ambient intensity equal to night
+
+
+
+    }
+
 
     void OnGUI()
     {
@@ -275,7 +367,7 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         Debug.Log("UpdateSkybox");
 
-        if(_dayPhases == DayPhases.Dawn)                            //if day phase is equal to dawn
+        if(_dayPhases == DayPhases.Dawn)                             //if day phase is equal to dawn
         {
             if (_skyboxBlendFactor == _dawnSkyboxBlendFactor)        //if skybox blend equals dawn
                 return;                                              //then do nothing and return
@@ -283,21 +375,21 @@ public class DayAndNightCycle : MonoBehaviour {
             _skyboxBlendFactor += _skyboxBlendSpeed * Time.deltaTime;//Increase skybox blend by blend speed
 
             if (_skyboxBlendFactor > _dawnSkyboxBlendFactor)         //if skybox blend factor is greater than dawn
-                _skyboxBlendFactor = _dawnSkyboxBlendFactor;        //then make skybox blend factor equal to dawn
+                _skyboxBlendFactor = _dawnSkyboxBlendFactor;         //then make skybox blend factor equal to dawn
 
 
         }
 
 
-        if (_dayPhases == DayPhases.Day)                            //if day phase is equal to day
+        if (_dayPhases == DayPhases.Day)                             //if day phase is equal to day
         {
-            if (_skyboxBlendFactor == _daySkyboxBlendFactor)        //if skybox blend equals day
+            if (_skyboxBlendFactor == _daySkyboxBlendFactor)         //if skybox blend equals day
                 return;                                              //then do nothing and return
 
             _skyboxBlendFactor += _skyboxBlendSpeed * Time.deltaTime;//Increase skybox blend by blend speed
 
             if (_skyboxBlendFactor > _daySkyboxBlendFactor)         //if skybox blend factor is greater than day
-                _skyboxBlendFactor = _daySkyboxBlendFactor;        //then make skybox blend factor equal to day
+                _skyboxBlendFactor = _daySkyboxBlendFactor;         //then make skybox blend factor equal to day
 
 
 
@@ -312,7 +404,7 @@ public class DayAndNightCycle : MonoBehaviour {
             _skyboxBlendFactor -= _skyboxBlendSpeed * Time.deltaTime;//Decrease skybox blend by blend speed
 
             if (_skyboxBlendFactor < _duskSkyboxBlendFactor)         //if skybox blend factor is less than dusk
-                _skyboxBlendFactor = _duskSkyboxBlendFactor;        //then make skybox blend factor equal to dusk
+                _skyboxBlendFactor = _duskSkyboxBlendFactor;         //then make skybox blend factor equal to dusk
 
 
 
@@ -322,16 +414,17 @@ public class DayAndNightCycle : MonoBehaviour {
         if (_dayPhases == DayPhases.Night)                            //if day phase is equal to night
         {
             if (_skyboxBlendFactor == _nightSkyboxBlendFactor)        //if skybox blend equals night
-                return;                                              //then do nothing and return
+                return;                                               //then do nothing and return
 
-            _skyboxBlendFactor -= _skyboxBlendSpeed * Time.deltaTime;//Decrease skybox blend by blend speed
+            _skyboxBlendFactor -= _skyboxBlendSpeed * Time.deltaTime; //Decrease skybox blend by blend speed
 
             if (_skyboxBlendFactor < _nightSkyboxBlendFactor)         //if skybox blend factor is greater than night
-                _skyboxBlendFactor = _nightSkyboxBlendFactor;        //then make skybox blend factor equal to night
+                _skyboxBlendFactor = _nightSkyboxBlendFactor;         //then make skybox blend factor equal to night
 
 
 
         }
+        RenderSettings.skybox.SetFloat("_Blend", _skyboxBlendFactor); //Get render for skybox and set the box bor the blend
     }
 
 }

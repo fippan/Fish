@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: c1f04bcb58c5e3e40b5fa586f6c25ae4, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 3a9f9aa490d6a2b418f0d7c45bf7fc5d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.07063799, g: 0.048527934, b: 0.043325197, a: 1}
+  m_IndirectSpecularColor: {r: 0.071845904, g: 0.04936077, b: 0.044067256, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -346,9 +346,22 @@ MonoBehaviour:
   _nightStartTime: 20
   _sunDimTime: 0.01
   _dawnSunIntensity: 0.5
-  _daySunIntencity: 1
+  _daySunIntensity: 1
   _duskSunIntensity: 0.25
   _nightSunIntensity: 0
+  _ambientDimTime: 0.01
+  _dawnAmbientIntensity: 0.5
+  _dayAmbientIntensity: 1
+  _duskAmbientIntensity: 0.25
+  _nightAmbientIntensity: 0
+  _dawnSkyboxBlendFactor: 0.5
+  _daySkyboxBlendFactor: 1
+  _duskSkyboxBlendFactor: 0.25
+  _nightSkyboxBlendFactor: 0
+  _skyboxBlendFactor: 0
+  _skyboxBlendSpeed: 0.01
+  _guiWidth: 100
+  _guiHeight: 20
   _dayPhases: 0
 --- !u!1001 &174769319
 Prefab:
