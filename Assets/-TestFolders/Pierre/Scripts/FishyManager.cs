@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
+
+[RequireComponent(typeof(VRTK_TransformFollow))]
 public class FishyManager : MonoBehaviour
 {
 	public int lowest;
@@ -16,7 +18,7 @@ public class FishyManager : MonoBehaviour
 	//public VRTK_InteractGrab grab;
 
 	private Transform spawnPos;
-    private bool caughtFish = false;
+	private bool caughtFish = false;
 
 	public enum FishingStates
 	{
@@ -24,18 +26,15 @@ public class FishyManager : MonoBehaviour
 		NOTFISHING
 	}
 
-    public static FishyManager Instance
-    {
-        get; private set;
-    }
+	public static FishyManager Instance { get; private set; }
 
-    void Awake()
-    {
-        Instance = this;    
-    }
+	void Awake()
+	{
+		Instance = this;
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
 	{
 		if (theStates == FishingStates.FISHING)
 		{
@@ -44,32 +43,34 @@ public class FishyManager : MonoBehaviour
 			if (timeCounter >= waitTime)
 			{
 				int tempfish = Random.Range(0, fishies.Length);
-				fish = Instantiate(fishies[tempfish], spawnPos);
+				fish = Instantiate(fishies[tempfish], spawnPos.transform.position, Quaternion.identity);
 
+				fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
+
+				caughtFish = true;
 				StopFishing();
-                caughtFish = true;
-            }
-        }
+			}
+		}
 		else if (theStates == FishingStates.NOTFISHING)
 		{
 			//gameObject.SetActive(false);
 		}
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartFishing(gameObject.transform);
-        }
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			StartFishing(gameObject.transform);
+		}
 	}
 
 	public void StartFishing(Transform newSpawnPos)
 	{
-        if (!caughtFish)
-        {
-		    spawnPos = newSpawnPos;
-		    waitTime = Random.Range(lowest, highest);
-		    theStates = FishingStates.FISHING;
-        }
+		if (!caughtFish)
+		{
+			spawnPos = newSpawnPos;
+			waitTime = Random.Range(lowest, highest);
+			theStates = FishingStates.FISHING;
+		}
 	}
 
 	public void StopFishing()
@@ -78,15 +79,15 @@ public class FishyManager : MonoBehaviour
 		theStates = FishingStates.NOTFISHING;
 	}
 
-    public bool HasFish ()
-    {
-        return caughtFish;
-    }
+	public bool HasFish()
+	{
+		return caughtFish;
+	}
 
-    public void ResetFish ()
-    {
-        caughtFish = false;
-    }
+	public void ResetFish()
+	{
+		caughtFish = false;
+	}
 
 	//public void PickupFish(int amount)
 	//{
