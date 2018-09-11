@@ -16,6 +16,7 @@ public class Bomb : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        startSize = transform.localScale;
     }
 
     private void Update()
