@@ -3,72 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class FishyManager : MonoBehaviour {
+public class FishyManager : MonoBehaviour
+{
+	public int lowest;
+	public int highest;
+	private float waitTime;
+	private float timeCounter = 0f;
+	public GameObject[] fishies;
+	public FishingStates theStates;
+	public GameObject coinSpray;
+	public GameObject fish;
+	//public VRTK_InteractGrab grab;
 
-    public int lowest;
-    public int highest;
-    public float waitTime;
-    public GameObject[] fishies;
-    public FishingStates theStates;
-    public GameObject coinSpray;
-    public GameObject fish;
-    //public VRTK_InteractGrab grab;
+	private Transform spawnPos;
 
-    private Transform spawnPos;
-
-    public enum FishingStates
-    {
-        FISHING,
-        NOTFISHING
-    }
-
-
-
-	// Use this for initialization
-	void Start () {
-		
+	public enum FishingStates
+	{
+		FISHING,
+		NOTFISHING
 	}
-	
+
+
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
+		if (theStates == FishingStates.FISHING)
+		{
+			timeCounter += Time.deltaTime;
 
-		if(theStates == FishingStates.FISHING)
-        {
-            waitTime -= Time.deltaTime;
+			if (timeCounter >= waitTime)
+			{
+				int tempfish = Random.Range(0, fishies.Length);
+				fish = Instantiate(fishies[tempfish], spawnPos);
 
-            int tempfish = Random.Range(0, fishies.Length);
+				StopFishing();
+			}
+		}
+		else if (theStates == FishingStates.NOTFISHING)
+		{
+			//gameObject.SetActive(false);
+		}
 
-            if (waitTime <= 0)
-            {
-                fish = Instantiate(fishies[tempfish], spawnPos);
-                theStates = FishingStates.NOTFISHING;
-            }
-        }
-        else if(theStates == FishingStates.NOTFISHING)
-        {
-            //gameObject.SetActive(false);
-        }
 
-        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartFishing();
+            StartFishing(gameObject.transform);
         }
-        */
-    }
+	}
 
-    public void StartFishing(Transform newSpawnPos)
-    {
-        spawnPos = newSpawnPos;
-        waitTime = Random.Range(lowest, highest);
-        theStates = FishingStates.FISHING;
-    }
+	public void StartFishing(Transform newSpawnPos)
+	{
+		spawnPos = newSpawnPos;
+		waitTime = Random.Range(lowest, highest);
+		theStates = FishingStates.FISHING;
+	}
 
-    //public void PickupFish(int amount)
-    //{
-    //    Instantiate(coinSpray, fish.transform);
-    //    Destroy(fish.gameObject);
-    //    Destroy(coinSpray);
-    //}
+	public void StopFishing()
+	{
+		timeCounter = 0f;
+		theStates = FishingStates.NOTFISHING;
+	}
+
+	//public void PickupFish(int amount)
+	//{
+	//    Instantiate(coinSpray, fish.transform);
+	//    Destroy(fish.gameObject);
+	//    Destroy(coinSpray);
+	//}
 
 }
