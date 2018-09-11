@@ -2,82 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiverManager : MonoBehaviour {
-    private bool waitForActive;
-    private float randomSpawnTimer = 5;
-    private int randomDiver;
-    public List<SpawnPoints> spawnPointers;
-    public Transform[] diverSpawns;
-    public DiverAttackers diveratt;
+public class DiverManager : MonoBehaviour
+{
     public GameObject Diver;
+    List<GameObject> diverCount = new List<GameObject>();
 
     private void Start()
     {
-        diveratt = GetComponent<DiverAttackers>();
         InvokeRepeating("SpawningDivers", 10f, 7);
-
-        for(int i = 0; i < spawnPointers.Count; i++)
-        {
-            spawnPointers[i].spawnpoint = diverSpawns[i];
-            spawnPointers[i].occupied = false;
-        }
 
         SpawningDivers();
     }
-    void Update () {
 
-	}
-
+    /// <summary>
+    /// Spawns divers around the boat in a random manner
+    /// </summary>
     void SpawningDivers()
     {
-        //check if Diver is alive, if not make the space unoccupied and destroy old diver.
-        for(int i = 0; i < spawnPointers.Count; i++)
+        for (int e = 0; e < diverCount.Count; e++)
         {
-            if(spawnPointers[i].GetComponentInChildren<DiverAttackers>() != null)
+            if (diverCount[e] == null)
             {
-                spawnPointers[i].GetComponentInChildren<DiverAttackers>().CheckIfAlive();
-                var alive = spawnPointers[i].GetComponentInChildren<DiverAttackers>();
-                if (alive.Dead == true)
-                {
-                    spawnPointers[i].occupied = false;
-                }
+                diverCount.RemoveAt(e);
             }
-            else
-            {
-                spawnPointers[i].occupied = false;
-            }
+        }
+        if (diverCount.Count < 4)
+        {
+            Vector2 randomPoint = Random.insideUnitCircle;
+            Vector3 circleSpawn = new Vector3(randomPoint.x * 6f, -1f, randomPoint.y * 6f);
+            
+            var diver = Instantiate(Diver,transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
 
-        }
-        randomDiver = Random.Range(1, 5);
-        //Spawns Diver one
-        if (spawnPointers[0].occupied == false && randomDiver == 1)
-        {
-            var diver = Instantiate(Diver, spawnPointers[0].spawnpoint.position, new Quaternion(0,0,0,0), spawnPointers[0].transform);
-            diver.GetComponent<DiverAttackers>().DiverBehaviour(spawnPointers[0]);
-        }
-
-        else if (spawnPointers[1].occupied == false && randomDiver == 2)
-        {
-            var diver = Instantiate(Diver, spawnPointers[1].spawnpoint);
-            diver.GetComponent<DiverAttackers>().DiverBehaviour(spawnPointers[1]);
-        }
-        else if (spawnPointers[2].occupied == false && randomDiver == 3)
-        {
-            var diver = Instantiate(Diver, spawnPointers[2].spawnpoint);
-            diver.GetComponent<DiverAttackers>().DiverBehaviour(spawnPointers[2]);
-        }
-        else if (spawnPointers[3].occupied == false && randomDiver == 4)
-        {
-            var diver = Instantiate(Diver, spawnPointers[3].spawnpoint);
-            diver.GetComponent<DiverAttackers>().DiverBehaviour(spawnPointers[3]);
-        }
-
-        else if (spawnPointers[0].occupied == true && spawnPointers[1].occupied == true && spawnPointers[2].occupied == true && spawnPointers[3].occupied == true)
-        {
-            return;
-        }
-        else {
-            SpawningDivers();
+            diverCount.Add(diver);
         }
     }
 }

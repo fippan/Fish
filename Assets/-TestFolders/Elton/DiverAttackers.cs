@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class DiverAttackers : Enemy {
+public class DiverAttackers : Enemy
+{
 
     public GameObject diver;
 
@@ -16,14 +17,9 @@ public class DiverAttackers : Enemy {
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        //health = 100;
         enemyModel = diver;
         transform.LookAt(Player.transform);
-        InvokeRepeating("AttackPlayer", 2f,15f);
-        //DiverBehaviour(spawns);
-    }
-    void Update () {
-
+        InvokeRepeating("AttackPlayer", 2f, 15f);
     }
 
     private void AttackPlayer()
@@ -32,25 +28,12 @@ public class DiverAttackers : Enemy {
         newBomb.GetComponent<Bomb>().Throw(throwingStart, Player.transform);
     }
 
-    public void DiverBehaviour(SpawnPoints spawns)
+    public void CheckIfAlive()
     {
-        spawns.occupied = true;
-        if(diver.transform.position.y < 10f)
-        {
-            //diver.transform.position += new Vector3(diver.transform.position.x, diver.transform.position.y + 10, diver.transform.position.z) * Time.deltaTime;
-        }
-        if(Dead == true)
+        if (Dead == true)
         {
             Destroy(gameObject);
         }
-    }
-
-    public void CheckIfAlive()
-    {
-            if (Dead == true)
-            {
-                Destroy(gameObject);
-            }
     }
 
     private void OnDisable()
