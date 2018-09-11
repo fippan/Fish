@@ -19,6 +19,7 @@ TagManager:
   - Bullet
   - FinishBox
   - Weapon
+  - Floater
   layers:
   - Default
   - TransparentFX
@@ -28,8 +29,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Fish
+  - Floater
   - 
   - 
   - 

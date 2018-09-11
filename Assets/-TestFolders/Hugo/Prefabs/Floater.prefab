@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4433343214750918}
   - component: {fileID: 33896956568999726}
   - component: {fileID: 23274647791536210}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,9 +40,9 @@ GameObject:
   - component: {fileID: 54068798884262210}
   - component: {fileID: 65971217382579372}
   - component: {fileID: 114107414252911578}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Floater
-  m_TagString: Untagged
+  m_TagString: Floater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,4 +166,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca86bff00ab71749b9f26d6d79f0086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasFish: 0

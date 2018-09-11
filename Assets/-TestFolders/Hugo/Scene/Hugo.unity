@@ -1513,7 +1513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &570204347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,6 +1533,7 @@ MonoBehaviour:
   theStates: 1
   coinSpray: {fileID: 1193884849690086, guid: 900087b326a6b09458440a6be3576382, type: 2}
   fish: {fileID: 0}
+  spawnPos: {fileID: 0}
 --- !u!4 &570204348
 Transform:
   m_ObjectHideFlags: 0
@@ -2947,6 +2948,11 @@ Prefab:
     - target: {fileID: 4413990598025652, guid: e891e080c0143b2438a1a372197fea39, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.014
+      objectReference: {fileID: 0}
+    - target: {fileID: 114837547723240422, guid: e891e080c0143b2438a1a372197fea39,
+        type: 2}
+      propertyPath: holdButtonToGrab
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114108304371681564, guid: e891e080c0143b2438a1a372197fea39, type: 2}

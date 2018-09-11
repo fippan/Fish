@@ -4,7 +4,6 @@ using UnityEngine;
 using VRTK;
 
 
-[RequireComponent(typeof(VRTK_TransformFollow))]
 public class FishyManager : MonoBehaviour
 {
 	public int lowest;
@@ -50,7 +49,7 @@ public class FishyManager : MonoBehaviour
 				int tempfish = Random.Range(0, fishies.Length);
 				fish = Instantiate(fishies[tempfish], spawnPos.transform.position, Quaternion.identity);
 
-				fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
+				//fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
 
 				caughtFish = true;
 				StopFishing();
