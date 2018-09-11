@@ -2,63 +2,77 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameStates { Menu, InGame, GameOver }
-
 public class GameManager : MonoBehaviour
 {
-	private static GameManager instance;
-	public static GameManager GetInstance
-	{ get { return instance; } }
+	//Singleton instance accessor
+	public static GameManager Instance { get; private set; }
 
-	//Variables
-	private GameStates gameStatesEnum;
 	private Stack<GameStateBase> gameStateStack = new Stack<GameStateBase>();
-
-	private GameStateBase currentState;
 
 	private void Awake()
 	{
-		instance = this;
-		ChangeState(GameStates.Menu);
+		Instance = this;
+		ChangeState(MenuState.Instance);
 	}
 
-	private void ChangeState(GameStates newState)
+	/// <summary>
+	/// Remove current state and enter new state
+	/// </summary>
+	/// <param name="state"></param>
+	public void ChangeState(GameStateBase state)
 	{
-		//run OnExitState method in current state
-		currentState.OnExitState();
-
-		//Push new gamestate to the stack, corresponding to the GameState enum
-		switch (gameStatesEnum)
+		//Remove and clean up current state
+		if (gameStateStack.Count > 0)
 		{
-			case GameStates.Menu:
-				gameStateStack.Push(new MenuState());
-				break;
-			case GameStates.InGame:
-				break;
-			case GameStates.GameOver:
-				gameStateStack.Push(new GameOverState());
-				break;
-			default:
-				break;
+			gameStateStack.Peek().OnExitState();
+			gameStateStack.Pop();
 		}
 
-
-		//Set Current state to the top element of the stack and pop it
-		currentState = gameStateStack.Pop();
-
-		//run OnEnterState method in new state
-		currentState.OnEnterState();
-
+		//Add and initialize new state
+		gameStateStack.Push(state);
+		gameStateStack.Peek().OnEnterState();
 	}
 
-	public GameStateBase GetCurrentState()
+	/// <summary>
+	/// Pause current state and enter new state
+	/// </summary>
+	/// <param name="state"></param>
+	public void PushState(GameStateBase state)
 	{
-		return currentState;
+		//Pause current state
+		if (gameStateStack.Count > 0)
+		{
+			gameStateStack.Peek().OnPauseState();
+		}
+
+		//Add and initialize new state
+		gameStateStack.Push(state);
+		gameStateStack.Peek().OnEnterState();
 	}
+
+	/// <summary>
+	/// Remove current state and resume previous state
+	/// </summary>
+	public void PopState()
+	{
+		//Remove and clean up current state
+		if (gameStateStack.Count > 0)
+		{
+			gameStateStack.Peek().OnExitState();
+			gameStateStack.Pop();
+		}
+
+		//Resume previous state
+		if (gameStateStack.Count > 0)
+			gameStateStack.Peek().OnResumeState();
+		else
+			Debug.Log("The state stack is empty, no previous state to resume");
+	}
+
 
 	public void TriggerGameOver()
 	{
-		ChangeState(GameStates.GameOver);
+		ChangeState(GameOverState.Instance);
 
 		//TODO: Save score to high score list/file?  
 
