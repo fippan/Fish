@@ -3073,7 +3073,7 @@ Prefab:
     - target: {fileID: 114059069399838974, guid: 48e8eefe2843e4044bea088a8685bbaf,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65915628792812576, guid: 48e8eefe2843e4044bea088a8685bbaf, type: 2}
