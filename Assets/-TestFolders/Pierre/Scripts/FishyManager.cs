@@ -16,8 +16,13 @@ public class FishyManager : MonoBehaviour
 	public GameObject coinSpray;
 	public GameObject fish;
 	//public VRTK_InteractGrab grab;
-
+    [SerializeField]
 	private Transform spawnPos;
+    public Transform SpawnPos
+    {
+        get { return spawnPos; }
+        set { spawnPos = value; }
+    }
 	private bool caughtFish = false;
 
 	public enum FishingStates
