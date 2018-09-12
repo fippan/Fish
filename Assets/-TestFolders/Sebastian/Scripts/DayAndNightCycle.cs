@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DayAndNightCycle : MonoBehaviour {
 
+    //private Transform _sunPivotPoint;                   //The rotation pivot for the sun
+    //private int _centreOFGameWorld = 250;               //A value to define position at the centre of the scene (SET THE CENTRE VALUE OF THE TERRAIN IN THE VALUE)
+
     public int _days;                                   //Defines naming convention for the days
     public int _hours;                                  //Defines naming convention for the hours
     public int _minutes;                                //Defines naming convention for the minutes
@@ -56,6 +59,13 @@ public class DayAndNightCycle : MonoBehaviour {
 
         GetComponent<Light>().intensity = _nightSunIntensity; //Set sun intensity to night on start up
 
+        //transform.position =                            //position is equal to
+        //    new Vector3(                                 //a new vector 3 position
+        //    (_centreOFGameWorld * 2),0,_centreOFGameWorld);  //at this position
+
+        //transform.localEulerAngles = new Vector3(0, -90, 0); //Suns rotation is equal to these (x, x, x) values
+
+
 
     }
 
@@ -64,14 +74,21 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         StartCoroutine("TimeOfDayFiniteStateMachine");  //Start TimeOfDayFiniteStateMachine on start up
 
-
-
         _hours = 5;                                     //hours equals five on start up
         _minutes = 59;                                  //minutes equals fifty nine on start up
         _counter = 59;                                  //Counter equals fifty nine on start up
 
-
         _days = 1;                                      //Days equals one on start up
+
+        //GameObject _sunPivotGO =                        //sun pivot game object is equal to
+        //    GameObject.FindGameObjectWithTag("SunPivot");//game object "SunPivot" tag
+
+        //_sunPivotPoint = _sunPivotGO.transform;         //Caches sun pivot point position
+
+        //_sunPivotPoint.transform.position =             //Set sun pivot point
+        //    new Vector3(                                //to a new vector 3
+        //        _centreOFGameWorld,0,_centreOFGameWorld);//at this position (centre of scene)
+
     }
 	
 	// Update is called once per frame
@@ -79,6 +96,10 @@ public class DayAndNightCycle : MonoBehaviour {
     {
             SecondsCounter();                           //Call SecondsCounter function
             UpdateSkybox();                             //Call UpdateSkybox function
+       // SunRotationManager();                           //Call SunRotationManager function
+       transform.RotateAround(Vector3.zero, Vector3.right, 10f * Time.deltaTime);
+        transform.LookAt(Vector3.zero);
+
     }
 
     IEnumerator TimeOfDayFiniteStateMachine()
@@ -161,6 +182,15 @@ public class DayAndNightCycle : MonoBehaviour {
         _days++;                                        //increase days counter
 
     }
+
+    //void SunRotationManager()
+    //{
+      //  Debug.Log("SunRotationManager");
+
+
+    //}
+
+
 
     void Dawn()
     {

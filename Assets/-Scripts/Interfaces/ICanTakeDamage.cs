@@ -1,4 +1,6 @@
-﻿interface ICanTakeDamage
+﻿
+
+interface ICanTakeDamage
 {
     void TakeDamage(float amount);
 }
