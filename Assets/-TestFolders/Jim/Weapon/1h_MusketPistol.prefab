@@ -26,6 +26,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1631550913212740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4840375307840678}
+  - component: {fileID: 33668575206483460}
+  - component: {fileID: 23305507450233686}
+  - component: {fileID: 64608796669524810}
+  m_Layer: 0
+  m_Name: SM_Wep_MusketPistol_01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1852281054893810
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,8 +67,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4537277073139408}
-  - component: {fileID: 33643406589683084}
-  - component: {fileID: 23163948313810792}
   - component: {fileID: 114526419088434860}
   - component: {fileID: 114602680009521132}
   - component: {fileID: 114258071361737068}
@@ -61,7 +77,6 @@ GameObject:
   - component: {fileID: 114050937201776612}
   - component: {fileID: 114159319782839698}
   - component: {fileID: 114427062523653720}
-  - component: {fileID: 64020982002215326}
   m_Layer: 0
   m_Name: 1h_MusketPistol
   m_TagString: Weapon
@@ -80,7 +95,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4537277073139408}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4537277073139408
 Transform:
@@ -89,9 +104,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918929644743360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.26999998, y: 0.35999998, z: 0.17999999}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4840375307840678}
   - {fileID: 4581848846121606}
   - {fileID: 4489173899310020}
   m_Father: {fileID: 0}
@@ -104,18 +120,31 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1582336484011094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0004, y: 0.0351, z: 0.591}
+  m_LocalPosition: {x: -0.0017, y: 0.0201, z: 0.3547}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4537277073139408}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4840375307840678
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631550913212740}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 4537277073139408}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23163948313810792
+--- !u!23 &23305507450233686
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918929644743360}
+  m_GameObject: {fileID: 1631550913212740}
   m_Enabled: 1
   m_CastShadows: 2
   m_ReceiveShadows: 1
@@ -145,12 +174,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33643406589683084
+--- !u!33 &33668575206483460
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918929644743360}
+  m_GameObject: {fileID: 1631550913212740}
   m_Mesh: {fileID: 4300000, guid: 1a45c811748705447ae844b82a6f07b7, type: 3}
 --- !u!54 &54908141781813664
 Rigidbody:
@@ -167,12 +196,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64020982002215326
+--- !u!64 &64608796669524810
 MeshCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918929644743360}
+  m_GameObject: {fileID: 1631550913212740}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
