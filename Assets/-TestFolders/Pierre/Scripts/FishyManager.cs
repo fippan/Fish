@@ -48,10 +48,11 @@ public class FishyManager : MonoBehaviour
 			{
 				int tempfish = Random.Range(0, fishies.Length);
 				fish = Instantiate(fishies[tempfish], spawnPos.transform.position, Quaternion.identity);
+                fish.GetComponent<FishFollowTransform>().Follow();
 
-				//fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
+                //fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
 
-				caughtFish = true;
+                caughtFish = true;
 				StopFishing();
 			}
 		}
@@ -63,7 +64,7 @@ public class FishyManager : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			StartFishing(gameObject.transform);
+			StartFishing(spawnPos);
 		}
 	}
 

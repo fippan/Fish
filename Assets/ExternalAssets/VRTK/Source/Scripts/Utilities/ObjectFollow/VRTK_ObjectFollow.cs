@@ -66,6 +66,7 @@ namespace VRTK
 
             if (followsPosition)
             {
+
                 FollowPosition();
             }
 

@@ -8,44 +8,34 @@ public class FishFollowTransform : VRTK_TransformFollow {
 
     private void Start()
     {
-        gameObjectToFollow = gameObject;
-        gameObjectToChange = FishyManager.Instance.fish;
+        transformToFollow = FishyManager.Instance.SpawnPos.transform;
+        transformToChange = transform.transform;
+        gameObjectToFollow = FishyManager.Instance.SpawnPos.gameObject;
+        moment = FollowMoment.OnUpdate;
         //FollowPosition();
     }
 
-    private void Update()
+    public override void Follow()
     {
-        transform.position = FishyManager.Instance.SpawnPos.position;
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, FishyManager.Instance.transform.rotation, 90f);
+        followsPosition = true;
+        CacheTransforms();
+        base.Follow();
     }
-
-
-
-
-
-
-
-
-
-
-    //protected override Vector3 GetPositionToFollow()
-    //{
-    //    return transform.position;
-    //}
 
     //protected override Quaternion GetRotationToFollow()
     //{
-    //    throw new System.NotImplementedException();
+    //    return transformToFollow.rotation;
     //}
 
     //protected override void SetPositionOnGameObject(Vector3 newPosition)
     //{
-    //    newPosition = transform.position;
+    //    newPosition = transformToFollow.position;
 
     //}
 
     //protected override void SetRotationOnGameObject(Quaternion newRotation)
     //{
-    //    throw new System.NotImplementedException();
+    //    newRotation = transformToFollow.rotation;
     //}
+
 }

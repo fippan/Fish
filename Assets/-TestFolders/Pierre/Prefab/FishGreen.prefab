@@ -355,7 +355,7 @@ MonoBehaviour:
   followsScale: 1
   smoothsScale: 0
   maxAllowedPerFrameSizeDifference: 0.003
-  _moment: 3
+  _moment: 1
 --- !u!114 &114464966726713812
 MonoBehaviour:
   m_ObjectHideFlags: 1

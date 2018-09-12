@@ -185,6 +185,7 @@ namespace VRTK
 
             transformToFollow = gameObjectToFollow.transform;
             transformToChange = gameObjectToChange.transform;
+            Debug.Log("Here");
         }
     }
 }
