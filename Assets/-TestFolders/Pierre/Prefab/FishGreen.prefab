@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 114559427369501982}
   - component: {fileID: 114905322767320910}
   - component: {fileID: 114335688717217976}
+  - component: {fileID: 114291693967521832}
   m_Layer: 8
   m_Name: FishGreen
   m_TagString: Fish
@@ -333,6 +334,18 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &114291693967521832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822760667942034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4fed1f5ce540c64996c133a3da25052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  worth: 40
 --- !u!114 &114335688717217976
 MonoBehaviour:
   m_ObjectHideFlags: 1

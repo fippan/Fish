@@ -12,7 +12,7 @@ public class FishyManager : MonoBehaviour
 	private float timeCounter = 0f;
 	public GameObject[] fishies;
 	public FishingStates theStates;
-	public GameObject coinSpray;
+	public ParticleSystem coinSpray;
 	public GameObject fish;
 	//public VRTK_InteractGrab grab;
     [SerializeField]
@@ -66,6 +66,11 @@ public class FishyManager : MonoBehaviour
 		{
 			StartFishing(spawnPos);
 		}
+
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            ExplodeFish();
+        }
 	}
 
 	public void StartFishing(Transform newSpawnPos)
@@ -93,6 +98,15 @@ public class FishyManager : MonoBehaviour
 	{
 		caughtFish = false;
 	}
+
+    public void ExplodeFish()
+    {
+        fish.GetComponentInChildren<ParticleSystem>().Play();
+        float amount = fish.GetComponent<FishWorth>().worth;
+        CurrencyManager.Instance.AddCurrency(amount);
+        ParticleSystem ps = Instantiate(coinSpray, fish.transform.position, fish.transform.rotation) as ParticleSystem;
+        Destroy(fish);
+    }
 
 	//public void PickupFish(int amount)
 	//{
