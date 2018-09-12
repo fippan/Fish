@@ -15,7 +15,7 @@ public class SellGun : MonoBehaviour
         {
             GameObject newGun = Instantiate(gun, transform.position, transform.rotation);
             beenBought = true;
-            //GetComponent<BoxCollider>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 }

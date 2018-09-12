@@ -122,6 +122,8 @@ MonoBehaviour:
   radius: 1.5
   firingAngle: 56.19
   gravity: 9.8
+  explosionFX: {fileID: 198017029183523924, guid: 59bba9f137e24964b9a7f55ed7bc96be,
+    type: 2}
 --- !u!114 &114119891171853794
 MonoBehaviour:
   m_ObjectHideFlags: 1

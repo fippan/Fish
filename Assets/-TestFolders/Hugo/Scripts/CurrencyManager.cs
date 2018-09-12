@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour
 {
+    [SerializeField]
     private float currentCurrency = 200f;
-
-
 
     public static CurrencyManager Instance { get; private set; }
 
