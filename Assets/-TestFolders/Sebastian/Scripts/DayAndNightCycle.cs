@@ -112,7 +112,7 @@ public class DayAndNightCycle : MonoBehaviour {
         if (_counter == 60)                             //if the counter equal 60
             _counter = 0;                               //then make counter equal to 0
 
-        _counter += Time.deltaTime;                     //counter plus time sync to pc speed
+        _counter += Time.deltaTime * 1000;                     //counter plus time sync to pc speed
 
         _seconds = (int)_counter;                       //seconds equals counter cast to an int 
 

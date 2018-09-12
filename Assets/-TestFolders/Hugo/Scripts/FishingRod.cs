@@ -58,7 +58,6 @@ public class FishingRod : MonoBehaviour
                 {
                     FishyManager.Instance.ResetFish();
                     FishyManager.Instance.ExplodeFish();
-                    //TODO: Spawn The particle effect!!! and Get the MoNeYYY!
                 }
 
                 thrown = false;
