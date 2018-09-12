@@ -122,6 +122,7 @@ MonoBehaviour:
   radius: 1.5
   firingAngle: 56.19
   gravity: 9.8
+  sparkEffect: {fileID: 0}
 --- !u!114 &114119891171853794
 MonoBehaviour:
   m_ObjectHideFlags: 1

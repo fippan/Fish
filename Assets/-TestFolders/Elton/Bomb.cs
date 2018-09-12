@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-
     [SerializeField] private float timer;
     [SerializeField] private float damage;
     [SerializeField] private float radius;
     [SerializeField] private float firingAngle = 45f;
     [SerializeField] private float gravity = 9.8f;
+
     private Rigidbody rb;
+    private float timeActive = 0f;
+    private Vector3 startSize;
 
     private void Start()
     {
@@ -19,18 +21,25 @@ public class Bomb : MonoBehaviour
     private void Update()
     {
         Timer();
+        AnimateBomb();
     }
 
     private void Timer()
     {
-        if (timer > 0)
+        if (timeActive < timer)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
+            timeActive += Time.deltaTime;
+            if (timeActive >= timer)
             {
                 Explode();
             }
         }
+    }
+
+    private void AnimateBomb()
+    {
+        float percentage = timeActive / timer;
+        transform.localScale = startSize * (1f + percentage);
     }
 
     public void Throw(Transform start, Transform target)

@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 114208367067253140}
   - component: {fileID: 114455623237905638}
   - component: {fileID: 114050937201776612}
+  - component: {fileID: 114159319782839698}
   - component: {fileID: 114427062523653720}
   - component: {fileID: 64020982002215326}
   m_Layer: 0
@@ -245,6 +246,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114427062523653720}
+        m_MethodName: HapticFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnUnuse:
@@ -272,6 +284,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &114159319782839698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918929644743360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e157110b6939bc14a8c421447193d994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114208367067253140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,7 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  fireingRate: 0.5
+  firingRate: 0
   shotsUntilReload: 10
   reloadTime: 3
   range: 3
@@ -323,9 +346,13 @@ MonoBehaviour:
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
+  onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
+    type: 2}
+  onShootEffectLifetime: 3
   onHitEffect: {fileID: 0}
   onHitEffectLifetime: 0
   trail: {fileID: 0}
+  hapticStrenght: 0
   barrelEnd: {fileID: 4581848846121606}
 --- !u!114 &114455623237905638
 MonoBehaviour:
@@ -350,7 +377,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1918929644743360}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
   m_Name: 

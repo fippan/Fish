@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     [Header("Weapon attributes.")]
     public float damage;
     [Tooltip("Minimum time between shots in seconds.")]
-    public float fireingRate;
+    public float firingRate;
     public float shotsUntilReload;
     [Tooltip("Time in seconds.")]
     public float reloadTime;
@@ -21,19 +21,26 @@ public class Weapon : MonoBehaviour
 
     [Header("Projectile settings.")]
     public Projectile projectile;
-    public ParticleSystem onHitEffect;
+    public GameObject onShootEffect;
+    public float onShootEffectLifetime;
+    public GameObject onHitEffect;
     public float onHitEffectLifetime;
-    public ParticleSystem trail;
+    public GameObject trail;
+
+    [Header("Haptic feedback.")]
+    [Range(0, 1)]
+    public float hapticStrenght;
 
     [Header("Barrel")]
     public Transform barrelEnd;
 
+    private VRTK_ControllerHaptics controllerHaptics;
     private bool canFire = true;
     private float shotsFired;
 
     private void Start()
     {
-        //GetComponent<VRTK_InteractableObject>().
+        controllerHaptics = GetComponent<VRTK_ControllerHaptics>();
     }
 
     public void Shoot()
@@ -43,6 +50,7 @@ public class Weapon : MonoBehaviour
         if (canFire)
         {
             Fire();
+            if (onShootEffect != null) Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);            
             shotsFired++;
             canFire = false;
             if (shotsFired > shotsUntilReload)
@@ -55,6 +63,13 @@ public class Weapon : MonoBehaviour
                 StartCoroutine(Cooldown());
             }
         }
+    }
+
+    public void HapticFeedback()
+    {
+        if (canFire)
+            VRTK_ControllerHaptics.TriggerHapticPulse
+                (VRTK_ControllerReference.GetControllerReference(transform.parent.gameObject), hapticStrenght);
     }
 
     private void Fire()
@@ -73,7 +88,7 @@ public class Weapon : MonoBehaviour
     {
         float timeSinceLastShot = 0;
 
-        while (timeSinceLastShot < fireingRate)
+        while (timeSinceLastShot < firingRate)
         {
             timeSinceLastShot += Time.deltaTime;
             yield return null;
