@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, ICanTakeDamage
     private void Death()
     {
         //TODO: death screen/behaviour.
-        //Make enemies disapear and objects non usable - activate Watch menu and choose to restart or exit game
+        //Make enemies disappear and objects non usable - activate Watch menu and choose to restart or exit game
     }
 
     public void TakeDamage(float amount)

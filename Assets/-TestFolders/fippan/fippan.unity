@@ -1256,7 +1256,16 @@ Prefab:
     - target: {fileID: 23925919888703776, guid: 8dab3b238f87cde439c8f21de8ee34f2,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1104287501760236, guid: 8dab3b238f87cde439c8f21de8ee34f2, type: 2}
+      propertyPath: m_Name
+      value: Body_Collider
+      objectReference: {fileID: 0}
+    - target: {fileID: 23599262066731832, guid: 8dab3b238f87cde439c8f21de8ee34f2,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dab3b238f87cde439c8f21de8ee34f2, type: 2}

@@ -8,14 +8,16 @@ public class MovementTracking : MonoBehaviour
 
 	private void Update()
 	{
-		//Set rotation for head
+		//Set rotation and position for head
 		transform.GetChild(0).transform.rotation = headProxy.transform.rotation;
+		transform.GetChild(0).transform.position = headProxy.transform.position;
+
+		//Set rotation and position for body (Looking towards head all the time)
 		transform.GetChild(1).transform.LookAt(transform.GetChild(0));
+		transform.GetChild(1).transform.position = headProxy.transform.position;
+
 
 		//Set position for body and head
-		transform.position = headProxy.transform.position;
-
-
-		//transform.rotation = headProxy.transform.rotation;
+		//transform.position = headProxy.transform.position;
 	}
 }

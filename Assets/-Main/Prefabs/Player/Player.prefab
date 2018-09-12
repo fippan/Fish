@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23925919888703776}
   - component: {fileID: 136929838614153840}
   m_Layer: 0
-  m_Name: Body_Col_Pivot
+  m_Name: Body_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
