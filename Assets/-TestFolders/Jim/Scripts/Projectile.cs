@@ -8,8 +8,8 @@ public class Projectile : MonoBehaviour
     [HideInInspector] public float speed;
     [HideInInspector] public bool explosive;
     [HideInInspector] public float explosionRadius;
-    [HideInInspector] public ParticleSystem onHitEffect;
-    [HideInInspector] public ParticleSystem trail;
+    [HideInInspector] public GameObject onHitEffect;
+    [HideInInspector] public GameObject trail;
 
     private Rigidbody rb;
 

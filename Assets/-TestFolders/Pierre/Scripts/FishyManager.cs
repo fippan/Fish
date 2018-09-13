@@ -4,7 +4,6 @@ using UnityEngine;
 using VRTK;
 
 
-[RequireComponent(typeof(VRTK_TransformFollow))]
 public class FishyManager : MonoBehaviour
 {
 	public int lowest;
@@ -13,11 +12,16 @@ public class FishyManager : MonoBehaviour
 	private float timeCounter = 0f;
 	public GameObject[] fishies;
 	public FishingStates theStates;
-	public GameObject coinSpray;
+	public ParticleSystem coinSpray;
 	public GameObject fish;
 	//public VRTK_InteractGrab grab;
-
+    [SerializeField]
 	private Transform spawnPos;
+    public Transform SpawnPos
+    {
+        get { return spawnPos; }
+        set { spawnPos = value; }
+    }
 	private bool caughtFish = false;
 
 	public enum FishingStates
@@ -44,10 +48,11 @@ public class FishyManager : MonoBehaviour
 			{
 				int tempfish = Random.Range(0, fishies.Length);
 				fish = Instantiate(fishies[tempfish], spawnPos.transform.position, Quaternion.identity);
+                fish.GetComponent<FishFollowTransform>().Follow();
 
-				fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
+                //fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
 
-				caughtFish = true;
+                caughtFish = true;
 				StopFishing();
 			}
 		}
@@ -59,8 +64,13 @@ public class FishyManager : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			StartFishing(gameObject.transform);
+			StartFishing(spawnPos);
 		}
+
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            ExplodeFish();
+        }
 	}
 
 	public void StartFishing(Transform newSpawnPos)
@@ -88,6 +98,15 @@ public class FishyManager : MonoBehaviour
 	{
 		caughtFish = false;
 	}
+
+    public void ExplodeFish()
+    {
+        fish.GetComponentInChildren<ParticleSystem>().Play();
+        float amount = fish.GetComponent<FishWorth>().worth;
+        CurrencyManager.Instance.AddCurrency(amount);
+        ParticleSystem ps = Instantiate(coinSpray, fish.transform.position, fish.transform.rotation) as ParticleSystem;
+        Destroy(fish);
+    }
 
 	//public void PickupFish(int amount)
 	//{
