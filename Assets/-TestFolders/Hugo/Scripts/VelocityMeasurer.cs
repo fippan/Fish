@@ -10,7 +10,7 @@ public class VelocityMeasurer : MonoBehaviour
     VRTK_VelocityEstimator velocityEst;
 
     private bool holdingRod = false;
-    private Vector3 throwSpeed = new Vector3(3, 3, 3);
+    private Vector3 throwSpeed = new Vector3(2, 2, 2);
 
     void Start()
     {
