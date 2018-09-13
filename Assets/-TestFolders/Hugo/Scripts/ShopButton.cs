@@ -16,10 +16,16 @@ public class ShopButton : MonoBehaviour
     {
         if (cd)
         {
-            toggleShop = !toggleShop;
-            allWeapons.SetActive(toggleShop);
-            StartCoroutine(Cooldown());
+            ToggleShop();
+            StartCoroutine(AutoClose());
         }
+    }
+
+    private void ToggleShop ()
+    {
+        toggleShop = !toggleShop;
+        allWeapons.SetActive(toggleShop);
+        StartCoroutine(Cooldown());
     }
 
     public IEnumerator Cooldown()
@@ -27,5 +33,14 @@ public class ShopButton : MonoBehaviour
         cd = false;
         yield return new WaitForSeconds(.5f);
         cd = true;
+    }
+
+    public IEnumerator AutoClose ()
+    {
+        yield return new WaitForSeconds(5);
+        if (toggleShop)
+        {
+            ToggleShop();
+        }
     }
 }
