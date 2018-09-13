@@ -8,6 +8,7 @@ public class Bomb : MonoBehaviour
     [SerializeField] private float radius;
     [SerializeField] private float firingAngle = 45f;
     [SerializeField] private float gravity = 9.8f;
+    [SerializeField] private ParticleSystem explosionFX;
 
     private Rigidbody rb;
     private float timeActive = 0f;
@@ -101,6 +102,9 @@ public class Bomb : MonoBehaviour
             }
             i++;
         }
+        ParticleSystem ps = Instantiate(explosionFX, transform.position, transform.rotation) as ParticleSystem;
+        AudioManager.instance.Play("BombExplode");
+        Destroy(ps.gameObject, 3f);
         Destroy(gameObject);
     }
 

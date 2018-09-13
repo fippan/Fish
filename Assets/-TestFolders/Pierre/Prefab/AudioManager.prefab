@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1004949707658218}
+  m_IsPrefabAsset: 1
+--- !u!1 &1004949707658218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4501456853229766}
+  - component: {fileID: 114118989859753402}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4501456853229766
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004949707658218}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8163645, y: 0.42, z: -1.9237552}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114118989859753402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1004949707658218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efcfd3de1cc1df0438bc3c0a5b4fc455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609, type: 2}
+  sounds:
+  - target: {fileID: 0}
+    name: Explosion
+    clip: {fileID: 8300000, guid: 0aa03bc28f1af074bb68eaca82ac671b, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+    loop: 0
+    mixerGroup: {fileID: 243341260017872422, guid: 12f4b98caef71e242b7b18b1ececa609,
+      type: 2}
+    source: {fileID: 0}
+  - target: {fileID: 0}
+    name: Rattle
+    clip: {fileID: 8300000, guid: 1db4ead143dcc2c4a8bcc7ecb749a0d2, type: 3}
+    volume: 0.75
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    spatialBlend: 0
+    minDistance: 1
+    maxDistance: 500
+    loop: 0
+    mixerGroup: {fileID: 243341260017872422, guid: 12f4b98caef71e242b7b18b1ececa609,
+      type: 2}
+    source: {fileID: 0}
