@@ -48,8 +48,8 @@ public class FishyManager : MonoBehaviour
 			if (timeCounter >= waitTime)
 			{
 				int tempfish = Random.Range(0, fishies.Length);
-				fish = Instantiate(fishies[tempfish], spawnPos.transform.position, Quaternion.identity);
-                fish.GetComponent<FishFollowTransform>().Follow();
+				currentFish = Instantiate(fishies[tempfish], spawnPos.transform.position, Quaternion.identity);
+                currentFish.GetComponent<FishFollowTransform>().Follow();
 
                 //fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
 
@@ -102,8 +102,8 @@ public class FishyManager : MonoBehaviour
 
     public void ExplodeFish()
     {
-        fish.GetComponentInChildren<ParticleSystem>().Play();
-        float amount = fish.GetComponent<FishWorth>().worth;
+        currentFish.GetComponentInChildren<ParticleSystem>().Play();
+        float amount = currentFish.GetComponent<FishWorth>().worth;
         CurrencyManager.Instance.AddCurrency(amount);
         ParticleSystem ps = Instantiate(coinSpray, fish.transform.position, fish.transform.rotation) as ParticleSystem;
         ParticleSystem ps2 = Instantiate(smokeFX, fish.transform.position, fish.transform.rotation) as ParticleSystem;

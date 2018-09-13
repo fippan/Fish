@@ -12,7 +12,6 @@ public class Canons : MonoBehaviour {
 
 	void Start ()
     {
-        //transform.rotation = Quaternion.LookRotation(transform.position - canonlookat.transform.position);
         transform.LookAt(canonlookat.transform);
         timer = Random.Range(10 ,14);
         InvokeRepeating("TakeThatShot", timer, timer);

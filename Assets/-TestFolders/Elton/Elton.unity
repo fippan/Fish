@@ -826,7 +826,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &859680627
+--- !u!1001 &882359967
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -865,7 +865,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114847970823303250, guid: c00c07def07e9f94888ca19d8829def5,
+    - target: {fileID: 114364429705431632, guid: c00c07def07e9f94888ca19d8829def5,
         type: 2}
       propertyPath: boat
       value: 
