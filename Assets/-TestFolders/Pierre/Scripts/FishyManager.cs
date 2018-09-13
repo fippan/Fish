@@ -105,6 +105,7 @@ public class FishyManager : MonoBehaviour
         float amount = fish.GetComponent<FishWorth>().worth;
         CurrencyManager.Instance.AddCurrency(amount);
         ParticleSystem ps = Instantiate(coinSpray, fish.transform.position, fish.transform.rotation) as ParticleSystem;
+        Destroy(ps.gameObject, 4f);
         Destroy(fish);
     }
 
