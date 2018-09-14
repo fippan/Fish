@@ -296,7 +296,18 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnUnuse:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114427062523653720}
+        m_MethodName: OnTriggerReleased
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnEnterSnapDropZone:
@@ -393,23 +404,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edebfb56ea9f684096f5b174607f1bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitScan: 1
+  automatic: 1
+  spreadingBullets: 1
+  explosive: 0
   damage: 15
-  firingRate: 0
+  firingRate: 0.1
+  minSpreadDegrees: {x: 0, y: 0}
+  maxSpreadDegrees: {x: 0, y: 0}
   shotsUntilReload: 10
   reloadTime: 3
-  range: 3
-  speed: 20
-  explosive: 0
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
+  lifetime: 5
+  speed: 20
   onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
     type: 2}
   onShootEffectLifetime: 2
   onHitEffect: {fileID: 0}
   onHitEffectLifetime: 0
   trail: {fileID: 0}
-  hapticStrenght: 0
   barrelEnd: {fileID: 4581848846121606}
 --- !u!114 &114455623237905638
 MonoBehaviour:
