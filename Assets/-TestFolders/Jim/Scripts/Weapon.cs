@@ -143,7 +143,7 @@ public class Weapon : MonoBehaviour
         if (shellPrefab != null)
         {
             GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(Vector3.forward * shellForceMultiplier);
+            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * shellForceMultiplier);
             if (shellLifeTime > 0)
                 Destroy(newShell, shellLifeTime);
         }

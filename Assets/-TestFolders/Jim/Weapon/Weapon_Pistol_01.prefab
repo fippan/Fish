@@ -599,7 +599,7 @@ MonoBehaviour:
   shellPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
     type: 2}
   shellPoint: {fileID: 4721559333564030}
-  shellForceMultiplier: 10
+  shellForceMultiplier: 50
   shellLifeTime: 5
   shootSFX: {fileID: 8300000, guid: ab7f2ac3d60c1af4583a838487a8a3c9, type: 3}
   outOfAmmoSFX: {fileID: 0}
