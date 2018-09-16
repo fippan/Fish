@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+using UnityEngine.UI;
 
 public class SellGun : MonoBehaviour
 {
     public GameObject gun;
     public float cost;
     public bool beenBought = false;
+    public Text costText;
+
+    public void Start()
+    {
+        costText.text = ("Cost: " + cost);
+    }
 
     public void Sell ()
     {
