@@ -14,7 +14,7 @@ public class FishyManager : MonoBehaviour
 	public FishingStates theStates;
 	public ParticleSystem coinSpray;
     public ParticleSystem smokeFX;
-    public GameObject fish;
+    public GameObject currentFish;
 	//public VRTK_InteractGrab grab;
     [SerializeField]
 	private Transform spawnPos;
@@ -86,7 +86,8 @@ public class FishyManager : MonoBehaviour
 
 	public void StopFishing()
 	{
-		timeCounter = 0f;
+        AudioManager.instance.TransformTarget(currentFish);
+        timeCounter = 0f;
 		theStates = FishingStates.NOTFISHING;
 	}
 
@@ -105,13 +106,13 @@ public class FishyManager : MonoBehaviour
         currentFish.GetComponentInChildren<ParticleSystem>().Play();
         float amount = currentFish.GetComponent<FishWorth>().worth;
         CurrencyManager.Instance.AddCurrency(amount);
-        ParticleSystem ps = Instantiate(coinSpray, fish.transform.position, fish.transform.rotation) as ParticleSystem;
-        ParticleSystem ps2 = Instantiate(smokeFX, fish.transform.position, fish.transform.rotation) as ParticleSystem;
+        ParticleSystem ps = Instantiate(coinSpray, currentFish.transform.position, currentFish.transform.rotation) as ParticleSystem;
+        ParticleSystem ps2 = Instantiate(smokeFX, currentFish.transform.position, currentFish.transform.rotation) as ParticleSystem;
         Destroy(ps.gameObject, 4f);
         Destroy(ps2.gameObject, 1f);
-        Destroy(fish);
-        AudioManager.instance.Play("Explosion");
-        AudioManager.instance.Play("Rattle");
+        Destroy(currentFish);
+
+        AudioManager.instance.PlayTest(smokeFX.gameObject);
     }
 
 	//public void PickupFish(int amount)

@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
 
     public Audio[] sounds;
 
+    public GameObject currentTarget;
+
     /// <summary>
     /// If a audiomanager already exists in the scene, this one will be destroyed.
     /// Instantiates all the sounds in a foreach loop.
@@ -57,7 +59,6 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Mystery");
         //FindObjectOfType<AudioManager>().Play("name of song here");
     }
 
@@ -72,12 +73,30 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
-
+        if (currentTarget != null)
+        {
+            s.target = TransformTarget(currentTarget);
+            s.source = currentTarget.GetComponent<AudioSource>();
+            s.source = s.target.gameObject.AddComponent<AudioSource>();
+        }
         s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
         s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
         s.source.spatialBlend = s.spatialBlend;
-
         s.source.Play();
+    }
+
+    public void PlayTest(GameObject gameObject)
+    {
+        gameObject.GetComponent<AudioSource>().Play();
+    }
+
+    public GameObject TransformTarget(GameObject target)
+    {
+
+        target.gameObject.AddComponent<AudioSource>();
+        target.gameObject.GetComponent<AudioSource>().clip = sounds[0].clip;
+        currentTarget = target;
+        return currentTarget;
     }
 
 }
