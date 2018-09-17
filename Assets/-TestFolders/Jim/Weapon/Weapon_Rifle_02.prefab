@@ -639,14 +639,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437912708010896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edebfb56ea9f684096f5b174607f1bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4826ac7fab0ba6f45b07bd8ae525fc61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitScan: 1
-  automatic: 1
   spreadingBullets: 1
-  burst: 0
-  bulletsToBurst: 0
   explosive: 0
   damage: 20
   firingRate: 0.15
@@ -654,7 +651,7 @@ MonoBehaviour:
   maxSpreadDegrees: {x: 7, y: 7}
   shotsUntilReload: 30
   reloadTime: 3
-  shellPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
+  shellPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
     type: 2}
   shellPoint: {fileID: 4826308075948738}
   shellForceMultiplier: 100
@@ -675,6 +672,7 @@ MonoBehaviour:
   barrelEnd: {fileID: 4025853875216928}
   hapticStrenght: 1
   hapticDuration: 0.25
+  automatic: 1
 --- !u!114 &114547414210501774
 MonoBehaviour:
   m_ObjectHideFlags: 1

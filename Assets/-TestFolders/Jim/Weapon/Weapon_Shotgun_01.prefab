@@ -739,18 +739,7 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnUnuse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114952352036559144}
-        m_MethodName: OnTriggerReleased
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnEnterSnapDropZone:
@@ -817,14 +806,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1668098778998034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edebfb56ea9f684096f5b174607f1bb, type: 3}
+  m_Script: {fileID: 11500000, guid: deb765ec338f309468cee0ba62af7e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitScan: 1
-  automatic: 0
   spreadingBullets: 1
-  burst: 1
-  bulletsToBurst: 10
   explosive: 0
   damage: 5
   firingRate: 0.1
@@ -832,7 +818,7 @@ MonoBehaviour:
   maxSpreadDegrees: {x: 10, y: 10}
   shotsUntilReload: 1
   reloadTime: 0.5
-  shellPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
+  shellPrefab: {fileID: 1098160186016322, guid: 7fa4e8d9fd8e2114c8cc5295fbefe633,
     type: 2}
   shellPoint: {fileID: 4801349697178354}
   shellForceMultiplier: 100
@@ -853,3 +839,4 @@ MonoBehaviour:
   barrelEnd: {fileID: 4844489638462824}
   hapticStrenght: 1
   hapticDuration: 0.25
+  numberOfBulletsToBurst: 10

@@ -2,16 +2,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource), typeof(Animator))]
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
     [Header("Weapon attributes.")]
     [Tooltip("Set true to enable hit scan weapon. False to shoot projectile.")]
     public bool hitScan;
-    [Tooltip("Automatic fire when trigger is held down.")]
-    public bool automatic;
     public bool spreadingBullets;
-    public bool burst;
-    public int bulletsToBurst;
     [Tooltip("Deal damage over an area.")]
     public bool explosive;
     [Space]
@@ -55,112 +51,36 @@ public class Weapon : MonoBehaviour
     [Range(0, 1)]
     public float hapticStrenght;
     public float hapticDuration;
-    
+
     private AudioSource audioSource;
     private Animator anim;
-    private bool canFire = true;
-    private bool isTriggerDown = false;
-    private float shotsFired;
+    protected bool canFire = true;
+    protected bool isTriggerDown = false;
+    protected float shotsFired;
 
-    private void Start()
+    protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = shootSFX;
-
         anim = GetComponent<Animator>();
     }
 
-    public void Shoot()
+    public abstract void Shoot();
+
+    protected void FireWithHitScan()
     {
-        if (automatic)
-        {
-            StartCoroutine(AutomaticFire());
-            return;
-        }
+        Vector3 direction = CalculateHitScanDirection();
+        RaycastHit hit;
 
-        if (!canFire) return;
-
-        if (canFire)
-        {
-            if (burst)
-                for (int i = 0; i < bulletsToBurst; i++)
-                    Fire();
-            else
-                Fire();
-
-            anim.SetTrigger("Single_Shot");
-            audioSource.Play();
-
-            if (onShootEffect != null)
-                Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
-
-            shotsFired++;
-            canFire = false;
-
-            if (shotsFired > shotsUntilReload)
-            {
-                StartCoroutine(Reload());
-                return;
-            }
-            else
-            {
-                StartCoroutine(Cooldown());
-            }
-        }
-    }
-
-    public void OnTriggerReleased()
-    {
-        isTriggerDown = false;
-    }
-
-    private IEnumerator AutomaticFire()
-    {
-        isTriggerDown = true;
-        while (isTriggerDown)
-        {
-            Fire();
-            anim.SetTrigger("Single_Shot");
-            audioSource.Play();
-            shotsFired++;
-
-            if (onShootEffect != null)
-                Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
-            
-            if (shotsFired > shotsUntilReload)
-                yield return StartCoroutine(Reload());
-            else
-                yield return new WaitForSeconds(firingRate);
-        }
-    }
-
-    private void Fire()
-    {
-        if (hitScan) FireWithHitScan();
-        else FireProjectile();
-        if (shellPrefab != null && !burst) CreateNewEmptyShell();
-        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, 0);
-    }
-
-    private void FireWithHitScan()
-    {
-        if (spreadingBullets)
-        {
-            Vector3 direction = CalculateHitScanDirection();
-            RaycastHit hit;
-            if (Physics.Raycast(barrelEnd.position, direction, out hit, 100f))
-                TargetHit(hit.transform, hit.point);
-        }
-        else
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(barrelEnd.position, barrelEnd.forward, out hit, 100f))
-                TargetHit(hit.transform, hit.point);
-        }
+        if (Physics.Raycast(barrelEnd.position, direction, out hit, 100f))
+            TargetHit(hit.transform, hit.point);
     }
 
     private Vector3 CalculateHitScanDirection()
     {
+        if (!spreadingBullets)
+            return barrelEnd.forward;
+
         Quaternion barrelEndStartRotation = barrelEnd.rotation;
         Vector3 newRotation = new Vector3(
             Random.Range(minSpreadDegrees.x, maxSpreadDegrees.x),
@@ -175,10 +95,17 @@ public class Weapon : MonoBehaviour
 
     private void TargetHit(Transform target, Vector3 point)
     {
-        ICanTakeDamage targetHit = target.GetComponentInParent<ICanTakeDamage>();
-        if (targetHit != null)
+        if (explosive)
         {
-            targetHit.TakeDamage(damage);
+            Explode();
+        }
+        else
+        {
+            ICanTakeDamage targetHit = target.GetComponentInParent<ICanTakeDamage>();
+            if (targetHit != null)
+            {
+                targetHit.TakeDamage(damage);
+            }
         }
 
         if (onHitEffect != null)
@@ -187,13 +114,26 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void FireProjectile()
+    private void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (var item in colliders)
+        {
+            ICanTakeDamage target = item.GetComponentInParent<ICanTakeDamage>();
+            if (target != null)
+            {
+                target.TakeDamage(damage);
+            }
+        }
+    }
+
+    protected void FireProjectile()
     {
         if (projectile == null)
         {
             Debug.LogWarning("Please assign a projectile in the inspector.");
             return;
-        }        
+        }
 
         if (spreadingBullets)
         {
@@ -205,17 +145,6 @@ public class Weapon : MonoBehaviour
             Projectile newProjectile = Instantiate(projectile, barrelEnd.position, barrelEnd.rotation);
             SetProjectileValues(newProjectile);
         }
-    }
-
-    private void SetProjectileValues(Projectile newProjectile)
-    {
-        newProjectile.damage = damage;
-        newProjectile.range = lifetime;
-        newProjectile.speed = speed;
-        newProjectile.explosive = explosive;
-        newProjectile.explosionRadius = explosionRadius;
-        newProjectile.onHitEffect = onHitEffect;
-        newProjectile.trail = trail;
     }
 
     private Quaternion CalculateProjectileRotation()
@@ -232,28 +161,63 @@ public class Weapon : MonoBehaviour
         return rotation;
     }
 
-    private IEnumerator Cooldown()
+    private void SetProjectileValues(Projectile newProjectile)
     {
-        yield return new WaitForSeconds(firingRate);
+        newProjectile.damage = damage;
+        newProjectile.range = lifetime;
+        newProjectile.speed = speed;
+        newProjectile.explosive = explosive;
+        newProjectile.explosionRadius = explosionRadius;
+        newProjectile.onHitEffect = onHitEffect;
+        newProjectile.trail = trail;
+    }
 
+    protected virtual void OnShotFired()
+    {
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, 0);
+        anim.SetTrigger("Single_Shot");
+        audioSource.Play();
+
+        if (onShootEffect != null)
+            Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
+
+        if (shellPrefab != null)
+        {
+            GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
+            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * shellForceMultiplier);
+            if (shellLifeTime > 0)
+                Destroy(newShell, shellLifeTime);
+        }
+
+        shotsFired++;
+    }
+
+    protected void ReloadAndCooldown()
+    {
+        if (shotsFired > shotsUntilReload)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+        else
+        {
+            StartCoroutine(Cooldown());
+        }
+    }
+
+    protected IEnumerator Cooldown()
+    {
+        canFire = false;
+        yield return new WaitForSeconds(firingRate);
         canFire = true;
     }
 
-    private IEnumerator Reload()
+    protected IEnumerator Reload()
     {
         anim.SetBool("Empty", true);
-        if (shellPrefab != null && burst) CreateNewEmptyShell();
         yield return new WaitForSeconds(reloadTime);
         anim.SetBool("Empty", false);
         shotsFired = 0;
         canFire = true;
-    }
-
-    private void CreateNewEmptyShell()
-    {
-        GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-        newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * shellForceMultiplier);
-        if (shellLifeTime > 0)
-            Destroy(newShell, shellLifeTime);
     }
 }
