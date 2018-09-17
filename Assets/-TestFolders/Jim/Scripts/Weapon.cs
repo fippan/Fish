@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Weapon : MonoBehaviour
 {
     [Header("Weapon attributes.")]
@@ -20,6 +21,10 @@ public class Weapon : MonoBehaviour
     public float shotsUntilReload;
     [Tooltip("Time in seconds.")]
     public float reloadTime;
+    [Tooltip("Weapon shoot sfx")]
+    public AudioClip shootSFX;
+    public AudioClip outOfAmmoSFX;
+    public AudioSource audioSource;
 
     [Header("Explosion settings.")]
     public float explosionRadius;
@@ -41,6 +46,12 @@ public class Weapon : MonoBehaviour
     private bool canFire = true;
     private bool isTriggerDown = false;
     private float shotsFired;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = shootSFX;
+    }
 
     public void Shoot()
     {
@@ -96,6 +107,8 @@ public class Weapon : MonoBehaviour
 
     private void Fire()
     {
+
+        audioSource.Play();
         if (hitScan) FireWithHitScan();
         else FireProjectile();
     }

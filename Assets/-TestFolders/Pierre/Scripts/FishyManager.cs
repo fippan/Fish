@@ -71,6 +71,7 @@ public class FishyManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             ExplodeFish();
+            FindObjectOfType<Weapon>().Shoot();
         }
 	}
 
@@ -111,8 +112,8 @@ public class FishyManager : MonoBehaviour
         Destroy(ps.gameObject, 4f);
         Destroy(ps2.gameObject, 1f);
         Destroy(currentFish);
-        AudioManager.instance.Play("Explosion");
-        AudioManager.instance.Play("Rattle");
+        //AudioManager.instance.Play("Explosion");
+        //AudioManager.instance.Play("Rattle");
     }
 
 	//public void PickupFish(int amount)
