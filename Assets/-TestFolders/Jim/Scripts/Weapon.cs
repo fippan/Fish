@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using VRTK;
 
 public class Weapon : MonoBehaviour
 {
