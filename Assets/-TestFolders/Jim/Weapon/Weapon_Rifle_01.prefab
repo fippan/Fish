@@ -763,7 +763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ungrabDistance: 0.3
   releaseSnapSpeed: 0.05
-  lockZRotation: 0
+  lockZRotation: 1
 --- !u!114 &114284413295479236
 MonoBehaviour:
   m_ObjectHideFlags: 1
