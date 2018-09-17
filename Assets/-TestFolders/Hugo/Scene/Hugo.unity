@@ -3937,7 +3937,7 @@ Prefab:
     - target: {fileID: 114059069399838974, guid: 48e8eefe2843e4044bea088a8685bbaf,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 65915628792812576, guid: 48e8eefe2843e4044bea088a8685bbaf, type: 2}
@@ -4358,13 +4358,13 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1037725622}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0510384e-29, y: 9.447606, z: 12.272215}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.38268304, y: -0, z: -0, w: 0.92387974}
+  m_LocalPosition: {x: -2.0510384e-29, y: 1.04, z: -4.84}
+  m_LocalScale: {x: 0.000001, y: 0.000001, z: 0.000001}
   m_Children: []
   m_Father: {fileID: 1255854781}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45.000004, y: 0, z: 0}
 --- !u!1 &1082447817
 GameObject:
   m_ObjectHideFlags: 0
@@ -8090,7 +8090,7 @@ MonoBehaviour:
   holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
-  grabOverrideButton: 0
+  grabOverrideButton: 3
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 0}
   secondaryGrabActionScript: {fileID: 0}
