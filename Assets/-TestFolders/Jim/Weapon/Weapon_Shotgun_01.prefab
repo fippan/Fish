@@ -827,7 +827,7 @@ MonoBehaviour:
   bulletsToBurst: 10
   explosive: 0
   damage: 5
-  firingRate: 0.5
+  firingRate: 0.1
   minSpreadDegrees: {x: -10, y: -10}
   maxSpreadDegrees: {x: 10, y: 10}
   shotsUntilReload: 1
@@ -851,5 +851,5 @@ MonoBehaviour:
   onHitEffectLifetime: 0
   trail: {fileID: 0}
   barrelEnd: {fileID: 4844489638462824}
-  hapticStrenght: 0.496
-  hapticDuration: 0.1
+  hapticStrenght: 1
+  hapticDuration: 0.25

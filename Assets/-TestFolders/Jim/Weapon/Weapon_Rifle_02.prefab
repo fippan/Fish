@@ -673,8 +673,8 @@ MonoBehaviour:
   onHitEffectLifetime: 0
   trail: {fileID: 0}
   barrelEnd: {fileID: 4025853875216928}
-  hapticStrenght: 0.504
-  hapticDuration: 0.1
+  hapticStrenght: 1
+  hapticDuration: 0.25
 --- !u!114 &114547414210501774
 MonoBehaviour:
   m_ObjectHideFlags: 1

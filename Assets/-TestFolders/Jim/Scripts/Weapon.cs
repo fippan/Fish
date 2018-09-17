@@ -83,7 +83,8 @@ public class Weapon : MonoBehaviour
         if (canFire)
         {
             if (burst)
-                Burst();
+                for (int i = 0; i < bulletsToBurst; i++)
+                    Fire();
             else
                 Fire();
 
@@ -105,14 +106,6 @@ public class Weapon : MonoBehaviour
             {
                 StartCoroutine(Cooldown());
             }
-        }
-    }
-
-    private void Burst()
-    {
-        for (int i = 0; i < bulletsToBurst; i++)
-        {
-            Fire();
         }
     }
 
@@ -145,13 +138,7 @@ public class Weapon : MonoBehaviour
     {
         if (hitScan) FireWithHitScan();
         else FireProjectile();
-        if (shellPrefab != null)
-        {
-            GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * shellForceMultiplier);
-            if (shellLifeTime > 0)
-                Destroy(newShell, shellLifeTime);
-        }
+        if (shellPrefab != null && !burst) CreateNewEmptyShell();
         Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, 0);
     }
 
@@ -255,9 +242,18 @@ public class Weapon : MonoBehaviour
     private IEnumerator Reload()
     {
         anim.SetBool("Empty", true);
+        if (shellPrefab != null && burst) CreateNewEmptyShell();
         yield return new WaitForSeconds(reloadTime);
         anim.SetBool("Empty", false);
         shotsFired = 0;
         canFire = true;
+    }
+
+    private void CreateNewEmptyShell()
+    {
+        GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
+        newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * shellForceMultiplier);
+        if (shellLifeTime > 0)
+            Destroy(newShell, shellLifeTime);
     }
 }
