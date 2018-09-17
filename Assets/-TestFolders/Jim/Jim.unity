@@ -422,6 +422,48 @@ Transform:
   m_Father: {fileID: 898227934}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &320028960
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4833994655691976, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833994655691976, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833994655691976, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833994655691976, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833994655691976, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833994655691976, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833994655691976, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833994655691976, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &431132384
 Prefab:
   m_ObjectHideFlags: 0
@@ -722,7 +764,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1369764378286848, guid: ed7cf645ad9dd7e4e8c96c2bd5615f31, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114109830473819876, guid: ed7cf645ad9dd7e4e8c96c2bd5615f31,
         type: 2}
@@ -963,26 +1005,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1515382256235842, guid: 6a32aa467eef1aa43a1046b50b75aa35, type: 2}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114599814843955630, guid: 6a32aa467eef1aa43a1046b50b75aa35,
-        type: 2}
-      propertyPath: hapticStrenght
-      value: 0.504
-      objectReference: {fileID: 0}
-    - target: {fileID: 114599814843955630, guid: 6a32aa467eef1aa43a1046b50b75aa35,
-        type: 2}
-      propertyPath: hapticDuration
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114772646965500786, guid: 6a32aa467eef1aa43a1046b50b75aa35,
-        type: 2}
-      propertyPath: holdButtonToGrab
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114283733501704046, guid: 6a32aa467eef1aa43a1046b50b75aa35,
-        type: 2}
-      propertyPath: lockZRotation
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1404,71 +1426,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4219986856501458, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 4968420790846464, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968420790846464, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.07488149
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264324016821806, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.18665259
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084799199796890, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084799199796890, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.48253238
-      objectReference: {fileID: 0}
-    - target: {fileID: 4968420790846464, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.01344275
-      objectReference: {fileID: 0}
-    - target: {fileID: 4264324016821806, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.007589659
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084799199796890, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.001255793
-      objectReference: {fileID: 0}
-    - target: {fileID: 114952352036559144, guid: 6fb5ee756652b1d459cf7c2148fcc7de,
-        type: 2}
-      propertyPath: firingRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114952352036559144, guid: 6fb5ee756652b1d459cf7c2148fcc7de,
-        type: 2}
-      propertyPath: shotsUntilReload
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114952352036559144, guid: 6fb5ee756652b1d459cf7c2148fcc7de,
-        type: 2}
-      propertyPath: reloadTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801349697178354, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4047285546740716, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114394620956330358, guid: 6fb5ee756652b1d459cf7c2148fcc7de,
-        type: 2}
-      propertyPath: holdButtonToGrab
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114177926756500298, guid: 6fb5ee756652b1d459cf7c2148fcc7de,
-        type: 2}
-      propertyPath: lockZRotation
+    - target: {fileID: 1668098778998034, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

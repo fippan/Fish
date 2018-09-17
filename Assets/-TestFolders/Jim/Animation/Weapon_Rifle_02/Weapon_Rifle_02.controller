@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Weapon_Rifle_01
+  m_Name: Weapon_Rifle_02
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Empty
@@ -177,7 +177,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 87e5fedee5526f64681628fe81c819a8, type: 2}
+  m_Motion: {fileID: 7400000, guid: d1bb73b0786a9294cb4feada0fdda804, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -204,7 +204,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b9abe8208ae5d324f9a1a0aea5306b8c, type: 2}
+  m_Motion: {fileID: 7400000, guid: f3c2094aa76bc8f43896c8e4a96a94ec, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -230,7 +230,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c3fa64b930ac41948b1abe0d00ddd008, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3e31379d9cd4f914d85e9bfa40ddc7b7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
