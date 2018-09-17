@@ -174,7 +174,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void OnShotFired()
     {
-        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, 0);
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         anim.SetTrigger("Single_Shot");
         audioSource.Play();
 
