@@ -50,6 +50,7 @@ public class FishyManager : MonoBehaviour
 				int tempfish = Random.Range(0, fishies.Length);
 				currentFish = Instantiate(fishies[tempfish], spawnPos.transform.position, Quaternion.identity);
                 currentFish.GetComponent<FishFollowTransform>().Follow();
+                Haptics.Instance.StartHaptics(gameObject, 1f, 1f, 0.3f);
 
                 //fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
 

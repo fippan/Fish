@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 114284413295479236}
   - component: {fileID: 114500901274902594}
   - component: {fileID: 114599814843955630}
+  - component: {fileID: 82439904649145642}
   m_Layer: 0
   m_Name: Weapon_Rifle_01
   m_TagString: Untagged
@@ -577,7 +578,7 @@ MeshCollider:
   m_Mesh: {fileID: 4300000, guid: b2a22edd3225cae488adbefe555f5e81, type: 3}
 --- !u!82 &82439904649145642
 AudioSource:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515382256235842}

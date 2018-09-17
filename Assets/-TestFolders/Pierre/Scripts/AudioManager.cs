@@ -65,38 +65,38 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// This function is called from other scripts in order to play the sound clips.
     /// </summary>
-    public void Play(string sound)
-    {
-        Audio s = Array.Find(sounds, item => item.name == sound);
-        if (s == null)
-        {
-            Debug.LogWarning("Sound: " + name + " not found!");
-            return;
-        }
-        if (currentTarget != null)
-        {
-            s.target = TransformTarget(currentTarget);
-            s.source = currentTarget.GetComponent<AudioSource>();
-            s.source = s.target.gameObject.AddComponent<AudioSource>();
-        }
-        s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
-        s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
-        s.source.spatialBlend = s.spatialBlend;
-        s.source.Play();
-    }
+    //public void Play(string sound)
+    //{
+    //    Audio s = Array.Find(sounds, item => item.name == sound);
+    //    if (s == null)
+    //    {
+    //        Debug.LogWarning("Sound: " + name + " not found!");
+    //        return;
+    //    }
+    //    if (currentTarget != null)
+    //    {
+    //        s.target = TransformTarget(currentTarget);
+    //        s.source = currentTarget.GetComponent<AudioSource>();
+    //        s.source = s.target.gameObject.AddComponent<AudioSource>();
+    //    }
+    //    s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
+    //    s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
+    //    s.source.spatialBlend = s.spatialBlend;
+    //    s.source.Play();
+    //}
 
-    public void PlayTest(GameObject gameObject)
-    {
-        gameObject.GetComponent<AudioSource>().Play();
-    }
+    //public void PlayTest(GameObject gameObject)
+    //{
+    //    gameObject.GetComponent<AudioSource>().Play();
+    //}
 
-    public GameObject TransformTarget(GameObject target)
-    {
+    //public GameObject TransformTarget(GameObject target)
+    //{
 
-        target.gameObject.AddComponent<AudioSource>();
-        target.gameObject.GetComponent<AudioSource>().clip = sounds[0].clip;
-        currentTarget = target;
-        return currentTarget;
-    }
+    //    target.gameObject.AddComponent<AudioSource>();
+    //    target.gameObject.GetComponent<AudioSource>().clip = sounds[0].clip;
+    //    currentTarget = target;
+    //    return currentTarget;
+    //}
 
 }
