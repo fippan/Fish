@@ -50,6 +50,11 @@ public class Weapon : MonoBehaviour
 
     [Header("Barrel")]
     public Transform barrelEnd;
+
+    [Header("Haptic feedback.")]
+    [Range(0, 1)]
+    public float hapticStrenght;
+    public float hapticDuration;
     
     private AudioSource audioSource;
     private Animator anim;
@@ -147,6 +152,7 @@ public class Weapon : MonoBehaviour
             if (shellLifeTime > 0)
                 Destroy(newShell, shellLifeTime);
         }
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, 0);
     }
 
     private void FireWithHitScan()

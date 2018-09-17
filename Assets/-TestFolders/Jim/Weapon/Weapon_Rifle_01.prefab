@@ -318,13 +318,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1068754453744020}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.270598, y: 0.6532814, z: 0.27059808, w: 0.65328157}
   m_LocalPosition: {x: 0.0345, y: 0.1278, z: 0.1458}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4074541804396180}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -45.000004, y: 90.00001, z: 0}
 --- !u!23 &23213693494737410
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ungrabDistance: 0.3
   releaseSnapSpeed: 0.05
-  lockZRotation: 1
+  lockZRotation: 0
 --- !u!114 &114284413295479236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -915,7 +915,7 @@ MonoBehaviour:
   shellPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
     type: 2}
   shellPoint: {fileID: 4875748559150112}
-  shellForceMultiplier: 50
+  shellForceMultiplier: 100
   shellLifeTime: 5
   shootSFX: {fileID: 8300000, guid: c38b5abb8c702a04a8cc32307ee49ea5, type: 3}
   outOfAmmoSFX: {fileID: 0}
@@ -931,6 +931,8 @@ MonoBehaviour:
   onHitEffectLifetime: 0
   trail: {fileID: 0}
   barrelEnd: {fileID: 4411693452728076}
+  hapticStrenght: 0.504
+  hapticDuration: 0.1
 --- !u!114 &114631916615767704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -964,7 +966,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 1
+  holdButtonToGrab: 0
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
