@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 114618322520907524}
   - component: {fileID: 114109830473819876}
   - component: {fileID: 82083564715006770}
+  - component: {fileID: 95168961796477032}
   m_Layer: 0
   m_Name: Weapon_Pistol_01
   m_TagString: Untagged
@@ -113,6 +114,21 @@ GameObject:
   - component: {fileID: 4134528982685758}
   m_Layer: 0
   m_Name: GrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1895930663536014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4721559333564030}
+  m_Layer: 0
+  m_Name: ShellPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +171,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1283134035474604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.01389303, z: 0.05571175}
+  m_LocalPosition: {x: 0, y: 0.01389303, z: 0.05571175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4531251607625702}
@@ -200,6 +216,7 @@ Transform:
   - {fileID: 4531251607625702}
   - {fileID: 4241012308773756}
   - {fileID: 4134528982685758}
+  - {fileID: 4721559333564030}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -219,6 +236,19 @@ Transform:
   m_Father: {fileID: 4485837450317736}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4721559333564030
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1895930663536014}
+  m_LocalRotation: {x: -0.27059785, y: 0.6532816, z: 0.27059802, w: 0.6532815}
+  m_LocalPosition: {x: 0.03176, y: 0.08306, z: 0.0052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4485837450317736}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -45.000004, y: 90.00001, z: 0}
 --- !u!4 &4924217797101634
 Transform:
   m_ObjectHideFlags: 1
@@ -525,6 +555,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95168961796477032
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369764378286848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 372998a858ea02d4db8ff0e7a18e30e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114109830473819876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -537,18 +585,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitScan: 1
-  automatic: 1
-  spreadingBullets: 1
+  automatic: 0
+  spreadingBullets: 0
+  burst: 0
+  bulletsToBurst: 0
   explosive: 0
   damage: 15
-  firingRate: 0.1
+  firingRate: 0.15
   minSpreadDegrees: {x: 0, y: 0}
   maxSpreadDegrees: {x: 0, y: 0}
-  shotsUntilReload: 10
+  shotsUntilReload: 17
   reloadTime: 3
+  shellPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
+    type: 2}
+  shellPoint: {fileID: 4721559333564030}
+  shellForceMultiplier: 10
+  shellLifeTime: 5
   shootSFX: {fileID: 8300000, guid: ab7f2ac3d60c1af4583a838487a8a3c9, type: 3}
   outOfAmmoSFX: {fileID: 0}
-  audioSource: {fileID: 0}
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource), typeof(Animator))]
 public class Weapon : MonoBehaviour
 {
     [Header("Weapon attributes.")]
@@ -10,6 +10,8 @@ public class Weapon : MonoBehaviour
     [Tooltip("Automatic fire when trigger is held down.")]
     public bool automatic;
     public bool spreadingBullets;
+    public bool burst;
+    public int bulletsToBurst;
     [Tooltip("Deal damage over an area.")]
     public bool explosive;
     [Space]
@@ -21,10 +23,16 @@ public class Weapon : MonoBehaviour
     public float shotsUntilReload;
     [Tooltip("Time in seconds.")]
     public float reloadTime;
+    [Space]
+    public GameObject shellPrefab;
+    public Transform shellPoint;
+    public float shellForceMultiplier;
+    [Tooltip("0 = do not destroy.")]
+    public float shellLifeTime;
+    [Space]
     [Tooltip("Weapon shoot sfx")]
     public AudioClip shootSFX;
     public AudioClip outOfAmmoSFX;
-    public AudioSource audioSource;
 
     [Header("Explosion settings.")]
     public float explosionRadius;
@@ -43,6 +51,8 @@ public class Weapon : MonoBehaviour
     [Header("Barrel")]
     public Transform barrelEnd;
     
+    private AudioSource audioSource;
+    private Animator anim;
     private bool canFire = true;
     private bool isTriggerDown = false;
     private float shotsFired;
@@ -51,6 +61,8 @@ public class Weapon : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = shootSFX;
+
+        anim = GetComponent<Animator>();
     }
 
     public void Shoot()
@@ -65,10 +77,20 @@ public class Weapon : MonoBehaviour
 
         if (canFire)
         {
-            Fire();
-            if (onShootEffect != null) Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
+            if (burst)
+                Burst();
+            else
+                Fire();
+
+            anim.SetTrigger("Single_Shot");
+            audioSource.Play();
+
+            if (onShootEffect != null)
+                Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
+
             shotsFired++;
             canFire = false;
+
             if (shotsFired > shotsUntilReload)
             {
                 StartCoroutine(Reload());
@@ -78,6 +100,14 @@ public class Weapon : MonoBehaviour
             {
                 StartCoroutine(Cooldown());
             }
+        }
+    }
+
+    private void Burst()
+    {
+        for (int i = 0; i < bulletsToBurst; i++)
+        {
+            Fire();
         }
     }
 
@@ -92,25 +122,31 @@ public class Weapon : MonoBehaviour
         while (isTriggerDown)
         {
             Fire();
-            if (onShootEffect != null) Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
+            anim.SetTrigger("Single_Shot");
+            audioSource.Play();
             shotsFired++;
+
+            if (onShootEffect != null)
+                Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
+            
             if (shotsFired > shotsUntilReload)
-            {
                 yield return StartCoroutine(Reload());
-            }
             else
-            {
                 yield return new WaitForSeconds(firingRate);
-            }
         }
     }
 
     private void Fire()
     {
-
-        audioSource.Play();
         if (hitScan) FireWithHitScan();
         else FireProjectile();
+        if (shellPrefab != null)
+        {
+            GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
+            newShell.GetComponent<Rigidbody>().AddForce(Vector3.forward * shellForceMultiplier);
+            if (shellLifeTime > 0)
+                Destroy(newShell, shellLifeTime);
+        }
     }
 
     private void FireWithHitScan()
@@ -212,8 +248,9 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator Reload()
     {
+        anim.SetBool("Empty", true);
         yield return new WaitForSeconds(reloadTime);
-
+        anim.SetBool("Empty", false);
         shotsFired = 0;
         canFire = true;
     }
