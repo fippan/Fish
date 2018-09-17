@@ -19,14 +19,13 @@ public class VelocityMeasurer : MonoBehaviour
 
     void Update ()
     {
-        if (holdingRod && fishingRod.thrown != true)
+        if (holdingRod && fishingRod.thrown != true && fishingRod.throwable)
         {
             currentSpeed = velocityEst.GetVelocityEstimate();
             if (currentSpeed.x > throwSpeed.x || currentSpeed.z > throwSpeed.z || currentSpeed.x < -throwSpeed.x || currentSpeed.z < -throwSpeed.z)
             {
                 if (currentSpeed.x < throwSpeed.x / 2 || currentSpeed.z < throwSpeed.z / 2 || currentSpeed.x > -throwSpeed.x / 2 || currentSpeed.z > -throwSpeed.z / 2)
                 {
-                    //TODO: Send out the "Flöte" from the rod!
                     fishingRod.ThrowBob(currentSpeed);
                 }
             }

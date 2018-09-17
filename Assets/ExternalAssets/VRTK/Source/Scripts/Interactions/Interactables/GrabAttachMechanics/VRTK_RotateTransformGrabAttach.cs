@@ -96,7 +96,7 @@ namespace VRTK.GrabAttachMechanics
         [Tooltip("Determines how the rotation of the object is calculated based on the action of the grabbing object.")]
         public RotationType rotationAction = RotationType.FollowAttachPoint;
         [Tooltip("The amount of friction to apply when rotating, simulates a tougher rotation.")]
-        [Range(1f, 32f)]
+        [Range(.00001f, 32f)]
         public float rotationFriction = 1f;
         [Tooltip("The damper in which to slow the Interactable Object's rotation down when released to simulate continued momentum. The higher the number, the faster the Interactable Object will come to a complete stop on release.")]
         public float releaseDecelerationDamper = 1f;

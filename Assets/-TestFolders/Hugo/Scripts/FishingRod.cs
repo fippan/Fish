@@ -19,6 +19,8 @@ public class FishingRod : MonoBehaviour
 
     [HideInInspector]
     public bool closeEnough = false;
+    [HideInInspector]
+    public bool throwable = false;
 
     private void Start()
     {
@@ -67,6 +69,22 @@ public class FishingRod : MonoBehaviour
                 closeEnough = false;
                 Destroy(newBob);
             }
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "ThrowBox")
+        {
+            throwable = true;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "ThrowBox")
+        {
+            throwable = false;
         }
     }
 }

@@ -20,6 +20,7 @@ public class SellGun : MonoBehaviour
     {
         if (CurrencyManager.Instance.CurrentCurrency() > cost && beenBought == false)
         {
+            CurrencyManager.Instance.RemoveCurrency(cost);
             GameObject newGun = Instantiate(gun, transform.position, transform.rotation);
             beenBought = true;
             GetComponent<BoxCollider>().enabled = false;

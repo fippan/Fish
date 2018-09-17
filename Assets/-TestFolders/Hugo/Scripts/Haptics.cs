@@ -5,6 +5,12 @@ using VRTK;
 
 public class Haptics : MonoBehaviour
 {
+    private GameObject newController;
+    private float hapticStrength;
+    private float hapticDuration;
+    private float hapticInterval;
+    private bool doHaptics = false;
+
     public static Haptics Instance { get; private set; }
 
     void Awake()
@@ -23,5 +29,10 @@ public class Haptics : MonoBehaviour
         GameObject controller = whichController.GetComponent<VRTK_InteractableObject>().GetGrabbingObject();
 
         VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(controller), strength, duration, pulseInterval);
+        //newController = whichController;
+        //hapticStrength = strength;
+        //hapticDuration = duration;
+        //hapticInterval = pulseInterval;
+        //doHaptics = true;
     }
 }
