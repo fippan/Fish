@@ -111,8 +111,8 @@ public class FishyManager : MonoBehaviour
         Destroy(ps.gameObject, 4f);
         Destroy(ps2.gameObject, 1f);
         Destroy(currentFish);
-
-        AudioManager.instance.PlayTest(smokeFX.gameObject);
+        AudioManager.instance.Play("Explosion");
+        AudioManager.instance.Play("Rattle");
     }
 
 	//public void PickupFish(int amount)

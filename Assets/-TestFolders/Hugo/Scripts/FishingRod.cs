@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using VRTK;
 
 public class FishingRod : MonoBehaviour
 {
@@ -58,6 +59,8 @@ public class FishingRod : MonoBehaviour
                 {
                     FishyManager.Instance.ResetFish();
                     FishyManager.Instance.ExplodeFish();
+                    
+                    Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);
                 }
 
                 thrown = false;
