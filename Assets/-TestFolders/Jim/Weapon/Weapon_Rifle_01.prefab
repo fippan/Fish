@@ -56,14 +56,13 @@ GameObject:
   - component: {fileID: 54333455942319030}
   - component: {fileID: 114772646965500786}
   - component: {fileID: 114898316447433810}
+  - component: {fileID: 114283733501704046}
   - component: {fileID: 114169744882285698}
   - component: {fileID: 114159999576016032}
   - component: {fileID: 114631916615767704}
   - component: {fileID: 114284413295479236}
   - component: {fileID: 114500901274902594}
   - component: {fileID: 114599814843955630}
-  - component: {fileID: 114283733501704046}
-  - component: {fileID: 82439904649145642}
   m_Layer: 0
   m_Name: Weapon_Rifle_01
   m_TagString: Untagged
@@ -713,8 +712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07bf5330424dbc4e94d412f30441b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ungrabDistance: 1
-  releaseSnapSpeed: 0.1
+  ungrabDistance: 0.3
+  releaseSnapSpeed: 0.05
   lockZRotation: 1
 --- !u!114 &114284413295479236
 MonoBehaviour:
@@ -910,7 +909,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
@@ -939,7 +938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   precisionGrab: 0
   rightSnapHandle: {fileID: 4179890601934678}
-  leftSnapHandle: {fileID: 4179890601934678}
+  leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
