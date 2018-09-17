@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1515382256235842}
   m_IsPrefabAsset: 1
+--- !u!1 &1068754453744020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4875748559150112}
+  m_Layer: 0
+  m_Name: ShellPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1181868034027518
 GameObject:
   m_ObjectHideFlags: 1
@@ -63,6 +78,8 @@ GameObject:
   - component: {fileID: 114284413295479236}
   - component: {fileID: 114500901274902594}
   - component: {fileID: 114599814843955630}
+  - component: {fileID: 82439904649145642}
+  - component: {fileID: 95073573764728182}
   m_Layer: 0
   m_Name: Weapon_Rifle_01
   m_TagString: Untagged
@@ -182,6 +199,7 @@ Transform:
   - {fileID: 4491560641580844}
   - {fileID: 4411693452728076}
   - {fileID: 4179890601934678}
+  - {fileID: 4875748559150112}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,7 +249,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1606347282339920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.015060052, z: 0.16137211}
+  m_LocalPosition: {x: -0, y: -0.01506005, z: 0.16137211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4491560641580844}
@@ -262,7 +280,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514198171178958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.006450404, y: 0.10696656, z: 0.1459795}
+  m_LocalPosition: {x: 0.006450404, y: 0.1069666, z: 0.1461}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4491560641580844}
@@ -275,7 +293,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1796244350423996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000000005722046, y: 0.13014367, z: 0.050079465}
+  m_LocalPosition: {x: -0.000000005722046, y: 0.1301437, z: 0.0564}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4491560641580844}
@@ -288,12 +306,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1181868034027518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5516807e-18, y: 0.10405138, z: -0.21590042}
+  m_LocalPosition: {x: 1.551681e-18, y: 0.1040514, z: -0.21590042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4491560641580844}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4875748559150112
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1068754453744020}
+  m_LocalRotation: {x: -0.270598, y: 0.6532814, z: 0.27059808, w: 0.65328157}
+  m_LocalPosition: {x: 0.0345, y: 0.1278, z: 0.1458}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4074541804396180}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -45.000004, y: 90.00001, z: 0}
 --- !u!23 &23213693494737410
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -671,6 +702,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &95073573764728182
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515382256235842}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7be6d2d24542874bae78e96d15748be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114159999576016032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -854,16 +903,22 @@ MonoBehaviour:
   hitScan: 1
   automatic: 1
   spreadingBullets: 1
+  burst: 0
+  bulletsToBurst: 0
   explosive: 0
   damage: 15
   firingRate: 0.1
-  minSpreadDegrees: {x: 0, y: 0}
-  maxSpreadDegrees: {x: 0, y: 0}
-  shotsUntilReload: 10
+  minSpreadDegrees: {x: -5, y: -5}
+  maxSpreadDegrees: {x: 5, y: 5}
+  shotsUntilReload: 30
   reloadTime: 3
+  shellPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
+    type: 2}
+  shellPoint: {fileID: 4875748559150112}
+  shellForceMultiplier: 100
+  shellLifeTime: 5
   shootSFX: {fileID: 8300000, guid: c38b5abb8c702a04a8cc32307ee49ea5, type: 3}
   outOfAmmoSFX: {fileID: 0}
-  audioSource: {fileID: 0}
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
@@ -876,6 +931,8 @@ MonoBehaviour:
   onHitEffectLifetime: 0
   trail: {fileID: 0}
   barrelEnd: {fileID: 4411693452728076}
+  hapticStrenght: 1
+  hapticDuration: 0.25
 --- !u!114 &114631916615767704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -909,7 +966,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 1
+  holdButtonToGrab: 0
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0

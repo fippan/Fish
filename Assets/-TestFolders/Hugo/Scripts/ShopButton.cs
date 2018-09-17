@@ -26,6 +26,10 @@ public class ShopButton : MonoBehaviour
         toggleShop = !toggleShop;
         allWeapons.SetActive(toggleShop);
         StartCoroutine(Cooldown());
+        if (toggleShop == false)
+        {
+            StopCoroutine(AutoClose());
+        }
     }
 
     public IEnumerator Cooldown()
