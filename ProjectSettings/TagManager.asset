@@ -23,6 +23,7 @@ TagManager:
   - Shop
   - Controller
   - ThrowBox
+  - InsideBoat
   layers:
   - Default
   - TransparentFX
