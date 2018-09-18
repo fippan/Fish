@@ -3,25 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using LPWAsset;
 
+[RequireComponent(typeof(Rigidbody))]
 public class FloatingObject : MonoBehaviour
 {
+	[Header("Buoyancy")]
 	[SerializeField] private Transform[] m_BuoyancyPoints;
-	[SerializeField] private float m_BuoyancyStrength = 1f;
-	[SerializeField] private float m_BobbingDamp = 0.5f;
+	[SerializeField] private float m_BuoyancyStrength = 3f;
+	[SerializeField] private float m_BuoyancyDamp = 3f;
+	[SerializeField] private float m_FloatSpeedDamp = 0.75f;
+
+	[Header("Fake bobbing")]
+	[SerializeField] private bool m_FakeBobbing = true;
+	[SerializeField] private float m_BobbingSpeed = 0.7f;
+	[SerializeField] private float m_BobbingHeight = 0.05f;
 
 	private Rigidbody m_ThisRigidbody;
 	private bool m_InWater = false;
+	private bool m_InBoat = false;
 	private float m_WaterLevel;
 
+	private float lastSine;
+	private float sine;
 
 	private void Start()
 	{
 		m_ThisRigidbody = GetComponent<Rigidbody>();
+
+		if (m_BuoyancyPoints.Length == 0)
+		{
+			m_BuoyancyPoints = new Transform[1];
+			m_BuoyancyPoints[0] = transform;
+		}
 	}
 
 	private void FixedUpdate()
 	{
-		if (m_InWater)
+		if (m_InWater && !m_InBoat)
 		{
 			foreach (Transform item in m_BuoyancyPoints)
 			{
@@ -33,6 +50,16 @@ public class FloatingObject : MonoBehaviour
 					m_ThisRigidbody.AddForceAtPosition(uplift, item.position);
 				}
 			}
+
+			if (m_FakeBobbing)
+			{
+				lastSine = sine;
+				sine = Mathf.Sin(Time.fixedTime * Mathf.PI * m_BobbingSpeed) * m_BobbingHeight;
+
+				float yPosNew = transform.position.y + sine - lastSine;
+
+				transform.position = new Vector3(transform.position.x, yPosNew, transform.position.z);
+			}
 		}
 	}
 
@@ -40,13 +67,10 @@ public class FloatingObject : MonoBehaviour
 	{
 		if (other.CompareTag("Water"))
 		{
-			Vector3 waterPosition = other.transform.position;
-			//float waterHeightExtent = other.GetComponent<MeshRenderer>().bounds.extents.y;
-			//m_WaterLevel = waterPosition.y + waterHeightExtent;
+			m_WaterLevel = other.transform.position.y;
 
-			m_WaterLevel = waterPosition.y;
-
-			m_ThisRigidbody.angularDrag = m_BobbingDamp;
+			m_ThisRigidbody.angularDrag = m_BuoyancyDamp;
+			m_ThisRigidbody.drag = m_FloatSpeedDamp;
 
 			m_InWater = true;
 		}
@@ -57,9 +81,15 @@ public class FloatingObject : MonoBehaviour
 		if (other.CompareTag("Water"))
 		{
 			m_ThisRigidbody.angularDrag = 0.05f;
+			m_ThisRigidbody.drag = 0f;
 
 			m_InWater = false;
 		}
 	}
 
+	private void OnTriggerStay(Collider other)
+	{
+		if (other.CompareTag("InsideBoat"))
+			m_InBoat = true;
+	}
 }

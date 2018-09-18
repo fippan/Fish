@@ -9,7 +9,7 @@ Material:
   m_Name: LPWater
   m_Shader: {fileID: 4800000, guid: 8165be4dd0b12774d80426d906df9c38, type: 3}
   m_ShaderKeywords: LPW_HQFOAM LPW_SHADOWS WATER_REFLECTIVE WATER_REFRACTIVE _DISTORT_ON
-    _EDGEBLEND_ON _EMISSION _HQFOAM_ON _LIGHTABS_ON _SHADING_FLAT _WAVES_HIGHQUALITY
+    _EDGEBLEND_ON _EMISSION _HQFOAM_ON _LIGHTABS_ON _SHADING_FLAT _USE_LOD _WAVES_HIGHQUALITY
     _ZWRITE_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -42,9 +42,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Absorption: 3
+    - _Absorption: 2.7
     - _BumpScale: 35
-    - _BumpScale_: 35
+    - _BumpScale_: 21
     - _BumpSpeed: 0.07
     - _Cull: 0
     - _Cull_: 2
@@ -55,37 +55,37 @@ Material:
     - _EdgeBlend: 1
     - _EnableShadows: 1
     - _FoamScale: 20
-    - _FoamSpeed: 0.3
-    - _FoamSpread: 1
+    - _FoamSpeed: 0.2
+    - _FoamSpread: 0.8
     - _FresPower: 1.5
     - _Gloss: 0.6
     - _HQFoam: 1
     - _Height: 0.1
-    - _Height_: 0.1
+    - _Height_: 0.060000002
     - _Length: 3
     - _LightAbs: 1
-    - _NormalOffset: 0.1
-    - _Opacity: 0.2
+    - _NormalOffset: 0.15
+    - _Opacity: 0.3
     - _PointLights: 0
     - _RHeight: 0.2
-    - _RHeight_: 0.2
+    - _RHeight_: 0.120000005
     - _RSpeed: 1
-    - _RSpeed_: 1
+    - _RSpeed_: 0.6
     - _Reflection: 1.2
     - _Refraction: 2
-    - _Scale: 1
-    - _Scale_: 1
+    - _Scale: 0.6
+    - _Scale_: 0.6
     - _Shading: 0
     - _Shadow: 0.7
-    - _ShoreDistance: 0.2
-    - _ShoreIntensity: 1
+    - _ShoreDistance: 0.15
+    - _ShoreIntensity: 0.9
     - _Smoothness: 1
     - _Specular: 44
     - _Speed: 0.5
-    - _Speed_: 0.5
+    - _Speed_: 0.3
     - _Steepness: 0.2
     - _Stretch: 10
-    - _TexSize_: 64
+    - _TexSize_: 38.4
     - _Time_: 323.62787
     - _TransformScale_: 1
     - _Waves: 2
@@ -93,7 +93,7 @@ Material:
     m_Colors:
     - _Color: {r: 0.010412939, g: 0.735849, b: 0.67339826, a: 1}
     - _DeepColor: {r: 0, g: 0.6006591, b: 0.75735295, a: 1}
-    - _Direction_: {r: -1, g: -0.00000008742278, b: -0.6, a: -0.000000052453668}
+    - _Direction_: {r: -1, g: -0.00000008742278, b: -0.36, a: -0.0000000314722}
     - _FresColor: {r: 0.525519, g: 0.72743106, b: 0.7941176, a: 1}
     - _ShoreColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.5955882, g: 0.57104737, b: 0.35472533, a: 1}

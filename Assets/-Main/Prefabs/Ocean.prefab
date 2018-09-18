@@ -51,7 +51,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 2, z: 100}
+  m_Size: {x: 1000, y: 2, z: 1000}
   m_Center: {x: 0, y: -1, z: 0}
 --- !u!114 &114261497452183920
 MonoBehaviour:
@@ -64,14 +64,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6a49d405310944fb9cd55bef9e018f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridType: 0
-  LOD: 0.2
-  LODPower: 3
+  gridType: 2
+  LOD: 0.25
+  LODPower: 2
   customMesh: {fileID: 0}
   material: {fileID: 2100000, guid: fccc2d1bd18a3f84e91e73af7fc9a1aa, type: 2}
   sun: {fileID: 0}
-  sizeX: 60
-  sizeZ: 60
+  sizeX: 120
+  sizeZ: 120
   noise: 0.6
   enableReflection: 1
   enableRefraction: 1
