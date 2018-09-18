@@ -20,15 +20,15 @@ public class Rifle : Weapon
 
     public void OnGrab()
     {
-        controllerEvents = GetComponentInParent<VRTK_InteractGrab>().gameObject.GetComponent<VRTK_ControllerEvents>();
+        //controllerEvents = interactableObject.GetGrabbingObject().GetComponent<VRTK_ControllerEvents>();
 
         //Limit hands grabbing when picked up
-        if (VRTK_DeviceFinder.GetControllerHand(controllerEvents.gameObject) == SDK_BaseController.ControllerHand.Left)
+        if (VRTK_DeviceFinder.GetControllerHand(interactableObject.GetGrabbingObject()) == SDK_BaseController.ControllerHand.Left)
         {
             interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
             interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
         }
-        else if (VRTK_DeviceFinder.GetControllerHand(controllerEvents.gameObject) == SDK_BaseController.ControllerHand.Right)
+        else if (VRTK_DeviceFinder.GetControllerHand(interactableObject.GetGrabbingObject()) == SDK_BaseController.ControllerHand.Right)
         {
             interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.RightOnly;
             interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.RightOnly;
