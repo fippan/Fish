@@ -19,7 +19,7 @@ public class FishingRod : MonoBehaviour
 
     [HideInInspector]
     public bool closeEnough = false;
-    [HideInInspector]
+    //[HideInInspector]
     public bool throwable = false;
 
     private void Start()
@@ -61,7 +61,6 @@ public class FishingRod : MonoBehaviour
                 {
                     FishyManager.Instance.ResetFish();
                     FishyManager.Instance.ExplodeFish();
-                    
                     Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);
                 }
 
@@ -72,19 +71,13 @@ public class FishingRod : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void Throwable()
     {
-        if (other.gameObject.tag == "ThrowBox")
-        {
-            throwable = true;
-        }
+        throwable = true;
     }
 
-    public void OnTriggerExit(Collider other)
+    public void NotThrowable ()
     {
-        if (other.gameObject.tag == "ThrowBox")
-        {
-            throwable = false;
-        }
+        throwable = false;
     }
 }

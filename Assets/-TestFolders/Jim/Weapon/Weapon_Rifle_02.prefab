@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 114336180033463802}
   - component: {fileID: 114547414210501774}
   - component: {fileID: 114158886679844764}
-  - component: {fileID: 114995137617403544}
   - component: {fileID: 114990256586509052}
   - component: {fileID: 114623479991499640}
   - component: {fileID: 114670876511279632}
@@ -80,6 +79,7 @@ GameObject:
   - component: {fileID: 114480268928694314}
   - component: {fileID: 82164884527254384}
   - component: {fileID: 95880318182230608}
+  - component: {fileID: 114470810468085072}
   m_Layer: 0
   m_Name: Weapon_Rifle_02
   m_TagString: Untagged
@@ -631,6 +631,20 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &114470810468085072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437912708010896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07bf5330424dbc4e94d412f30441b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ungrabDistance: 1
+  releaseSnapSpeed: 0.1
+  lockZRotation: 1
 --- !u!114 &114480268928694314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -840,14 +854,3 @@ MonoBehaviour:
   objectToHighlight: {fileID: 0}
   objectHighlighter: {fileID: 0}
   objectToAffect: {fileID: 0}
---- !u!114 &114995137617403544
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437912708010896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

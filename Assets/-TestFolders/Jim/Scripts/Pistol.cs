@@ -2,8 +2,7 @@
 {
     public override void Shoot()
     {
-        if (!canFire)
-            return;
+        if (!canFire) return;
 
         if (hitScan)
             FireWithHitScan();

@@ -40,7 +40,8 @@ public abstract class Weapon : MonoBehaviour
     public float speed;
     public GameObject onShootEffect;
     public float onShootEffectLifetime;
-    public GameObject onHitEffect;
+    [Tooltip("0 = Humanoid, 1 = Water, 2 = Metal, 3 = Wood.")]
+    public GameObject[] onHitEffects = new GameObject[3];
     public float onHitEffectLifetime;
     public GameObject trail;
 
@@ -55,13 +56,12 @@ public abstract class Weapon : MonoBehaviour
     private AudioSource audioSource;
     private Animator anim;
     protected bool canFire = true;
-    protected bool isTriggerDown = false;
     protected float shotsFired;
 
     protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = shootSFX;
+        if (shootSFX != null) audioSource.clip = shootSFX;
         anim = GetComponent<Animator>();
     }
 
@@ -108,10 +108,33 @@ public abstract class Weapon : MonoBehaviour
             }
         }
 
-        if (onHitEffect != null)
+        OnHitTargetEffect(target, point);
+    }
+
+    private void OnHitTargetEffect(Transform target, Vector3 point)
+    {
+        int i;
+        switch (target.tag)
         {
-            Destroy(Instantiate(onHitEffect, point, Quaternion.identity), onHitEffectLifetime);
+            case "Humanoid":
+                i = 0;
+                break;
+            case "Water":
+                i = 1;
+                break;
+            case "Metal":
+                i = 2;
+                break;
+            case "Wood":
+                i = 3;
+                break;
+            default:
+                i = 2;
+                break;
         }
+
+        if (onHitEffects[i] != null)
+            Destroy(Instantiate(onHitEffects[i], point, Quaternion.identity), onHitEffectLifetime);
     }
 
     private void Explode()
@@ -168,16 +191,17 @@ public abstract class Weapon : MonoBehaviour
         newProjectile.speed = speed;
         newProjectile.explosive = explosive;
         newProjectile.explosionRadius = explosionRadius;
-        newProjectile.onHitEffect = onHitEffect;
+        newProjectile.onHitEffect = onHitEffects[0];
         newProjectile.trail = trail;
     }
 
     protected virtual void OnShotFired()
     {
-        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, 0);
-        anim.SetTrigger("Single_Shot");
-        audioSource.Play();
-
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
+        if (anim.runtimeAnimatorController != null)
+            anim.SetTrigger("Single_Shot");
+        if (shootSFX != null)
+            audioSource.Play();
         if (onShootEffect != null)
             Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
 
@@ -214,9 +238,12 @@ public abstract class Weapon : MonoBehaviour
 
     protected IEnumerator Reload()
     {
-        anim.SetBool("Empty", true);
+        canFire = false;
+        if (anim.runtimeAnimatorController != null)
+            anim.SetBool("Empty", true);
         yield return new WaitForSeconds(reloadTime);
-        anim.SetBool("Empty", false);
+        if (anim.runtimeAnimatorController != null)
+            anim.SetBool("Empty", false);
         shotsFired = 0;
         canFire = true;
     }

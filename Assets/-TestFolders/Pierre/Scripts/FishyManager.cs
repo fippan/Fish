@@ -61,18 +61,6 @@ public class FishyManager : MonoBehaviour
 		{
 			//gameObject.SetActive(false);
 		}
-
-
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			StartFishing(spawnPos);
-		}
-
-        if(Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            ExplodeFish();
-            FindObjectOfType<Weapon>().Shoot();
-        }
 	}
 
 	public void StartFishing(Transform newSpawnPos)

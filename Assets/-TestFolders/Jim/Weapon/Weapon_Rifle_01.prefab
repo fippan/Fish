@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 114772646965500786}
   - component: {fileID: 114898316447433810}
   - component: {fileID: 114283733501704046}
-  - component: {fileID: 114169744882285698}
   - component: {fileID: 114159999576016032}
   - component: {fileID: 114631916615767704}
   - component: {fileID: 114284413295479236}
@@ -739,17 +738,6 @@ MonoBehaviour:
   objectToHighlight: {fileID: 0}
   objectHighlighter: {fileID: 0}
   objectToAffect: {fileID: 0}
---- !u!114 &114169744882285698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1515382256235842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114283733501704046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -770,7 +758,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515382256235842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f96f1837f21d4bf9a77ff61e7b81f20, type: 3}
   m_Name: 
@@ -812,50 +800,17 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnUngrab:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 54333455942319030}
-        m_MethodName: set_isKinematic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnUse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114599814843955630}
-        m_MethodName: Shoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnUnuse:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114599814843955630}
-        m_MethodName: OnTriggerReleased
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnEnterSnapDropZone:
@@ -924,7 +879,10 @@ MonoBehaviour:
   onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
     type: 2}
   onShootEffectLifetime: 2
-  onHitEffect: {fileID: 0}
+  onHitEffects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   onHitEffectLifetime: 0
   trail: {fileID: 0}
   barrelEnd: {fileID: 4411693452728076}
