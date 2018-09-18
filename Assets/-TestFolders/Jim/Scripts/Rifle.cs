@@ -14,10 +14,14 @@ public class Rifle : Weapon
 
     private Rigidbody rb;
 
+    private void Awake()
+    {
+        interactableObject = GetComponent<VRTK_InteractableObject>();
+    }
+
     protected override void Start()
     {
         base.Start();
-        interactableObject = GetComponent<VRTK_InteractableObject>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -31,6 +35,7 @@ public class Rifle : Weapon
 
     private void OnGrab(object sender, InteractableObjectEventArgs e)
     {
+        Debug.Log("OnGrab" + e.interactingObject);
         if (currentPrimaryGrabbingObject == null)
         {
             currentPrimaryGrabbingObject = e.interactingObject;            
@@ -39,10 +44,12 @@ public class Rifle : Weapon
         {
             currentSecondaryGrabbingObject = e.interactingObject;
         }
+        Debug.Log(currentPrimaryGrabbingObject);
     }
 
     private void OnUngrab(object sender, InteractableObjectEventArgs e)
     {
+        Debug.Log("OnUngrab" + e.interactingObject);
         if (e.interactingObject == currentPrimaryGrabbingObject)
         {
             currentPrimaryGrabbingObject = null;
@@ -57,6 +64,7 @@ public class Rifle : Weapon
 
     private void OnUse(object sender, InteractableObjectEventArgs e)
     {
+        Debug.Log("OnUse" + e.interactingObject);
         if (e.interactingObject == currentPrimaryGrabbingObject)
         {
             Shoot();
@@ -65,6 +73,7 @@ public class Rifle : Weapon
 
     private void OnUnuse(object sender, InteractableObjectEventArgs e)
     {
+        Debug.Log("OnUnuse" + e.interactingObject);
         if (e.interactingObject == currentPrimaryGrabbingObject)
         {
             OnTriggerReleased();
@@ -107,9 +116,6 @@ public class Rifle : Weapon
 
     public override void Shoot()
     {
-        if (!controllerEvents.IsButtonPressed(VRTK_ControllerEvents.ButtonAlias.TriggerClick))
-            return;
-
         if (!canFire) return;
 
         if (automatic && !isTriggerDown) StartCoroutine(AutomaticFire());

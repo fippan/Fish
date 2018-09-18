@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 114952352036559144}
   - component: {fileID: 82323608045556150}
   - component: {fileID: 95907661803452138}
-  - component: {fileID: 114731930571365762}
   m_Layer: 0
   m_Name: Weapon_Shotgun_01
   m_TagString: Untagged
@@ -751,20 +750,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &114731930571365762
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1668098778998034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07bf5330424dbc4e94d412f30441b0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ungrabDistance: 1
-  releaseSnapSpeed: 0.1
-  lockZRotation: 1
 --- !u!114 &114761857948710190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -836,7 +821,10 @@ MonoBehaviour:
   onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
     type: 2}
   onShootEffectLifetime: 2
-  onHitEffect: {fileID: 0}
+  onHitEffects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   onHitEffectLifetime: 0
   trail: {fileID: 0}
   barrelEnd: {fileID: 4844489638462824}
