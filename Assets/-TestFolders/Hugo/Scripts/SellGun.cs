@@ -18,7 +18,7 @@ public class SellGun : MonoBehaviour
 
     public void Sell ()
     {
-        if (CurrencyManager.Instance.CurrentCurrency() > cost && beenBought == false)
+        if (CurrencyManager.Instance.CurrentCurrency() >= cost && beenBought == false)
         {
             CurrencyManager.Instance.RemoveCurrency(cost);
             GameObject newGun = Instantiate(gun, transform.position, transform.rotation);

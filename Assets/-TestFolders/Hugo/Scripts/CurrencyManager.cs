@@ -34,8 +34,13 @@ public class CurrencyManager : MonoBehaviour
         money.text = moneyString + currentCurrency;
     }
 
-    public float CurrentCurrency()
+    public float CurrentCurrency ()
     {
         return currentCurrency;
+    }
+
+    public float GetTotalCurrency ()
+    {
+        return totalCurrency;
     }
 }

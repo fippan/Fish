@@ -7,44 +7,44 @@ public class ShopButton : MonoBehaviour
     public GameObject allWeapons;
 
     private bool toggleShop = false;
-    private bool cd = true;
+    private bool canOpen = true;
+    private Coroutine autoClose;
 
-    private float buttonCD = 2f;
-    private float currentCD = 0f;
-
-    public void OnTriggerEnter(Collider other)
+    public void ToggleShop ()
     {
-        if (cd)
+        toggleShop = !toggleShop;
+        Shop();
+    }
+
+    private void Shop ()
+    {
+        if (toggleShop)
         {
-            ToggleShop();
-            StartCoroutine(AutoClose());
+            if (canOpen)
+            {
+                canOpen = false;
+                allWeapons.SetActive(true);
+                autoClose = StartCoroutine(AutoClose());
+                StartCoroutine(Cooldown());
+            }
+        }
+        else
+        {
+            allWeapons.SetActive(false);
+            StopCoroutine(autoClose);
         }
     }
 
-    private void ToggleShop ()
+    public IEnumerator AutoClose()
     {
-        toggleShop = !toggleShop;
-        allWeapons.SetActive(toggleShop);
-        StartCoroutine(Cooldown());
-        if (toggleShop == false)
-        {
-            StopCoroutine(AutoClose());
-        }
+        yield return new WaitForSeconds(10);
+        toggleShop = false;
+        Shop();
     }
 
     public IEnumerator Cooldown()
     {
-        cd = false;
-        yield return new WaitForSeconds(.5f);
-        cd = true;
-    }
-
-    public IEnumerator AutoClose ()
-    {
-        yield return new WaitForSeconds(5);
-        if (toggleShop)
-        {
-            ToggleShop();
-        }
+        yield return new WaitForSeconds(1.5f);
+        canOpen = true;
     }
 }

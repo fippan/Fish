@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/-TestFolders/Hugo/Scene/Hugo.unity
     guid: 549631205627a4742988c60a15526fa8
+  - enabled: 1
+    path: Assets/-TestFolders/Hugo/Scene/MainMenu.unity
+    guid: 1e99baa626fe4d944bc35ebd7ccf6c6e
   m_configObjects: {}
