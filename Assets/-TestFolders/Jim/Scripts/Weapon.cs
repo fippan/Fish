@@ -55,13 +55,12 @@ public abstract class Weapon : MonoBehaviour
     private AudioSource audioSource;
     private Animator anim;
     protected bool canFire = true;
-    protected bool isTriggerDown = false;
     protected float shotsFired;
 
     protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = shootSFX;
+        if (shootSFX != null) audioSource.clip = shootSFX;
         anim = GetComponent<Animator>();
     }
 
@@ -175,9 +174,10 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void OnShotFired()
     {
         Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
-        anim.SetTrigger("Single_Shot");
-        audioSource.Play();
-
+        if (anim.runtimeAnimatorController != null)
+            anim.SetTrigger("Single_Shot");
+        if (shootSFX != null)
+            audioSource.Play();
         if (onShootEffect != null)
             Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
 
@@ -214,9 +214,12 @@ public abstract class Weapon : MonoBehaviour
 
     protected IEnumerator Reload()
     {
-        anim.SetBool("Empty", true);
+        canFire = false;
+        if (anim.runtimeAnimatorController != null)
+            anim.SetBool("Empty", true);
         yield return new WaitForSeconds(reloadTime);
-        anim.SetBool("Empty", false);
+        if (anim.runtimeAnimatorController != null)
+            anim.SetBool("Empty", false);
         shotsFired = 0;
         canFire = true;
     }

@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
+using VRTK;
 
 public class Rifle : Weapon
 {
     [Header("Rifle settings.")]
     public bool automatic;
+    private bool isTriggerDown;
+    //private GameObject controllerObject;
+    //private VRTK_InteractableObject interactableObject;
+    //private VRTK_ControllerEvents controllerEvents;
+    //private string controllerHand;
 
     public override void Shoot()
     {
@@ -29,7 +35,9 @@ public class Rifle : Weapon
 
     public void OnTriggerReleased()
     {
-        isTriggerDown = false;
+       // if (VRTK_DeviceFinder.GetControllerHand(controllerEvents.gameObject) == SDK_BaseController.ControllerHand.Left)
+
+        isTriggerDown = false;        
     }
 
     private void SingleFire()

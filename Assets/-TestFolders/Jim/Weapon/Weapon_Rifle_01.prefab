@@ -72,7 +72,6 @@ GameObject:
   - component: {fileID: 114772646965500786}
   - component: {fileID: 114898316447433810}
   - component: {fileID: 114283733501704046}
-  - component: {fileID: 114169744882285698}
   - component: {fileID: 114159999576016032}
   - component: {fileID: 114631916615767704}
   - component: {fileID: 114284413295479236}
@@ -80,6 +79,7 @@ GameObject:
   - component: {fileID: 114599814843955630}
   - component: {fileID: 82439904649145642}
   - component: {fileID: 95073573764728182}
+  - component: {fileID: 114264096989337016}
   m_Layer: 0
   m_Name: Weapon_Rifle_01
   m_TagString: Untagged
@@ -739,7 +739,7 @@ MonoBehaviour:
   objectToHighlight: {fileID: 0}
   objectHighlighter: {fileID: 0}
   objectToAffect: {fileID: 0}
---- !u!114 &114169744882285698
+--- !u!114 &114264096989337016
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -747,9 +747,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1515382256235842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
+  m_Script: {fileID: 11500000, guid: e07bf5330424dbc4e94d412f30441b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ungrabDistance: 1
+  releaseSnapSpeed: 0.1
+  lockZRotation: 1
 --- !u!114 &114283733501704046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -807,7 +810,18 @@ MonoBehaviour:
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnGrab:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114599814843955630}
+        m_MethodName: OnGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnUngrab:
