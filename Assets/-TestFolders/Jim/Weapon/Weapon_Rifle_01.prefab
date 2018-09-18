@@ -79,7 +79,6 @@ GameObject:
   - component: {fileID: 114599814843955630}
   - component: {fileID: 82439904649145642}
   - component: {fileID: 95073573764728182}
-  - component: {fileID: 114264096989337016}
   m_Layer: 0
   m_Name: Weapon_Rifle_01
   m_TagString: Untagged
@@ -739,20 +738,6 @@ MonoBehaviour:
   objectToHighlight: {fileID: 0}
   objectHighlighter: {fileID: 0}
   objectToAffect: {fileID: 0}
---- !u!114 &114264096989337016
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1515382256235842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07bf5330424dbc4e94d412f30441b0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ungrabDistance: 1
-  releaseSnapSpeed: 0.1
-  lockZRotation: 1
 --- !u!114 &114283733501704046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -927,7 +912,10 @@ MonoBehaviour:
   onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
     type: 2}
   onShootEffectLifetime: 2
-  onHitEffect: {fileID: 0}
+  onHitEffects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   onHitEffectLifetime: 0
   trail: {fileID: 0}
   barrelEnd: {fileID: 4411693452728076}
@@ -973,7 +961,7 @@ MonoBehaviour:
   grabOverrideButton: 0
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 114898316447433810}
-  secondaryGrabActionScript: {fileID: 114283733501704046}
+  secondaryGrabActionScript: {fileID: 0}
   isUsable: 1
   holdButtonToUse: 1
   useOnlyIfGrabbed: 1

@@ -7,10 +7,39 @@ public class Rifle : Weapon
     [Header("Rifle settings.")]
     public bool automatic;
     private bool isTriggerDown;
-    //private GameObject controllerObject;
-    //private VRTK_InteractableObject interactableObject;
-    //private VRTK_ControllerEvents controllerEvents;
-    //private string controllerHand;
+    private GameObject controllerObject;
+    private VRTK_InteractableObject interactableObject;
+    private VRTK_ControllerEvents controllerEvents;
+    private string controllerHand;
+
+    protected override void Start()
+    {
+        base.Start();
+        interactableObject = GetComponent<VRTK_InteractableObject>();
+    }
+
+    public void OnGrab()
+    {
+        controllerEvents = GetComponentInParent<VRTK_InteractGrab>().gameObject.GetComponent<VRTK_ControllerEvents>();
+
+        //Limit hands grabbing when picked up
+        if (VRTK_DeviceFinder.GetControllerHand(controllerEvents.gameObject) == SDK_BaseController.ControllerHand.Left)
+        {
+            interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
+            interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
+        }
+        else if (VRTK_DeviceFinder.GetControllerHand(controllerEvents.gameObject) == SDK_BaseController.ControllerHand.Right)
+        {
+            interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.RightOnly;
+            interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.RightOnly;
+        }
+    }
+
+    public void OnDrop()
+    {
+        interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.Both;
+        interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.Both;
+    }
 
     public override void Shoot()
     {
