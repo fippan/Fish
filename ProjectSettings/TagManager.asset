@@ -24,6 +24,9 @@ TagManager:
   - Controller
   - ThrowBox
   - InsideBoat
+  - Wood
+  - Metal
+  - Humanoid
   layers:
   - Default
   - TransparentFX

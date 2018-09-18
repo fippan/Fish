@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using VRTK;
 
 public class EndScreen : MonoBehaviour
 {
@@ -10,17 +12,26 @@ public class EndScreen : MonoBehaviour
     public void GameOver ()
     {
         totalGold.text = ("Money earned: ") + CurrencyManager.Instance.GetTotalCurrency().ToString();
-        daysSurvived.text = ("Days survived: ") + KillCountManager.Instance.GetKillCount();
-        enemiesKilled.text = ("Enemies killed: ");
+        daysSurvived.text = ("Days survived: ");
+        enemiesKilled.text = ("Enemies killed: ") + KillCountManager.Instance.GetKillCount();
 
-        PlayerPrefs.SetFloat("MoneyHighscore", CurrencyManager.Instance.GetTotalCurrency());
+        if (PlayerPrefs.GetFloat("MoneyHighscore", 0) < CurrencyManager.Instance.GetTotalCurrency())
+            PlayerPrefs.SetFloat("MoneyHighscore", CurrencyManager.Instance.GetTotalCurrency());
+
         //TODO: add playerprefs for time survived!
-        PlayerPrefs.SetInt("EnemieHighscore", KillCountManager.Instance.GetKillCount());
+        if (PlayerPrefs.GetFloat("EnemieHighscore", 0) < KillCountManager.Instance.GetKillCount())
+            PlayerPrefs.SetInt("EnemieHighscore", KillCountManager.Instance.GetKillCount());
     }
 
     public void Quit ()
     {
+        GetComponent<VRTK_HeadsetFade>().Fade((new Color(0, 0, 0)), 2);
+        StartCoroutine(Fade());
+    }
+    
+    public IEnumerator Fade()
+    {
+        yield return new WaitForSeconds(2);
         LevelManager.Instance.MainMenu();
-        Debug.Log("HENLOOOOOOOO");
     }
 }
