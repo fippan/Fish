@@ -31,7 +31,7 @@ public class Rifle : Weapon
 
     private void OnGrab(object sender, InteractableObjectEventArgs e)
     {
-        if (currentPrimaryGrabbingObject != null)
+        if (currentPrimaryGrabbingObject == null)
         {
             currentPrimaryGrabbingObject = e.interactingObject;            
         }
