@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour, ICanTakeDamage{
     public float health;
     public bool Dead;
     public GameObject enemyModel;
+    public GameObject hitFX;
 
 
     public void TakeDamage(float damage)
