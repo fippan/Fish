@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
     public GameObject boat;
+    [SerializeField] private float rotationSpeed;
     void Update()
     {
-        transform.position = boat.transform.position;
+        if(boat != null)
+            transform.position = boat.transform.position;
 
-        transform.Rotate(0, -0.05f, 0);
+        transform.Rotate(0, -rotationSpeed, 0);
     }
 }
