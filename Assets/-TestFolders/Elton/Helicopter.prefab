@@ -876,7 +876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   topRotor: {fileID: 1439068881459840}
-  botRotor: {fileID: 0}
+  botRotor: {fileID: 1217266173272858}
   boat: {fileID: 0}
   minigunOne: {fileID: 1127066040877952}
   minigunTwo: {fileID: 1614478066793442}

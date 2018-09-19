@@ -58,7 +58,8 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
             anim.StopPlayback();
             botRotor.GetComponent<Rotator>().dead = true;
             gameObject.GetComponent<Rigidbody>().useGravity = true;
-            Death();
+            KillCountManager.Instance.AddKill();
+            Invoke("Death", 20f);
         }
     }
     public void Death()
