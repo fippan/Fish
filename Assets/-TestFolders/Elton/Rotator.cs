@@ -22,5 +22,9 @@ public class Rotator : MonoBehaviour
             rotationSpeed -= Time.deltaTime * 6;
             transform.Rotate(0, -rotationSpeed, 0);
         }
+        else if (rotationSpeed < 0)
+        {
+            transform.Rotate(0, 0, 0);
+        }
     }
 }
