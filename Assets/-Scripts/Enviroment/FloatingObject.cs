@@ -8,8 +8,8 @@ public class FloatingObject : MonoBehaviour
 {
 	[Header("Buoyancy")]
 	[SerializeField] private Transform[] m_BuoyancyPoints;
-	[SerializeField] private float m_BuoyancyStrength = 3f;
-	[SerializeField] private float m_BuoyancyDamp = 3f;
+	[SerializeField] private float m_BuoyancyStrength = 2f;
+	[SerializeField] private float m_BuoyancyDamp = 2f;
 	[SerializeField] private float m_FloatSpeedDamp = 0.75f;
 
 	[Header("Fake bobbing")]
@@ -85,7 +85,7 @@ public class FloatingObject : MonoBehaviour
 	{
 		if (other.CompareTag("InsideBoat"))
 		{
-			m_InBoat = true;
+			m_InBoat = false;
 		}
 
 		if (other.CompareTag("Water"))

@@ -1387,6 +1387,11 @@ Prefab:
       propertyPath: sun
       value: 
       objectReference: {fileID: 321362063}
+    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
+        type: 2}
+      propertyPath: receiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66de114178e96954b90588daa2c6c6d6, type: 2}
   m_IsPrefabAsset: 0
