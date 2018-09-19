@@ -3,6 +3,7 @@
 public class Helicopter : MonoBehaviour, ICanTakeDamage
 {
     [SerializeField] private float health;
+    private float halfHealth;
 
     private bool dead;
     private bool readyToAttack;
@@ -16,6 +17,7 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
 
     private void Start()
     {
+        halfHealth = health / 2;
         anim = gameObject.GetComponent<Animator>();
         transform.LookAt(boat.transform);
         InvokeRepeating("Shooting", anim.GetCurrentAnimatorStateInfo(0).length, 0.2f);
@@ -47,7 +49,7 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
     {
         health -= damage;
 
-        if (health <= 50)
+        if (health <= halfHealth)
         {
             topRotor.transform.parent = null;
             Rigidbody de1 = topRotor.GetComponent<Rigidbody>();
