@@ -770,7 +770,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685030288229418}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7d3e22f50d2445e44a63b79b2856bf2a, type: 2}
   m_CullingMode: 0
@@ -839,6 +839,7 @@ MonoBehaviour:
   reloadTime: 5
   magPoint: {fileID: 0}
   magPrefab: {fileID: 0}
+  magForceMultiplier: 0
   shellPrefab: {fileID: 0}
   shellPoint: {fileID: 0}
   shellForceMultiplier: 0
@@ -867,7 +868,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685030288229418}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4110a9d4ee78b5b4aabef540a0ad0594, type: 3}
   m_Name: 
@@ -914,6 +915,7 @@ MonoBehaviour:
   reloadTime: 5
   magPoint: {fileID: 0}
   magPrefab: {fileID: 0}
+  magForceMultiplier: 0
   shellPrefab: {fileID: 0}
   shellPoint: {fileID: 0}
   shellForceMultiplier: 0

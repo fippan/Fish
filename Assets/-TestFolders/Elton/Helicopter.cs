@@ -55,7 +55,8 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
 
         if (health <= 0)
         {
-            anim.StopPlayback();
+            anim.enabled = !anim.enabled;
+            //anim.StopPlayback();
             botRotor.GetComponent<Rotator>().dead = true;
             gameObject.GetComponent<Rigidbody>().useGravity = true;
             KillCountManager.Instance.AddKill();

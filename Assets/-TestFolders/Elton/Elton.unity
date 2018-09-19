@@ -2765,23 +2765,7 @@ Prefab:
       propertyPath: boat
       value: 
       objectReference: {fileID: 1982406364}
-    - target: {fileID: 95256323991359542, guid: 235a57d4b04dfb440b5fa8c8d35b23c0,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114426254721963692, guid: 235a57d4b04dfb440b5fa8c8d35b23c0,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 54477912635384314, guid: 235a57d4b04dfb440b5fa8c8d35b23c0,
-        type: 2}
-      propertyPath: m_Mass
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 64275874419352598, guid: 235a57d4b04dfb440b5fa8c8d35b23c0, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235a57d4b04dfb440b5fa8c8d35b23c0, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &2036162700
@@ -2814,20 +2798,3 @@ Transform:
   m_Father: {fileID: 226364910}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2100818566 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1685030288229418, guid: 235a57d4b04dfb440b5fa8c8d35b23c0,
-    type: 2}
-  m_PrefabInternal: {fileID: 2011138321}
---- !u!65 &2100818571
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2100818566}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.5056906, y: 2.3363223, z: 10.157509}
-  m_Center: {x: -0.028065562, y: 0.027144592, z: -1.3639538}
