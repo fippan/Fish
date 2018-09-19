@@ -35,7 +35,6 @@ public class Rifle : Weapon
 
     private void OnGrab(object sender, InteractableObjectEventArgs e)
     {
-        Debug.Log("OnGrab" + e.interactingObject);
         if (currentPrimaryGrabbingObject == null)
         {
             currentPrimaryGrabbingObject = e.interactingObject;            
@@ -44,12 +43,10 @@ public class Rifle : Weapon
         {
             currentSecondaryGrabbingObject = e.interactingObject;
         }
-        Debug.Log(currentPrimaryGrabbingObject);
     }
 
     private void OnUngrab(object sender, InteractableObjectEventArgs e)
     {
-        Debug.Log("OnUngrab" + e.interactingObject);
         if (e.interactingObject == currentPrimaryGrabbingObject)
         {
             currentPrimaryGrabbingObject = null;
@@ -64,7 +61,6 @@ public class Rifle : Weapon
 
     private void OnUse(object sender, InteractableObjectEventArgs e)
     {
-        Debug.Log("OnUse" + e.interactingObject);
         if (e.interactingObject == currentPrimaryGrabbingObject)
         {
             Shoot();
@@ -73,7 +69,6 @@ public class Rifle : Weapon
 
     private void OnUnuse(object sender, InteractableObjectEventArgs e)
     {
-        Debug.Log("OnUnuse" + e.interactingObject);
         if (e.interactingObject == currentPrimaryGrabbingObject)
         {
             OnTriggerReleased();
@@ -87,32 +82,6 @@ public class Rifle : Weapon
         interactableObject.InteractableObjectUnused -= OnUnuse;
         interactableObject.InteractableObjectUsed -= OnUse;
     }
-
-    //public void OnGrab()
-    //{
-    //    if (controllerEvents != null) return;
-
-    //    controllerEvents = interactableObject.GetGrabbingObject().GetComponent<VRTK_ControllerEvents>();
-
-    //    //Limit hands grabbing when picked up
-    //    //if (VRTK_DeviceFinder.GetControllerHand(interactableObject.GetGrabbingObject()) == SDK_BaseController.ControllerHand.Left)
-    //    //{
-    //    //    interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
-    //    //    interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
-    //    //}
-    //    //else if (VRTK_DeviceFinder.GetControllerHand(interactableObject.GetGrabbingObject()) == SDK_BaseController.ControllerHand.Right)
-    //    //{
-    //    //    interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.RightOnly;
-    //    //    interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.RightOnly;
-    //    //}
-    //}
-
-    //public void OnDrop()
-    //{
-    //    controllerEvents = null;
-    //    //interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.Both;
-    //    //interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.Both;
-    //}
 
     public override void Shoot()
     {

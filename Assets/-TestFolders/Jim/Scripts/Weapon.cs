@@ -19,6 +19,8 @@ public abstract class Weapon : MonoBehaviour
     public float shotsUntilReload;
     [Tooltip("Time in seconds.")]
     public float reloadTime;
+    public Transform magPoint;
+    public GameObject magPrefab;
     [Space]
     public GameObject shellPrefab;
     public Transform shellPoint;
@@ -57,12 +59,14 @@ public abstract class Weapon : MonoBehaviour
     private Animator anim;
     protected bool canFire = true;
     protected float shotsFired;
+    private GameObject currentMag;
 
     protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
         if (shootSFX != null) audioSource.clip = shootSFX;
         anim = GetComponent<Animator>();
+        if (magPrefab != null) currentMag = Instantiate(magPrefab, magPoint);
     }
 
     public abstract void Shoot();
@@ -239,11 +243,22 @@ public abstract class Weapon : MonoBehaviour
     protected IEnumerator Reload()
     {
         canFire = false;
+        if (magPrefab != null)
+        {
+            currentMag.GetComponent<Rigidbody>().isKinematic = false;
+            Destroy(currentMag, 5f);
+        }
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", true);
+
         yield return new WaitForSeconds(reloadTime);
+
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", false);
+        if (magPrefab != null)
+        {
+            currentMag = Instantiate(magPrefab, magPoint);
+        }
         shotsFired = 0;
         canFire = true;
     }
