@@ -89,10 +89,10 @@ public class Sniper : Weapon
     public override void Shoot()
     {
         if (!canFire) return;
-        
-        Haptics.Instance.StartHaptics(currentPrimaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (currentSecondaryGrabbingObject != null)
-            Haptics.Instance.StartHaptics(currentSecondaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+            Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         canFire = false;
         if (hitScan)
             FireWithHitScan();

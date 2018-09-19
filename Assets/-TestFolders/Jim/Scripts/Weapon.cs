@@ -61,6 +61,7 @@ public abstract class Weapon : MonoBehaviour
     protected bool canFire = true;
     protected float shotsFired;
     protected GameObject currentMag;
+    protected bool spreadingBulletsEnabled;
 
     protected virtual void Start()
     {
@@ -68,6 +69,7 @@ public abstract class Weapon : MonoBehaviour
         if (shootSFX != null) audioSource.clip = shootSFX;
         anim = GetComponent<Animator>();
         if (magPrefab != null) currentMag = Instantiate(magPrefab, magPoint);
+        spreadingBulletsEnabled = spreadingBullets;
     }
 
     public abstract void Shoot();

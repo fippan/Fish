@@ -30,18 +30,20 @@ public class Rifle : Weapon
         interactableObject.InteractableObjectGrabbed += OnGrab;
         interactableObject.InteractableObjectUngrabbed += OnUngrab;
         interactableObject.InteractableObjectUnused += OnUnuse;
-        interactableObject.InteractableObjectUsed += OnUse;        
+        interactableObject.InteractableObjectUsed += OnUse;
     }
 
     private void OnGrab(object sender, InteractableObjectEventArgs e)
     {
         if (currentPrimaryGrabbingObject == null)
         {
-            currentPrimaryGrabbingObject = e.interactingObject;            
+            currentPrimaryGrabbingObject = e.interactingObject;
+            if (spreadingBulletsEnabled) spreadingBullets = true;
         }
         else
         {
             currentSecondaryGrabbingObject = e.interactingObject;
+            spreadingBullets = false;
         }
     }
 
@@ -57,6 +59,7 @@ public class Rifle : Weapon
         {
             currentSecondaryGrabbingObject = null;
         }
+        spreadingBullets = spreadingBulletsEnabled;
     }
 
     private void OnUse(object sender, InteractableObjectEventArgs e)
@@ -106,7 +109,7 @@ public class Rifle : Weapon
 
     public void OnTriggerReleased()
     {
-        isTriggerDown = false;        
+        isTriggerDown = false;
     }
 
     private void SingleFire()
@@ -117,9 +120,9 @@ public class Rifle : Weapon
 
     private void Fire()
     {
-        Haptics.Instance.StartHaptics(currentPrimaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (currentSecondaryGrabbingObject != null)
-            Haptics.Instance.StartHaptics(currentSecondaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+            Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (hitScan)
             FireWithHitScan();
         else if (!hitScan)

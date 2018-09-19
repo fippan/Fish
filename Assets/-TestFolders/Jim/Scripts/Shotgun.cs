@@ -86,9 +86,9 @@ public class Shotgun : Weapon
         if (!canFire)
             return;
 
-        Haptics.Instance.StartHaptics(currentPrimaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (currentSecondaryGrabbingObject != null)
-            Haptics.Instance.StartHaptics(currentSecondaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+            Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         for (int i = 0; i < numberOfBulletsToBurst; i++)
             if (hitScan)
                 FireWithHitScan();

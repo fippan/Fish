@@ -75,7 +75,7 @@ public class Pistol : Weapon
     {
         if (!canFire) return;
 
-        Haptics.Instance.StartHaptics(currentPrimaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (hitScan)
             FireWithHitScan();
         else if (!hitScan)
