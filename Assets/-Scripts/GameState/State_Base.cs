@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameStateBase : MonoBehaviour
+public abstract class State_Base : MonoBehaviour
 {
 	public abstract void OnEnterState();
 	public abstract void OnExitState();
@@ -10,7 +10,7 @@ public abstract class GameStateBase : MonoBehaviour
 	public abstract void OnPauseState();
 	public abstract void OnResumeState();
 
-	private void ChangeState(GameStateBase state)
+	private void ChangeState(State_Base state)
 	{
 		GameManager.Instance.ChangeState(state);
 	}

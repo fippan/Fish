@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOverState : GameStateBase
+public class State_PauseMenu : State_Base
 {
 	//Static instance accessor
-	public static GameOverState Instance { get; private set; }
+	public static State_PauseMenu Instance { get; private set; }
 
 	private void Awake()
 	{

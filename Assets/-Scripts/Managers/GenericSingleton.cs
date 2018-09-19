@@ -5,7 +5,7 @@ public abstract class GenericSingleton<T> : Singleton where T : MonoBehaviour
 	private static object _lock = new object();
 
 	private static T _instance;
-	public static T GetInstance
+	public static T Instance
 	{
 		get
 		{
@@ -57,19 +57,6 @@ public abstract class GenericSingleton<T> : Singleton where T : MonoBehaviour
 			}
 		}
 	}
-
-	//protected virtual void Awake()
-	//{
-	//	if (_instance == null)
-	//	{
-	//		_instance = this as T;
-	//	}
-	//	else
-	//	{
-	//		Destroy(gameObject);
-	//	}
-	//	DontDestroyOnLoad(this.gameObject);
-	//}
 }
 
 public abstract class Singleton : MonoBehaviour
