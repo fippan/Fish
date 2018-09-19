@@ -50,7 +50,7 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
             de1.useGravity = true;
         }
 
-        else if (health <= 0)
+        if (health <= 0)
         {
             Death();
         }

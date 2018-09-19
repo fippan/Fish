@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boat: {fileID: 0}
-  rotationSpeed: 10
+  rotationSpeed: 25
 --- !u!114 &114587700509768174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -801,4 +801,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boat: {fileID: 0}
-  rotationSpeed: 10
+  rotationSpeed: 25
