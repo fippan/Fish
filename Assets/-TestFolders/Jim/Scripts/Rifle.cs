@@ -97,7 +97,7 @@ public class Rifle : Weapon
         while (isTriggerDown)
         {
             Fire();
-            if (shotsFired > shotsUntilReload)
+            if (shotsFired >= shotsUntilReload)
                 yield return StartCoroutine(Reload());
             else
                 yield return StartCoroutine(Cooldown());
