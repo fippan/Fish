@@ -21,20 +21,22 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
         InvokeRepeating("Shooting", anim.GetCurrentAnimatorStateInfo(0).length, 0.2f);
     }
 
-     // TODO: Fix animation when hit and connect animations and stuff for when dead!
+    // TODO: Fix animation when hit and connect animations and stuff for when dead!
 
     public void Update()
     {
-         transform.LookAt(boat.transform);
+        if (!dead)
+            transform.LookAt(boat.transform);
     }
 
     private void Shooting()
     {
-        if(minigunOne.GetComponent<Minigun>().firingRate == 0 || minigunTwo.GetComponent<Minigun>().firingRate == 0)
+        if (minigunOne.GetComponent<Minigun>().firingRate == 0 || minigunTwo.GetComponent<Minigun>().firingRate == 0)
         {
             minigunTwo.GetComponent<Minigun>().firingRate = 0.2f;
             minigunOne.GetComponent<Minigun>().firingRate = 0.2f;
         }
+
         Weapon shootingOne = minigunOne.GetComponent<Weapon>();
         shootingOne.Shoot();
         Weapon shootingTwo = minigunTwo.GetComponent<Weapon>();
@@ -53,19 +55,19 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
             topRotor.GetComponent<Rotator>().dead = true;
         }
 
-        if (health <= 0)
+        if (health <= 0 && !dead)
         {
-            anim.enabled = !anim.enabled;
-            //anim.StopPlayback();
+            anim.StopPlayback();
+            anim.enabled = false;
             botRotor.GetComponent<Rotator>().dead = true;
             gameObject.GetComponent<Rigidbody>().useGravity = true;
             KillCountManager.Instance.AddKill();
+            dead = true;
             Invoke("Death", 20f);
         }
     }
     public void Death()
     {
-        dead = true;
         Destroy(gameObject);
     }
 
