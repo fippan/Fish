@@ -9,6 +9,8 @@ public class DayAndNightCycle : MonoBehaviour {
 
     [SerializeField] private float SecondMultiplier;
 
+    [Space(20)]
+
     public int _days;                                   //Defines naming convention for the days
     public int _hours;                                  //Defines naming convention for the hours
     public int _minutes;                                //Defines naming convention for the minutes

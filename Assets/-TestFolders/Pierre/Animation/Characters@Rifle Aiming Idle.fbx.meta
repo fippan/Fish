@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b7f3663a5599784cbbb85d15b5cd347
+guid: bfddc6cd4e107cb4fb69f3ce98a69c62
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -264,8 +264,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

@@ -26,7 +26,7 @@ public class SubmarineEnemy : Enemy, ICanTakeDamage {
 
     // Use this for initialization
     void Start () {
-        playerTransform = FindObjectOfType<FishController>().transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         audioSource = GetComponent<AudioSource>();
         transform.LookAt(playerTransform);
         transform.rotation *= Quaternion.Euler(0, 45, 0);
