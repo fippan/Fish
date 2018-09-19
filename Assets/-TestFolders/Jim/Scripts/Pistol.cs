@@ -34,18 +34,18 @@ public class Pistol : Weapon
         if (currentPrimaryGrabbingObject == null)
         {
             currentPrimaryGrabbingObject = e.interactingObject;
-            controllerEvents = currentPrimaryGrabbingObject.GetComponent<VRTK_ControllerEvents>();
-
-            if (VRTK_DeviceFinder.GetControllerHand(controllerEvents.gameObject) == SDK_BaseController.ControllerHand.Left)
-            {
-                interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
-                interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
-            }
-            else if (VRTK_DeviceFinder.GetControllerHand(controllerEvents.gameObject) == SDK_BaseController.ControllerHand.Right)
-            {
-                interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.RightOnly;
-                interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.RightOnly;
-            }
+            //controllerEvents = currentPrimaryGrabbingObject.GetComponent<VRTK_ControllerEvents>();
+            //Debug.Log(VRTK_DeviceFinder.GetControllerHand(currentPrimaryGrabbingObject));
+            //if (VRTK_DeviceFinder.GetControllerHand(currentPrimaryGrabbingObject) == SDK_BaseController.ControllerHand.Left)
+            //{
+            //    interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
+            //    interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
+            //}
+            //else if (VRTK_DeviceFinder.GetControllerHand(currentPrimaryGrabbingObject) == SDK_BaseController.ControllerHand.Right)
+            //{
+            //    interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.RightOnly;
+            //    interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.RightOnly;
+            //}
         }
     }
 
@@ -56,8 +56,6 @@ public class Pistol : Weapon
             currentPrimaryGrabbingObject = null;
             currentSecondaryGrabbingObject = null;
             if (rb.isKinematic) rb.isKinematic = false;
-            interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.Both;
-            interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.Both;
         }
     }
 

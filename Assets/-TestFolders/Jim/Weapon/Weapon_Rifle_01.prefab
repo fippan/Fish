@@ -189,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1515382256235842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: -0.823}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4491560641580844}
@@ -740,6 +740,7 @@ MonoBehaviour:
   reloadTime: 3
   magPoint: {fileID: 4189552586243712}
   magPrefab: {fileID: 1718385910175412, guid: 511688e217a24b34998121da5fa6de96, type: 2}
+  magForceMultiplier: 200
   shellPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
     type: 2}
   shellPoint: {fileID: 4875748559150112}

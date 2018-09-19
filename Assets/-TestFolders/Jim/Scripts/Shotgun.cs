@@ -141,22 +141,18 @@ public class Shotgun : Weapon
 
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Reload");
-            //anim.SetBool("Empty", true);
 
         yield return new WaitForSeconds(shellDelay);
 
         if (shellPrefab != null)
         {
             GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * shellForceMultiplier);
+            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * Random.Range(shellForceMultiplier * .8f, shellForceMultiplier * 1.2f));
             if (shellLifeTime > 0)
                 Destroy(newShell, shellLifeTime);
         }
 
         yield return new WaitForSeconds(reload);
-
-        //if (anim.runtimeAnimatorController != null)
-        //    anim.SetBool("Empty", false);
 
         shotsFired = 0;
         canFire = true;

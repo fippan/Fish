@@ -21,6 +21,7 @@ public abstract class Weapon : MonoBehaviour
     public float reloadTime;
     public Transform magPoint;
     public GameObject magPrefab;
+    public float magForceMultiplier;
     [Space]
     public GameObject shellPrefab;
     public Transform shellPoint;
@@ -59,7 +60,7 @@ public abstract class Weapon : MonoBehaviour
     protected Animator anim;
     protected bool canFire = true;
     protected float shotsFired;
-    private GameObject currentMag;
+    protected GameObject currentMag;
 
     protected virtual void Start()
     {
@@ -212,7 +213,7 @@ public abstract class Weapon : MonoBehaviour
         if (shellPrefab != null)
         {
             GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * shellForceMultiplier);
+            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * Random.Range(shellForceMultiplier * .8f, shellForceMultiplier * 1.2f));
             if (shellLifeTime > 0)
                 Destroy(newShell, shellLifeTime);
         }
@@ -252,7 +253,6 @@ public abstract class Weapon : MonoBehaviour
 
         canFire = false;
 
-
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", true);
 
@@ -260,9 +260,11 @@ public abstract class Weapon : MonoBehaviour
 
         if (magPrefab != null)
         {
+            currentMag.transform.parent = null;
+            currentMag.GetComponent<BoxCollider>().isTrigger = false;
             Rigidbody magRb = currentMag.GetComponent<Rigidbody>();
             magRb.isKinematic = false;
-            magRb.AddForce((magPoint.up * -1) * 50f);
+            magRb.AddForce((magPoint.up * -1) * magForceMultiplier);
             Destroy(currentMag, 5f);
         }
 

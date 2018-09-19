@@ -183,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1668098778998034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.526, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4849341487416420}
@@ -704,10 +704,11 @@ MonoBehaviour:
   reloadTime: 1
   magPoint: {fileID: 0}
   magPrefab: {fileID: 0}
+  magForceMultiplier: 0
   shellPrefab: {fileID: 1098160186016322, guid: 7fa4e8d9fd8e2114c8cc5295fbefe633,
     type: 2}
   shellPoint: {fileID: 4801349697178354}
-  shellForceMultiplier: 100
+  shellForceMultiplier: 150
   shellLifeTime: 5
   shootSFX: {fileID: 8300000, guid: c38b5abb8c702a04a8cc32307ee49ea5, type: 3}
   outOfAmmoSFX: {fileID: 0}

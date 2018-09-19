@@ -206,7 +206,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369764378286848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4531251607625702}
@@ -549,6 +549,7 @@ MonoBehaviour:
   reloadTime: 3
   magPoint: {fileID: 4748993128145956}
   magPrefab: {fileID: 1904779255110852, guid: 72cf45c695ee4514fa8bfbd022a8cf8c, type: 2}
+  magForceMultiplier: 150
   shellPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
     type: 2}
   shellPoint: {fileID: 4721559333564030}
@@ -624,7 +625,7 @@ MonoBehaviour:
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 0}
+  grabAttachMechanicScript: {fileID: 114924627802950630}
   secondaryGrabActionScript: {fileID: 0}
   isUsable: 1
   holdButtonToUse: 1
@@ -665,7 +666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   precisionGrab: 0
   rightSnapHandle: {fileID: 4134528982685758}
-  leftSnapHandle: {fileID: 4134528982685758}
+  leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0

@@ -82,7 +82,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1587546830716290
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +607,7 @@ MonoBehaviour:
   reloadTime: 3
   magPoint: {fileID: 4713699731588050}
   magPrefab: {fileID: 1343213565318626, guid: 59de65f362cf3e54cae7ab42685a862a, type: 2}
+  magForceMultiplier: 200
   shellPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
     type: 2}
   shellPoint: {fileID: 4826308075948738}
