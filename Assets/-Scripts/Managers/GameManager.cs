@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : GenericSingleton<GameManager>
 {
@@ -8,18 +9,11 @@ public class GameManager : GenericSingleton<GameManager>
 	//public static GameManager Instance { get; private set; }
 
 	private Stack<State_Base> gameStateStack = new Stack<State_Base>();
+	//private Scene currentScene;
 
 	private void Awake()
 	{
 		//Instance = this;
-
-		SetStartState();
-	}
-
-	private void SetStartState()
-	{
-		if (gameStateStack.Count > 0)
-			return;
 	}
 
 	/// <summary>
