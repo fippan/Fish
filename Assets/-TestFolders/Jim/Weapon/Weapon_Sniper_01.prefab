@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 95199133638630442}
   m_Layer: 0
   m_Name: Weapon_Sniper_01
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   trail: {fileID: 0}
   barrelEnd: {fileID: 4851807180810202}
   hapticStrenght: 1
-  hapticDuration: 1
+  hapticDuration: 0.35
   scopeCamera: {fileID: 1028511657529882}
 --- !u!114 &114699085124588986
 MonoBehaviour:

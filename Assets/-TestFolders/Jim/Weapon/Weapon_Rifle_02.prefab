@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 95880318182230608}
   m_Layer: 0
   m_Name: Weapon_Rifle_02
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +235,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437912708010896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.009, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4194656257540700}
@@ -628,10 +628,10 @@ MonoBehaviour:
   - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
   - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
   - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
-  onHitEffectLifetime: 0
+  onHitEffectLifetime: 1
   trail: {fileID: 0}
   barrelEnd: {fileID: 4025853875216928}
-  hapticStrenght: 1
+  hapticStrenght: 0.858
   hapticDuration: 0.25
   automatic: 1
 --- !u!114 &114547414210501774

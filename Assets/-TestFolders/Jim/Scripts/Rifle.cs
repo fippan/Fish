@@ -117,6 +117,9 @@ public class Rifle : Weapon
 
     private void Fire()
     {
+        Haptics.Instance.StartHaptics(currentPrimaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+        if (currentSecondaryGrabbingObject != null)
+            Haptics.Instance.StartHaptics(currentSecondaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
         if (hitScan)
             FireWithHitScan();
         else if (!hitScan)

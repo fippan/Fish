@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 95907661803452138}
   m_Layer: 0
   m_Name: Weapon_Shotgun_01
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1668098778998034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.526, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4849341487416420}
@@ -725,9 +725,9 @@ MonoBehaviour:
   - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
   - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
   - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
-  onHitEffectLifetime: 0
+  onHitEffectLifetime: 1
   trail: {fileID: 0}
   barrelEnd: {fileID: 4844489638462824}
   hapticStrenght: 1
-  hapticDuration: 0.25
+  hapticDuration: 0.35
   numberOfBulletsToBurst: 10

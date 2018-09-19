@@ -89,7 +89,10 @@ public class Sniper : Weapon
     public override void Shoot()
     {
         if (!canFire) return;
-
+        
+        Haptics.Instance.StartHaptics(currentPrimaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
+        if (currentSecondaryGrabbingObject != null)
+            Haptics.Instance.StartHaptics(currentSecondaryGrabbingObject, hapticStrenght, hapticDuration, 0f);
         canFire = false;
         if (hitScan)
             FireWithHitScan();
@@ -101,7 +104,6 @@ public class Sniper : Weapon
     }
     protected override void OnShotFired()
     {
-        //Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (shootSFX != null)
             audioSource.Play();
         if (onShootEffect != null)
