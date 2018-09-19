@@ -55,8 +55,8 @@ public abstract class Weapon : MonoBehaviour
     public float hapticStrenght;
     public float hapticDuration;
 
-    private AudioSource audioSource;
-    private Animator anim;
+    protected AudioSource audioSource;
+    protected Animator anim;
     protected bool canFire = true;
     protected float shotsFired;
     private GameObject currentMag;
@@ -220,9 +220,9 @@ public abstract class Weapon : MonoBehaviour
         shotsFired++;
     }
 
-    protected void ReloadAndCooldown()
+    protected virtual void ReloadAndCooldown()
     {
-        if (shotsFired > shotsUntilReload)
+        if (shotsFired >= shotsUntilReload)
         {
             StartCoroutine(Reload());
             return;
@@ -242,16 +242,31 @@ public abstract class Weapon : MonoBehaviour
 
     protected IEnumerator Reload()
     {
-        canFire = false;
-        if (magPrefab != null)
+        float magDelay = .2f;
+        float reload = reloadTime - magDelay;
+        if (reload < .2f)
         {
-            currentMag.GetComponent<Rigidbody>().isKinematic = false;
-            Destroy(currentMag, 5f);
+            reload = reloadTime;
+            magDelay = 0f;
         }
+
+        canFire = false;
+
+
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", true);
 
-        yield return new WaitForSeconds(reloadTime);
+        yield return new WaitForSeconds(magDelay);
+
+        if (magPrefab != null)
+        {
+            Rigidbody magRb = currentMag.GetComponent<Rigidbody>();
+            magRb.isKinematic = false;
+            magRb.AddForce((magPoint.up * -1) * 50f);
+            Destroy(currentMag, 5f);
+        }
+
+        yield return new WaitForSeconds(reload);
 
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", false);
