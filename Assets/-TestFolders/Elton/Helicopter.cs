@@ -16,19 +16,27 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
     {
         Animator anim = gameObject.GetComponent<Animator>();
         transform.LookAt(boat.transform);
-        minigunOne.GetComponent<Rifle>().firingRate = 0.2f;
-        minigunTwo.GetComponent<Rifle>().firingRate = 0.2f;
+        InvokeRepeating("Shooting", anim.GetCurrentAnimatorStateInfo(0).length, 0.2f);
     }
 
      // TODO: Fix so that it starts firing after first animation is done. Fix animation when hit and connect animations and stuff for when dead!
 
     public void Update()
     {
-        if (readyToAttack)
-        {
-            transform.LookAt(boat.transform);
+         transform.LookAt(boat.transform);
+    }
 
+    private void Shooting()
+    {
+        if(minigunOne.GetComponent<Minigun>().firingRate == 0 || minigunTwo.GetComponent<Minigun>().firingRate == 0)
+        {
+            minigunTwo.GetComponent<Minigun>().firingRate = 0.2f;
+            minigunOne.GetComponent<Minigun>().firingRate = 0.2f;
         }
+        Weapon shootingOne = minigunOne.GetComponent<Weapon>();
+        shootingOne.Shoot();
+        Weapon shootingTwo = minigunTwo.GetComponent<Weapon>();
+        shootingTwo.Shoot();
     }
 
     public void TakeDamage(float damage)
@@ -51,5 +59,10 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
     {
         dead = true;
         Destroy(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }
