@@ -703,8 +703,8 @@ MonoBehaviour:
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
-  lifetime: 3
-  speed: 100
+  lifetime: 5
+  speed: 50
   onShootEffect: {fileID: 0}
   onShootEffectLifetime: 0
   onHitEffects:
@@ -776,8 +776,8 @@ MonoBehaviour:
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
-  lifetime: 3
-  speed: 100
+  lifetime: 5
+  speed: 50
   onShootEffect: {fileID: 0}
   onShootEffectLifetime: 0
   onHitEffects:
