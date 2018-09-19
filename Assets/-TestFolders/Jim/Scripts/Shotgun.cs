@@ -94,39 +94,17 @@ public class Shotgun : Weapon
 
         OnShotFired();
         StartCoroutine(ReloadShotgun());
-        //ReloadAndCooldown();
     }
-
-    //protected override void ReloadAndCooldown()
-    //{
-    //    if (shotsFired >= shotsUntilReload)
-    //    {
-    //        return;
-    //    }
-    //    else
-    //    {
-    //        StartCoroutine(CooldownShotgun());
-    //    }
-    //}
 
     protected override void OnShotFired()
     {
         //Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
-        //if (anim.runtimeAnimatorController != null)
-        //    anim.SetTrigger("Single_Shot");
         if (shootSFX != null)
             audioSource.Play();
         if (onShootEffect != null)
             Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
         shotsFired++;
     }
-
-    //private IEnumerator CooldownShotgun()
-    //{
-    //    canFire = false;
-    //    yield return new WaitForSeconds(firingRate);
-    //    canFire = true;
-    //}
 
     private IEnumerator ReloadShotgun()
     {

@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33243244841905856}
   - component: {fileID: 23590271248901712}
   - component: {fileID: 65772203050071478}
-  - component: {fileID: 54818043487365658}
   m_Layer: 0
   m_Name: Ammo_BulletSmall_01
   m_TagString: Untagged
@@ -38,6 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4651124098958550}
+  - component: {fileID: 54472665658352988}
   m_Layer: 0
   m_Name: Ammo_BulletSmall_01
   m_TagString: Untagged
@@ -114,12 +114,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223719936800524}
   m_Mesh: {fileID: 4300000, guid: e27acaec207133144a8aeb355a9bce44, type: 3}
---- !u!54 &54818043487365658
+--- !u!54 &54472665658352988
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1223719936800524}
+  m_GameObject: {fileID: 1935502253027336}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
