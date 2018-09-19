@@ -22,8 +22,8 @@ public class FloatingObject : MonoBehaviour
 	private bool m_InBoat = false;
 	private float m_WaterLevel;
 
-	private float lastSine;
-	private float sine;
+	private float m_LastSine;
+	private float m_Sine;
 
 	private void Start()
 	{
@@ -53,10 +53,10 @@ public class FloatingObject : MonoBehaviour
 
 			if (m_FakeBobbing)
 			{
-				lastSine = sine;
-				sine = Mathf.Sin(Time.fixedTime * Mathf.PI * m_BobbingSpeed) * m_BobbingHeight;
+				m_LastSine = m_Sine;
+				m_Sine = Mathf.Sin(Time.fixedTime * Mathf.PI * m_BobbingSpeed) * m_BobbingHeight;
 
-				float yPosNew = transform.position.y + sine - lastSine;
+				float yPosNew = transform.position.y + m_Sine - m_LastSine;
 
 				transform.position = new Vector3(transform.position.x, yPosNew, transform.position.z);
 			}
@@ -65,7 +65,12 @@ public class FloatingObject : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Water"))
+		if (other.CompareTag("InsideBoat"))
+		{
+			m_InBoat = true;
+		}
+
+		if (other.CompareTag("Water") && !m_InBoat)
 		{
 			m_WaterLevel = other.transform.position.y;
 
@@ -78,6 +83,11 @@ public class FloatingObject : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
+		if (other.CompareTag("InsideBoat"))
+		{
+			m_InBoat = true;
+		}
+
 		if (other.CompareTag("Water"))
 		{
 			m_ThisRigidbody.angularDrag = 0.05f;
@@ -87,9 +97,9 @@ public class FloatingObject : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerStay(Collider other)
-	{
-		if (other.CompareTag("InsideBoat"))
-			m_InBoat = true;
-	}
+	//private void OnTriggerStay(Collider other)
+	//{
+	//	if (other.CompareTag("InsideBoat"))
+	//		m_InBoat = true;
+	//}
 }
