@@ -103,7 +103,6 @@ public class Bomb : MonoBehaviour
             i++;
         }
         ParticleSystem ps = Instantiate(explosionFX, transform.position, transform.rotation) as ParticleSystem;
-        AudioManager.instance.Play("BombExplode");
         Destroy(ps.gameObject, 3f);
         Destroy(gameObject);
     }
