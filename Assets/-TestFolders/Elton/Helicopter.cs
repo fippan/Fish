@@ -7,6 +7,7 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
     
 
     private bool dead;
+    private bool sploshed;
     private bool readyToAttack;
     AudioSource audio1;
     AudioSource audio2;
@@ -37,9 +38,12 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
     {
         if (!dead)
             transform.LookAt(boat.transform);
-        if (dead)
+        if (dead && !sploshed)
             if (transform.position.y <= 0)
+            {
                 audio3.Play();
+                sploshed = true;
+            }
     }
 
     private void Shooting()
