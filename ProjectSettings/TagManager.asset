@@ -23,6 +23,10 @@ TagManager:
   - Shop
   - Controller
   - ThrowBox
+  - InsideBoat
+  - Wood
+  - Metal
+  - Humanoid
   layers:
   - Default
   - TransparentFX

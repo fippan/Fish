@@ -14,10 +14,14 @@ public class Rifle : Weapon
 
     private Rigidbody rb;
 
+    private void Awake()
+    {
+        interactableObject = GetComponent<VRTK_InteractableObject>();
+    }
+
     protected override void Start()
     {
         base.Start();
-        interactableObject = GetComponent<VRTK_InteractableObject>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -26,18 +30,20 @@ public class Rifle : Weapon
         interactableObject.InteractableObjectGrabbed += OnGrab;
         interactableObject.InteractableObjectUngrabbed += OnUngrab;
         interactableObject.InteractableObjectUnused += OnUnuse;
-        interactableObject.InteractableObjectUsed += OnUse;        
+        interactableObject.InteractableObjectUsed += OnUse;
     }
 
     private void OnGrab(object sender, InteractableObjectEventArgs e)
     {
-        if (currentPrimaryGrabbingObject != null)
+        if (currentPrimaryGrabbingObject == null)
         {
-            currentPrimaryGrabbingObject = e.interactingObject;            
+            currentPrimaryGrabbingObject = e.interactingObject;
+            if (spreadingBulletsEnabled) spreadingBullets = true;
         }
         else
         {
             currentSecondaryGrabbingObject = e.interactingObject;
+            spreadingBullets = false;
         }
     }
 
@@ -53,6 +59,7 @@ public class Rifle : Weapon
         {
             currentSecondaryGrabbingObject = null;
         }
+        spreadingBullets = spreadingBulletsEnabled;
     }
 
     private void OnUse(object sender, InteractableObjectEventArgs e)
@@ -79,37 +86,8 @@ public class Rifle : Weapon
         interactableObject.InteractableObjectUsed -= OnUse;
     }
 
-    //public void OnGrab()
-    //{
-    //    if (controllerEvents != null) return;
-
-    //    controllerEvents = interactableObject.GetGrabbingObject().GetComponent<VRTK_ControllerEvents>();
-
-    //    //Limit hands grabbing when picked up
-    //    //if (VRTK_DeviceFinder.GetControllerHand(interactableObject.GetGrabbingObject()) == SDK_BaseController.ControllerHand.Left)
-    //    //{
-    //    //    interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
-    //    //    interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.LeftOnly;
-    //    //}
-    //    //else if (VRTK_DeviceFinder.GetControllerHand(interactableObject.GetGrabbingObject()) == SDK_BaseController.ControllerHand.Right)
-    //    //{
-    //    //    interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.RightOnly;
-    //    //    interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.RightOnly;
-    //    //}
-    //}
-
-    //public void OnDrop()
-    //{
-    //    controllerEvents = null;
-    //    //interactableObject.allowedTouchControllers = VRTK_InteractableObject.AllowedController.Both;
-    //    //interactableObject.allowedUseControllers = VRTK_InteractableObject.AllowedController.Both;
-    //}
-
     public override void Shoot()
     {
-        if (!controllerEvents.IsButtonPressed(VRTK_ControllerEvents.ButtonAlias.TriggerClick))
-            return;
-
         if (!canFire) return;
 
         if (automatic && !isTriggerDown) StartCoroutine(AutomaticFire());
@@ -122,7 +100,7 @@ public class Rifle : Weapon
         while (isTriggerDown)
         {
             Fire();
-            if (shotsFired > shotsUntilReload)
+            if (shotsFired >= shotsUntilReload)
                 yield return StartCoroutine(Reload());
             else
                 yield return StartCoroutine(Cooldown());
@@ -131,7 +109,7 @@ public class Rifle : Weapon
 
     public void OnTriggerReleased()
     {
-        isTriggerDown = false;        
+        isTriggerDown = false;
     }
 
     private void SingleFire()
@@ -142,6 +120,9 @@ public class Rifle : Weapon
 
     private void Fire()
     {
+        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
+        if (currentSecondaryGrabbingObject != null)
+            Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (hitScan)
             FireWithHitScan();
         else if (!hitScan)

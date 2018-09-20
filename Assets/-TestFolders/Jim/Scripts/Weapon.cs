@@ -19,6 +19,9 @@ public abstract class Weapon : MonoBehaviour
     public float shotsUntilReload;
     [Tooltip("Time in seconds.")]
     public float reloadTime;
+    public Transform magPoint;
+    public GameObject magPrefab;
+    public float magForceMultiplier;
     [Space]
     public GameObject shellPrefab;
     public Transform shellPoint;
@@ -53,16 +56,20 @@ public abstract class Weapon : MonoBehaviour
     public float hapticStrenght;
     public float hapticDuration;
 
-    private AudioSource audioSource;
-    private Animator anim;
+    protected AudioSource audioSource;
+    protected Animator anim;
     protected bool canFire = true;
     protected float shotsFired;
+    protected GameObject currentMag;
+    protected bool spreadingBulletsEnabled;
 
     protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
         if (shootSFX != null) audioSource.clip = shootSFX;
         anim = GetComponent<Animator>();
+        if (magPrefab != null) currentMag = Instantiate(magPrefab, magPoint);
+        spreadingBulletsEnabled = spreadingBullets;
     }
 
     public abstract void Shoot();
@@ -197,7 +204,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void OnShotFired()
     {
-        Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
+        //Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Single_Shot");
         if (shootSFX != null)
@@ -208,7 +215,7 @@ public abstract class Weapon : MonoBehaviour
         if (shellPrefab != null)
         {
             GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * shellForceMultiplier);
+            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * Random.Range(shellForceMultiplier * .8f, shellForceMultiplier * 1.2f));
             if (shellLifeTime > 0)
                 Destroy(newShell, shellLifeTime);
         }
@@ -216,9 +223,9 @@ public abstract class Weapon : MonoBehaviour
         shotsFired++;
     }
 
-    protected void ReloadAndCooldown()
+    protected virtual void ReloadAndCooldown()
     {
-        if (shotsFired > shotsUntilReload)
+        if (shotsFired >= shotsUntilReload)
         {
             StartCoroutine(Reload());
             return;
@@ -238,12 +245,39 @@ public abstract class Weapon : MonoBehaviour
 
     protected IEnumerator Reload()
     {
+        float magDelay = .2f;
+        float reload = reloadTime - magDelay;
+        if (reload < .2f)
+        {
+            reload = reloadTime;
+            magDelay = 0f;
+        }
+
         canFire = false;
+
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", true);
-        yield return new WaitForSeconds(reloadTime);
+
+        yield return new WaitForSeconds(magDelay);
+
+        if (magPrefab != null)
+        {
+            currentMag.transform.parent = null;
+            currentMag.GetComponent<BoxCollider>().isTrigger = false;
+            Rigidbody magRb = currentMag.GetComponent<Rigidbody>();
+            magRb.isKinematic = false;
+            magRb.AddForce((magPoint.up * -1) * magForceMultiplier);
+            Destroy(currentMag, 5f);
+        }
+
+        yield return new WaitForSeconds(reload);
+
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", false);
+        if (magPrefab != null)
+        {
+            currentMag = Instantiate(magPrefab, magPoint);
+        }
         shotsFired = 0;
         canFire = true;
     }

@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 54068798884262210}
   - component: {fileID: 114107414252911578}
   - component: {fileID: 135649835239960590}
+  - component: {fileID: 114084997468107022}
   m_Layer: 9
   m_Name: Floater
   m_TagString: Floater
@@ -143,6 +144,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishM: {fileID: 0}
+--- !u!114 &114084997468107022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1937999167206094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5e38a3cc529b44bafd182285d41da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BuoyancyPoints: []
+  m_BuoyancyStrength: 3
+  m_BuoyancyDamp: 3
+  m_FloatSpeedDamp: 0.75
+  m_FakeBobbing: 1
+  m_BobbingSpeed: 0.7
+  m_BobbingHeight: 0.05
 --- !u!114 &114107414252911578
 MonoBehaviour:
   m_ObjectHideFlags: 1

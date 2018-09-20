@@ -31,6 +31,7 @@ GameObject:
   - component: {fileID: 114707581506153572}
   - component: {fileID: 114235368388246672}
   - component: {fileID: 114302966463114112}
+  - component: {fileID: 114585986804537734}
   m_Layer: 8
   m_Name: FishGray
   m_TagString: Fish
@@ -427,6 +428,21 @@ MonoBehaviour:
   coin:
   - {fileID: 4300000, guid: 45743e8374d40cb4aacb2abdfb1f0430, type: 3}
   ps: {fileID: 198442208210045482, guid: 900087b326a6b09458440a6be3576382, type: 2}
+--- !u!114 &114585986804537734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084349641036622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5e38a3cc529b44bafd182285d41da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BuoyancyPoints:
+  - {fileID: 4431708717700028}
+  m_BuoyancyStrength: 1
+  m_BobbingDamp: 0.5
 --- !u!114 &114590974200515452
 MonoBehaviour:
   m_ObjectHideFlags: 1

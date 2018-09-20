@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 114905322767320910}
   - component: {fileID: 114335688717217976}
   - component: {fileID: 114291693967521832}
+  - component: {fileID: 114441631798942432}
   m_Layer: 8
   m_Name: FishGreen
   m_TagString: Fish
@@ -369,6 +370,21 @@ MonoBehaviour:
   smoothsScale: 0
   maxAllowedPerFrameSizeDifference: 0.003
   _moment: 1
+--- !u!114 &114441631798942432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822760667942034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5e38a3cc529b44bafd182285d41da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BuoyancyPoints:
+  - {fileID: 4777028494992368}
+  m_BuoyancyStrength: 1
+  m_BobbingDamp: 0.5
 --- !u!114 &114464966726713812
 MonoBehaviour:
   m_ObjectHideFlags: 1
