@@ -19,7 +19,7 @@ public class DiverAttackers : Enemy
         Player = GameObject.FindGameObjectWithTag("Player");
         enemyModel = diver;
         transform.LookAt(Player.transform);
-        InvokeRepeating("AttackPlayer", 2f, 15f);
+        InvokeRepeating("AttackPlayer", 6f, 15f);
     }
 
     private void AttackPlayer()
