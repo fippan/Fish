@@ -7,6 +7,7 @@ public abstract class Weapon : MonoBehaviour
     [Header("Weapon attributes.")]
     [Tooltip("Set true to enable hit scan weapon. False to shoot projectile.")]
     public bool hitScan;
+    public Transform hitScanPoint;
     public bool spreadingBullets;
     [Tooltip("Deal damage over an area.")]
     public bool explosive;
@@ -59,6 +60,7 @@ public abstract class Weapon : MonoBehaviour
     protected GameObject currentMag;
     protected bool spreadingBulletsEnabled;
     protected WeaponAudioManager weaponAudioManager;
+    protected bool reloading;
 
     protected virtual void Start()
     {
@@ -75,23 +77,23 @@ public abstract class Weapon : MonoBehaviour
         Vector3 direction = CalculateHitScanDirection();
         RaycastHit hit;
 
-        if (Physics.Raycast(barrelEnd.position, direction, out hit, 100f))
+        if (Physics.Raycast(hitScanPoint.position, direction, out hit, 100f))
             TargetHit(hit.transform, hit.point);
     }
 
     private Vector3 CalculateHitScanDirection()
     {
         if (!spreadingBullets)
-            return barrelEnd.forward;
+            return hitScanPoint.forward;
 
-        Quaternion barrelEndStartRotation = barrelEnd.rotation;
+        Quaternion hitScanPointStartRotation = hitScanPoint.rotation;
         Vector3 newRotation = new Vector3(
             Random.Range(minSpreadDegrees.x, maxSpreadDegrees.x),
             Random.Range(minSpreadDegrees.y, maxSpreadDegrees.y),
             0f);
-        barrelEnd.Rotate(newRotation);
-        Vector3 direction = barrelEnd.forward;
-        barrelEnd.rotation = barrelEndStartRotation;
+        hitScanPoint.Rotate(newRotation);
+        Vector3 direction = hitScanPoint.forward;
+        hitScanPoint.rotation = hitScanPointStartRotation;
 
         return direction;
     }
@@ -242,6 +244,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected IEnumerator Reload()
     {
+        reloading = true;
         float magDelay = .2f;
         float reload = reloadTime - magDelay;
         if (reload < .2f)
@@ -276,6 +279,7 @@ public abstract class Weapon : MonoBehaviour
         {
             currentMag = Instantiate(magPrefab, magPoint);
         }
+        reloading = false;
         shotsFired = 0;
         canFire = true;
     }

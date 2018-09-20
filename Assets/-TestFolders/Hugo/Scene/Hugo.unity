@@ -3400,7 +3400,6 @@ GameObject:
   - component: {fileID: 704200613}
   - component: {fileID: 704200612}
   - component: {fileID: 704200611}
-  - component: {fileID: 704200607}
   - component: {fileID: 704200605}
   m_Layer: 0
   m_Name: FishingRod
@@ -3454,19 +3453,6 @@ Transform:
   m_Father: {fileID: 869139943}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -16.427, y: 0, z: 0}
---- !u!114 &704200607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 704200604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f69db3143e577489ce3ea838a34635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
-  canNotDamagePlayer: 0
 --- !u!54 &704200608
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8852,8 +8838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca663283ef9398745a245d8f3d38393a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SecondMultiplier: 5
-  _days: 0
+  SecondMultiplier: 344
+  _days: 4
   _hours: 0
   _minutes: 0
   _seconds: 0
@@ -9861,7 +9847,7 @@ MonoBehaviour:
   OnUse:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1547664507}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:

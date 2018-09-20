@@ -73,7 +73,12 @@ public class Pistol : Weapon
 
     public override void Shoot()
     {
-        if (!canFire) return;
+        if (!canFire)
+        {
+            if (reloading)
+                weaponAudioManager.Play("DryFire");
+            return;
+        }
 
         Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (hitScan)

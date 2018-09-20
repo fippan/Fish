@@ -84,7 +84,11 @@ public class Shotgun : Weapon
     public override void Shoot()
     {
         if (!canFire)
+        {
+            if (reloading)
+                weaponAudioManager.Play("DryFire");
             return;
+        }
 
         Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (currentSecondaryGrabbingObject != null)

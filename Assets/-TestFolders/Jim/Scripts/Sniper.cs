@@ -88,7 +88,12 @@ public class Sniper : Weapon
 
     public override void Shoot()
     {
-        if (!canFire) return;
+        if (!canFire)
+        {
+            if (reloading)
+                weaponAudioManager.Play("DryFire");
+            return;
+        }
 
         Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
         if (currentSecondaryGrabbingObject != null)
@@ -155,6 +160,7 @@ public class Sniper : Weapon
 
     private IEnumerator ReloadSnper()
     {
+        reloading = true;
         float magDelay = .2f;
         float reloadDelay = .4f;
         float reload = reloadTime - magDelay - reloadDelay;
@@ -199,6 +205,7 @@ public class Sniper : Weapon
             anim.SetTrigger("Reload");
 
         yield return new WaitForSeconds(reloadDelay);
+        reloading = false;
         shotsFired = 0;
         canFire = true;
     }

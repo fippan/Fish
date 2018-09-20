@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4851807180810202}
   m_Layer: 0
-  m_Name: BarrelEnd
+  m_Name: HitScanPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,6 +250,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1915186856559928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4893487812645164}
+  m_Layer: 0
+  m_Name: BarrelEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4070554870042168
 Transform:
   m_ObjectHideFlags: 1
@@ -386,10 +401,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4581547044424396}
-  - {fileID: 4851807180810202}
+  - {fileID: 4893487812645164}
   - {fileID: 4823105222814770}
   - {fileID: 4407467064816672}
   - {fileID: 4070554870042168}
+  - {fileID: 4851807180810202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -425,6 +441,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1211762307545650}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00039994717, y: 0.1405, z: 0.3412}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4630896372455978}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4893487812645164
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1915186856559928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0004, y: 0.0752, z: 1.0358}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -956,6 +985,15 @@ MonoBehaviour:
     spatialBlend: 1
     minDistance: 1
     maxDistance: 500
+  - name: DryFire
+    audioClip: {fileID: 8300000, guid: 31a9b1f234b0efd4fabcab5553388143, type: 3}
+    volume: 0.886
+    volumeVariance: 0.102
+    pitch: 1.01
+    pitchVariance: 0.135
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 500
 --- !u!114 &114369021810847584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -979,6 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitScan: 1
+  hitScanPoint: {fileID: 4851807180810202}
   spreadingBullets: 0
   explosive: 0
   damage: 100
@@ -1010,7 +1049,7 @@ MonoBehaviour:
   - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
   onHitEffectLifetime: 2
   trail: {fileID: 0}
-  barrelEnd: {fileID: 4851807180810202}
+  barrelEnd: {fileID: 4893487812645164}
   hapticStrenght: 1
   hapticDuration: 0.35
   scopeCamera: {fileID: 1028511657529882}
