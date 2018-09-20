@@ -25,9 +25,13 @@ public class FloatingObject : MonoBehaviour
 	private float m_LastSine;
 	private float m_Sine;
 
+	private float m_RandomBobbingOffset;
+
 	private void Start()
 	{
 		m_ThisRigidbody = GetComponent<Rigidbody>();
+
+		m_RandomBobbingOffset = Random.Range(-0.05f, 0.05f);
 
 		if (m_BuoyancyPoints.Length == 0)
 		{
@@ -44,9 +48,10 @@ public class FloatingObject : MonoBehaviour
 			{
 				float forceFactor = 1f - (item.position.y - m_WaterLevel) * m_BuoyancyStrength;
 
-				if (forceFactor > 0f)
+				if (forceFactor >= 0.0f)
 				{
 					Vector3 uplift = -Physics.gravity * (forceFactor - m_ThisRigidbody.velocity.y) / m_BuoyancyPoints.Length;
+
 					m_ThisRigidbody.AddForceAtPosition(uplift, item.position);
 				}
 			}
@@ -54,7 +59,7 @@ public class FloatingObject : MonoBehaviour
 			if (m_FakeBobbing)
 			{
 				m_LastSine = m_Sine;
-				m_Sine = Mathf.Sin(Time.fixedTime * Mathf.PI * m_BobbingSpeed) * m_BobbingHeight;
+				m_Sine = Mathf.Sin(Time.fixedTime * Mathf.PI * (m_BobbingSpeed + m_RandomBobbingOffset)) * m_BobbingHeight;
 
 				float yPosNew = transform.position.y + m_Sine - m_LastSine;
 
@@ -96,10 +101,4 @@ public class FloatingObject : MonoBehaviour
 			m_InWater = false;
 		}
 	}
-
-	//private void OnTriggerStay(Collider other)
-	//{
-	//	if (other.CompareTag("InsideBoat"))
-	//		m_InBoat = true;
-	//}
 }
