@@ -822,8 +822,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854d60d75ae1f704fbff59dfeab4bfa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Diver: {fileID: 0}
+  Diver: {fileID: 1277846125134116, guid: d68c8b9f6aa36744f897534967d4eea9, type: 2}
+  diverCount: []
   subMarine: {fileID: 1752166246681944, guid: 9b71096cf7ec15d4494f557d30681bd4, type: 2}
+  subMarineList: []
+  waveCount: 2
+  waveActive: 1
+  canSpawn: 1
 --- !u!1001 &431132384
 Prefab:
   m_ObjectHideFlags: 0

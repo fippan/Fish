@@ -26,7 +26,10 @@ public class SubmarineEnemy : Enemy, ICanTakeDamage {
 
     // Use this for initialization
     void Start () {
+        playerTransform = FindObjectOfType<FishController>().transform;
         audioSource = GetComponent<AudioSource>();
+        transform.LookAt(playerTransform);
+        transform.rotation *= Quaternion.Euler(0, 45, 0);
     }
 	
 	// Update is called once per frame
@@ -39,6 +42,7 @@ public class SubmarineEnemy : Enemy, ICanTakeDamage {
             {
                 StopCoroutine(shootBehave);
                 GetComponentInParent<Submarine>().diveBack = true;
+                //FindObjectOfType<DiverManager>().WaveCount++;
                 Destroy(gameObject);
             }
         }
