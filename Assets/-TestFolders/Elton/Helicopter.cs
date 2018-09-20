@@ -4,19 +4,27 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
 {
     [SerializeField] private float health;
     private float halfHealth;
+    
 
     private bool dead;
     private bool readyToAttack;
-
+    AudioSource audio1;
+    AudioSource audio2;
+    AudioSource audio3;
     [SerializeField] private GameObject topRotor;
     [SerializeField] private GameObject botRotor;
     [SerializeField] private GameObject boat;
     [SerializeField] private GameObject minigunOne;
     [SerializeField] private GameObject minigunTwo;
+    [SerializeField] private ParticleSystem particleExplotion;
     Animator anim;
 
     private void Start()
     {
+        AudioSource[] audios = GetComponents<AudioSource>();
+        audio1 = audios[0];
+        audio2 = audios[1];
+        audio3 = audios[2];
         halfHealth = health / 2;
         anim = gameObject.GetComponent<Animator>();
         transform.LookAt(boat.transform);
@@ -29,6 +37,9 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
     {
         if (!dead)
             transform.LookAt(boat.transform);
+        if (dead)
+            if (transform.position.y <= 0)
+                audio3.Play();
     }
 
     private void Shooting()
@@ -59,15 +70,19 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
 
         if (health <= 0 && !dead)
         {
+            particleExplotion.Play();
+            audio2.Play();
             anim.StopPlayback();
             anim.enabled = false;
             botRotor.GetComponent<Rotator>().dead = true;
             gameObject.GetComponent<Rigidbody>().useGravity = true;
             KillCountManager.Instance.AddKill();
             dead = true;
+            audio1.Stop();
             Invoke("Death", 20f);
         }
     }
+
     public void Death()
     {
         Destroy(gameObject);
