@@ -11,6 +11,10 @@ public class DiverManager : MonoBehaviour
     public GameObject subMarine;
     [SerializeField]
     List<GameObject> subMarineList = new List<GameObject>();
+    public GameObject helicopter;
+    [SerializeField]
+    List<GameObject> helicopterList = new List<GameObject>();
+
     [SerializeField]
     List<GameObject> enemyList = new List<GameObject>();
 
@@ -73,6 +77,7 @@ public class DiverManager : MonoBehaviour
         else if(!waveActive)
         {
             subMarineList.Clear();
+            helicopterList.Clear();
             diverCount.Clear();
             enemyList.Clear();
             spawnedEnemies = 0;
@@ -141,8 +146,16 @@ public class DiverManager : MonoBehaviour
                 killedEnemies = killedEnemies + 1;
             }
         }
+        for (int i = 0; i < helicopterList.Count; i++)
+        {
+            if (helicopterList[i] == null)
+            {
+                helicopterList.RemoveAt(i);
+                killedEnemies = killedEnemies + 1;
+            }
+        }
 
-    if (enemyList.Count < waveCount * 2)
+        if (enemyList.Count < waveCount * 2)
     {
         if (subMarineList.Count < waveCount)
         {
@@ -167,9 +180,19 @@ public class DiverManager : MonoBehaviour
 
             diverCount.Add(diver);
             enemyList.Add(diver);
-            randomSpawnTimer = Random.Range(10, 15);
+            //randomSpawnTimer = Random.Range(10, 15);
             spawnedEnemies++;
         }
+
+        if(helicopterList.Count < waveCount / 5)
+        {
+                var heli = Instantiate(helicopter, transform.position + new Vector3(50, 30, 50), new Quaternion(0, 0, 0, 0));
+
+                helicopterList.Add(heli);
+                enemyList.Add(heli);
+                //randomSpawnTimer = Random.Range(10, 15);
+                spawnedEnemies++;
+            }
     }
     }
 

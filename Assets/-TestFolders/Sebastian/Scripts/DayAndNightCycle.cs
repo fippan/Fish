@@ -187,7 +187,6 @@ public class DayAndNightCycle : MonoBehaviour {
                 case DayPhases.Dusk:
                     Dusk();
                     DiverManager.Instance.WaveCount = _days;
-                    DiverManager.Instance.CanSpawnEnemies = true;
                     DiverManager.Instance.WaveIsActive = true;
                     break;
                 case DayPhases.Night:
