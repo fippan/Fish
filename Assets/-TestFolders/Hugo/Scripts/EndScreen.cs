@@ -11,6 +11,13 @@ public class EndScreen : MonoBehaviour
 
     public GameObject ui;
 
+    TimeReturner tr;
+
+    private float day;
+    private float hour;
+    private float minutes;
+    private float seconds;
+
     public void GameOver ()
     {
         ui.SetActive(true);
