@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource), typeof(Animator))]
+[RequireComponent(typeof(Animator))]
 public abstract class Weapon : MonoBehaviour
 {
     [Header("Weapon attributes.")]
@@ -23,15 +23,11 @@ public abstract class Weapon : MonoBehaviour
     public GameObject magPrefab;
     public float magForceMultiplier;
     [Space]
-    public GameObject shellPrefab;
-    public Transform shellPoint;
-    public float shellForceMultiplier;
+    public GameObject casingPrefab;
+    public Transform casingPoint;
+    public float casingForceMultiplier;
     [Tooltip("0 = do not destroy.")]
-    public float shellLifeTime;
-    [Space]
-    [Tooltip("Weapon shoot sfx")]
-    public AudioClip shootSFX;
-    public AudioClip outOfAmmoSFX;
+    public float casingLifeTime;
 
     [Header("Explosion settings.")]
     public float explosionRadius;
@@ -62,11 +58,11 @@ public abstract class Weapon : MonoBehaviour
     protected float shotsFired;
     protected GameObject currentMag;
     protected bool spreadingBulletsEnabled;
+    protected WeaponAudioManager weaponAudioManager;
 
     protected virtual void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (shootSFX != null) audioSource.clip = shootSFX;
+        weaponAudioManager = GetComponent<WeaponAudioManager>();
         anim = GetComponent<Animator>();
         if (magPrefab != null) currentMag = Instantiate(magPrefab, magPoint);
         spreadingBulletsEnabled = spreadingBullets;
@@ -205,19 +201,19 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void OnShotFired()
     {
         //Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
+        weaponAudioManager.Play("Fire");
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Single_Shot");
-        if (shootSFX != null)
-            audioSource.Play();
         if (onShootEffect != null)
             Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
 
-        if (shellPrefab != null)
+        if (casingPrefab != null)
         {
-            GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * Random.Range(shellForceMultiplier * .8f, shellForceMultiplier * 1.2f));
-            if (shellLifeTime > 0)
-                Destroy(newShell, shellLifeTime);
+            GameObject newShell = Instantiate(casingPrefab, casingPoint.position, casingPoint.rotation);
+            newShell.GetComponent<Rigidbody>().AddForce(casingPoint.forward * Random.Range(casingForceMultiplier * .8f, casingForceMultiplier * 1.2f));
+            if (casingLifeTime > 0)
+                Destroy(newShell, casingLifeTime);
+            weaponAudioManager.Play("Casing");
         }
 
         shotsFired++;
@@ -254,7 +250,7 @@ public abstract class Weapon : MonoBehaviour
         }
 
         canFire = false;
-
+        weaponAudioManager.Play("Reload");
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", true);
 
@@ -272,6 +268,7 @@ public abstract class Weapon : MonoBehaviour
 
         yield return new WaitForSeconds(reload);
 
+        weaponAudioManager.Play("Reload");
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", false);
         if (magPrefab != null)

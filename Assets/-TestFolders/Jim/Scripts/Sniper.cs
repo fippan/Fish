@@ -104,8 +104,7 @@ public class Sniper : Weapon
     }
     protected override void OnShotFired()
     {
-        if (shootSFX != null)
-            audioSource.Play();
+        weaponAudioManager.Play("Fire");
         if (onShootEffect != null)
             Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
         shotsFired++;
@@ -134,17 +133,19 @@ public class Sniper : Weapon
             shellDelay = 0f;
         }
 
+        weaponAudioManager.Play("Reload");
+        weaponAudioManager.Play("Casing");
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Reload");
 
         yield return new WaitForSeconds(shellDelay);
 
-        if (shellPrefab != null)
+        if (casingPrefab != null)
         {
-            GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * Random.Range(shellForceMultiplier * .8f, shellForceMultiplier * 1.2f));
-            if (shellLifeTime > 0)
-                Destroy(newShell, shellLifeTime);
+            GameObject newShell = Instantiate(casingPrefab, casingPoint.position, casingPoint.rotation);
+            newShell.GetComponent<Rigidbody>().AddForce(casingPoint.forward * Random.Range(casingForceMultiplier * .8f, casingForceMultiplier * 1.2f));
+            if (casingLifeTime > 0)
+                Destroy(newShell, casingLifeTime);
         }
 
         yield return new WaitForSeconds(reload);
@@ -164,17 +165,19 @@ public class Sniper : Weapon
             reloadDelay = 0f;
         }
 
+        weaponAudioManager.Play("Reload");
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Reload");
 
         yield return new WaitForSeconds(magDelay);
 
-        if (shellPrefab != null)
+        if (casingPrefab != null)
         {
-            GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * Random.Range(shellForceMultiplier * .8f, shellForceMultiplier * 1.2f));
-            if (shellLifeTime > 0)
-                Destroy(newShell, shellLifeTime);
+            GameObject newShell = Instantiate(casingPrefab, casingPoint.position, casingPoint.rotation);
+            newShell.GetComponent<Rigidbody>().AddForce(casingPoint.forward * Random.Range(casingForceMultiplier * .8f, casingForceMultiplier * 1.2f));
+            if (casingLifeTime > 0)
+                Destroy(newShell, casingLifeTime);
+            weaponAudioManager.Play("Casing");
         }
 
         if (magPrefab != null)
@@ -189,6 +192,7 @@ public class Sniper : Weapon
 
         yield return new WaitForSeconds(reload);
 
+        weaponAudioManager.Play("Reload");
         if (magPrefab != null)
             currentMag = Instantiate(magPrefab, magPoint);
         if (anim.runtimeAnimatorController != null)
