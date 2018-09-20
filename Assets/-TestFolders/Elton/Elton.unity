@@ -2793,11 +2793,6 @@ Prefab:
       propertyPath: boat
       value: 
       objectReference: {fileID: 1982406364}
-    - target: {fileID: 114426254721963692, guid: 235a57d4b04dfb440b5fa8c8d35b23c0,
-        type: 2}
-      propertyPath: health
-      value: 250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 235a57d4b04dfb440b5fa8c8d35b23c0, type: 2}
   m_IsPrefabAsset: 0
