@@ -22,12 +22,17 @@ public class EndScreen : MonoBehaviour
     {
         ui.SetActive(true);
 
+        tr = DayAndNightCycle.Instance.GetTime();
+
         totalGold.text = ("Money earned: ") + CurrencyManager.Instance.GetTotalCurrency().ToString();
-        daysSurvived.text = ("Days survived: ");
+        daysSurvived.text = ("Time Survived: Days: ") + tr.days + (" hours: ") + tr.hours;
         enemiesKilled.text = ("Enemies killed: ") + KillCountManager.Instance.GetKillCount();
 
         if (PlayerPrefs.GetFloat("MoneyHighscore", 0) < CurrencyManager.Instance.GetTotalCurrency())
             PlayerPrefs.SetFloat("MoneyHighscore", CurrencyManager.Instance.GetTotalCurrency());
+
+        if (PlayerPrefs.GetFloat("TimeHighscoreDays", 0) < tr.days)
+
 
         //TODO: add playerprefs for time survived!
         if (PlayerPrefs.GetFloat("EnemieHighscore", 0) < KillCountManager.Instance.GetKillCount())

@@ -28,7 +28,7 @@ public class MainMenuController : MonoBehaviour
     public void GetHighscore ()
     {
         moneyHighscore.text = ("Most amount of money: ") + PlayerPrefs.GetFloat("MoneyHighscore", 0).ToString();
-        timeHighscore.text = ("Longest time survived: ") + PlayerPrefs.GetFloat("TimeHighscore", 0).ToString();
+        timeHighscore.text = ("Longest time survived: ") + PlayerPrefs.GetFloat("TimeHighscoreDays", 0).ToString() + " Days, " +PlayerPrefs.GetFloat("TimeHighscoreHours", 0).ToString() + " Hours";
         enemiesHighscore.text = ("Most enemies killed: ") + PlayerPrefs.GetInt("EnemieHighscore", 0).ToString();
     }
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DayAndNightCycle : MonoBehaviour {
 
+    TimeReturner tr;
+
     private Transform _sunPivotPoint;                   //The rotation pivot for the sun
     private int _centreOfGameWorld = 50;               //A value to define position at the centre of the scene (SET THE CENTRE VALUE OF THE TERRAIN IN THE VALUE)
 
@@ -13,7 +15,6 @@ public class DayAndNightCycle : MonoBehaviour {
         get { return SecondMultiplier; }
         set { SecondMultiplier = value; }
     }
-
 
     [Space(20)]
 
@@ -112,8 +113,12 @@ public class DayAndNightCycle : MonoBehaviour {
         Night
     }
 
+    public static DayAndNightCycle Instance { get; private set; }
+
     void Awake()
     {
+        Instance = this;
+
         _dayPhases = DayPhases.Night;                   //Set day Phase to night on start up
         RenderSettings.ambientIntensity = _nightAmbientIntensity; //RenderSettings ambient intensity is equal to night startup
 
@@ -751,6 +756,16 @@ public class DayAndNightCycle : MonoBehaviour {
 
         }
         RenderSettings.skybox.SetFloat("_Blend", _skyboxBlendFactor); //Get render for skybox and set the box bor the blend
+    }
+
+    public TimeReturner GetTime ()
+    {
+        tr.days = _days;
+        tr.hours = _hours;
+        tr.minutes = _minutes;
+        tr.seconds = _seconds;
+
+        return tr;
     }
 
 }
