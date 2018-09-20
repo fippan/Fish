@@ -1616,6 +1616,48 @@ Transform:
   m_Father: {fileID: 898227934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1271831304
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4120513743205504, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120513743205504, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120513743205504, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -8.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120513743205504, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120513743205504, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120513743205504, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120513743205504, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120513743205504, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 186ff7a908dba9a469dfdd3b7bc26f6d, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!21 &1372435735
 Material:
   serializedVersion: 6
@@ -2625,6 +2667,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Diver: {fileID: 1277846125134116, guid: d68c8b9f6aa36744f897534967d4eea9, type: 2}
+  diverCount: []
+  subMarine: {fileID: 0}
+  subMarineList: []
+  helicopter: {fileID: 0}
+  helicopterList: []
+  enemyList: []
+  waveCount: 1
+  waveActive: 0
+  canSpawn: 1
+  killedEnemies: 0
 --- !u!65 &1982406366
 BoxCollider:
   m_ObjectHideFlags: 0
