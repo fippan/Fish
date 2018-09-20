@@ -31,7 +31,14 @@ public class EndScreen : MonoBehaviour
         if (PlayerPrefs.GetFloat("MoneyHighscore", 0) < CurrencyManager.Instance.GetTotalCurrency())
             PlayerPrefs.SetFloat("MoneyHighscore", CurrencyManager.Instance.GetTotalCurrency());
 
-        if (PlayerPrefs.GetFloat("TimeHighscoreDays", 0) < tr.days)
+        if (PlayerPrefs.GetFloat("TimeHighscoreDays", 0) <= tr.days)
+        {
+            if (PlayerPrefs.GetFloat("TimeHighscoreHours", 0) < tr.hours)
+            {
+                PlayerPrefs.SetFloat("TimeHighscoreDays", tr.days);
+                PlayerPrefs.SetFloat("TimeHighscoreHours", tr.hours);
+            }
+        }
 
 
         //TODO: add playerprefs for time survived!
