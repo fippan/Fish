@@ -156,7 +156,7 @@ public class DayAndNightCycle : MonoBehaviour {
                 _centreOfGameWorld,0,_centreOfGameWorld);   //at this position (centre of scene)
 
 
-
+        DiverManager.Instance.WaveCount = _days;
     }
 	
 	// Update is called once per frame
@@ -179,12 +179,16 @@ public class DayAndNightCycle : MonoBehaviour {
             {
                 case DayPhases.Dawn:
                     Dawn();
+                    DiverManager.Instance.WaveIsActive = false;
                     break;
                 case DayPhases.Day:
                     Day();
                     break;
                 case DayPhases.Dusk:
                     Dusk();
+                    DiverManager.Instance.WaveCount = _days;
+                    DiverManager.Instance.CanSpawnEnemies = true;
+                    DiverManager.Instance.WaveIsActive = true;
                     break;
                 case DayPhases.Night:
                     Night();
@@ -253,7 +257,14 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         Debug.Log("DaysCounter");
         _days++;                                            //increase days counter
-
+        if(DiverManager.Instance.WaveIsActive == false)
+        {
+            DiverManager.Instance.WaveCount = _days;
+        }
+        else if(DiverManager.Instance.WaveIsActive == true)
+        {
+            SecondMultiplier = 0;
+        }
         UpdateCalendarDays();                               //call update calendar days
     }
 

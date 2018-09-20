@@ -11,6 +11,8 @@ public class DiverManager : MonoBehaviour
     public GameObject subMarine;
     [SerializeField]
     List<GameObject> subMarineList = new List<GameObject>();
+    [SerializeField]
+    List<GameObject> enemyList = new List<GameObject>();
 
     private Coroutine spawnWave;
     private int spawnedEnemies;
@@ -24,11 +26,30 @@ public class DiverManager : MonoBehaviour
     }
     [SerializeField]
     private bool waveActive = false;
+    public bool WaveIsActive
+    {
+        get { return waveActive; }
+        set { waveActive = value; }
+    }
     [SerializeField]
     private bool canSpawn = true;
+    public bool CanSpawnEnemies
+    {
+        get { return canSpawn; }
+        set { canSpawn = value; }
+    }
 
     private float randomSpawnTimer;
+    [SerializeField]
+    private int killedEnemies;
 
+    public static DiverManager Instance { get; private set; }
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         //InvokeRepeating("SpawningDivers", 10f, 7);
@@ -41,11 +62,19 @@ public class DiverManager : MonoBehaviour
     {
         if (waveActive)
         {
+
             Spawn();
+
+            if(killedEnemies >= waveCount * 2)
+            {
+                waveActive = false;
+            }
         }
         else if(!waveActive)
         {
             subMarineList.Clear();
+            diverCount.Clear();
+            enemyList.Clear();
             spawnedEnemies = 0;
             StopCoroutine(spawnWave);
         }
@@ -60,6 +89,11 @@ public class DiverManager : MonoBehaviour
             spawnWave = StartCoroutine(waveCoolDown());
         }
     }
+
+    //public int CheckIfKilled()
+    //{
+    //    return 
+    //}
 
     /// <summary>
     /// Spawns divers around the boat in a random manner
@@ -96,6 +130,7 @@ public class DiverManager : MonoBehaviour
             if (subMarineList[i] == null)
             {
                 subMarineList.RemoveAt(i);
+                killedEnemies = killedEnemies + 1;
             }
         }
         for (int e = 0; e < diverCount.Count; e++)
@@ -103,17 +138,21 @@ public class DiverManager : MonoBehaviour
             if (diverCount[e] == null)
             {
                 diverCount.RemoveAt(e);
+                killedEnemies = killedEnemies + 1;
             }
         }
 
-        if (subMarineList.Count < waveCount / 2)
+    if (enemyList.Count < waveCount * 2)
+    {
+        if (subMarineList.Count < waveCount)
         {
             Vector2 randomPoint = Random.insideUnitCircle;
             Vector3 circleSpawn = new Vector3(randomPoint.x * 50f, -1f, randomPoint.y * 50f);
 
-            var submarine = Instantiate(subMarine, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
+            var submarine = Instantiate(subMarine, transform.position + circleSpawn + new Vector3(0, -4, 0), new Quaternion(0, 0, 0, 0));
 
             subMarineList.Add(submarine);
+            enemyList.Add(submarine);
             randomSpawnTimer = Random.Range(10, 50);
             spawnedEnemies++;
         }
@@ -127,9 +166,11 @@ public class DiverManager : MonoBehaviour
             var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
 
             diverCount.Add(diver);
+            enemyList.Add(diver);
             randomSpawnTimer = Random.Range(10, 15);
             spawnedEnemies++;
         }
+    }
     }
 
     IEnumerator waveCoolDown()

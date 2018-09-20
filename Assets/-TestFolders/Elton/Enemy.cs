@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour, ICanTakeDamage{
     {
         Dead = true;
         Destroy(gameObject);
+        KillCountManager.Instance.AddKill();
         //kill
     }
 }
