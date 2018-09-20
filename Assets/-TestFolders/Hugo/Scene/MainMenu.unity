@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 617d9be015db68348a623b01ea51a8c5, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -4396,6 +4396,62 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee6021d650a48d34eb24f35b6c268a04, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1123384169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1123384171}
+  - component: {fileID: 1123384170}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!220 &1123384170
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1123384169}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: 1, y: 1, z: 1}
+  - {x: 1, y: 1, z: -1}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -1}
+  - {x: -1.4113903, y: 1.4903126, z: 1.4213858}
+  - {x: -11.68591, y: -0.72896385, z: 6.886741}
+  - {x: -1, y: -0.86997795, z: 1}
+  - {x: -1, y: -0.8575387, z: -1}
+  - {x: -7.1620693, y: 5.098378, z: -6.7311034}
+  - {x: -4.52845, y: -0.9192748, z: -1.9}
+  - {x: -4.52845, y: -1.2577577, z: -4.587511}
+  - {x: -5.6928825, y: -0.6258311, z: -7.4893074}
+  - {x: -7.1620693, y: -0.6258311, z: -10.174782}
+  - {x: -9.626568, y: 3.0027015, z: -2.8522627}
+  - {x: -6.6777983, y: -1.16955, z: 4.163695}
+  - {x: -7.1620693, y: 1.6299376, z: -7.005042}
+  - {x: -7.1620693, y: 2.0907407, z: -9.603951}
+  - {x: -6.6777983, y: 1, z: -1}
+  - {x: -9.626568, y: 0.5006809, z: -2.8522627}
+--- !u!4 &1123384171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1123384169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.15, y: 1.662, z: 1.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129624238
 GameObject:
   m_ObjectHideFlags: 0
