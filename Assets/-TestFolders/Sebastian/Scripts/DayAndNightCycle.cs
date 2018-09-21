@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DayAndNightCycle : MonoBehaviour {
+
+    public Text timerText;
+    private float startTime;
 
     private Transform _sunPivotPoint;                   //The rotation pivot for the sun
     private int _centreOfGameWorld = 50;               //A value to define position at the centre of the scene (SET THE CENTRE VALUE OF THE TERRAIN IN THE VALUE)
@@ -126,6 +130,8 @@ public class DayAndNightCycle : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        startTime = Time.time;
+
         StartCoroutine("TimeOfDayFiniteStateMachine");      //Start TimeOfDayFiniteStateMachine on start up
 
         _hours = 5;                                         //hours equals five on start up
@@ -164,6 +170,13 @@ public class DayAndNightCycle : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        float t = Time.time - startTime;
+
+        string minutes = ((int)t / 60).ToString();
+        string seconds = (t % 60).ToString("f2");
+
+        timerText.text = minutes + ":" + seconds;
+
             SecondsCounter();                               //Call SecondsCounter function
             UpdateSkybox();                                 //Call UpdateSkybox function
         SunRotationManager();                               //Call SunRotationManager function
@@ -209,9 +222,6 @@ public class DayAndNightCycle : MonoBehaviour {
 
 
         _counter += Time.deltaTime * SecondMultiplier;      //counter plus time sync to pc speed
-
-        _counter += Time.deltaTime * 1000;                     //counter plus time sync to pc speed
-
 
         _seconds = (int)_counter;                           //seconds equals counter cast to an int 
 
@@ -747,4 +757,10 @@ public class DayAndNightCycle : MonoBehaviour {
         RenderSettings.skybox.SetFloat("_Blend", _skyboxBlendFactor); //Get render for skybox and set the box bor the blend
     }
 
+    /*
+    public float timeSurvived ()
+    {
+        return _days;
+    }
+    */
 }
