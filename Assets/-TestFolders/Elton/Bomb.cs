@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
@@ -18,6 +17,7 @@ public class Bomb : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         startSize = transform.localScale;
+        Throw(transform, GameObject.Find("Target").transform);
     }
 
     private void Update()
@@ -46,47 +46,25 @@ public class Bomb : MonoBehaviour
 
     public void Throw(Transform start, Transform target)
     {
-        //Vector3 targetPos = target.transform.position = Random.insideUnitCircle * 1;
-        StartCoroutine(SimulateProjectile(start, target));
+        Vector2 v2 = Random.insideUnitCircle;
+        Vector3 v3 = new Vector3(v2.x, 0f, v2.y);
+        Vector3 offset = v3.normalized * .8f;
+        rb.velocity = calcBallisticVelocityVector(start.position, target.position + offset, firingAngle);
     }
 
-    IEnumerator SimulateProjectile(Transform start, Transform target)
+    private Vector3 calcBallisticVelocityVector(Vector3 source, Vector3 target, float angle)
     {
-        // Short delay added before Projectile is thrown
-        //yield return new WaitForSeconds(1.5f);
+        Vector3 direction = target - source;
+        float h = direction.y;
+        direction.y = 0;
+        float distance = direction.magnitude;
+        float a = angle * Mathf.Deg2Rad;
+        direction.y = distance * Mathf.Tan(a);
+        distance += h / Mathf.Tan(a);
 
-        // Move projectile to the position of throwing object + add some offset if needed.
-        Vector2 offset = Random.insideUnitCircle;
-        transform.position = start.position + new Vector3(offset.x + .5f, 0.0f, offset.y + .5f);
-
-        // Calculate distance to target
-        float target_Distance = Vector3.Distance(transform.position, target.position);
-
-        // Calculate the velocity needed to throw the object to the target at specified angle.
-        float projectile_Velocity = target_Distance / (Mathf.Sin(2 * firingAngle * Mathf.Deg2Rad) / gravity);
-
-        // Extract the X  Y componenent of the velocity
-        float Vx = Mathf.Sqrt(projectile_Velocity) * Mathf.Cos(firingAngle * Mathf.Deg2Rad);
-        float Vy = Mathf.Sqrt(projectile_Velocity) * Mathf.Sin(firingAngle * Mathf.Deg2Rad);
-
-        // Calculate flight time.
-        float flightDuration = target_Distance / Vx;
-
-        // Rotate projectile to face the target.
-        transform.rotation = Quaternion.LookRotation(target.position - transform.position);
-
-        float elapse_time = 0;
-
-        while (elapse_time < flightDuration)
-        {
-            transform.Translate(0, (Vy - (gravity * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime);
-
-            elapse_time += Time.deltaTime;
-
-            yield return null;
-        }
-        rb.isKinematic = false;
-        rb.useGravity = true;
+        // calculate velocity
+        float velocity = Mathf.Sqrt(distance * Physics.gravity.magnitude / Mathf.Sin(2 * a));
+        return velocity * direction.normalized;
     }
 
     private void Explode()
@@ -102,15 +80,8 @@ public class Bomb : MonoBehaviour
             }
             i++;
         }
-        ParticleSystem ps = Instantiate(explosionFX, transform.position, transform.rotation) as ParticleSystem;
-        AudioManager.instance.Play("BombExplode");
-        Destroy(ps.gameObject, 3f);
+        Destroy(Instantiate(explosionFX, transform.position, transform.rotation), 3f);
+        //AudioManager.instance.Play("BombExplode");
         Destroy(gameObject);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
