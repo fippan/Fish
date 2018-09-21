@@ -55,6 +55,7 @@ public class Submarine : MonoBehaviour, ICanTakeDamage {
         if(health <= 0)
         {
             diveBack = true;
+            KillCountManager.Instance.AddKill();
         }
     }
 }

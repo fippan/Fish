@@ -45,6 +45,7 @@ public class SubmarineEnemy : Enemy, ICanTakeDamage {
             {
                 StopCoroutine(shootBehave);
                 GetComponentInParent<Submarine>().diveBack = true;
+                KillCountManager.Instance.AddKill();
                 //FindObjectOfType<DiverManager>().WaveCount++;
                 Destroy(gameObject);
             }
