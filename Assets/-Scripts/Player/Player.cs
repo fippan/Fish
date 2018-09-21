@@ -27,17 +27,24 @@ public class Player : MonoBehaviour, ICanTakeDamage
 
     private void Death()
     {
-        endGame.SetActive(true);
+        endGame.GetComponent<EndScreen>().GameOver();
         DiverManager.Instance.WaveIsActive = false;
     }
 
     IEnumerator HealthGeneration()
     {
         yield return new WaitForSeconds(5f);
-        if (currentHealth < 100)
+        while (currentHealth < startingHealth)
+        {
             currentHealth += Time.deltaTime;
-        else if (currentHealth > 100)
-            StopCorotine();
+
+            if (currentHealth >= startingHealth)
+            {
+                currentHealth = startingHealth;
+                break;
+            }
+            yield return null;
+        }
     }
     private void StopCorotine()
     {
