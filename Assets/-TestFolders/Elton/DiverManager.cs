@@ -18,6 +18,8 @@ public class DiverManager : MonoBehaviour
     [SerializeField]
     List<GameObject> enemyList = new List<GameObject>();
 
+    [SerializeField]
+    private DayAndNightCycle dayAndNight;
     private Coroutine spawnWave;
     private int spawnedEnemies;
 
@@ -56,6 +58,10 @@ public class DiverManager : MonoBehaviour
     }
     private void Start()
     {
+        if(dayAndNight == null)
+        {
+            dayAndNight = FindObjectOfType<DayAndNightCycle>();
+        }
         //InvokeRepeating("SpawningDivers", 10f, 7);
 
         //SpawningDivers();
@@ -72,6 +78,14 @@ public class DiverManager : MonoBehaviour
             if(killedEnemies >= waveCount * 2)
             {
                 waveActive = false;
+            }
+            if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < waveCount * 2)
+            {
+                dayAndNight.TimeMultiplier = 0;
+            }
+            else
+            {
+                dayAndNight.TimeMultiplier = 60f;
             }
         }
         else if(!waveActive)
@@ -93,37 +107,9 @@ public class DiverManager : MonoBehaviour
             canSpawn = false;
             spawnWave = StartCoroutine(waveCoolDown());
         }
+
     }
 
-    //public int CheckIfKilled()
-    //{
-    //    return 
-    //}
-
-    /// <summary>
-    /// Spawns divers around the boat in a random manner
-    /// </summary>
-    void SpawningDivers(int waveCount)
-    {
-        //for (int e = 0; e < diverCount.Count; e++)
-        //{
-        //    if (diverCount[e] == null)
-        //    {
-        //        diverCount.RemoveAt(e);
-        //    }
-        //}
-        //if (diverCount.Count < waveCount)
-        //{
-        //    Vector2 randomPoint = Random.insideUnitCircle;
-        //    Vector3 circleSpawn = new Vector3(randomPoint.x * 6f, -1f, randomPoint.y * 6f);
-            
-        //    var diver = Instantiate(Diver,transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
-
-        //    diverCount.Add(diver);
-        //    randomSpawnTimer = Random.Range(10, 50);
-        //    spawnedEnemies++;
-        //}
-    }
     /// <summary>
     /// Spawns amount of submarines depending on the wave.
     /// </summary>

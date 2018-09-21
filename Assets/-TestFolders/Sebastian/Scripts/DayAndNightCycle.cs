@@ -8,6 +8,12 @@ public class DayAndNightCycle : MonoBehaviour {
     private int _centreOfGameWorld = 50;               //A value to define position at the centre of the scene (SET THE CENTRE VALUE OF THE TERRAIN IN THE VALUE)
 
     [SerializeField] private float SecondMultiplier;
+    public float TimeMultiplier
+    {
+        get { return SecondMultiplier; }
+        set { SecondMultiplier = value; }
+    }
+
 
     public int _days;                                   //Defines naming convention for the days
     public int _hours;                                  //Defines naming convention for the hours
@@ -179,7 +185,6 @@ public class DayAndNightCycle : MonoBehaviour {
             {
                 case DayPhases.Dawn:
                     Dawn();
-                    DiverManager.Instance.WaveIsActive = false;
                     break;
                 case DayPhases.Day:
                     Day();
@@ -208,7 +213,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
         _counter += Time.deltaTime * SecondMultiplier;      //counter plus time sync to pc speed
 
-        _counter += Time.deltaTime * 1000;                     //counter plus time sync to pc speed
+/*        _counter += Time.deltaTime * 1000;   */                  //counter plus time sync to pc speed
 
 
         _seconds = (int)_counter;                           //seconds equals counter cast to an int 
