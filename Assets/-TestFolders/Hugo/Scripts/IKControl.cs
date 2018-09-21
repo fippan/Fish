@@ -1,17 +1,14 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
 
 [RequireComponent(typeof(Animator))]
 
 public class IKControl : MonoBehaviour
 {
-
     protected Animator animator;
 
     public bool ikActive = false;
-    public Transform rightHandObj = null;
-    public Transform leftHandObj = null;
+    public static Transform rightHandObj = null;
+    public static Transform leftHandObj = null;
     public Transform lookObj = null;
     public Transform chest = null;
 

@@ -44,6 +44,20 @@ public class Rifle : Weapon
         {
             currentSecondaryGrabbingObject = e.interactingObject;
             spreadingBullets = false;
+            SDK_BaseController.ControllerHand hand = VRTK_DeviceFinder.GetControllerHand(e.interactingObject);
+            switch (hand)
+            {
+                case SDK_BaseController.ControllerHand.None:
+                    break;
+                case SDK_BaseController.ControllerHand.Left:
+                    IKControl.leftHandObj = secondHandGrabPoint;
+                    break;
+                case SDK_BaseController.ControllerHand.Right:
+                    IKControl.rightHandObj = secondHandGrabPoint;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
@@ -60,6 +74,21 @@ public class Rifle : Weapon
             currentSecondaryGrabbingObject = null;
         }
         spreadingBullets = spreadingBulletsEnabled;
+
+        SDK_BaseController.ControllerHand hand = VRTK_DeviceFinder.GetControllerHand(e.interactingObject);
+        switch (hand)
+        {
+            case SDK_BaseController.ControllerHand.None:
+                break;
+            case SDK_BaseController.ControllerHand.Left:
+                IKControl.leftHandObj = e.interactingObject.transform;
+                break;
+            case SDK_BaseController.ControllerHand.Right:
+                IKControl.rightHandObj = e.interactingObject.transform;
+                break;
+            default:
+                break;
+        }
     }
 
     private void OnUse(object sender, InteractableObjectEventArgs e)

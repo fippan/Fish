@@ -47,6 +47,7 @@ public abstract class Weapon : MonoBehaviour
 
     [Header("Barrel")]
     public Transform barrelEnd;
+    public Transform secondHandGrabPoint;
 
     [Header("Haptic feedback.")]
     [Range(0, 1)]
