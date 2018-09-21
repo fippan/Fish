@@ -8,6 +8,9 @@ public class Submarine : MonoBehaviour, ICanTakeDamage {
     private bool hasEnabled = false;
     public bool diveBack = false;
     private float health = 150f;
+    [SerializeField]
+    private AudioClip beepSFX;
+    private AudioSource audioSource;
 
 
     public Transform playerPos;
@@ -15,9 +18,9 @@ public class Submarine : MonoBehaviour, ICanTakeDamage {
     public GameObject explosionFX;
 	// Use this for initialization
 	void Start () {
+        audioSource = GetComponent<AudioSource>();
         spawnpos = FindObjectOfType<DiverManager>().transform;
         Vector3 targetdir = transform.position - spawnpos.position;
-
         //Vector3 newDir = Vector3.RotateTowards(transform.right, targetdir, 100f, 0f);
         //transform.rotation = Quaternion.LookRotation(newDir);
         transform.LookAt(spawnpos);
@@ -37,6 +40,8 @@ public class Submarine : MonoBehaviour, ICanTakeDamage {
             if(!hasEnabled)
             {
                 var tempEnemy = GetComponentInChildren<SubmarineEnemy>().canFire = true;
+                audioSource.clip = beepSFX;
+                audioSource.Play();
                 hasEnabled = true;
             }
         }
