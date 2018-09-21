@@ -190,6 +190,7 @@ public class DayAndNightCycle : MonoBehaviour {
                     break;
                 case DayPhases.Day:
                     Day();
+                    DiverManager.Instance.CanSpawnEnemies = true;
                     break;
                 case DayPhases.Dusk:
                     Dusk();
