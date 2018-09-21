@@ -529,6 +529,15 @@ MonoBehaviour:
     spatialBlend: 1
     minDistance: 1
     maxDistance: 500
+  - name: DryFire
+    audioClip: {fileID: 8300000, guid: 31a9b1f234b0efd4fabcab5553388143, type: 3}
+    volume: 0.886
+    volumeVariance: 0.102
+    pitch: 1.01
+    pitchVariance: 0.135
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 500
 --- !u!114 &114480268928694314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,6 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitScan: 1
+  hitScanPoint: {fileID: 4025853875216928}
   spreadingBullets: 1
   explosive: 0
   damage: 20

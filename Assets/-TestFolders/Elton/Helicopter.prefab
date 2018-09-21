@@ -465,7 +465,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685030288229418}
   m_LocalRotation: {x: 0.0000018099951, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.628523, y: 30, z: -250}
+  m_LocalPosition: {x: -6.6593137, y: -1, z: 1.9072405}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4034912844176320}
@@ -1244,6 +1244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitScan: 0
+  hitScanPoint: {fileID: 0}
   spreadingBullets: 1
   explosive: 0
   damage: 5
@@ -1255,12 +1256,10 @@ MonoBehaviour:
   magPoint: {fileID: 0}
   magPrefab: {fileID: 0}
   magForceMultiplier: 0
-  shellPrefab: {fileID: 0}
-  shellPoint: {fileID: 0}
-  shellForceMultiplier: 0
-  shellLifeTime: 0
-  shootSFX: {fileID: 0}
-  outOfAmmoSFX: {fileID: 0}
+  casingPrefab: {fileID: 0}
+  casingPoint: {fileID: 0}
+  casingForceMultiplier: 0
+  casingLifeTime: 0
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
@@ -1322,6 +1321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitScan: 0
+  hitScanPoint: {fileID: 0}
   spreadingBullets: 1
   explosive: 0
   damage: 5
@@ -1333,12 +1333,10 @@ MonoBehaviour:
   magPoint: {fileID: 0}
   magPrefab: {fileID: 0}
   magForceMultiplier: 0
-  shellPrefab: {fileID: 0}
-  shellPoint: {fileID: 0}
-  shellForceMultiplier: 0
-  shellLifeTime: 0
-  shootSFX: {fileID: 0}
-  outOfAmmoSFX: {fileID: 0}
+  casingPrefab: {fileID: 0}
+  casingPoint: {fileID: 0}
+  casingForceMultiplier: 0
+  casingLifeTime: 0
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}

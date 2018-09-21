@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fed1f5ce540c64996c133a3da25052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worth: 40
+  worth: 100
 --- !u!114 &114335688717217976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -384,7 +384,11 @@ MonoBehaviour:
   m_BuoyancyPoints:
   - {fileID: 4777028494992368}
   m_BuoyancyStrength: 1
-  m_BobbingDamp: 0.5
+  m_BuoyancyDamp: 2
+  m_FloatSpeedDamp: 0.75
+  m_FakeBobbing: 1
+  m_BobbingSpeed: 0.7
+  m_BobbingHeight: 0.05
 --- !u!114 &114464966726713812
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -55,7 +55,7 @@ public class FishingRod : MonoBehaviour
             pullDir.y = pullDir.y * 5;
             newBobRB.velocity += pullDir * Time.deltaTime * 3.5f;
             
-            if (dist < .3f)
+            if (dist < .6f)
             {
                 if (FishyManager.Instance.HasFish())
                 {

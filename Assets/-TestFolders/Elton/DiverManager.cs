@@ -85,7 +85,7 @@ public class DiverManager : MonoBehaviour
             }
             else
             {
-                dayAndNight.TimeMultiplier = 172f;
+                dayAndNight.TimeMultiplier = 344f * 2;
             }
         }
         else if(!waveActive)
@@ -95,6 +95,7 @@ public class DiverManager : MonoBehaviour
             diverCount.Clear();
             enemyList.Clear();
             spawnedEnemies = 0;
+            killedEnemies = 0;
             if(spawnWave != null)
             {
                 StopCoroutine(spawnWave);
