@@ -14,6 +14,7 @@ public class BombTestManager : MonoBehaviour
 
     private void SpawnBomb()
     {
-        Instantiate(bomb, transform.position, transform.rotation);
+        Bomb newBomb = Instantiate(bomb, transform.position, transform.rotation);
+        newBomb.Throw(transform, GameObject.Find("Target").transform);
     }
 }
