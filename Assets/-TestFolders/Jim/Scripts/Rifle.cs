@@ -88,7 +88,12 @@ public class Rifle : Weapon
 
     public override void Shoot()
     {
-        if (!canFire) return;
+        if (!canFire)
+        {
+            if (reloading)
+                weaponAudioManager.Play("DryFire");
+            return;
+        }
 
         if (automatic && !isTriggerDown) StartCoroutine(AutomaticFire());
         else if (!automatic) SingleFire();
