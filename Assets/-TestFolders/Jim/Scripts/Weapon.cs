@@ -201,6 +201,7 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void OnShotFired()
     {
         //Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
+        //TODO: Fix error!
         weaponAudioManager.Play("Fire");
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Single_Shot");

@@ -9,8 +9,12 @@ public class EndScreen : MonoBehaviour
     public Text daysSurvived;
     public Text enemiesKilled;
 
+    public GameObject ui;
+
     public void GameOver ()
     {
+        ui.SetActive(true);
+
         totalGold.text = ("Money earned: ") + CurrencyManager.Instance.GetTotalCurrency().ToString();
         daysSurvived.text = ("Days survived: ");
         enemiesKilled.text = ("Enemies killed: ") + KillCountManager.Instance.GetKillCount();

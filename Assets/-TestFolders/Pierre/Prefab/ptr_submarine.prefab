@@ -897,6 +897,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4356001030055500}
   - component: {fileID: 114131994235239970}
+  - component: {fileID: 65578703906514016}
   m_Layer: 0
   m_Name: ptr_submarine
   m_TagString: Untagged
@@ -3390,6 +3391,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 97.31, y: 193.71352, z: 60.01796}
   m_Center: {x: 0, y: 88.1, z: 0}
+--- !u!65 &65578703906514016
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752166246681944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.23, y: 0.06, z: 0.06}
+  m_Center: {x: 0.02, y: 0, z: 0}
 --- !u!82 &82564300897764578
 AudioSource:
   m_ObjectHideFlags: 1
