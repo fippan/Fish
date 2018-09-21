@@ -13,7 +13,11 @@ public class DayAndNightCycle : MonoBehaviour {
     private int _centreOfGameWorld = 50;               //A value to define position at the centre of the scene (SET THE CENTRE VALUE OF THE TERRAIN IN THE VALUE)
 
     [SerializeField] private float SecondMultiplier;
-
+    public float TimeMultiplier
+    {
+        get { return SecondMultiplier; }
+        set { SecondMultiplier = value; }
+    }
     [Space(20)]
 
     public int _days;                                   //Defines naming convention for the days
