@@ -95,7 +95,10 @@ public class DiverManager : MonoBehaviour
             diverCount.Clear();
             enemyList.Clear();
             spawnedEnemies = 0;
-            StopCoroutine(spawnWave);
+            if(spawnWave != null)
+            {
+                StopCoroutine(spawnWave);
+            }
         }
     }
 

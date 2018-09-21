@@ -101,9 +101,7 @@ public class Shotgun : Weapon
 
     protected override void OnShotFired()
     {
-        //Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
-        if (shootSFX != null)
-            audioSource.Play();
+        weaponAudioManager.Play("Fire");
         if (onShootEffect != null)
             Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
         shotsFired++;
@@ -122,15 +120,17 @@ public class Shotgun : Weapon
 
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Reload");
+        weaponAudioManager.Play("Reload");
 
         yield return new WaitForSeconds(shellDelay);
-
-        if (shellPrefab != null)
+        
+        if (casingPrefab != null)
         {
-            GameObject newShell = Instantiate(shellPrefab, shellPoint.position, shellPoint.rotation);
-            newShell.GetComponent<Rigidbody>().AddForce(shellPoint.forward * Random.Range(shellForceMultiplier * .8f, shellForceMultiplier * 1.2f));
-            if (shellLifeTime > 0)
-                Destroy(newShell, shellLifeTime);
+            GameObject newShell = Instantiate(casingPrefab, casingPoint.position, casingPoint.rotation);
+            newShell.GetComponent<Rigidbody>().AddForce(casingPoint.forward * Random.Range(casingForceMultiplier * .8f, casingForceMultiplier * 1.2f));
+            if (casingLifeTime > 0)
+                Destroy(newShell, casingLifeTime);
+            weaponAudioManager.Play("Casing");
         }
 
         yield return new WaitForSeconds(reload);

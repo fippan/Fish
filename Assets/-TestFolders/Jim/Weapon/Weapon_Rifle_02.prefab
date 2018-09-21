@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4826308075948738}
   m_Layer: 0
-  m_Name: ShellPoint
+  m_Name: CasingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ GameObject:
   - component: {fileID: 114623479991499640}
   - component: {fileID: 114312475563943048}
   - component: {fileID: 114480268928694314}
-  - component: {fileID: 82164884527254384}
   - component: {fileID: 95880318182230608}
+  - component: {fileID: 114349562574194572}
   m_Layer: 0
   m_Name: Weapon_Rifle_02
   m_TagString: Metal
@@ -414,102 +414,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 596b5076dad6e414483036c386728e4d, type: 3}
---- !u!82 &82164884527254384
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437912708010896}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609,
-    type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!95 &95880318182230608
 Animator:
   serializedVersion: 3
@@ -585,6 +489,46 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &114349562574194572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437912708010896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296880b5419f2884189b0473709dc8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609, type: 2}
+  sounds:
+  - name: Fire
+    audioClip: {fileID: 8300000, guid: 30050f455da8db34d8331e0b8bc61963, type: 3}
+    volume: 0.614
+    volumeVariance: 0.131
+    pitch: 0.82
+    pitchVariance: 0.173
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 500
+  - name: Casing
+    audioClip: {fileID: 8300000, guid: b99ca54d5ccc5514e8531397904447b1, type: 3}
+    volume: 0
+    volumeVariance: 0.042
+    pitch: 1
+    pitchVariance: 0.136
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 500
+  - name: Reload
+    audioClip: {fileID: 8300000, guid: 89dcba46bb0bc2c41adbbf05bf0fd136, type: 3}
+    volume: 0.803
+    volumeVariance: 0.105
+    pitch: 1.06
+    pitchVariance: 0.1
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 500
 --- !u!114 &114480268928694314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,7 +544,7 @@ MonoBehaviour:
   spreadingBullets: 1
   explosive: 0
   damage: 20
-  firingRate: 0.15
+  firingRate: 0.1
   minSpreadDegrees: {x: -7, y: -7}
   maxSpreadDegrees: {x: 7, y: 7}
   shotsUntilReload: 30
@@ -608,13 +552,11 @@ MonoBehaviour:
   magPoint: {fileID: 4713699731588050}
   magPrefab: {fileID: 1343213565318626, guid: 59de65f362cf3e54cae7ab42685a862a, type: 2}
   magForceMultiplier: 200
-  shellPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
+  casingPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
     type: 2}
-  shellPoint: {fileID: 4826308075948738}
-  shellForceMultiplier: 100
-  shellLifeTime: 5
-  shootSFX: {fileID: 8300000, guid: c38b5abb8c702a04a8cc32307ee49ea5, type: 3}
-  outOfAmmoSFX: {fileID: 0}
+  casingPoint: {fileID: 4826308075948738}
+  casingForceMultiplier: 150
+  casingLifeTime: 3
   explosionRadius: 0
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}

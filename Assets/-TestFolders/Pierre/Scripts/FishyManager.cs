@@ -75,7 +75,6 @@ public class FishyManager : MonoBehaviour
 
 	public void StopFishing()
 	{
-        AudioManager.instance.TransformTarget(currentFish);
         timeCounter = 0f;
 		theStates = FishingStates.NOTFISHING;
 	}

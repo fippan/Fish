@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 4398869126952690}
   - component: {fileID: 33158562064372266}
   - component: {fileID: 23578676155729196}
-  - component: {fileID: 64595608548012894}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -158,8 +157,8 @@ GameObject:
   - component: {fileID: 114200285562039024}
   - component: {fileID: 114369021810847584}
   - component: {fileID: 114621595533637494}
-  - component: {fileID: 82882621497864196}
   - component: {fileID: 95199133638630442}
+  - component: {fileID: 114350379193010760}
   m_Layer: 0
   m_Name: Weapon_Sniper_01
   m_TagString: Metal
@@ -211,7 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4407467064816672}
   m_Layer: 0
-  m_Name: ShellPoint
+  m_Name: CasingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -837,20 +836,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64595608548012894
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1161850996134922}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &64663928665791380
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -879,102 +864,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 928547bc27a69714a83d4eaf59b3e0b0, type: 3}
---- !u!82 &82882621497864196
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1473778546336812}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609,
-    type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!95 &95199133638630442
 Animator:
   serializedVersion: 3
@@ -1027,6 +916,46 @@ MonoBehaviour:
   customOutlineModels: []
   customOutlineModelPaths: []
   enableSubmeshHighlight: 0
+--- !u!114 &114350379193010760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473778546336812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296880b5419f2884189b0473709dc8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609, type: 2}
+  sounds:
+  - name: Fire
+    audioClip: {fileID: 8300000, guid: c2e540f097574084c95a39c009799e12, type: 3}
+    volume: 0.939
+    volumeVariance: 0.047
+    pitch: 1
+    pitchVariance: 0.115
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 500
+  - name: Casing
+    audioClip: {fileID: 8300000, guid: b99ca54d5ccc5514e8531397904447b1, type: 3}
+    volume: 0.52
+    volumeVariance: 0.121
+    pitch: 1.01
+    pitchVariance: 0.089
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 500
+  - name: Reload
+    audioClip: {fileID: 8300000, guid: 89dcba46bb0bc2c41adbbf05bf0fd136, type: 3}
+    volume: 0.845
+    volumeVariance: 0.11
+    pitch: 1.01
+    pitchVariance: 0.126
+    spatialBlend: 1
+    minDistance: 1
+    maxDistance: 500
 --- !u!114 &114369021810847584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1061,13 +990,11 @@ MonoBehaviour:
   magPoint: {fileID: 4070554870042168}
   magPrefab: {fileID: 1886637198375148, guid: 1e796087a9ecb684c844655f5faf2fc2, type: 2}
   magForceMultiplier: 200
-  shellPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
+  casingPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
     type: 2}
-  shellPoint: {fileID: 4407467064816672}
-  shellForceMultiplier: 100
-  shellLifeTime: 5
-  shootSFX: {fileID: 8300000, guid: c38b5abb8c702a04a8cc32307ee49ea5, type: 3}
-  outOfAmmoSFX: {fileID: 0}
+  casingPoint: {fileID: 4407467064816672}
+  casingForceMultiplier: 150
+  casingLifeTime: 3
   explosionRadius: 0
   projectile: {fileID: 114923502503575518, guid: 4d3447fb446bd7445ac0e163cade004c,
     type: 2}

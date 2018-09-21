@@ -18,6 +18,7 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
     [SerializeField] private GameObject minigunOne;
     [SerializeField] private GameObject minigunTwo;
     [SerializeField] private ParticleSystem particleExplotion;
+    [SerializeField] private ParticleSystem particleSplash;
     Animator anim;
 
     private void Start()
@@ -43,6 +44,7 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
             {
                 audio3.Play();
                 sploshed = true;
+                particleSplash.Play();
             }
     }
 
@@ -83,7 +85,7 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
             KillCountManager.Instance.AddKill();
             dead = true;
             audio1.Stop();
-            Invoke("Death", 20f);
+            Invoke("Death", 10f);
         }
     }
 
