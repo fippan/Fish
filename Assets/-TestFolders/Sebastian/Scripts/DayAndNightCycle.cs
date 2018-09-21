@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DayAndNightCycle : MonoBehaviour {
+    TimeReturner tr;
 
     public Text timerText;
     private float startTime;
@@ -757,10 +758,13 @@ public class DayAndNightCycle : MonoBehaviour {
         RenderSettings.skybox.SetFloat("_Blend", _skyboxBlendFactor); //Get render for skybox and set the box bor the blend
     }
 
-    /*
-    public float timeSurvived ()
+    public TimeReturner ReturnTime ()
     {
-        return _days;
+        tr.days = _days;
+        tr.hours = _hours;
+        tr.minutes = _minutes;
+        tr.seconds = _seconds;
+
+        return tr;
     }
-    */
 }
