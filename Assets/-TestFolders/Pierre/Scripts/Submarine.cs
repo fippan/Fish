@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Submarine : MonoBehaviour {
+public class Submarine : MonoBehaviour, ICanTakeDamage {
 
 
     private bool hasEnabled = false;
     public bool diveBack = false;
+    private float health = 150f;
+
 
     public Transform playerPos;
     public Transform spawnpos;
@@ -45,4 +47,14 @@ public class Submarine : MonoBehaviour {
             Destroy(gameObject, 4f);
         }
 	}
+
+    public void TakeDamage(float amount)
+    {
+        health -= amount;
+
+        if(health <= 0)
+        {
+            diveBack = true;
+        }
+    }
 }

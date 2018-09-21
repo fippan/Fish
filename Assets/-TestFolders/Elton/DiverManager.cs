@@ -85,7 +85,7 @@ public class DiverManager : MonoBehaviour
             }
             else
             {
-                dayAndNight.TimeMultiplier = 60f;
+                dayAndNight.TimeMultiplier = 172f;
             }
         }
         else if(!waveActive)

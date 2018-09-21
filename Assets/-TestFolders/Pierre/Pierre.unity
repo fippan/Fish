@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0015181152, g: 0.0013901659, b: 0.0013173949, a: 1}
+  m_IndirectSpecularColor: {r: 0.036681812, g: 0.025375282, b: 0.022692192, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -829,6 +829,7 @@ MonoBehaviour:
   helicopter: {fileID: 1685030288229418, guid: 235a57d4b04dfb440b5fa8c8d35b23c0, type: 2}
   helicopterList: []
   enemyList: []
+  dayAndNight: {fileID: 0}
   waveCount: 4
   waveActive: 0
   canSpawn: 1
@@ -1595,154 +1596,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 146900, guid: 4d293c8e162f3874b982baadd71153d2,
     type: 2}
   m_PrefabInternal: {fileID: 1171314256}
---- !u!1 &1266933915
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1266933918}
-  - component: {fileID: 1266933917}
-  - component: {fileID: 1266933916}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1266933916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1266933915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca663283ef9398745a245d8f3d38393a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SecondMultiplier: 60
-  _days: 5
-  _hours: 0
-  _minutes: 0
-  _seconds: 0
-  _counter: 0
-  _years: 0
-  _leapYearsCounter: 0
-  _calendarDays: 0
-  _january: 0
-  _february: 0
-  _march: 0
-  _april: 0
-  _may: 0
-  _june: 0
-  _july: 0
-  _august: 0
-  _september: 0
-  _october: 0
-  _november: 0
-  _december: 0
-  _spring: 0
-  _summer: 0
-  _autumn: 0
-  _winter: 0
-  _springDayLength: 0
-  _summerDayLength: 0
-  _autumnDayLength: 0
-  _winterDayLength: 0
-  _dawnStartTime: 0
-  _dayStartTime: 0
-  _duskStartTime: 0
-  _nightStartTime: 0
-  _dayTemp: 0
-  _rotTemp: 0
-  _dawnSpringStartTime: 7
-  _daySpringStartTime: 9
-  _duskSpringStartTime: 18
-  _nightSpringStartTime: 20
-  _dawnSummerStartTime: 6
-  _daySummerStartTime: 8
-  _duskSummerStartTime: 20
-  _nightSummerStartTime: 22
-  _dawnAutumnStartTime: 7
-  _dayAutumnStartTime: 9
-  _duskAutumnStartTime: 18
-  _nightAutumnStartTime: 20
-  _dawnWinterStartTime: 8
-  _dayWinterStartTime: 10
-  _duskWinterStartTime: 16
-  _nightWinterStartTime: 18
-  _sunDimTime: 0.01
-  _dawnSunIntensity: 0.5
-  _daySunIntensity: 1
-  _duskSunIntensity: 0.25
-  _nightSunIntensity: 0
-  _ambientDimTime: 0.0001
-  _dawnAmbientIntensity: 0.5
-  _dayAmbientIntensity: 1
-  _duskAmbientIntensity: 0.25
-  _nightAmbientIntensity: 0
-  _dawnSkyboxBlendFactor: 0.5
-  _daySkyboxBlendFactor: 1
-  _duskSkyboxBlendFactor: 0.25
-  _nightSkyboxBlendFactor: 0
-  _skyboxBlendFactor: 0
-  _skyboxBlendSpeed: 0.01
-  _guiWidth: 100
-  _guiHeight: 20
-  _dayPhases: 0
---- !u!108 &1266933917
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1266933915}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &1266933918
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1266933915}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -11.5507555, y: -3.9578998, z: 4.798453}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1267461097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,6 +2134,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583531080}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1585970972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585970973}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: SunPivot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1585970973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1585970972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.5664325, y: -0.17672539, z: 30.193783}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731312662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 147176, guid: 4d293c8e162f3874b982baadd71153d2,
@@ -2440,6 +2321,158 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: {fileID: 0}
   currentCurrency: 200
+--- !u!1 &1987018785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1912631697213770, guid: b719077b7acacfb4abe6bee44abebbb0,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1987018786}
+  - component: {fileID: 1987018788}
+  - component: {fileID: 1987018787}
+  m_Layer: 0
+  m_Name: Sun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1987018786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 4706266369942250, guid: b719077b7acacfb4abe6bee44abebbb0,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987018785}
+  m_LocalRotation: {x: 0.90767336, y: -0.08852132, z: 0.24321029, w: 0.33036613}
+  m_LocalPosition: {x: -191.51108, y: 324.39383, z: 331.70697}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1987018787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 114455094121237212, guid: b719077b7acacfb4abe6bee44abebbb0,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987018785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca663283ef9398745a245d8f3d38393a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SecondMultiplier: 300
+  _days: 0
+  _hours: 0
+  _minutes: 0
+  _seconds: 0
+  _counter: 0
+  _years: 0
+  _leapYearsCounter: 0
+  _calendarDays: 0
+  _january: 0
+  _february: 0
+  _march: 0
+  _april: 0
+  _may: 0
+  _june: 0
+  _july: 0
+  _august: 0
+  _september: 0
+  _october: 0
+  _november: 0
+  _december: 0
+  _spring: 0
+  _summer: 0
+  _autumn: 0
+  _winter: 0
+  _springDayLength: 0
+  _summerDayLength: 0
+  _autumnDayLength: 0
+  _winterDayLength: 0
+  _dawnStartTime: 6
+  _dayStartTime: 8
+  _duskStartTime: 18
+  _nightStartTime: 20
+  _dayTemp: 0
+  _rotTemp: 0
+  _dawnSpringStartTime: 7
+  _daySpringStartTime: 9
+  _duskSpringStartTime: 18
+  _nightSpringStartTime: 20
+  _dawnSummerStartTime: 6
+  _daySummerStartTime: 8
+  _duskSummerStartTime: 20
+  _nightSummerStartTime: 22
+  _dawnAutumnStartTime: 7
+  _dayAutumnStartTime: 9
+  _duskAutumnStartTime: 18
+  _nightAutumnStartTime: 20
+  _dawnWinterStartTime: 8
+  _dayWinterStartTime: 10
+  _duskWinterStartTime: 16
+  _nightWinterStartTime: 18
+  _sunDimTime: 0.01
+  _dawnSunIntensity: 0.5
+  _daySunIntensity: 1
+  _duskSunIntensity: 0.25
+  _nightSunIntensity: 0
+  _ambientDimTime: 0.01
+  _dawnAmbientIntensity: 0.5
+  _dayAmbientIntensity: 1
+  _duskAmbientIntensity: 0.25
+  _nightAmbientIntensity: 0
+  _dawnSkyboxBlendFactor: 0.5
+  _daySkyboxBlendFactor: 1
+  _duskSkyboxBlendFactor: 0.25
+  _nightSkyboxBlendFactor: 0
+  _skyboxBlendFactor: 0
+  _skyboxBlendSpeed: 0.01
+  _guiWidth: 100
+  _guiHeight: 20
+  _dayPhases: 0
+--- !u!108 &1987018788
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 108385335529024036, guid: b719077b7acacfb4abe6bee44abebbb0,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987018785}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 1
+  m_Color: {r: 1, g: 0.8335249, b: 0.4575472, a: 1}
+  m_Intensity: 0.5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1997670830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 192944, guid: 4d293c8e162f3874b982baadd71153d2,
