@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeReturner
+[System.Serializable]
+public struct TimeReturner
 {
     public float days;
     public float hours;

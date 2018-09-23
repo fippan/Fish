@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DayAndNightCycle : MonoBehaviour {
 
-    TimeReturner tr;
+    //TimeReturner tr;
 
     private Transform _sunPivotPoint;                   //The rotation pivot for the sun
     private int _centreOfGameWorld = 50;               //A value to define position at the centre of the scene (SET THE CENTRE VALUE OF THE TERRAIN IN THE VALUE)
@@ -758,6 +758,8 @@ public class DayAndNightCycle : MonoBehaviour {
         RenderSettings.skybox.SetFloat("_Blend", _skyboxBlendFactor); //Get render for skybox and set the box bor the blend
     }
 
+    new TimeReturner tr;
+
     public TimeReturner GetTime ()
     {
         tr.days = _days;
@@ -767,5 +769,4 @@ public class DayAndNightCycle : MonoBehaviour {
 
         return tr;
     }
-
 }

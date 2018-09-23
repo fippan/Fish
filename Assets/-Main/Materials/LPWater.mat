@@ -71,7 +71,7 @@ Material:
     - _RHeight_: 0.120000005
     - _RSpeed: 1
     - _RSpeed_: 0.6
-    - _Reflection: 1.2
+    - _Reflection: 0.3
     - _Refraction: 2
     - _Scale: 0.6
     - _Scale_: 0.6
