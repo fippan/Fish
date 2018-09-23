@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/-TestFolders/Hugo/Scene/Hugo.unity
-    guid: 549631205627a4742988c60a15526fa8
-  - enabled: 1
-    path: Assets/-TestFolders/Hugo/Scene/MainMenu.unity
+    path: Assets/-Scenes/2_MainMenu.unity
     guid: 1e99baa626fe4d944bc35ebd7ccf6c6e
+  - enabled: 1
+    path: Assets/-Scenes/3_InGame.unity
+    guid: 6bd42d28a0d576b42878f75b75ab8798
   m_configObjects: {}

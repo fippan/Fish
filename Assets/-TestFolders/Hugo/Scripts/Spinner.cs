@@ -8,7 +8,7 @@ public class Spinner : MonoBehaviour
     Vector3 rotationLast;
     Vector3 rotationDelta;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool isGrabbed = false;
 
     private void Start()

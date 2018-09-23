@@ -44,7 +44,7 @@ public class FishingRod : MonoBehaviour
             float dist = D.magnitude;
             Vector3 pullDir = D.normalized;
 
-            newBobRB.velocity += pullDir * ((floaterSpeed * spinner.rotationSpeed) * Time.deltaTime);
+            newBobRB.velocity += (pullDir * floaterSpeed * Time.deltaTime) * spinner.rotationSpeed;
         }
 
         if (closeEnough)
