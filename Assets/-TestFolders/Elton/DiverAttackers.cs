@@ -14,9 +14,11 @@ public class DiverAttackers : Enemy
 
     [SerializeField] private GameObject bomb;
 
+    private Animator anims;
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        anims = GetComponent<Animator>();
         enemyModel = diver;
         if(Player != null)
         {
@@ -27,6 +29,7 @@ public class DiverAttackers : Enemy
 
     private void AttackPlayer()
     {
+        anims.SetTrigger("Throw");
         GameObject newBomb = Instantiate(bomb, throwingStart.position, Quaternion.identity);
         newBomb.GetComponent<Bomb>().Throw(throwingStart, Player.transform);
     }
