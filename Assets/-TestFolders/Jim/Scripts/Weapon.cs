@@ -1,13 +1,33 @@
 ﻿using System.Collections;
 using UnityEngine;
+using VRTK;
 
 [RequireComponent(typeof(Animator))]
 public abstract class Weapon : MonoBehaviour
 {
+    [Header("Prefabs")]
+    public GameObject magPrefab;
+    public GameObject casingPrefab;
+    public GameObject onShootEffect;
+    public GameObject[] onHitEffects = new GameObject[3];
+    public GameObject trail;
+    public Projectile projectile;
+
+    [Header("Transforms")]
+    public Transform hitScanPoint;
+    public Transform magPoint;
+    public Transform casingPoint;
+    public Transform barrelEnd;
+    public Transform primaryLeftHandGrabPoint;
+    public Transform primaryRightHandGrabPoint;
+    public Transform secondLeftHandGrabPoint;
+    public Transform secondRightHandGrabPoint;
+    protected Transform leftController;
+    protected Transform rightController;
+
     [Header("Weapon attributes.")]
     [Tooltip("Set true to enable hit scan weapon. False to shoot projectile.")]
     public bool hitScan;
-    public Transform hitScanPoint;
     public bool spreadingBullets;
     [Tooltip("Deal damage over an area.")]
     public bool explosive;
@@ -20,13 +40,10 @@ public abstract class Weapon : MonoBehaviour
     public float shotsUntilReload;
     [Tooltip("Time in seconds.")]
     public float reloadTime;
-    public Transform magPoint;
-    public GameObject magPrefab;
     public float magForceMultiplier;
-    [Space]
-    public GameObject casingPrefab;
-    public Transform casingPoint;
     public float casingForceMultiplier;
+    [Tooltip("0 = do not destroy.")]
+    public float magLifeTime;
     [Tooltip("0 = do not destroy.")]
     public float casingLifeTime;
 
@@ -34,34 +51,26 @@ public abstract class Weapon : MonoBehaviour
     public float explosionRadius;
 
     [Header("Projectile settings.")]
-    public Projectile projectile;
     [Tooltip("Time in seconds until destroyed automatically.")]
     public float lifetime;
     public float speed;
-    public GameObject onShootEffect;
     public float onShootEffectLifetime;
     [Tooltip("0 = Humanoid, 1 = Water, 2 = Metal, 3 = Wood.")]
-    public GameObject[] onHitEffects = new GameObject[3];
     public float onHitEffectLifetime;
-    public GameObject trail;
-
-    [Header("Barrel")]
-    public Transform barrelEnd;
-    public Transform secondHandGrabPoint;
 
     [Header("Haptic feedback.")]
     [Range(0, 1)]
     public float hapticStrenght;
     public float hapticDuration;
 
+    protected WeaponAudioManager weaponAudioManager;
     protected AudioSource audioSource;
     protected Animator anim;
-    protected bool canFire = true;
-    protected float shotsFired;
     protected GameObject currentMag;
+    protected bool canFire = true;
     protected bool spreadingBulletsEnabled;
-    protected WeaponAudioManager weaponAudioManager;
     protected bool reloading;
+    protected float shotsFired;
 
     protected virtual void Start()
     {
@@ -69,6 +78,58 @@ public abstract class Weapon : MonoBehaviour
         anim = GetComponent<Animator>();
         if (magPrefab != null) currentMag = Instantiate(magPrefab, magPoint);
         spreadingBulletsEnabled = spreadingBullets;
+    }
+
+    protected void SetIKHand(GameObject controller, bool primary)
+    {
+        SDK_BaseController.ControllerHand hand = VRTK_DeviceFinder.GetControllerHand(controller);
+        switch (hand)
+        {
+            case SDK_BaseController.ControllerHand.None:
+                break;
+            case SDK_BaseController.ControllerHand.Left:
+                if (leftController == null) leftController = controller.transform;
+                IKControl.leftHandObj = primary ? primaryLeftHandGrabPoint : secondLeftHandGrabPoint;
+                break;
+            case SDK_BaseController.ControllerHand.Right:
+                if (rightController == null) rightController = controller.transform;
+                IKControl.rightHandObj = primary ? primaryRightHandGrabPoint : secondRightHandGrabPoint;
+                break;
+            default:
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Reset both hands.
+    /// </summary>
+    protected void ResetIKHand()
+    {
+        if (leftController != null) IKControl.leftHandObj = leftController;
+        if (rightController != null) IKControl.rightHandObj = rightController;
+    }
+
+    /// <summary>
+    /// Reset one hand.
+    /// </summary>
+    /// <param name="controller"></param>
+    /// <param name="primary"></param>
+    protected void ResetIKHand(GameObject controller)
+    {
+        SDK_BaseController.ControllerHand hand = VRTK_DeviceFinder.GetControllerHand(controller);
+        switch (hand)
+        {
+            case SDK_BaseController.ControllerHand.None:
+                break;
+            case SDK_BaseController.ControllerHand.Left:
+                if (leftController != null) IKControl.leftHandObj = leftController;
+                break;
+            case SDK_BaseController.ControllerHand.Right:
+                if (rightController != null) IKControl.rightHandObj = rightController;
+                break;
+            default:
+                break;
+        }
     }
 
     public abstract void Shoot();
@@ -103,55 +164,27 @@ public abstract class Weapon : MonoBehaviour
     {
         if (explosive)
         {
-            Explode();
+            Explode(point);
         }
         else
         {
-            ICanTakeDamage targetHit = target.GetComponentInParent<ICanTakeDamage>();
-            if (targetHit != null)
+            Health targetHealth = target.GetComponentInParent<Health>();
+            if (targetHealth != null)
             {
-                targetHit.TakeDamage(damage);
+                targetHealth.TakeDamage(damage, point);
             }
         }
-
-        OnHitTargetEffect(target, point);
     }
 
-    private void OnHitTargetEffect(Transform target, Vector3 point)
+    private void Explode(Vector3 point)
     {
-        int i;
-        switch (target.tag)
-        {
-            case "Humanoid":
-                i = 0;
-                break;
-            case "Water":
-                i = 1;
-                break;
-            case "Metal":
-                i = 2;
-                break;
-            case "Wood":
-                i = 3;
-                break;
-            default:
-                i = 2;
-                break;
-        }
-
-        if (onHitEffects[i] != null)
-            Destroy(Instantiate(onHitEffects[i], point, Quaternion.identity), onHitEffectLifetime);
-    }
-
-    private void Explode()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(point, explosionRadius);
         foreach (var item in colliders)
         {
-            ICanTakeDamage target = item.GetComponentInParent<ICanTakeDamage>();
-            if (target != null)
+            Health targetHealth = item.GetComponentInParent<Health>();
+            if (targetHealth != null)
             {
-                target.TakeDamage(damage);
+                targetHealth.TakeDamage(damage, point);
             }
         }
     }
@@ -203,8 +236,6 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void OnShotFired()
     {
-        //Haptics.Instance.StartHaptics(gameObject, hapticStrenght, hapticDuration, .01f);
-        //TODO: Fix error!
         weaponAudioManager.Play("Fire");
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Single_Shot");
@@ -268,7 +299,7 @@ public abstract class Weapon : MonoBehaviour
             Rigidbody magRb = currentMag.GetComponent<Rigidbody>();
             magRb.isKinematic = false;
             magRb.AddForce((magPoint.up * -1) * magForceMultiplier);
-            Destroy(currentMag, 5f);
+            Destroy(currentMag, magLifeTime);
         }
 
         yield return new WaitForSeconds(reload);

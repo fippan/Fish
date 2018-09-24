@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class Helicopter : MonoBehaviour, ICanTakeDamage
+public class Helicopter : Health
 {
     [SerializeField] private float health;
     private float halfHealth;
     
 
-    private bool dead;
+    //private bool dead;
     private bool sploshed;
     private bool readyToAttack;
     AudioSource audio1;
@@ -21,8 +21,9 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
     [SerializeField] private ParticleSystem particleSplash;
     Animator anim;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         AudioSource[] audios = GetComponents<AudioSource>();
         audio1 = audios[0];
         audio2 = audios[1];
@@ -62,9 +63,10 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
         shootingTwo.Shoot();
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage, Vector3 point)
     {
         health -= damage;
+        audioController.Play("Hit", point);
 
         if (health <= halfHealth)
         {
@@ -89,7 +91,7 @@ public class Helicopter : MonoBehaviour, ICanTakeDamage
         }
     }
 
-    public void Death()
+    protected override void Death()
     {
         Destroy(gameObject);
     }

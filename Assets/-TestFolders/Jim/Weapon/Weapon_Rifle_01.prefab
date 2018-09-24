@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4131461531769730}
   m_Layer: 0
-  m_Name: GrabPoint
+  m_Name: PrimaryRightHandGrabPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,6 +107,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1438215459736172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4885721834059240}
+  m_Layer: 0
+  m_Name: SecondRightHandGrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1514198171178958
 GameObject:
   m_ObjectHideFlags: 1
@@ -175,7 +190,22 @@ GameObject:
   m_Component:
   - component: {fileID: 4179890601934678}
   m_Layer: 0
-  m_Name: SecondHandGrabPoint
+  m_Name: SecondLeftHandGrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1590776833423416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4427559136901420}
+  m_Layer: 0
+  m_Name: PrimaryLeftHandGrabPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,8 +340,10 @@ Transform:
   m_Children:
   - {fileID: 4491560641580844}
   - {fileID: 4595191040642800}
+  - {fileID: 4427559136901420}
   - {fileID: 4131461531769730}
   - {fileID: 4179890601934678}
+  - {fileID: 4885721834059240}
   - {fileID: 4875748559150112}
   - {fileID: 4189552586243712}
   - {fileID: 4411693452728076}
@@ -337,26 +369,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1062758245150462}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.17975023, y: 0.17975023, z: -0.68387854, w: 0.68387854}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
   m_Children: []
   m_Father: {fileID: 4074541804396180}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 29.453, y: 0, z: -90.00001}
 --- !u!4 &4179890601934678
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563875397281764}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.034, z: 0.324}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.03400004, z: 0.324}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
   m_Children: []
   m_Father: {fileID: 4074541804396180}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4189552586243712
 Transform:
   m_ObjectHideFlags: 1
@@ -368,7 +400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4074541804396180}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4366354836869650
 Transform:
@@ -394,7 +426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4074541804396180}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4422268342840230
 Transform:
@@ -409,6 +441,19 @@ Transform:
   m_Father: {fileID: 4491560641580844}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4427559136901420
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1590776833423416}
+  m_LocalRotation: {x: 0.1797489, y: -0.17974885, z: 0.6838789, w: 0.6838789}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4074541804396180}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 29.453001, y: 0, z: 90.00001}
 --- !u!4 &4491560641580844
 Transform:
   m_ObjectHideFlags: 1
@@ -533,8 +578,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4074541804396180}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -45.000004, y: 90.00001, z: 0}
+--- !u!4 &4885721834059240
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1438215459736172}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.034, z: 0.324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4074541804396180}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!23 &23171252942612508
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1118,8 +1176,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4826ac7fab0ba6f45b07bd8ae525fc61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitScan: 1
+  magPrefab: {fileID: 1718385910175412, guid: 511688e217a24b34998121da5fa6de96, type: 2}
+  casingPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
+    type: 2}
+  onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
+    type: 2}
+  onHitEffects:
+  - {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed, type: 2}
+  - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
+  - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
+  - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
+  trail: {fileID: 0}
+  projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
+    type: 2}
   hitScanPoint: {fileID: 4411693452728076}
+  magPoint: {fileID: 4189552586243712}
+  casingPoint: {fileID: 4875748559150112}
+  barrelEnd: {fileID: 4595191040642800}
+  primaryLeftHandGrabPoint: {fileID: 4427559136901420}
+  primaryRightHandGrabPoint: {fileID: 4131461531769730}
+  secondLeftHandGrabPoint: {fileID: 4179890601934678}
+  secondRightHandGrabPoint: {fileID: 4885721834059240}
+  hitScan: 1
   spreadingBullets: 1
   explosive: 0
   damage: 15
@@ -1128,31 +1206,15 @@ MonoBehaviour:
   maxSpreadDegrees: {x: 5, y: 5}
   shotsUntilReload: 30
   reloadTime: 3
-  magPoint: {fileID: 4189552586243712}
-  magPrefab: {fileID: 1718385910175412, guid: 511688e217a24b34998121da5fa6de96, type: 2}
   magForceMultiplier: 200
-  casingPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
-    type: 2}
-  casingPoint: {fileID: 4875748559150112}
   casingForceMultiplier: 150
+  magLifeTime: 0
   casingLifeTime: 3
   explosionRadius: 0
-  projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
-    type: 2}
   lifetime: 5
   speed: 20
-  onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
-    type: 2}
   onShootEffectLifetime: 2
-  onHitEffects:
-  - {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed, type: 2}
-  - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
-  - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
-  - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
   onHitEffectLifetime: 1
-  trail: {fileID: 0}
-  barrelEnd: {fileID: 4595191040642800}
-  secondHandGrabPoint: {fileID: 4179890601934678}
   hapticStrenght: 0.748
   hapticDuration: 0.25
   automatic: 1
@@ -1217,7 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   precisionGrab: 0
-  rightSnapHandle: {fileID: 4131461531769730}
+  rightSnapHandle: {fileID: 4427559136901420}
   leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SubmarineEnemy : Enemy, ICanTakeDamage {
+public class SubmarineEnemy : Enemy
+{
 
     [SerializeField]
     public bool canFire;
@@ -39,17 +40,17 @@ public class SubmarineEnemy : Enemy, ICanTakeDamage {
 	void Update () {
         Fire();
 
-        if (Dead == true)
-        {
-            if(shootBehave != null)
-            {
-                StopCoroutine(shootBehave);
-                GetComponentInParent<Submarine>().diveBack = true;
-                KillCountManager.Instance.AddKill();
-                //FindObjectOfType<DiverManager>().WaveCount++;
-                Destroy(gameObject);
-            }
-        }
+        //if (Dead == true)
+        //{
+        //    if(shootBehave != null)
+        //    {
+        //        StopCoroutine(shootBehave);
+        //        GetComponentInParent<Submarine>().diveBack = true;
+        //        KillCountManager.Instance.AddKill();
+        //        //FindObjectOfType<DiverManager>().WaveCount++;
+        //        Destroy(gameObject);
+        //    }
+        //}
 	}
 
     public void Fire()

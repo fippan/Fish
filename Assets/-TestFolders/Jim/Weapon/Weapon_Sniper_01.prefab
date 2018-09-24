@@ -1016,8 +1016,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db7d6bc8c33a364d97c474aea659b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitScan: 1
+  magPrefab: {fileID: 1886637198375148, guid: 1e796087a9ecb684c844655f5faf2fc2, type: 2}
+  casingPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
+    type: 2}
+  onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
+    type: 2}
+  onHitEffects:
+  - {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed, type: 2}
+  - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
+  - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
+  - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
+  trail: {fileID: 0}
+  projectile: {fileID: 114923502503575518, guid: 4d3447fb446bd7445ac0e163cade004c,
+    type: 2}
   hitScanPoint: {fileID: 4851807180810202}
+  magPoint: {fileID: 4070554870042168}
+  casingPoint: {fileID: 4407467064816672}
+  barrelEnd: {fileID: 4893487812645164}
+  primaryLeftHandGrabPoint: {fileID: 0}
+  primaryRightHandGrabPoint: {fileID: 0}
+  secondLeftHandGrabPoint: {fileID: 0}
+  secondRightHandGrabPoint: {fileID: 0}
+  hitScan: 1
   spreadingBullets: 0
   explosive: 0
   damage: 100
@@ -1026,30 +1046,15 @@ MonoBehaviour:
   maxSpreadDegrees: {x: 0, y: 0}
   shotsUntilReload: 5
   reloadTime: 3
-  magPoint: {fileID: 4070554870042168}
-  magPrefab: {fileID: 1886637198375148, guid: 1e796087a9ecb684c844655f5faf2fc2, type: 2}
   magForceMultiplier: 200
-  casingPrefab: {fileID: 1542405128086178, guid: d15fb81797b4d2e42acf4c94c0deb000,
-    type: 2}
-  casingPoint: {fileID: 4407467064816672}
   casingForceMultiplier: 150
+  magLifeTime: 0
   casingLifeTime: 3
   explosionRadius: 0
-  projectile: {fileID: 114923502503575518, guid: 4d3447fb446bd7445ac0e163cade004c,
-    type: 2}
   lifetime: 10
   speed: 100
-  onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
-    type: 2}
   onShootEffectLifetime: 2
-  onHitEffects:
-  - {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed, type: 2}
-  - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
-  - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
-  - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
   onHitEffectLifetime: 2
-  trail: {fileID: 0}
-  barrelEnd: {fileID: 4893487812645164}
   hapticStrenght: 1
   hapticDuration: 0.35
   scopeCamera: {fileID: 1028511657529882}

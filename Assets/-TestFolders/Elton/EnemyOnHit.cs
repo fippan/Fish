@@ -21,7 +21,7 @@ public class EnemyOnHit : MonoBehaviour {
 
         if (collision.gameObject.tag == ("FishingRod"))
         {
-            enemy.TakeDamage(5f);
+            //enemy.TakeDamage(5f);
             anim.SetBool("Punched", true);
         }
     }

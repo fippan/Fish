@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-public class WeaponAudioManager : MonoBehaviour
+public class AudioController : MonoBehaviour
 {
-    public AudioMixerGroup mixerGroup;
-    public Sound[] sounds;
-
+    [SerializeField] private Sound[] sounds;
+    [SerializeField] private AudioMixerGroup mixerGroup;
     private AudioSource[] audioSources;
 
     private void Start()
@@ -13,7 +12,11 @@ public class WeaponAudioManager : MonoBehaviour
         audioSources = new AudioSource[sounds.Length];
         for (int i = 0; i < sounds.Length; i++)
         {
-            audioSources[i] = gameObject.AddComponent<AudioSource>();
+            GameObject go = new GameObject(sounds[i].name);
+            go.transform.SetParent(transform);
+            go.transform.localPosition = Vector3.zero;
+            audioSources[i] = go.AddComponent<AudioSource>();
+            audioSources[i].playOnAwake = false;
             audioSources[i].clip = sounds[i].audioClip;
             audioSources[i].minDistance = sounds[i].minDistance;
             audioSources[i].maxDistance = sounds[i].maxDistance;
@@ -22,26 +25,28 @@ public class WeaponAudioManager : MonoBehaviour
         }
     }
 
-    public void Play(string name)
+    public void Play(string soundName, Vector3 worldPoint)
     {
         for (int i = 0; i < audioSources.Length; i++)
         {
-            if (sounds[i].name == name)
+            if (sounds[i].name == soundName)
             {
+                audioSources[i].transform.position = worldPoint;
                 SetVolumeAndPitch(i);
                 audioSources[i].Play();
             }
         }
     }
 
-    public void Play(string name, ulong delay)
+    public void PlayOneShot(string soundName, Vector3 worldPoint)
     {
         for (int i = 0; i < audioSources.Length; i++)
         {
-            if (sounds[i].name == name)
+            if (sounds[i].name == soundName)
             {
+                audioSources[i].transform.position = worldPoint;
                 SetVolumeAndPitch(i);
-                audioSources[i].Play(delay);
+                audioSources[i].PlayOneShot(audioSources[i].clip);
             }
         }
     }
@@ -55,25 +60,4 @@ public class WeaponAudioManager : MonoBehaviour
             -sounds[i].pitchVariance * .5f,
             sounds[i].pitchVariance * .5f));
     }
-}
-
-
-[System.Serializable]
-public struct Sound
-{
-    public string name;
-    public AudioClip audioClip;
-    [Range(0f, 1f)]
-    public float volume;
-    [Range(0f, 1f)]
-    public float volumeVariance;
-    [Range(.1f, 3f)]
-    public float pitch;
-    [Range(0f, 1f)]
-    public float pitchVariance;
-    [Range(0f, 1f)]
-    public float spatialBlend;
-
-    public float minDistance;
-    public float maxDistance;
 }

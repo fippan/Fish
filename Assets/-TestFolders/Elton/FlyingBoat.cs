@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FlyingBoat : MonoBehaviour , ICanTakeDamage{
+public class FlyingBoat : MonoBehaviour {
     public float health;
     public bool dead;
 

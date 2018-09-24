@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Submarine : MonoBehaviour, ICanTakeDamage {
-
+public class Submarine : Health
+{
 
     private bool hasEnabled = false;
     public bool diveBack = false;
@@ -17,7 +15,8 @@ public class Submarine : MonoBehaviour, ICanTakeDamage {
     public Transform spawnpos;
     public GameObject explosionFX;
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
+        base.Start();
         audioSource = GetComponent<AudioSource>();
         spawnpos = FindObjectOfType<DiverManager>().transform;
         Vector3 targetdir = transform.position - spawnpos.position;
@@ -53,11 +52,12 @@ public class Submarine : MonoBehaviour, ICanTakeDamage {
         }
 	}
 
-    public void TakeDamage(float amount)
+    public override void TakeDamage(float amount, Vector3 point)
     {
         health -= amount;
+        audioController.Play("Hit", point);
 
-        if(health <= 0)
+        if (health <= 0)
         {
             diveBack = true;
             KillCountManager.Instance.AddKill();

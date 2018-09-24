@@ -193,7 +193,7 @@ public class Sniper : Weapon
             Rigidbody magRb = currentMag.GetComponent<Rigidbody>();
             magRb.isKinematic = false;
             magRb.AddForce((magPoint.up * -1) * magForceMultiplier);
-            Destroy(currentMag, 5f);
+            Destroy(currentMag, magLifeTime);
         }
 
         yield return new WaitForSeconds(reload);

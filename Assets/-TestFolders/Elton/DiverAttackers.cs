@@ -15,8 +15,11 @@ public class DiverAttackers : Enemy
     [SerializeField] private GameObject bomb;
 
     private Animator anims;
+    private Health health;
+
     private void Start()
     {
+        health = GetComponent<Health>();
         Player = GameObject.FindGameObjectWithTag("Player");
         anims = GetComponent<Animator>();
         enemyModel = diver;
@@ -34,13 +37,13 @@ public class DiverAttackers : Enemy
         newBomb.GetComponent<Bomb>().Throw(throwingStart, Player.transform);
     }
 
-    public void CheckIfAlive()
-    {
-        if (Dead == true)
-        {
-            Destroy(gameObject);
-        }
-    }
+    //public void CheckIfAlive()
+    //{
+    //    if (Dead == true)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     private void OnDisable()
     {

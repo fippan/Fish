@@ -1,47 +1,34 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerHealth : Health
 {
-    [SerializeField] private float startingHealth;
-    [SerializeField] private float currentHealth;
     [SerializeField] private GameObject endGame;
     private Coroutine RegenHealth;
 
-    private void Start()
-    {
-        currentHealth = startingHealth;
-    }
-
-    public void TakeDamage(float amount)
+    public override void TakeDamage(float amount, Vector3 point)
     {
         StopCorotine();
-        currentHealth -= amount;
-
-        if (currentHealth <= 0)
-            Death();
-
+        base.TakeDamage(amount, point);
         RegenHealth = StartCoroutine(HealthGeneration());
     }
 
-    private void Death()
+    protected override void Death()
     {
         endGame.GetComponent<EndScreen>().GameOver();
         DiverManager.Instance.WaveIsActive = false;
     }
 
-    IEnumerator HealthGeneration()
+    private IEnumerator HealthGeneration()
     {
         yield return new WaitForSeconds(5f);
-        while (currentHealth < startingHealth)
+        while (currentHealth < maxHealth)
         {
             currentHealth += Time.deltaTime;
 
-            if (currentHealth >= startingHealth)
+            if (currentHealth >= maxHealth)
             {
-                currentHealth = startingHealth;
+                currentHealth = maxHealth;
                 break;
             }
             yield return null;

@@ -34,10 +34,10 @@ public class Projectile : MonoBehaviour
         if (explosive) Explode();
         else
         {
-            ICanTakeDamage target = other.GetComponentInParent<ICanTakeDamage>();
+            Health target = other.GetComponentInParent<Health>();
             if (target != null)
             {
-                target.TakeDamage(damage);
+                target.TakeDamage(damage, transform.position);
             }
         }
         Destroy(gameObject);
@@ -48,10 +48,10 @@ public class Projectile : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (var item in colliders)
         {
-            ICanTakeDamage target = item.GetComponentInParent<ICanTakeDamage>();
+            Health target = item.GetComponentInParent<Health>();
             if (target != null)
             {
-                target.TakeDamage(damage);
+                target.TakeDamage(damage, transform.position);
             }
         }
 

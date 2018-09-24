@@ -73,10 +73,10 @@ public class Bomb : MonoBehaviour
         int i = 0;
         while (i < hitColliders.Length)
         {
-            ICanTakeDamage target = hitColliders[i].GetComponentInParent<ICanTakeDamage>();
+            Health target = hitColliders[i].GetComponentInParent<Health>();
             if (target != null)
             {
-                target.TakeDamage(damage);
+                target.TakeDamage(damage, hitColliders[i].transform.position);
             }
             i++;
         }
