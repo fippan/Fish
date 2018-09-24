@@ -1059,14 +1059,14 @@ MonoBehaviour:
   spreadingBullets: 1
   explosive: 0
   damage: 15
-  firingRate: 0.1
+  firingRate: 0.07
   minSpreadDegrees: {x: -5, y: -5}
   maxSpreadDegrees: {x: 5, y: 5}
   shotsUntilReload: 30
-  reloadTime: 3
+  reloadTime: 1.5
   magForceMultiplier: 200
   casingForceMultiplier: 150
-  magLifeTime: 0
+  magLifeTime: 3
   casingLifeTime: 3
   explosionRadius: 0
   lifetime: 5

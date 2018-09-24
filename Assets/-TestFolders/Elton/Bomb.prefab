@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc084e285d916e4ca8675943d3af42f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 6
-  damage: 20
+  timer: 8
+  damage: 15
   radius: 1.5
   firingAngle: 56.19
   gravity: 9.8

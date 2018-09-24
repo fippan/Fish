@@ -655,15 +655,15 @@ MonoBehaviour:
   hitScan: 1
   spreadingBullets: 1
   explosive: 0
-  damage: 20
+  damage: 15
   firingRate: 0.1
   minSpreadDegrees: {x: -7, y: -7}
   maxSpreadDegrees: {x: 7, y: 7}
   shotsUntilReload: 30
-  reloadTime: 3
+  reloadTime: 1.5
   magForceMultiplier: 200
   casingForceMultiplier: 150
-  magLifeTime: 0
+  magLifeTime: 3
   casingLifeTime: 3
   explosionRadius: 0
   lifetime: 5

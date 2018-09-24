@@ -1030,11 +1030,6 @@ MonoBehaviour:
     type: 2}
   onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
     type: 2}
-  onHitEffects:
-  - {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed, type: 2}
-  - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
-  - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
-  - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
   trail: {fileID: 0}
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
@@ -1050,10 +1045,10 @@ MonoBehaviour:
   minSpreadDegrees: {x: -5, y: -5}
   maxSpreadDegrees: {x: 5, y: 5}
   shotsUntilReload: 30
-  reloadTime: 3
+  reloadTime: 1.5
   magForceMultiplier: 200
   casingForceMultiplier: 150
-  magLifeTime: 0
+  magLifeTime: 3
   casingLifeTime: 3
   explosionRadius: 0
   lifetime: 5
