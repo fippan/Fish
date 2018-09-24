@@ -244,10 +244,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  currentHealth: 0
   indestructible: 0
   onHitEffect: {fileID: 0}
   onHitEffectLifetime: 0
-  ppp: {fileID: 0}
+  ppp: {fileID: 11400000, guid: 65c9c8c30e92dd64ea3ab18664187d3e, type: 2}
   endGame: {fileID: 0}
 --- !u!114 &114807792091754088
 MonoBehaviour:
