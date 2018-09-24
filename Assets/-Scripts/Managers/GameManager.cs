@@ -8,12 +8,12 @@ public class GameManager : GenericSingleton<GameManager>
 	private Stack<State_Base> gameStateStack = new Stack<State_Base>();
 	//private Scene currentScene;
 
-
+	
 	public void Initialize()
 	{
 		int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-
 		Debug.Log(sceneIndex);
+
 
 		switch (sceneIndex)
 		{
@@ -32,7 +32,6 @@ public class GameManager : GenericSingleton<GameManager>
 			default:
 				break;
 		}
-
 	}
 
 	/// <summary>
@@ -54,7 +53,7 @@ public class GameManager : GenericSingleton<GameManager>
 		gameStateStack.Push(state);
 		Debug.Log("State Stack count: " + gameStateStack.Count);
 		gameStateStack.Peek().OnEnterState();
-		//Debug.Log(gameStateStack.Peek().name);
+		Debug.Log(gameStateStack.Peek().name);
 	}
 
 	/// <summary>

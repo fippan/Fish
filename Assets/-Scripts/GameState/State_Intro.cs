@@ -12,6 +12,7 @@ public class State_Intro : State_Base
 	private void Awake()
 	{
 		Instance = this;
+		Debug.Log("Instance created of " + typeof(State_Intro).ToString());
 	}
 
 

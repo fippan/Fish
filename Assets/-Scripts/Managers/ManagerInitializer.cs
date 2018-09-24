@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ManagerInitializer : MonoBehaviour
 {
-	private void Awake()
+
+	//TODO: Should be in Awake, need to check script order etc.
+	private void Start()
 	{
 		//Initialize the GameManager
 		GameManager.Instance.Initialize();
