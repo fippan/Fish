@@ -89,11 +89,11 @@ public abstract class Weapon : MonoBehaviour
                 break;
             case SDK_BaseController.ControllerHand.Left:
                 if (leftController == null) leftController = controller.transform;
-                IKControl.leftHandObj = primary ? primaryLeftHandGrabPoint : secondLeftHandGrabPoint;
+                //IKControl.leftHandObj = primary ? primaryLeftHandGrabPoint : secondLeftHandGrabPoint;
                 break;
             case SDK_BaseController.ControllerHand.Right:
                 if (rightController == null) rightController = controller.transform;
-                IKControl.rightHandObj = primary ? primaryRightHandGrabPoint : secondRightHandGrabPoint;
+                //IKControl.rightHandObj = primary ? primaryRightHandGrabPoint : secondRightHandGrabPoint;
                 break;
             default:
                 break;
