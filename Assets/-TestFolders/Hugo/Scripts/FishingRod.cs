@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using VRTK;
 
 public class FishingRod : MonoBehaviour
 {

@@ -109,7 +109,22 @@ GameObject:
   m_Component:
   - component: {fileID: 4134528982685758}
   m_Layer: 0
-  m_Name: GrabPoint
+  m_Name: GrabPointLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1781868707807258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4946701027345914}
+  m_Layer: 0
+  m_Name: GrabPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,11 +169,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1629207325139706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.03, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4485837450317736}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4167737562141656
 Transform:
@@ -206,14 +221,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369764378286848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.064, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0.426, y: 0.614838, z: -0.169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4531251607625702}
   - {fileID: 4241012308773756}
-  - {fileID: 4134528982685758}
   - {fileID: 4721559333564030}
   - {fileID: 4748993128145956}
+  - {fileID: 4946701027345914}
+  - {fileID: 4134528982685758}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -243,7 +259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4485837450317736}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -45.000004, y: 90.00001, z: 0}
 --- !u!4 &4748993128145956
 Transform:
@@ -253,6 +269,19 @@ Transform:
   m_GameObject: {fileID: 1532371036433546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4485837450317736}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4946701027345914
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781868707807258}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.03, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4485837450317736}
@@ -442,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296880b5419f2884189b0473709dc8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixerGroup: {fileID: 24300002, guid: 3a3acdfd974c8d545889399aa6885342, type: 2}
+  mixerGroup: {fileID: 0}
   sounds:
   - name: Fire
     audioClip: {fileID: 8300000, guid: dfe6e2ea090971b4fa8d3173dd097338, type: 3}
@@ -491,8 +520,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee26784320deb646ad1da3ec0fe7463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitScan: 1
+  magPrefab: {fileID: 1904779255110852, guid: 72cf45c695ee4514fa8bfbd022a8cf8c, type: 2}
+  casingPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
+    type: 2}
+  onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
+    type: 2}
+  trail: {fileID: 0}
+  projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
+    type: 2}
   hitScanPoint: {fileID: 4241012308773756}
+  magPoint: {fileID: 4748993128145956}
+  casingPoint: {fileID: 4721559333564030}
+  barrelEnd: {fileID: 4241012308773756}
+  hitScan: 1
   spreadingBullets: 0
   explosive: 0
   damage: 15
@@ -501,32 +541,18 @@ MonoBehaviour:
   maxSpreadDegrees: {x: 0, y: 0}
   shotsUntilReload: 17
   reloadTime: 3
-  magPoint: {fileID: 4748993128145956}
-  magPrefab: {fileID: 1904779255110852, guid: 72cf45c695ee4514fa8bfbd022a8cf8c, type: 2}
   magForceMultiplier: 150
-  casingPrefab: {fileID: 1935502253027336, guid: 79c82ebc4e6fb7c4d888485c399336ac,
-    type: 2}
-  casingPoint: {fileID: 4721559333564030}
   casingForceMultiplier: 100
+  magLifeTime: 0
   casingLifeTime: 3
+  bulletLineFrequency: 0
   explosionRadius: 0
-  projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
-    type: 2}
   lifetime: 5
   speed: 20
-  onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
-    type: 2}
   onShootEffectLifetime: 2
-  onHitEffects:
-  - {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed, type: 2}
-  - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
-  - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
-  - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
   onHitEffectLifetime: 1
-  trail: {fileID: 0}
-  barrelEnd: {fileID: 4241012308773756}
   hapticStrenght: 0.533
-  hapticDuration: 0.25
+  hapticDuration: 0.025
 --- !u!114 &114190878952858772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -618,8 +644,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   precisionGrab: 0
-  rightSnapHandle: {fileID: 4134528982685758}
-  leftSnapHandle: {fileID: 0}
+  rightSnapHandle: {fileID: 4946701027345914}
+  leftSnapHandle: {fileID: 4134528982685758}
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0

@@ -17,10 +17,10 @@ public abstract class Weapon : MonoBehaviour
     public Transform magPoint;
     public Transform casingPoint;
     public Transform barrelEnd;
-    public Transform primaryLeftHandGrabPoint;
-    public Transform primaryRightHandGrabPoint;
-    public Transform secondLeftHandGrabPoint;
-    public Transform secondRightHandGrabPoint;
+    //public Transform primaryLeftHandGrabPoint;
+    //public Transform primaryRightHandGrabPoint;
+    //public Transform secondLeftHandGrabPoint;
+    //public Transform secondRightHandGrabPoint;
     protected Transform leftController;
     protected Transform rightController;
 
