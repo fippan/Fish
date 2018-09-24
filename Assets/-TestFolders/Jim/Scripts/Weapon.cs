@@ -89,11 +89,11 @@ public abstract class Weapon : MonoBehaviour
                 break;
             case SDK_BaseController.ControllerHand.Left:
                 if (leftController == null) leftController = controller.transform;
-                IKControl.leftHandObj = primary ? primaryLeftHandGrabPoint : secondLeftHandGrabPoint;
+                //IKControl.leftHandObj = primary ? primaryLeftHandGrabPoint : secondLeftHandGrabPoint;
                 break;
             case SDK_BaseController.ControllerHand.Right:
                 if (rightController == null) rightController = controller.transform;
-                IKControl.rightHandObj = primary ? primaryRightHandGrabPoint : secondRightHandGrabPoint;
+                //IKControl.rightHandObj = primary ? primaryRightHandGrabPoint : secondRightHandGrabPoint;
                 break;
             default:
                 break;
@@ -105,8 +105,8 @@ public abstract class Weapon : MonoBehaviour
     /// </summary>
     protected void ResetIKHand()
     {
-        if (leftController != null) IKControl.leftHandObj = leftController;
-        if (rightController != null) IKControl.rightHandObj = rightController;
+        //if (leftController != null) IKControl.leftHandObj = leftController;
+        //if (rightController != null) IKControl.rightHandObj = rightController;
     }
 
     /// <summary>
@@ -122,10 +122,10 @@ public abstract class Weapon : MonoBehaviour
             case SDK_BaseController.ControllerHand.None:
                 break;
             case SDK_BaseController.ControllerHand.Left:
-                if (leftController != null) IKControl.leftHandObj = leftController;
+                //if (leftController != null) IKControl.leftHandObj = leftController;
                 break;
             case SDK_BaseController.ControllerHand.Right:
-                if (rightController != null) IKControl.rightHandObj = rightController;
+                //if (rightController != null) IKControl.rightHandObj = rightController;
                 break;
             default:
                 break;

@@ -899,6 +899,7 @@ GameObject:
   - component: {fileID: 114131994235239970}
   - component: {fileID: 65578703906514016}
   - component: {fileID: 82929469431700432}
+  - component: {fileID: 114737643869332534}
   m_Layer: 0
   m_Name: ptr_submarine
   m_TagString: Untagged
@@ -3624,6 +3625,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c3c3a041abaad4a922ffa8c5cdb1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  indestructible: 0
+  onHitEffect: {fileID: 0}
+  onHitEffectLifetime: 0
   diveBack: 0
   beepSFX: {fileID: 8300000, guid: 11b9979e7abf7a440ababd59b4e76e20, type: 3}
   playerPos: {fileID: 0}
@@ -3641,8 +3646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b7315daef0f2546b187418eb8339d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  Dead: 0
   enemyModel: {fileID: 0}
   hitFX: {fileID: 0}
   canFire: 0
@@ -3652,6 +3655,28 @@ MonoBehaviour:
   fireSound: {fileID: 8300000, guid: c38b5abb8c702a04a8cc32307ee49ea5, type: 3}
   minSpreadDegrees: {x: 0.1, y: 0.1}
   maxSpreadDegrees: {x: 10, y: 30}
+--- !u!114 &114737643869332534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752166246681944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Hit
+    audioClip: {fileID: 8300000, guid: 1eb47a9c9e6c25742b57c0355087c922, type: 3}
+    volume: 1
+    volumeVariance: 0.083
+    pitch: 1
+    pitchVariance: 0.035
+    spatialBlend: 1
+    minDistance: 5
+    maxDistance: 100
+  mixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609, type: 2}
 --- !u!137 &137918346214799596
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
