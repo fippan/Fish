@@ -23,18 +23,20 @@ public class SubmarineEnemy : Enemy
     public Vector2 minSpreadDegrees;
     public Vector2 maxSpreadDegrees;
 
-
+    private Transform player;
 
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();
         //transform.LookAt(playerTransform);
-        //transform.rotation *= Quaternion.Euler(0, 20, 0);
+        //transform.rotation *= Quaternion.Euler(0, -30, 0);
     }
 	
     public void AimAtPlayer(Transform player)
     {
-        transform.Rotate(player.position, transform.position.y);
+        this.player = player;
+        //transform.LookAt(new Vector3(player.position.x+40f, transform.position.y, player.position.z +40f));
+        //muzzleTransform.LookAt(new Vector3(player.position.x, muzzleTransform.position.y, player.position.z));
     }
 
 	// Update is called once per frame
@@ -46,6 +48,7 @@ public class SubmarineEnemy : Enemy
     {
         if(canFire)
         {
+            muzzleTransform.LookAt(player);
             Shoot();
             canFire = false;
             shootBehave = StartCoroutine(ShootBehaviour());

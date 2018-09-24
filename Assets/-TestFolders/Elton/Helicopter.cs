@@ -34,6 +34,11 @@ public class Helicopter : Health
         InvokeRepeating("Shooting", anim.GetCurrentAnimatorStateInfo(0).length, 0.2f);
     }
 
+    public void FindBoat(Transform player)
+    {
+        boat = player.gameObject;
+    }
+
     // TODO: Fix animation when hit and connect animations and stuff for when dead!
 
     public void Update()

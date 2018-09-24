@@ -8,7 +8,7 @@ public class DiverAttackers : Health
 
     public GameObject diver;
 
-    public GameObject Player;
+    public GameObject PlayerGameObject;
 
     [SerializeField] private Transform throwingStart;
 
@@ -24,6 +24,7 @@ public class DiverAttackers : Health
 
     protected override void Start()
     {
+        base.Start();
         attackVoices = new List<string>(3);
         attackVoices.Add("Attack1");
         attackVoices.Add("Attack2");
@@ -35,14 +36,17 @@ public class DiverAttackers : Health
 
     public void LookAtPlayer(Transform player)
     {
-        transform.Rotate(player.position + new Vector3(0, -30, 0), transform.position.y);
+        PlayerGameObject = player.gameObject;
+        //Vector3 targetDir = Vector3.RotateTowards(transform.position, player.position, 10f, 2f);
+        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+        //transform.rotation = Quaternion.Euler(0, targetDir.y, 0);/*new Quaternion(player.rotation.x, transform.rotation.y, player.rotation.z, transform.rotation.w);*/
     }
 
     private void AttackPlayer()
     {
         anims.SetTrigger("Throw");
         GameObject newBomb = Instantiate(bomb, throwingStart.position, Quaternion.identity);
-        newBomb.GetComponent<Bomb>().Throw(throwingStart, Player.transform);
+        newBomb.GetComponent<Bomb>().Throw(throwingStart, PlayerGameObject.transform);
     }
 
     //public void CheckIfAlive()
@@ -62,7 +66,7 @@ public class DiverAttackers : Health
     {
         while (swimUp)
         {
-            if (transform.position.y >= 0f)
+            if (transform.position.y >= -0.8f)
             {
                 int temp = Random.Range(0, 2);
                 GetComponent<AudioController>().PlayOneShot(attackVoices[temp], transform.position);

@@ -21,6 +21,10 @@ GameObject:
   - component: {fileID: 4437776613777334}
   - component: {fileID: 114261497452183920}
   - component: {fileID: 65211907185283234}
+  - component: {fileID: 114441958337664060}
+  - component: {fileID: 114786296927877800}
+  - component: {fileID: 114654326149168872}
+  - component: {fileID: 114263154590544088}
   m_Layer: 0
   m_Name: Ocean
   m_TagString: Water
@@ -35,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989544624622400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.354, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,8 +74,8 @@ MonoBehaviour:
   customMesh: {fileID: 0}
   material: {fileID: 2100000, guid: fccc2d1bd18a3f84e91e73af7fc9a1aa, type: 2}
   sun: {fileID: 0}
-  sizeX: 120
-  sizeZ: 120
+  sizeX: 95
+  sizeZ: 95
   noise: 0.6
   enableReflection: 1
   enableRefraction: 1
@@ -89,3 +93,70 @@ MonoBehaviour:
   waveScale: -1337
   gridTypeLite: 0
   displayProgress: 0
+--- !u!114 &114263154590544088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989544624622400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Hit
+    audioClip: {fileID: 8300000, guid: b563493a360b49045961ffcba9c134ab, type: 3}
+    volume: 1
+    volumeVariance: 0.048
+    pitch: 1
+    pitchVariance: 0.062
+    spatialBlend: 1
+    minDistance: 5
+    maxDistance: 100
+  mixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609, type: 2}
+--- !u!114 &114441958337664060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989544624622400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds: []
+  mixerGroup: {fileID: 0}
+--- !u!114 &114654326149168872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989544624622400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcc93d120f0ec845abd22231da604fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  indestructible: 1
+  onHitEffect: {fileID: 1860610155838902, guid: 3eb820aea4dab2f48ad6a65fac406b5f,
+    type: 2}
+  onHitEffectLifetime: 1
+--- !u!114 &114786296927877800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1989544624622400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcc93d120f0ec845abd22231da604fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  indestructible: 1
+  onHitEffect: {fileID: 1860610155838902, guid: 3eb820aea4dab2f48ad6a65fac406b5f,
+    type: 2}
+  onHitEffectLifetime: 1

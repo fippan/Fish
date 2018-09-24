@@ -18,8 +18,8 @@ public class Submarine : Health
         //Vector3 newDir = Vector3.RotateTowards(transform.right, targetdir, 100f, 0f);
         //transform.rotation = Quaternion.LookRotation(newDir);
         //transform.rotation = Quaternion.Euler(0, targetdir.x * targetdir.z, 0);
-        transform.LookAt(spawnpos);
-	}
+        transform.LookAt(new Vector3(spawnpos.position.x, transform.position.y, spawnpos.position.z));
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -2395,6 +2395,15 @@ MonoBehaviour:
     spatialBlend: 1
     minDistance: 10
     maxDistance: 150
+  - name: Hit
+    audioClip: {fileID: 8300000, guid: 2e4c739c1349d9c408cf521521a5badf, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 150
   mixerGroup: {fileID: 243341260017872422, guid: 12f4b98caef71e242b7b18b1ececa609,
     type: 2}
 --- !u!114 &114623122609262066
@@ -2413,8 +2422,8 @@ MonoBehaviour:
   onHitEffect: {fileID: 0}
   onHitEffectLifetime: 0
   diver: {fileID: 0}
-  Player: {fileID: 0}
-  throwingStart: {fileID: 0}
+  PlayerGameObject: {fileID: 0}
+  throwingStart: {fileID: 4372303333047420}
   bomb: {fileID: 1671788405914124, guid: 9f339d12b23a1884592b2f45f48a1890, type: 2}
   swimUp: 1
 --- !u!137 &137437187204068508
