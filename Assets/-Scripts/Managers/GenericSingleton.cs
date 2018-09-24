@@ -46,7 +46,7 @@ public abstract class GenericSingleton<T> : Singleton where T : MonoBehaviour
 
 				GameObject singleton = new GameObject();
 				_instance = singleton.AddComponent<T>();
-				singleton.name = typeof(T).ToString() + "(Singleton)";
+				singleton.name = "_" + typeof(T).ToString() + "(Singleton)";
 				DontDestroyOnLoad(singleton);
 
 

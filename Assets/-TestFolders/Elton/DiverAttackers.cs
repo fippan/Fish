@@ -16,9 +16,6 @@ public class DiverAttackers : Enemy
 
     private Animator anims;
     private Health health;
-    [SerializeField]
-    private bool swimUp = true;
-    private Coroutine swimRoutine;
 
     private void Start()
     {
@@ -26,8 +23,7 @@ public class DiverAttackers : Enemy
         Player = GameObject.FindGameObjectWithTag("Player");
         anims = GetComponent<Animator>();
         enemyModel = diver;
-        swimRoutine = StartCoroutine(SwimUpwards());
-        if (Player != null)
+        if(Player != null)
         {
             transform.LookAt(Player.transform);
         }
@@ -39,22 +35,6 @@ public class DiverAttackers : Enemy
         anims.SetTrigger("Throw");
         GameObject newBomb = Instantiate(bomb, throwingStart.position, Quaternion.identity);
         newBomb.GetComponent<Bomb>().Throw(throwingStart, Player.transform);
-    }
-
-    IEnumerator SwimUpwards()
-    {
-        while (swimUp)
-        {
-            if(transform.position.y >= 0f)
-            {
-                swimUp = false;
-                StopCoroutine(swimRoutine);
-            }
-            transform.position += new Vector3(0, 0.5f * Time.deltaTime, 0);
-            yield return null;
-        }
-
-
     }
 
     //public void CheckIfAlive()

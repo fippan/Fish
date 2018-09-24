@@ -5,33 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : GenericSingleton<GameManager>
 {
+	//Singleton instance accessor
+	//public static GameManager Instance { get; private set; }
+
 	private Stack<State_Base> gameStateStack = new Stack<State_Base>();
 	//private Scene currentScene;
 
-	
-	public void Initialize()
+	private void Awake()
 	{
-		int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-		Debug.Log(sceneIndex);
-
-
-		switch (sceneIndex)
-		{
-			case 0:
-				ChangeState(State_Intro.Instance);
-
-				break;
-			case 1:
-				ChangeState(State_MainMenu.Instance);
-
-				break;
-			case 2:
-				ChangeState(State_InGame.Instance);
-
-				break;
-			default:
-				break;
-		}
+		//Instance = this;
 	}
 
 	/// <summary>
@@ -40,8 +22,6 @@ public class GameManager : GenericSingleton<GameManager>
 	/// <param name="state"></param>
 	public void ChangeState(State_Base state)
 	{
-		Debug.Log("Changing state");
-
 		//Remove and clean up current state
 		if (gameStateStack.Count > 0)
 		{
@@ -51,9 +31,7 @@ public class GameManager : GenericSingleton<GameManager>
 
 		//Add and initialize new state
 		gameStateStack.Push(state);
-		Debug.Log("State Stack count: " + gameStateStack.Count);
 		gameStateStack.Peek().OnEnterState();
-		Debug.Log(gameStateStack.Peek().name);
 	}
 
 	/// <summary>

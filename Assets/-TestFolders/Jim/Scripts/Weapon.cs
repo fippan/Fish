@@ -9,7 +9,8 @@ public abstract class Weapon : MonoBehaviour
     public GameObject magPrefab;
     public GameObject casingPrefab;
     public GameObject onShootEffect;
-    public LineRenderer trail;
+    public GameObject[] onHitEffects = new GameObject[3];
+    public GameObject trail;
     public Projectile projectile;
 
     [Header("Transforms")]
@@ -45,7 +46,6 @@ public abstract class Weapon : MonoBehaviour
     public float magLifeTime;
     [Tooltip("0 = do not destroy.")]
     public float casingLifeTime;
-    public int bulletLineFrequency;
 
     [Header("Explosion settings.")]
     public float explosionRadius;
@@ -89,11 +89,11 @@ public abstract class Weapon : MonoBehaviour
                 break;
             case SDK_BaseController.ControllerHand.Left:
                 if (leftController == null) leftController = controller.transform;
-                //IKControl.leftHandObj = primary ? primaryLeftHandGrabPoint : secondLeftHandGrabPoint;
+                IKControl.leftHandObj = primary ? primaryLeftHandGrabPoint : secondLeftHandGrabPoint;
                 break;
             case SDK_BaseController.ControllerHand.Right:
                 if (rightController == null) rightController = controller.transform;
-                //IKControl.rightHandObj = primary ? primaryRightHandGrabPoint : secondRightHandGrabPoint;
+                IKControl.rightHandObj = primary ? primaryRightHandGrabPoint : secondRightHandGrabPoint;
                 break;
             default:
                 break;
@@ -105,8 +105,8 @@ public abstract class Weapon : MonoBehaviour
     /// </summary>
     protected void ResetIKHand()
     {
-        //if (leftController != null) IKControl.leftHandObj = leftController;
-        //if (rightController != null) IKControl.rightHandObj = rightController;
+        if (leftController != null) IKControl.leftHandObj = leftController;
+        if (rightController != null) IKControl.rightHandObj = rightController;
     }
 
     /// <summary>
@@ -122,10 +122,10 @@ public abstract class Weapon : MonoBehaviour
             case SDK_BaseController.ControllerHand.None:
                 break;
             case SDK_BaseController.ControllerHand.Left:
-                //if (leftController != null) IKControl.leftHandObj = leftController;
+                if (leftController != null) IKControl.leftHandObj = leftController;
                 break;
             case SDK_BaseController.ControllerHand.Right:
-                //if (rightController != null) IKControl.rightHandObj = rightController;
+                if (rightController != null) IKControl.rightHandObj = rightController;
                 break;
             default:
                 break;
@@ -140,14 +140,7 @@ public abstract class Weapon : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(hitScanPoint.position, direction, out hit, 100f))
-        {
             TargetHit(hit.transform, hit.point);
-            //BulletLine(hit.point);
-        }
-        else
-        {
-
-        }
     }
 
     private Vector3 CalculateHitScanDirection()
@@ -237,11 +230,13 @@ public abstract class Weapon : MonoBehaviour
         newProjectile.speed = speed;
         newProjectile.explosive = explosive;
         newProjectile.explosionRadius = explosionRadius;
+        newProjectile.onHitEffect = onHitEffects[0];
+        newProjectile.trail = trail;
     }
 
     protected virtual void OnShotFired()
     {
-        weaponAudioManager.PlayOneShot("Fire");
+        weaponAudioManager.Play("Fire");
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Single_Shot");
         if (onShootEffect != null)
@@ -253,17 +248,10 @@ public abstract class Weapon : MonoBehaviour
             newShell.GetComponent<Rigidbody>().AddForce(casingPoint.forward * Random.Range(casingForceMultiplier * .8f, casingForceMultiplier * 1.2f));
             if (casingLifeTime > 0)
                 Destroy(newShell, casingLifeTime);
-            weaponAudioManager.PlayOneShot("Casing");
+            weaponAudioManager.Play("Casing");
         }
 
         shotsFired++;
-    }
-
-    protected void BulletLine(Vector3 endPoint)
-    {
-        LineRenderer newLine = Instantiate(trail, barrelEnd.position, barrelEnd.rotation);
-        newLine.SetPosition(1, endPoint);
-        Destroy(newLine, .2f);
     }
 
     protected virtual void ReloadAndCooldown()
@@ -298,7 +286,7 @@ public abstract class Weapon : MonoBehaviour
         }
 
         canFire = false;
-        weaponAudioManager.PlayOneShot("Reload");
+        weaponAudioManager.Play("Reload");
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", true);
 
@@ -316,7 +304,7 @@ public abstract class Weapon : MonoBehaviour
 
         yield return new WaitForSeconds(reload);
 
-        weaponAudioManager.PlayOneShot("Reload");
+        weaponAudioManager.Play("Reload");
         if (anim.runtimeAnimatorController != null)
             anim.SetBool("Empty", false);
         if (magPrefab != null)

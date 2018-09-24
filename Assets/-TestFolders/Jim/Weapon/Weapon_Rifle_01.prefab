@@ -331,6 +331,35 @@ Transform:
   m_Father: {fileID: 4491560641580844}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!4 &4131461531769730
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062758245150462}
+  m_LocalRotation: {x: 0.17975023, y: 0.17975023, z: -0.68387854, w: 0.68387854}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4074541804396180}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 29.453, y: 0, z: -90.00001}
+--- !u!4 &4179890601934678
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563875397281764}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.03400004, z: 0.324}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4074541804396180}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+>>>>>>> 2f9dfecf0250b29a5df4716fd8876d4721fa2032
 --- !u!4 &4189552586243712
 Transform:
   m_ObjectHideFlags: 1
@@ -389,6 +418,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590776833423416}
+<<<<<<< HEAD
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0.03, y: 0, z: 0}
   m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 1}
@@ -396,6 +426,15 @@ Transform:
   m_Father: {fileID: 4074541804396180}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+=======
+  m_LocalRotation: {x: 0.1797489, y: -0.17974885, z: 0.6838789, w: 0.6838789}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4074541804396180}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 29.453001, y: 0, z: 90.00001}
+>>>>>>> 2f9dfecf0250b29a5df4716fd8876d4721fa2032
 --- !u!4 &4491560641580844
 Transform:
   m_ObjectHideFlags: 1
@@ -1123,6 +1162,11 @@ MonoBehaviour:
     type: 2}
   onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
     type: 2}
+  onHitEffects:
+  - {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed, type: 2}
+  - {fileID: 1208082176140592, guid: 3eb820aea4dab2f48ad6a65fac406b5f, type: 2}
+  - {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460, type: 2}
+  - {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2, type: 2}
   trail: {fileID: 0}
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
@@ -1143,7 +1187,6 @@ MonoBehaviour:
   casingForceMultiplier: 150
   magLifeTime: 0
   casingLifeTime: 3
-  bulletLineFrequency: 0
   explosionRadius: 0
   lifetime: 5
   speed: 20
