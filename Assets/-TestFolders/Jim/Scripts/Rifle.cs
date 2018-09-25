@@ -96,7 +96,7 @@ public class Rifle : Weapon
         if (!canFire)
         {
             if (reloading)
-                weaponAudioManager.Play("DryFire");
+                weaponAudioManager.PlayOneShot("DryFire");
             return;
         }
 
