@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 114621595533637494}
   - component: {fileID: 95199133638630442}
   - component: {fileID: 114350379193010760}
+  - component: {fileID: 114260291698241490}
   m_Layer: 0
   m_Name: Weapon_Sniper_01
   m_TagString: Metal
@@ -412,7 +413,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473778546336812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19321722, y: 0.563, z: 0.643229}
+  m_LocalPosition: {x: 1.046, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4581547044424396}
@@ -974,6 +975,21 @@ MonoBehaviour:
   customOutlineModels: []
   customOutlineModelPaths: []
   enableSubmeshHighlight: 0
+--- !u!114 &114260291698241490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473778546336812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08759d780c0fba8498a91a99d5ae26b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 120763059338952688, guid: 9fb7f567c28d08a4688e5815757cd996,
+    type: 2}
+  lifetime: 0.1
+  useObjectPooling: 0
 --- !u!114 &114350379193010760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1050,10 +1066,6 @@ MonoBehaviour:
     type: 2}
   onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
     type: 2}
-  onHitEffects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   trail: {fileID: 0}
   projectile: {fileID: 114923502503575518, guid: 4d3447fb446bd7445ac0e163cade004c,
     type: 2}

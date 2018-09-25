@@ -39,13 +39,11 @@ public class Rifle : Weapon
         {
             currentPrimaryGrabbingObject = e.interactingObject;
             if (spreadingBulletsEnabled) spreadingBullets = true;
-            SetIKHand(e.interactingObject, true);
         }
         else
         {
             currentSecondaryGrabbingObject = e.interactingObject;
             spreadingBullets = false;
-            SetIKHand(e.interactingObject, false);
         }
     }
 
@@ -56,12 +54,10 @@ public class Rifle : Weapon
             currentPrimaryGrabbingObject = null;
             currentSecondaryGrabbingObject = null;
             if (rb.isKinematic) rb.isKinematic = false;
-            ResetIKHand();
         }
         else
         {
             currentSecondaryGrabbingObject = null;
-            ResetIKHand(e.interactingObject);
         }
         spreadingBullets = spreadingBulletsEnabled;
 
