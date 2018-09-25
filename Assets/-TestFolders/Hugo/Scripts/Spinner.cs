@@ -20,8 +20,6 @@ public class Spinner : MonoBehaviour
     {
         if (isGrabbed)
         {
-            GetComponentInParent<AudioController>().Play("Reel", transform.position);
-
             rotationDelta = transform.rotation.eulerAngles - rotationLast;
             rotationLast = transform.rotation.eulerAngles;
 

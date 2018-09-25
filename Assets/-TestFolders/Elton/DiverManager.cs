@@ -166,7 +166,7 @@ public class DiverManager : MonoBehaviour
             Vector2 randomPoint = Random.insideUnitCircle;
             Vector3 circleSpawn = new Vector3(randomPoint.x * 6f, -1f, randomPoint.y * 6f);
 
-            var diver = Instantiate(Diver, transform.position + circleSpawn + new Vector3(0, -2, 0), new Quaternion(0, 0, 0, 0));
+            var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
 
             diverCount.Add(diver);
             enemyList.Add(diver);

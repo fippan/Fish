@@ -241,12 +241,6 @@ Prefab:
       propertyPath: sounds.Array.data[2].name
       value: Reload
       objectReference: {fileID: 0}
-    - target: {fileID: 114109830473819876, guid: ed7cf645ad9dd7e4e8c96c2bd5615f31,
-        type: 2}
-      propertyPath: trail
-      value: 
-      objectReference: {fileID: 1907119060952818, guid: 98ed02598391bc64c9610c1c730f316c,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed7cf645ad9dd7e4e8c96c2bd5615f31, type: 2}
   m_IsPrefabAsset: 0
@@ -597,9 +591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   indestructible: 1
-  onHitEffect: {fileID: 1860610155838902, guid: 3eb820aea4dab2f48ad6a65fac406b5f,
-    type: 2}
-  onHitEffectLifetime: 2
+  onHitEffect: {fileID: 0}
+  onHitEffectLifetime: 0
 --- !u!114 &288333697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1052,9 +1045,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   indestructible: 1
-  onHitEffect: {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed,
-    type: 2}
-  onHitEffectLifetime: 2
+  onHitEffect: {fileID: 0}
+  onHitEffectLifetime: 0
 --- !u!114 &756894229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,48 +1141,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &975186596
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4837321661354182, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837321661354182, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837321661354182, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837321661354182, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837321661354182, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837321661354182, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837321661354182, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4837321661354182, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-      propertyPath: m_RootOrder
-      value: 19
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 98ed02598391bc64c9610c1c730f316c, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &1027540412
 Prefab:
   m_ObjectHideFlags: 0
@@ -1609,8 +1559,6 @@ GameObject:
   - component: {fileID: 1412265097}
   - component: {fileID: 1412265096}
   - component: {fileID: 1412265095}
-  - component: {fileID: 1412265100}
-  - component: {fileID: 1412265099}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -1687,45 +1635,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1412265099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1412265094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fcc93d120f0ec845abd22231da604fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 0
-  indestructible: 0
-  onHitEffect: {fileID: 1860610155838902, guid: 3eb820aea4dab2f48ad6a65fac406b5f,
-    type: 2}
-  onHitEffectLifetime: 2
---- !u!114 &1412265100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1412265094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Hit
-    audioClip: {fileID: 8300000, guid: b563493a360b49045961ffcba9c134ab, type: 3}
-    volume: 1
-    volumeVariance: 0.052
-    pitch: 1
-    pitchVariance: 0.086
-    spatialBlend: 1
-    minDistance: 3
-    maxDistance: 100
-  mixerGroup: {fileID: 243341260017872422, guid: 12f4b98caef71e242b7b18b1ececa609,
-    type: 2}
 --- !u!1 &1425200489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1981,9 +1890,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   indestructible: 1
-  onHitEffect: {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460,
-    type: 2}
-  onHitEffectLifetime: 1
+  onHitEffect: {fileID: 0}
+  onHitEffectLifetime: 0
 --- !u!114 &1572680824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2428,9 +2336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   indestructible: 1
-  onHitEffect: {fileID: 1537780842688544, guid: 4287333a81214064db3fa4742fa364b2,
-    type: 2}
-  onHitEffectLifetime: 1
+  onHitEffect: {fileID: 0}
+  onHitEffectLifetime: 0
 --- !u!114 &1834061439
 MonoBehaviour:
   m_ObjectHideFlags: 0

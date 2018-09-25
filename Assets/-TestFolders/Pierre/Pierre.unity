@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.009689603, g: 0.0069639157, b: 0.006284189, a: 1}
+  m_IndirectSpecularColor: {r: 0.018390378, g: 0.012898016, b: 0.011573634, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -744,7 +744,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4220610383757882, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4220610383757882, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -859,7 +859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &417173521
 Transform:
   m_ObjectHideFlags: 0
@@ -1505,10 +1505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c3c3a041abaad4a922ffa8c5cdb1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  indestructible: 0
-  onHitEffect: {fileID: 0}
-  onHitEffectLifetime: 0
   diveBack: 0
   beepSFX: {fileID: 0}
   playerPos: {fileID: 174769321}
@@ -2456,7 +2452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1987018786
 Transform:
   m_ObjectHideFlags: 0

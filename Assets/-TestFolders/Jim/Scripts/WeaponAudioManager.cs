@@ -22,14 +22,14 @@ public class WeaponAudioManager : MonoBehaviour
         }
     }
 
-    public void PlayOneShot(string name)
+    public void Play(string name)
     {
         for (int i = 0; i < audioSources.Length; i++)
         {
             if (sounds[i].name == name)
             {
                 SetVolumeAndPitch(i);
-                audioSources[i].PlayOneShot(audioSources[i].clip);
+                audioSources[i].Play();
             }
         }
     }

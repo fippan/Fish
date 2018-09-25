@@ -86,7 +86,7 @@ public class Shotgun : Weapon
         if (!canFire)
         {
             if (reloading)
-                weaponAudioManager.PlayOneShot("DryFire");
+                weaponAudioManager.Play("DryFire");
             return;
         }
 
@@ -105,7 +105,7 @@ public class Shotgun : Weapon
 
     protected override void OnShotFired()
     {
-        weaponAudioManager.PlayOneShot("Fire");
+        weaponAudioManager.Play("Fire");
         if (onShootEffect != null)
             Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
         shotsFired++;
@@ -124,7 +124,7 @@ public class Shotgun : Weapon
 
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Reload");
-        weaponAudioManager.PlayOneShot("Reload");
+        weaponAudioManager.Play("Reload");
 
         yield return new WaitForSeconds(shellDelay);
         
@@ -134,7 +134,7 @@ public class Shotgun : Weapon
             newShell.GetComponent<Rigidbody>().AddForce(casingPoint.forward * Random.Range(casingForceMultiplier * .8f, casingForceMultiplier * 1.2f));
             if (casingLifeTime > 0)
                 Destroy(newShell, casingLifeTime);
-            weaponAudioManager.PlayOneShot("Casing");
+            weaponAudioManager.Play("Casing");
         }
 
         yield return new WaitForSeconds(reload);

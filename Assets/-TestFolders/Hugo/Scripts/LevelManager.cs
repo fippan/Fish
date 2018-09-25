@@ -15,6 +15,6 @@ public class LevelManager : MonoBehaviour
 
     public void MainMenu ()
     {
-        SceneManager.LoadScene("2_MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }

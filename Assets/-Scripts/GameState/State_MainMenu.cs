@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class State_MainMenu : State_Base
 {
 	//Static instance accessor
 	public static State_MainMenu Instance { get; private set; }
-	//private Scene scene;
+	private Scene scene;
 
 
 
@@ -20,8 +19,7 @@ public class State_MainMenu : State_Base
 
 	public override void OnEnterState()
 	{
-		//Load new scene if not already loaded
-		if (SceneManager.GetActiveScene().name != "2_MainMenu")
+		if (scene.name != "2_MainMenu")
 			SceneManager.LoadScene("2_MainMenu");
 
 

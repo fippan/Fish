@@ -33,7 +33,7 @@ public class AudioController : MonoBehaviour
             {
                 audioSources[i].transform.position = worldPoint;
                 SetVolumeAndPitch(i);
-                audioSources[i].PlayOneShot(audioSources[i].clip);
+                audioSources[i].Play();
             }
         }
     }

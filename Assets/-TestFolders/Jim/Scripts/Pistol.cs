@@ -76,7 +76,7 @@ public class Pistol : Weapon
         if (!canFire)
         {
             if (reloading)
-                weaponAudioManager.PlayOneShot("DryFire");
+                weaponAudioManager.Play("DryFire");
             return;
         }
 

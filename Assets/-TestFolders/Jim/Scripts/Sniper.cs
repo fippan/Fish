@@ -91,7 +91,7 @@ public class Sniper : Weapon
         if (!canFire)
         {
             if (reloading)
-                weaponAudioManager.PlayOneShot("DryFire");
+                weaponAudioManager.Play("DryFire");
             return;
         }
 
@@ -109,7 +109,7 @@ public class Sniper : Weapon
     }
     protected override void OnShotFired()
     {
-        weaponAudioManager.PlayOneShot("Fire");
+        weaponAudioManager.Play("Fire");
         if (onShootEffect != null)
             Destroy(Instantiate(onShootEffect, barrelEnd.position, barrelEnd.rotation), onShootEffectLifetime);
         shotsFired++;
@@ -138,8 +138,8 @@ public class Sniper : Weapon
             shellDelay = 0f;
         }
 
-        weaponAudioManager.PlayOneShot("Reload");
-        weaponAudioManager.PlayOneShot("Casing");
+        weaponAudioManager.Play("Reload");
+        weaponAudioManager.Play("Casing");
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Reload");
 
@@ -171,7 +171,7 @@ public class Sniper : Weapon
             reloadDelay = 0f;
         }
 
-        weaponAudioManager.PlayOneShot("Reload");
+        weaponAudioManager.Play("Reload");
         if (anim.runtimeAnimatorController != null)
             anim.SetTrigger("Reload");
 
@@ -183,7 +183,7 @@ public class Sniper : Weapon
             newShell.GetComponent<Rigidbody>().AddForce(casingPoint.forward * Random.Range(casingForceMultiplier * .8f, casingForceMultiplier * 1.2f));
             if (casingLifeTime > 0)
                 Destroy(newShell, casingLifeTime);
-            weaponAudioManager.PlayOneShot("Casing");
+            weaponAudioManager.Play("Casing");
         }
 
         if (magPrefab != null)
@@ -198,7 +198,7 @@ public class Sniper : Weapon
 
         yield return new WaitForSeconds(reload);
 
-        weaponAudioManager.PlayOneShot("Reload");
+        weaponAudioManager.Play("Reload");
         if (magPrefab != null)
             currentMag = Instantiate(magPrefab, magPoint);
         if (anim.runtimeAnimatorController != null)
