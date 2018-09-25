@@ -78,13 +78,13 @@ public class DiverManager : MonoBehaviour
 
             Spawn();
 
-            if(killedEnemies >= 10 + waveCount * 2)
+            if(killedEnemies >= 5 + waveCount * 2)
             {
                 waveActive = false;
             }
             if(dayAndNight != null)
             {
-                if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < 10 + waveCount * 2)
+                if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < 5 + waveCount * 2)
                 {
                     dayAndNight.TimeMultiplier = 0;
                 }
@@ -151,9 +151,9 @@ public class DiverManager : MonoBehaviour
             }
         }
 
-        if (enemyList.Count < 10 + waveCount * 2)
+        if (enemyList.Count < 5 + waveCount * 2)
     {
-        if (subMarineList.Count < waveCount)
+        if (subMarineList.Count < waveCount + 5)
         {
             Vector2 randomPoint = Random.insideUnitCircle;
             Vector3 circleSpawn = new Vector3(randomPoint.x * 50f, -1f, randomPoint.y * 50f);
@@ -167,7 +167,7 @@ public class DiverManager : MonoBehaviour
         }
 
 
-        if (diverCount.Count < waveCount)
+        if (diverCount.Count < waveCount + 5)
         {
             Vector2 randomPoint = Random.insideUnitCircle;
             Vector3 circleSpawn = new Vector3(randomPoint.x * 6f, -2.5f, randomPoint.y * 6f);
@@ -180,7 +180,7 @@ public class DiverManager : MonoBehaviour
             spawnedEnemies++;
         }
 
-        if(helicopterList.Count < waveCount / 5)
+        if(helicopterList.Count < waveCount / 5 + 5)
         {
                 var heli = Instantiate(helicopter, transform.position + new Vector3(50, 30, 50), new Quaternion(0, 0, 0, 0));
                 heli.GetComponent<Helicopter>().FindBoat(player.transform);

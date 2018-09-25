@@ -6979,6 +6979,36 @@ Prefab:
       propertyPath: sun
       value: 
       objectReference: {fileID: 170076734}
+    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
+        type: 2}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: f0d28705709c1b64baf441c5fcc42ebb, type: 2}
+    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
+        type: 2}
+      propertyPath: sizeX
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
+        type: 2}
+      propertyPath: sizeZ
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
+        type: 2}
+      propertyPath: enableReflection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
+        type: 2}
+      propertyPath: enableRefraction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
+        type: 2}
+      propertyPath: receiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66de114178e96954b90588daa2c6c6d6, type: 2}
   m_IsPrefabAsset: 0
