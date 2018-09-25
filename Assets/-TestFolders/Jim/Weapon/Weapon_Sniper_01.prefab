@@ -160,6 +160,8 @@ GameObject:
   - component: {fileID: 95199133638630442}
   - component: {fileID: 114350379193010760}
   - component: {fileID: 114260291698241490}
+  - component: {fileID: 114204540631618094}
+  - component: {fileID: 114089603400329230}
   m_Layer: 0
   m_Name: Weapon_Sniper_01
   m_TagString: Metal
@@ -941,6 +943,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114089603400329230
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473778546336812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e82137cf6037429dfbf2a1fd1f9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114192202334399884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -975,6 +988,21 @@ MonoBehaviour:
   customOutlineModels: []
   customOutlineModelPaths: []
   enableSubmeshHighlight: 0
+--- !u!114 &114204540631618094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473778546336812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08759d780c0fba8498a91a99d5ae26b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 120763059338952688, guid: 9fb7f567c28d08a4688e5815757cd996,
+    type: 2}
+  lifetime: 0.1
+  useObjectPooling: 0
 --- !u!114 &114260291698241490
 MonoBehaviour:
   m_ObjectHideFlags: 1

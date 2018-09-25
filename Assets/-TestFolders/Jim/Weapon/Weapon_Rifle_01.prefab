@@ -30,6 +30,8 @@ GameObject:
   - component: {fileID: 95136706802287776}
   - component: {fileID: 114778924562549522}
   - component: {fileID: 114113037988455714}
+  - component: {fileID: 114531565019135566}
+  - component: {fileID: 114207799190346724}
   m_Layer: 0
   m_Name: Weapon_Rifle_01
   m_TagString: Metal
@@ -1093,6 +1095,17 @@ MonoBehaviour:
   objectToHighlight: {fileID: 0}
   objectHighlighter: {fileID: 0}
   objectToAffect: {fileID: 0}
+--- !u!114 &114207799190346724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014518601432308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e82137cf6037429dfbf2a1fd1f9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114233933740447840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1150,6 +1163,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e157110b6939bc14a8c421447193d994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114531565019135566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014518601432308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08759d780c0fba8498a91a99d5ae26b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 120763059338952688, guid: 9fb7f567c28d08a4688e5815757cd996,
+    type: 2}
+  lifetime: 0.1
+  useObjectPooling: 0
 --- !u!114 &114778924562549522
 MonoBehaviour:
   m_ObjectHideFlags: 1

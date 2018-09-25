@@ -111,6 +111,8 @@ GameObject:
   - component: {fileID: 95145506700451032}
   - component: {fileID: 114948538621725156}
   - component: {fileID: 114727324388430452}
+  - component: {fileID: 114111752619541940}
+  - component: {fileID: 114590151565213580}
   m_Layer: 0
   m_Name: Weapon_Pistol_02
   m_TagString: Metal
@@ -510,6 +512,21 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!114 &114111752619541940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381575635962726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08759d780c0fba8498a91a99d5ae26b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 120763059338952688, guid: 9fb7f567c28d08a4688e5815757cd996,
+    type: 2}
+  lifetime: 0.1
+  useObjectPooling: 0
 --- !u!114 &114298952295785472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -564,6 +581,17 @@ MonoBehaviour:
   onHitEffectLifetime: 1
   hapticStrenght: 0.533
   hapticDuration: 0.25
+--- !u!114 &114590151565213580
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381575635962726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e82137cf6037429dfbf2a1fd1f9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114606768311878690
 MonoBehaviour:
   m_ObjectHideFlags: 1

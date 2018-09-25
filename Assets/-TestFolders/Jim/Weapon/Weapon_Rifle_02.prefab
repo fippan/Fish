@@ -107,6 +107,8 @@ GameObject:
   - component: {fileID: 95880318182230608}
   - component: {fileID: 114349562574194572}
   - component: {fileID: 114215144691967048}
+  - component: {fileID: 114463416969441074}
+  - component: {fileID: 114595446750967876}
   m_Layer: 0
   m_Name: Weapon_Rifle_02
   m_TagString: Metal
@@ -612,6 +614,21 @@ MonoBehaviour:
     spatialBlend: 1
     minDistance: 1
     maxDistance: 500
+--- !u!114 &114463416969441074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437912708010896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08759d780c0fba8498a91a99d5ae26b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 120763059338952688, guid: 9fb7f567c28d08a4688e5815757cd996,
+    type: 2}
+  lifetime: 0.1
+  useObjectPooling: 0
 --- !u!114 &114480268928694314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -673,6 +690,17 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!114 &114595446750967876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1437912708010896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e82137cf6037429dfbf2a1fd1f9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114623479991499640
 MonoBehaviour:
   m_ObjectHideFlags: 1
