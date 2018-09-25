@@ -3,42 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class State_MainMenu : State_Base
+public class State_MainMenu : GenericSingleton<State_MainMenu>, IState_Base
 {
-	//Static instance accessor
-	public static State_MainMenu Instance { get; private set; }
-	private Scene scene;
-
-
-
-	private void Awake()
+	public void OnEnterState()
 	{
-		Instance = this;
-	}
-
-
-	public override void OnEnterState()
-	{
-		if (scene.name != "2_MainMenu")
+		if (SceneManager.GetActiveScene().name != "2_MainMenu")
 			SceneManager.LoadScene("2_MainMenu");
 
 
 		throw new System.NotImplementedException();
 	}
 
-	public override void OnExitState()
+	public void OnExitState()
 	{
 		throw new System.NotImplementedException();
 
 	}
 
-	public override void OnPauseState()
+	public void OnPauseState()
 	{
 		throw new System.NotImplementedException();
 
 	}
 
-	public override void OnResumeState()
+	public void OnResumeState()
 	{
 		throw new System.NotImplementedException();
 

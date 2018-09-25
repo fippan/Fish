@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class GenericSingleton<T> : Singleton where T : MonoBehaviour
+public class GenericSingleton<T> : Singleton where T : MonoBehaviour
 {
 	private static object _lock = new object();
 

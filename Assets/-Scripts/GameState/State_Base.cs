@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State_Base : MonoBehaviour
+
+public interface IState_Base
 {
-	public abstract void OnEnterState();
-	public abstract void OnExitState();
+	void OnEnterState();
+	void OnExitState();
 
-	public abstract void OnPauseState();
-	public abstract void OnResumeState();
+	void OnPauseState();
+	void OnResumeState();
 
-	private void ChangeState(State_Base state)
-	{
-		GameManager.Instance.ChangeState(state);
-	}
+	//private void ChangeState(State_Base state)
+	//{
+	//	GameManager.Instance.ChangeState(state);
+	//}
 }
