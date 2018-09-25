@@ -47,7 +47,7 @@ public class FishingRod : MonoBehaviour
             newBobRB.velocity += (pullDir * floaterSpeed * Time.deltaTime) * spinner.rotationSpeed;
         }
 
-        if (closeEnough)
+        if (closeEnough && spinner.isGrabbed)
         {
             Vector3 D = throwPoint.position - newBob.transform.position;
             float dist = D.magnitude;

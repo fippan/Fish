@@ -41,7 +41,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1065379102246992
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +627,8 @@ GameObject:
   - component: {fileID: 20800830890519308}
   - component: {fileID: 124056552467943452}
   - component: {fileID: 136171200064846348}
-  - component: {fileID: 114625913396780050}
+  - component: {fileID: 114021771211083024}
+  - component: {fileID: 114881735832949408}
   m_Layer: 0
   m_Name: Camera (eye)
   m_TagString: Player
@@ -753,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1922465336917352
 GameObject:
   m_ObjectHideFlags: 1
@@ -2149,6 +2150,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sdkObject: 1
+--- !u!114 &114021771211083024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755407147048370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 4770420013985324}
+  _ears: {fileID: 4949470532665058}
+  wireframe: 0
 --- !u!114 &114053578324241648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3101,20 +3116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customColliderContainer: {fileID: 0}
---- !u!114 &114625913396780050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755407147048370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _head: {fileID: 4770420013985324}
-  _ears: {fileID: 4949470532665058}
-  wireframe: 0
 --- !u!114 &114647549986164768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3352,6 +3353,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1405546686655958}
+--- !u!114 &114881735832949408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755407147048370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 65c9c8c30e92dd64ea3ab18664187d3e, type: 2}
 --- !u!114 &114900248478306854
 MonoBehaviour:
   m_ObjectHideFlags: 1

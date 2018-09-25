@@ -3624,6 +3624,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c3c3a041abaad4a922ffa8c5cdb1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  indestructible: 0
+  onHitEffect: {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460,
+    type: 2}
+  onHitEffectLifetime: 1
   diveBack: 0
   beepSFX: {fileID: 8300000, guid: 11b9979e7abf7a440ababd59b4e76e20, type: 3}
   playerPos: {fileID: 0}
@@ -3641,8 +3646,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b7315daef0f2546b187418eb8339d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  Dead: 0
   enemyModel: {fileID: 0}
   hitFX: {fileID: 0}
   canFire: 0
