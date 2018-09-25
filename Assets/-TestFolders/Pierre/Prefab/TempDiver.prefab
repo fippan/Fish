@@ -343,8 +343,8 @@ GameObject:
   - component: {fileID: 95834236373347278}
   - component: {fileID: 114618985295823730}
   - component: {fileID: 114243099793918218}
-  - component: {fileID: 114650317708606740}
-  - component: {fileID: 114960432759800942}
+  - component: {fileID: 114234613637810482}
+  - component: {fileID: 114774448651462944}
   m_Layer: 0
   m_Name: TempDiver
   m_TagString: Humanoid
@@ -3912,6 +3912,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114234613637810482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277846125134116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Hit
+    audioClip: {fileID: 8300000, guid: 2e4c739c1349d9c408cf521521a5badf, type: 3}
+    volume: 1
+    volumeVariance: 0.077
+    pitch: 1.01
+    pitchVariance: 0.06
+    spatialBlend: 1
+    minDistance: 3
+    maxDistance: 100
+  mixerGroup: {fileID: 243341260017872422, guid: 12f4b98caef71e242b7b18b1ececa609,
+    type: 2}
 --- !u!114 &114243099793918218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3942,43 +3965,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   throwingStart: {fileID: 4400039880546168}
   bomb: {fileID: 1671788405914124, guid: 9f339d12b23a1884592b2f45f48a1890, type: 2}
---- !u!114 &114650317708606740
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1277846125134116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Hit
-    audioClip: {fileID: 8300000, guid: 2e4c739c1349d9c408cf521521a5badf, type: 3}
-    volume: 1
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0.055
-    spatialBlend: 1
-    minDistance: 3
-    maxDistance: 100
-  mixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609, type: 2}
---- !u!114 &114952809501643776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1277846125134116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01a086db406c3240b2b04a4842bb8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ikActive: 0
-  rightHandObj: {fileID: 4475460226581980}
-  lookObj: {fileID: 4475460226581980}
---- !u!114 &114960432759800942
+--- !u!114 &114774448651462944
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3994,6 +3981,20 @@ MonoBehaviour:
   onHitEffect: {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed,
     type: 2}
   onHitEffectLifetime: 1
+--- !u!114 &114952809501643776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277846125134116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01a086db406c3240b2b04a4842bb8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ikActive: 0
+  rightHandObj: {fileID: 4475460226581980}
+  lookObj: {fileID: 4475460226581980}
 --- !u!137 &137982672168943904
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
