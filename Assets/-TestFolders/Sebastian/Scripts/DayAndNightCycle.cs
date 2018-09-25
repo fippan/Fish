@@ -195,6 +195,8 @@ public class DayAndNightCycle : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        _sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.1f);
+
             SecondsCounter();                               //Call SecondsCounter function
             UpdateSkybox();                                 //Call UpdateSkybox function
         SunRotationManager();                               //Call SunRotationManager function
@@ -278,7 +280,7 @@ public class DayAndNightCycle : MonoBehaviour {
         
     void SecondsCounter()
     {
-        Debug.Log("SecondsCounter");
+        //Debug.Log("SecondsCounter");
 
         if (_counter == 60)                                 //if the counter equal 60
             _counter = 0;                                   //then make counter equal to 0
@@ -303,7 +305,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void MinutesCounter()
     {
-        Debug.Log("MiniteCounter");
+        //Debug.Log("MiniteCounter");
 
         _minutes++;                                         //increase minutes counter
 
@@ -318,7 +320,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void HoursCounter()
     {
-        Debug.Log("HoursCounter");
+        //Debug.Log("HoursCounter");
 
         _hours++;
 
@@ -332,7 +334,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void DaysCounter()
     {
-        Debug.Log("DaysCounter");
+        //Debug.Log("DaysCounter");
         _days++;                                            //increase days counter
         if (DiverManager.Instance.gameObject != null)
         {
@@ -350,14 +352,14 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void UpdateCalendarDays()
     {
-        Debug.Log("UpdateCalendarMonth");
+        //Debug.Log("UpdateCalendarMonth");
         _calendarDays++;                                    //increase calendar days
         UpdateCalendarMonth();                              //call update calendar function
     }
 
     void UpdateCalendarMonth()
     {
-        Debug.Log("UpdateCalendarMonth");
+        //Debug.Log("UpdateCalendarMonth");
 
         if (_january == true && _calendarDays > 31)         //if we are in january and calendar days is greater than 31
         {
@@ -461,7 +463,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void YearCounter()
     {
-        Debug.Log("YearCounter");
+        //Debug.Log("YearCounter");
 
         _years++;                                           //increase years
         _leapYearsCounter++;                                //increase leap years
@@ -473,7 +475,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void SeasonManager()
     {
-        Debug.Log("SeasonManager");
+        //Debug.Log("SeasonManager");
 
         _spring = false;                                    //Set _spring to be equal to false
         _summer = false;                                    //Set _summer to be equal to false                   
@@ -536,7 +538,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void SunRotationManager()
     {
-        Debug.Log("SunRotationManager");
+        //Debug.Log("SunRotationManager");
         if (_spring == true)                                //if spring equals true
             _dayTemp = _springDayLength / 10;               //then day temp equals spring day length divided by ten
 
@@ -563,7 +565,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void Dawn()
     {
-        Debug.Log("Dawn");
+        //Debug.Log("Dawn");
 
         DawnSunLightManager();                                      //Call DawnSunlightManager function
         DawnAmbientLightManager();                                  //Call DawnAmbientLightManager function
@@ -576,7 +578,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void DawnSunLightManager()
     {
-        Debug.Log("DawnSunLightManager");
+        //Debug.Log("DawnSunLightManager");
 
         //if (GetComponent<Light>().intensity == _dawnSunIntensity)       //if light intensity is equal to dawn intensity
         //    return;                                                     //then do nothing
@@ -591,7 +593,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void DawnAmbientLightManager()
     {
-        Debug.Log("DawnSunLightManager");
+        //Debug.Log("DawnSunLightManager");
 
         //if (RenderSettings.ambientIntensity == _dawnAmbientIntensity)       //if ambient intensity is equal to dawn ambient intensity
         //    return;
@@ -607,7 +609,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void Day()
     {
-        Debug.Log("Day");
+        //Debug.Log("Day");
 
         DaySunLightManager();                                       //Call DaySunLightManager
         DayAmbientLightManager();                                   //Call DayAmbientLightManager
@@ -620,7 +622,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void DaySunLightManager()
     {
-        Debug.Log("DaySunLightManager");
+        //Debug.Log("DaySunLightManager");
 
         //if (GetComponent<Light>().intensity == _daySunIntensity)       //if light intensity is equal to day intensity
         //    return;                                                     //then do nothing
@@ -636,7 +638,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void DayAmbientLightManager()
     {
-        Debug.Log("DaySunLightManager");
+        //Debug.Log("DaySunLightManager");
 
         //if (RenderSettings.ambientIntensity == _dayAmbientIntensity)       //if ambient intensity is equal to dawn ambient intensity
         //    return;
@@ -652,7 +654,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void Dusk()
     {
-        Debug.Log("Dusk");
+        //Debug.Log("Dusk");
 
         DuskSunLightManager();
         DuskAmbientLightManager();
@@ -667,7 +669,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void DuskSunLightManager()
     {
-        Debug.Log("DuskSunLightManager");
+        //Debug.Log("DuskSunLightManager");
 
         //if (GetComponent<Light>().intensity == _duskSunIntensity)       //if light intensity is equal to dusk intensity
         //    return;                                                     //then do nothing
@@ -683,7 +685,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void DuskAmbientLightManager()
     {
-        Debug.Log("DuskSunLightManager");
+        //Debug.Log("DuskSunLightManager");
 
         //if (RenderSettings.ambientIntensity == _duskAmbientIntensity)       //if ambient intensity is equal to dusk ambient intensity
         //    return;
@@ -701,7 +703,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void Night()
     {
-        Debug.Log("Night");
+        //Debug.Log("Night");
 
         NightSunLightManager();                                         //Call function NightSunManager
         NightAmbientLightManager();                                     //Call function NightAmbientLightManager
@@ -714,7 +716,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void NightSunLightManager()
     {
-        Debug.Log("NightSunLightManager");
+        //Debug.Log("NightSunLightManager");
 
         //if (GetComponent<Light>().intensity == _nightSunIntensity)       //if light intensity is equal to night intensity
         //    return;                                                      //then do nothing
@@ -730,7 +732,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void NightAmbientLightManager()
     {
-        Debug.Log("NightSunLightManager");
+        //Debug.Log("NightSunLightManager");
 
         //if (RenderSettings.ambientIntensity == _nightAmbientIntensity)       //if ambient intensity is equal to night ambient intensity
         //    return;
@@ -764,7 +766,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     private void UpdateSkybox()
     {
-        Debug.Log("UpdateSkybox");
+        //Debug.Log("UpdateSkybox");
 
         if(_dayPhases == DayPhases.Dawn)                             //if day phase is equal to dawn
         {
@@ -776,7 +778,7 @@ public class DayAndNightCycle : MonoBehaviour {
             if (_skyboxBlendFactor > _dawnSkyboxBlendFactor)         //if skybox blend factor is greater than dawn
                 _skyboxBlendFactor = _dawnSkyboxBlendFactor;         //then make skybox blend factor equal to dawn
 
-            _sun.color = Color.Lerp(_dawnLightColor, _dayLightColor, 100);
+            //_sun.color = Color.Lerp(_dawnLightColor, _dayLightColor, Time.time * 0.2f);
 
         }
 
@@ -791,7 +793,7 @@ public class DayAndNightCycle : MonoBehaviour {
             if (_skyboxBlendFactor > _daySkyboxBlendFactor)         //if skybox blend factor is greater than day
                 _skyboxBlendFactor = _daySkyboxBlendFactor;         //then make skybox blend factor equal to day
 
-            _sun.color = Color.Lerp(_dayLightColor, _duskLightColor,100);
+           // _sun.color = Color.Lerp(_dayLightColor, _duskLightColor, Time.time * 0.2f);
 
 
         }
@@ -807,7 +809,7 @@ public class DayAndNightCycle : MonoBehaviour {
             if (_skyboxBlendFactor < _duskSkyboxBlendFactor)         //if skybox blend factor is less than dusk
                 _skyboxBlendFactor = _duskSkyboxBlendFactor;         //then make skybox blend factor equal to dusk
 
-            _sun.color = Color.Lerp(_duskLightColor, _nightLightColor, 100);
+            //_sun.color = Color.Lerp(_duskLightColor, _nightLightColor, Time.time * 0.2f);
 
 
         }
@@ -823,7 +825,7 @@ public class DayAndNightCycle : MonoBehaviour {
             if (_skyboxBlendFactor < _nightSkyboxBlendFactor)         //if skybox blend factor is greater than night
                 _skyboxBlendFactor = _nightSkyboxBlendFactor;         //then make skybox blend factor equal to night
 
-            _sun.color = Color.Lerp(_nightLightColor, _dawnLightColor, 100);
+            //_sun.color = Color.Lerp(_nightLightColor, _dawnLightColor, Time.time * 0.2f);
 
 
         }
