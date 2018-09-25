@@ -924,6 +924,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 458990, guid: 4f35fa249b5008c44ac2998be6f82d4d,
     type: 2}
   m_PrefabInternal: {fileID: 431132384}
+--- !u!1001 &492127225
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4324188899764744, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324188899764744, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.942
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324188899764744, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324188899764744, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324188899764744, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324188899764744, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324188899764744, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324188899764744, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89433d6bbd1882444aaf554f8ecf6e03, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &494004378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,6 +2715,7 @@ MonoBehaviour:
   helicopter: {fileID: 0}
   helicopterList: []
   enemyList: []
+  dayAndNight: {fileID: 0}
   waveCount: 1
   waveActive: 0
   canSpawn: 1
