@@ -17,17 +17,28 @@ public class PlayerHealth : Health
         ppp.vignette.settings = vig;
     }
 
-    public override void TakeDamage(float amount, Vector3 point)
+    public void Update()
     {
         var vig = ppp.vignette.settings;
 
-        if (currentHealth < maxHealth / 1.5f)
+        if (currentHealth < maxHealth / 1.5f && currentHealth > maxHealth / 3)
+        {
             vig.intensity = .66f;
+        }
         if (currentHealth < maxHealth / 3)
+        {
             vig.intensity = 1;
+        }
+        if (currentHealth > maxHealth / 1.5f)
+        {
+            vig.intensity = 0;
+        }
 
         ppp.vignette.settings = vig;
+    }
 
+    public override void TakeDamage(float amount, Vector3 point)
+    {
         StopCorotine();
         base.TakeDamage(amount, point);
         RegenHealth = StartCoroutine(HealthGeneration());
@@ -41,16 +52,6 @@ public class PlayerHealth : Health
 
     private IEnumerator HealthGeneration()
     {
-        var vig = ppp.vignette.settings;
-
-        if (currentHealth > maxHealth / 1.5f)
-            vig.intensity = 0;
-        if (currentHealth > maxHealth / 3)
-            vig.intensity = .66f;
-
-        ppp.vignette.settings = vig;
-
-
         yield return new WaitForSeconds(5f);
         while (currentHealth < maxHealth)
         {

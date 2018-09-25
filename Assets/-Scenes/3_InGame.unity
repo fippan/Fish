@@ -1157,13 +1157,16 @@ Prefab:
       propertyPath: OnUngrab.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1351307787}
-    - target: {fileID: 114636470103198020, guid: 4c68fe28e2ee461438c7289225d63a7c,
+    - target: {fileID: 65889247574106102, guid: 4c68fe28e2ee461438c7289225d63a7c,
         type: 2}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_Size.z
+      value: 0.073
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114636470103198020, guid: 4c68fe28e2ee461438c7289225d63a7c, type: 2}
+    - target: {fileID: 4451698696243874, guid: 4c68fe28e2ee461438c7289225d63a7c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.0424
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c68fe28e2ee461438c7289225d63a7c, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &263564064
@@ -2629,28 +2632,12 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &800117310 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1816757053915978, guid: 4c68fe28e2ee461438c7289225d63a7c,
-    type: 2}
-  m_PrefabInternal: {fileID: 241056182}
 --- !u!114 &800117318 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114047255586620752, guid: 4c68fe28e2ee461438c7289225d63a7c,
     type: 2}
   m_PrefabInternal: {fileID: 241056182}
   m_Script: {fileID: 11500000, guid: 947c0a05cbbf88841831132bed3181db, type: 3}
---- !u!114 &800117320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 800117310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db8e82137cf6037429dfbf2a1fd1f9b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &807922712
 Prefab:
   m_ObjectHideFlags: 0
@@ -4531,6 +4518,10 @@ Prefab:
       propertyPath: endGame
       value: 
       objectReference: {fileID: 1547664503}
+    - target: {fileID: 1816363662863558, guid: 8873c8d9cfa370b4f931a933f737132f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8873c8d9cfa370b4f931a933f737132f, type: 2}
   m_IsPrefabAsset: 0
