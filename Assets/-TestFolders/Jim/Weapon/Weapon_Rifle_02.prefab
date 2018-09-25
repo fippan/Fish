@@ -612,6 +612,10 @@ MonoBehaviour:
     type: 2}
   onShootEffect: {fileID: 1928399034616636, guid: 450a1041f381173479603a28e61f02f7,
     type: 2}
+  onHitEffects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   trail: {fileID: 0}
   projectile: {fileID: 114590300851352774, guid: 7360eba1681f92046ac287c35fabc71d,
     type: 2}
@@ -632,7 +636,6 @@ MonoBehaviour:
   casingForceMultiplier: 150
   magLifeTime: 0
   casingLifeTime: 3
-  bulletLineFrequency: 0
   explosionRadius: 0
   lifetime: 5
   speed: 20
