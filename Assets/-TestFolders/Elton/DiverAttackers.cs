@@ -29,13 +29,13 @@ public class DiverAttackers : Health
         attackVoices.Add("Attack2");
         attackVoices.Add("Attack3");
         health = GetComponent<Health>();
-        Player = GameObject.FindGameObjectWithTag("Player");
         anims = GetComponent<Animator>();
-        if(Player != null)
-        {
-            transform.LookAt(Player.transform);
-        }
         swimRoutine = StartCoroutine(SwimUpwards());
+    }
+
+    public void LookAtPlayer(Transform player)
+    {
+        transform.Rotate(player.position + new Vector3(0, -30, 0), transform.position.y);
     }
 
     private void AttackPlayer()

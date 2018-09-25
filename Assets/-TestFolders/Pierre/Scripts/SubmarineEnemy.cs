@@ -29,28 +29,17 @@ public class SubmarineEnemy : Enemy
     void Start () {
         audioSource = GetComponent<AudioSource>();
         //transform.LookAt(playerTransform);
-        transform.rotation *= Quaternion.Euler(0, 20, 0);
-        if (playerTransform == null)
-        {
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        //transform.rotation *= Quaternion.Euler(0, 20, 0);
     }
 	
+    public void AimAtPlayer(Transform player)
+    {
+        transform.Rotate(player.position, transform.position.y);
+    }
+
 	// Update is called once per frame
 	void Update () {
         Fire();
-
-        //if (Dead == true)
-        //{
-        //    if(shootBehave != null)
-        //    {
-        //        StopCoroutine(shootBehave);
-        //        GetComponentInParent<Submarine>().diveBack = true;
-        //        KillCountManager.Instance.AddKill();
-        //        //FindObjectOfType<DiverManager>().WaveCount++;
-        //        Destroy(gameObject);
-        //    }
-        //}
 	}
 
     public void Fire()

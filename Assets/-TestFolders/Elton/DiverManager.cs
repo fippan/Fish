@@ -49,6 +49,9 @@ public class DiverManager : MonoBehaviour
     [SerializeField]
     private int killedEnemies;
 
+    [SerializeField]
+    public GameObject player;
+
     public static DiverManager Instance { get; private set; }
 
 
@@ -79,13 +82,16 @@ public class DiverManager : MonoBehaviour
             {
                 waveActive = false;
             }
-            if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < waveCount * 2)
+            if(dayAndNight != null)
             {
-                dayAndNight.TimeMultiplier = 0;
-            }
-            else
-            {
-                dayAndNight.TimeMultiplier = 344f * 2;
+                if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < waveCount * 2)
+                {
+                    dayAndNight.TimeMultiplier = 0;
+                }
+                else
+                {
+                    dayAndNight.TimeMultiplier = 344f * 2;
+                }
             }
         }
         else if(!waveActive)
@@ -153,7 +159,7 @@ public class DiverManager : MonoBehaviour
             Vector3 circleSpawn = new Vector3(randomPoint.x * 50f, -1f, randomPoint.y * 50f);
 
             var submarine = Instantiate(subMarine, transform.position + circleSpawn + new Vector3(0, -4, 0), new Quaternion(0, 0, 0, 0));
-
+                submarine.GetComponentInChildren<SubmarineEnemy>().AimAtPlayer(player.transform);
             subMarineList.Add(submarine);
             enemyList.Add(submarine);
             randomSpawnTimer = Random.Range(10, 50);
@@ -167,7 +173,7 @@ public class DiverManager : MonoBehaviour
             Vector3 circleSpawn = new Vector3(randomPoint.x * 6f, -1f, randomPoint.y * 6f);
 
             var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
-
+            diver.GetComponent<DiverAttackers>().LookAtPlayer(player.transform);
             diverCount.Add(diver);
             enemyList.Add(diver);
             //randomSpawnTimer = Random.Range(10, 15);

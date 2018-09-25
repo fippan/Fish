@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0015181152, g: 0.0013901659, b: 0.0013173949, a: 1}
+  m_IndirectSpecularColor: {r: 0.014976076, g: 0.010569376, b: 0.009498333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -896,6 +896,7 @@ MonoBehaviour:
   waveActive: 1
   canSpawn: 1
   killedEnemies: 0
+  player: {fileID: 1497631096}
 --- !u!1001 &431132384
 Prefab:
   m_ObjectHideFlags: 0
@@ -2455,7 +2456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1987018786
 Transform:
   m_ObjectHideFlags: 0
@@ -2483,7 +2484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SecondMultiplier: 300
-  _sun: {fileID: 0}
+  _sun: {fileID: 1987018788}
   _days: 0
   _hours: 0
   _minutes: 0
