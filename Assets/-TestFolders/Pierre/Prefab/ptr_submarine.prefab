@@ -899,6 +899,7 @@ GameObject:
   - component: {fileID: 114131994235239970}
   - component: {fileID: 65578703906514016}
   - component: {fileID: 82929469431700432}
+  - component: {fileID: 114490452453444284}
   m_Layer: 0
   m_Name: ptr_submarine
   m_TagString: Untagged
@@ -3625,7 +3626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diveBack: 0
-  beepSFX: {fileID: 8300000, guid: 11b9979e7abf7a440ababd59b4e76e20, type: 3}
   playerPos: {fileID: 0}
   spawnpos: {fileID: 0}
   explosionFX: {fileID: 1846661074692026, guid: 568ac9c9484d04f44880c7610e92a511,
@@ -3650,8 +3650,31 @@ MonoBehaviour:
   muzzleTransform: {fileID: 4106598250138344}
   bulletFX: {fileID: 1000012236321246, guid: c4677bd8090bcc24f946be214c6cf900, type: 2}
   fireSound: {fileID: 8300000, guid: c38b5abb8c702a04a8cc32307ee49ea5, type: 3}
-  minSpreadDegrees: {x: 0.1, y: 0.1}
-  maxSpreadDegrees: {x: 10, y: 30}
+  minSpreadDegrees: {x: 0.1, y: -3}
+  maxSpreadDegrees: {x: 5, y: 5}
+--- !u!114 &114490452453444284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752166246681944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Ping
+    audioClip: {fileID: 8300000, guid: 11b9979e7abf7a440ababd59b4e76e20, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 150
+  mixerGroup: {fileID: 243341260017872422, guid: 12f4b98caef71e242b7b18b1ececa609,
+    type: 2}
 --- !u!137 &137918346214799596
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

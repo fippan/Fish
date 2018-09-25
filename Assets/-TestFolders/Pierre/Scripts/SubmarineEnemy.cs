@@ -28,8 +28,8 @@ public class SubmarineEnemy : Enemy
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();
-        transform.LookAt(playerTransform);
-        transform.rotation *= Quaternion.Euler(0, 45, 0);
+        //transform.LookAt(playerTransform);
+        transform.rotation *= Quaternion.Euler(0, 20, 0);
         if (playerTransform == null)
         {
             playerTransform = GameObject.FindGameObjectWithTag("Player").transform;

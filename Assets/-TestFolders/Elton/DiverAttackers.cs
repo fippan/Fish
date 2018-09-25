@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class DiverAttackers : Enemy
+public class DiverAttackers : Health
 {
 
     public GameObject diver;
@@ -14,20 +14,28 @@ public class DiverAttackers : Enemy
 
     [SerializeField] private GameObject bomb;
 
+    [SerializeField]
+    private bool swimUp = true;
+    private Coroutine swimRoutine;
+
     private Animator anims;
     private Health health;
+    private List<string> attackVoices;
 
-    private void Start()
+    protected override void Start()
     {
+        attackVoices = new List<string>(3);
+        attackVoices.Add("Attack1");
+        attackVoices.Add("Attack2");
+        attackVoices.Add("Attack3");
         health = GetComponent<Health>();
         Player = GameObject.FindGameObjectWithTag("Player");
         anims = GetComponent<Animator>();
-        enemyModel = diver;
         if(Player != null)
         {
             transform.LookAt(Player.transform);
         }
-        InvokeRepeating("AttackPlayer", 2f, 15f);
+        swimRoutine = StartCoroutine(SwimUpwards());
     }
 
     private void AttackPlayer()
@@ -49,4 +57,24 @@ public class DiverAttackers : Enemy
     {
         CancelInvoke();
     }
+
+    IEnumerator SwimUpwards()
+    {
+        while (swimUp)
+        {
+            if (transform.position.y >= 0f)
+            {
+                int temp = Random.Range(0, 2);
+                GetComponent<AudioController>().PlayOneShot(attackVoices[temp], transform.position);
+                swimUp = false;
+                StopCoroutine(swimRoutine);
+                InvokeRepeating("AttackPlayer", 2f, 15f);
+            }
+            transform.position += new Vector3(0, 0.5f * Time.deltaTime, 0);
+            yield return null;
+        }
+
+
+    }
+
 }

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4837321661354182}
   - component: {fileID: 120207861857164294}
   m_Layer: 0
-  m_Name: BulletLine
+  m_Name: PointerLineRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
