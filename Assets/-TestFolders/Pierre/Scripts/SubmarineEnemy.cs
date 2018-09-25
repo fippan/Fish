@@ -60,7 +60,7 @@ public class SubmarineEnemy : Enemy
         audioSource.Play();
         Quaternion rotation = CalculateProjectileRotation();
         var Bullet = Instantiate(bulletFX, muzzleTransform.position, rotation);
-        Destroy(Bullet, 2f);
+        Destroy(Bullet, 5f);
     }
 
     public IEnumerator ShootBehaviour()
