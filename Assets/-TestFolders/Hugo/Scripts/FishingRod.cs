@@ -12,60 +12,55 @@ public class FishingRod : MonoBehaviour
     [Space(20)]
     public float floaterSpeed = 11f;
 
-    GameObject newBob;
-    Rigidbody newBobRB;
+    Rigidbody bobRb;
     Spinner spinner;
 
-    [HideInInspector]
-    public bool closeEnough = false;
     //[HideInInspector]
+    public bool closeEnough = false;
+    [HideInInspector]
     public bool throwable = false;
 
     private void Start()
     {
+        bobRb = bob.GetComponent<Rigidbody>();
         spinner = FindObjectOfType<Spinner>();
     }
 
     public void ThrowBob (Vector3 direction)
     {
         thrown = true;
-        newBob = Instantiate(bob, throwPoint.position, transform.rotation);
-        newBobRB = newBob.GetComponent<Rigidbody>();
-        newBobRB.AddForce(direction * throwingMultiplier);
+        closeEnough = false;
+        bobRb.AddForce(direction * throwingMultiplier);
         spinner.isGrabbed = false;
     }
 
     public void Update()
     {
-        if (spinner.isGrabbed && !closeEnough && newBob != null)
-        {
-            Vector3 D = throwPoint.position - newBob.transform.position;
-            float dist = D.magnitude;
-            Vector3 pullDir = D.normalized;
+        Vector3 direction = throwPoint.position - bob.transform.position;
+        float distance = direction.magnitude;
 
-            newBobRB.velocity += (pullDir * floaterSpeed * Time.deltaTime) * spinner.rotationSpeed;
+        if (spinner.isGrabbed)
+        {
+            Vector3 pullDir = direction.normalized;
+            bobRb.velocity += (pullDir * floaterSpeed * Time.deltaTime) * spinner.rotationSpeed;
         }
 
-        if (closeEnough)
+        if (distance > .2f && thrown == false)
         {
-            Vector3 D = throwPoint.position - newBob.transform.position;
-            float dist = D.magnitude;
-            Vector3 pullDir = D.normalized;
-            pullDir.y = pullDir.y * 5;
-            newBobRB.velocity += pullDir * Time.deltaTime * 3.5f;
-            
-            if (dist < .6f)
-            {
-                if (FishyManager.Instance.HasFish())
-                {
-                    FishyManager.Instance.ResetFish();
-                    FishyManager.Instance.ExplodeFish();
-                    Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);
-                }
+            Vector3 pullDirection = direction.normalized;
+            pullDirection.y = pullDirection.y * 5;
+            bobRb.velocity += pullDirection * Time.deltaTime * 3.5f;
+        }
 
-                thrown = false;
-                closeEnough = false;
-                Destroy(newBob);
+        if (distance < .4f && thrown)
+        {
+            thrown = false;
+
+            if (FishyManager.Instance.HasFish())
+            {
+                FishyManager.Instance.ResetFish();
+                FishyManager.Instance.ExplodeFish();
+                Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);
             }
         }
     }
