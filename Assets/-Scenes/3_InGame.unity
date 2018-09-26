@@ -2054,6 +2054,34 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 1987189758866148, guid: e063c1eb7595eb04899465c1c3adcc80, type: 2}
+      propertyPath: m_Name
+      value: Pistol01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294162352707408, guid: e063c1eb7595eb04899465c1c3adcc80, type: 2}
+      propertyPath: m_Name
+      value: Rifle01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702163671454052, guid: e063c1eb7595eb04899465c1c3adcc80, type: 2}
+      propertyPath: m_Name
+      value: Rilfe02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744466788430902, guid: e063c1eb7595eb04899465c1c3adcc80, type: 2}
+      propertyPath: m_Name
+      value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653824245810566, guid: e063c1eb7595eb04899465c1c3adcc80, type: 2}
+      propertyPath: m_Name
+      value: pistol02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1401694715599676, guid: e063c1eb7595eb04899465c1c3adcc80, type: 2}
+      propertyPath: m_Name
+      value: Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 1105864856896992, guid: e063c1eb7595eb04899465c1c3adcc80, type: 2}
+      propertyPath: m_Name
+      value: AVP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e063c1eb7595eb04899465c1c3adcc80, type: 2}
   m_IsPrefabAsset: 0
