@@ -7,6 +7,7 @@ public class Shotgun : Weapon
     [Header("Shotgun settings.")]
     public int numberOfBulletsToBurst;
 
+    [SerializeField]
     private GameObject currentPrimaryGrabbingObject;
     private GameObject currentSecondaryGrabbingObject;
     private VRTK_InteractableObject interactableObject;

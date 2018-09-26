@@ -186,7 +186,7 @@ public class DiverManager : MonoBehaviour
         if (diverCount.Count < enemyAddition + waveCount)
         {
             Vector2 randomPoint = Random.insideUnitCircle;
-            Vector3 circleSpawn = new Vector3(randomPoint.x * 6f, -2.5f, randomPoint.y * 6f);
+            Vector3 circleSpawn = new Vector3(randomPoint.x * 6f +2f, -2.5f, randomPoint.y * 6f +2f);
 
             var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
             diver.GetComponent<DiverAttackers>().LookAtPlayer(player.transform);
@@ -198,7 +198,11 @@ public class DiverManager : MonoBehaviour
 
         if(helicopterList.Count < waveCount / 5)
         {
-                var heli = Instantiate(helicopter, transform.position + new Vector3(50, 30, 50), new Quaternion(0, 0, 0, 0));
+
+                Vector2 randomPoint = Random.insideUnitCircle;
+                Vector3 circleSpawn = new Vector3(randomPoint.x * 60f, 30f, randomPoint.y * 60f);
+
+                var heli = Instantiate(helicopter, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
                 heli.GetComponent<Helicopter>().FindBoat(player.transform);
                 helicopterList.Add(heli);
                 enemyList.Add(heli);
