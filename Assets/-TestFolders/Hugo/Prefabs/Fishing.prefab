@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 114143539768288690}
   - component: {fileID: 114841945270635018}
   - component: {fileID: 114343748820005388}
-  - component: {fileID: 114636470103198020}
+  - component: {fileID: 114337230618023664}
   m_Layer: 0
   m_Name: FishingRod
   m_TagString: FishingRod
@@ -1046,7 +1046,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.02, z: 0.02}
-  m_Center: {x: -0.008, y: 0, z: 0}
+  m_Center: {x: -0.013, y: 0, z: 0}
 --- !u!65 &65889247574106102
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1249,6 +1249,17 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &114337230618023664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816757053915978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e82137cf6037429dfbf2a1fd1f9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114343748820005388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1413,26 +1424,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
---- !u!114 &114636470103198020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1816757053915978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb5e38a3cc529b44bafd182285d41da4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BuoyancyPoints:
-  - {fileID: 4731186661752384}
-  - {fileID: 4664350973225148}
-  m_BuoyancyStrength: 1
-  m_BuoyancyDamp: 3
-  m_FloatSpeedDamp: 0.75
-  m_FakeBobbing: 1
-  m_BobbingSpeed: 0.7
-  m_BobbingHeight: 0.05
 --- !u!114 &114664082859348920
 MonoBehaviour:
   m_ObjectHideFlags: 1
