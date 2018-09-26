@@ -738,6 +738,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4220610383757882, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -785,6 +790,41 @@ Prefab:
       propertyPath: throwingStart
       value: 
       objectReference: {fileID: 1367819473}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].name
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bde4bfc62a178a4c9874747a19d6c21, type: 3}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].spatialBlend
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].minDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].maxDistance
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
   m_IsPrefabAsset: 0
@@ -853,6 +893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417173521}
   - component: {fileID: 417173522}
+  - component: {fileID: 417173523}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -898,6 +939,18 @@ MonoBehaviour:
   killedEnemies: 0
   player: {fileID: 1497631096}
   enemyAddition: 5
+--- !u!114 &417173523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 417173520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d13356e408ef3e428531384965cfd55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killCount: 0
 --- !u!1001 &431132384
 Prefab:
   m_ObjectHideFlags: 0
