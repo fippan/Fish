@@ -54,7 +54,7 @@ public class FishyManager : MonoBehaviour
 				int tempfish = Random.Range(0, fishies.Length);
 				currentFish = Instantiate(fishies[tempfish], bob.position, Quaternion.identity);
                 currentFish.GetComponent<Fish>().GetTransform(bob, fishLookPos);
-                Haptics.Instance.StartHaptics(rod.gameObject, 1, 2, .01f);
+                Haptics.Instance.StartHaptics(rod.gameObject, 1, 1, .01f);
 
                 caughtFish = true;
 				StopFishing();
