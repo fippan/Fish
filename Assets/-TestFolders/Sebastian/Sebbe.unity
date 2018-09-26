@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2285c3414c3406d47800eb1c18ff814b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: a0a9defde76137244ae8b00a744b2e31, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.0015181152, g: 0.0013901659, b: 0.0013173949, a: 1}
+  m_IndirectSpecularColor: {r: 0.15902482, g: 0.2876805, b: 0.37645698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca663283ef9398745a245d8f3d38393a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SecondMultiplier: 4000
+  SecondMultiplier: 120
   _sun: {fileID: 170076734}
   _days: 0
   _hours: 0
@@ -735,19 +735,25 @@ MonoBehaviour:
   _dayWinterStartTime: 10
   _duskWinterStartTime: 16
   _nightWinterStartTime: 18
+  _sunDimTime: 0.01
+  _dawnSunIntensity: 0.5
+  _daySunIntensity: 1
+  _duskSunIntensity: 0.25
+  _nightSunIntensity: 0.5
+  _ambientDimTime: 0.0001
+  _dawnAmbientIntensity: 0.5
+  _dayAmbientIntensity: 1
+  _duskAmbientIntensity: 0.25
+  _nightAmbientIntensity: 0.5
   _dawnSkyboxBlendFactor: 0.5
   _daySkyboxBlendFactor: 1
   _duskSkyboxBlendFactor: 0.25
   _nightSkyboxBlendFactor: 0
   _skyboxBlendFactor: 0
-  _skyboxBlendSpeed: 0.01
+  _skyboxBlendSpeed: 0.005
   _guiWidth: 100
   _guiHeight: 20
   _dayPhases: 0
-  _dawnLightColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
-  _dayLightColor: {r: 178.24342, g: 178.24342, b: 178.24342, a: 1}
-  _duskLightColor: {r: 0.4528302, g: 0.43787825, b: 0.43787825, a: 1}
-  _nightLightColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &651331826
 GameObject:
   m_ObjectHideFlags: 0
