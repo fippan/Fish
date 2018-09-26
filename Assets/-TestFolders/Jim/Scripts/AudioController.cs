@@ -38,6 +38,17 @@ public class AudioController : MonoBehaviour
         }
     }
 
+    public void Stop(string soundName)
+    {
+        for (int i = 0; i < audioSources.Length; i++)
+        {
+            if (sounds[i].name == soundName)
+            {
+                audioSources[i].Stop();
+            }
+        }
+    }
+
     public void PlayOneShot(string soundName, Vector3 worldPoint)
     {
         for (int i = 0; i < audioSources.Length; i++)
