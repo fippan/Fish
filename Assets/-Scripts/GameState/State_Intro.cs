@@ -8,16 +8,34 @@ public class State_Intro : GenericSingleton<State_Intro>, IState_Base
 {
 	public void OnEnterState()
 	{
-		//Load new scene if not already loaded
-		if (SceneManager.GetActiveScene().name != "1_Intro")
-			SceneManager.LoadScene("1_Intro");
+		AsyncOperation loadOperation = null;
 
-		throw new System.NotImplementedException();
+		//Load new scene if not already loaded
+		if (SceneManager.GetActiveScene().name != GlobalVariables.introScene)
+			loadOperation = SceneManager.LoadSceneAsync(GlobalVariables.introScene, LoadSceneMode.Single);
+
+		StartCoroutine(ExecuteAfterLevelLoad(loadOperation));
+	}
+
+	private IEnumerator ExecuteAfterLevelLoad(AsyncOperation op)
+	{
+		//Wait for scene to be completely loaded
+		if (op != null)
+		{
+			yield return new WaitUntil(() => op.isDone);
+			Debug.Log("Level has been loaded: " + SceneManager.GetActiveScene().name);
+		}
+
+		Debug.Log("Level has been loaded: " + SceneManager.GetActiveScene().name);
+		//Code to execute afte rlevel has been loaded
+
+
 	}
 
 	public void OnExitState()
 	{
-		throw new System.NotImplementedException();
+		Debug.Log("Exiting state");
+
 
 	}
 

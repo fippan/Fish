@@ -4,38 +4,32 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
+public static class GlobalVariables
+{
+	public const string introScene = "1_Intro";
+	public const string mainMenuScene = "2_MainMenu";
+	public const string inGameScene = "3_InGame";
+
+}
+
 public enum GameStates { State_Intro, State_MainMenu, State_InGame, State_PauseMenu, State_GameOver }
 
 public class GameManager : GenericSingleton<GameManager>
 {
 	private Stack<IState_Base> gameStateStack = new Stack<IState_Base>();
 
+	/// <summary>
+	/// Dummy class for initializing GameManager
+	/// </summary>
 	public void Initialize()
 	{
-		//TODO: Check if this works or make it work
+		//Creates the GameManager first time it's called but does nothing
+	}
+
+	private void Awake()
+	{
 		ChangeState((GameStates)SceneManager.GetActiveScene().buildIndex);
-
-
-		//int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-		//Debug.Log(sceneIndex);
-
-		//switch (sceneIndex)
-		//{
-		//	case 0:
-		//		ChangeState(GameStates.State_Intro);
-
-		//		break;
-		//	case 1:
-		//		ChangeState(GameStates.State_MainMenu);
-
-		//		break;
-		//	case 2:
-		//		ChangeState(GameStates.State_InGame);
-
-		//		break;
-		//	default:
-		//		break;
-		//}
+		Debug.Log("Created Game manager");
 	}
 
 	/// <summary>
@@ -44,7 +38,7 @@ public class GameManager : GenericSingleton<GameManager>
 	/// <param name="state"></param>
 	public void ChangeState(GameStates state)
 	{
-		Debug.Log("Changing state");
+		Debug.Log("Changing state to: " + state.ToString());
 
 		//Remove and clean up current state
 		if (gameStateStack.Count > 0)
@@ -55,16 +49,19 @@ public class GameManager : GenericSingleton<GameManager>
 
 		//Add and initialize new state
 		gameStateStack.Push(GetStateObject(state));
-		Debug.Log("State Stack count: " + gameStateStack.Count);
 		gameStateStack.Peek().OnEnterState();
+
+		Debug.Log("Currently " + gameStateStack.Count + " states in the gamestate stack.");
 	}
 
 	/// <summary>
 	/// Pause current state and enter new state
 	/// </summary>
 	/// <param name="state"></param>
-	public void PushState(IState_Base state)
+	public void PushState(GameStates state)
 	{
+		Debug.Log("Changing state to: " + state.ToString());
+
 		//Pause current state
 		if (gameStateStack.Count > 0)
 		{
@@ -72,8 +69,10 @@ public class GameManager : GenericSingleton<GameManager>
 		}
 
 		//Add and initialize new state
-		gameStateStack.Push(state);
+		gameStateStack.Push(GetStateObject(state));
 		gameStateStack.Peek().OnEnterState();
+
+		Debug.Log("Currently " + gameStateStack.Count + " states in the gamestate stack.");
 	}
 
 	/// <summary>
@@ -81,6 +80,8 @@ public class GameManager : GenericSingleton<GameManager>
 	/// </summary>
 	public void PopState()
 	{
+		Debug.Log("Removing " + gameStateStack.Peek().ToString() + " from stack and resuming previous state.");
+
 		//Remove and clean up current state
 		if (gameStateStack.Count > 0)
 		{
@@ -92,7 +93,10 @@ public class GameManager : GenericSingleton<GameManager>
 		if (gameStateStack.Count > 0)
 			gameStateStack.Peek().OnResumeState();
 		else
-			Debug.Log("The state stack is empty, no previous state to resume");
+			Debug.LogError("The state stack is empty, no previous state to resume");
+
+
+		Debug.Log("Currently " + gameStateStack.Count + " states in the gamestate stack.");
 	}
 
 	/// <summary>
