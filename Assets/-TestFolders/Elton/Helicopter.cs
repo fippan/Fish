@@ -3,7 +3,7 @@
 public class Helicopter : Health
 {
     [SerializeField] private float health;
-    [SerializeField] private float onHitEffectLifetime;
+    [SerializeField] private float onHitEffecttime;
     private float halfHealth;
     private bool sploshed;
     private bool readyToAttack;
@@ -15,7 +15,7 @@ public class Helicopter : Health
     [SerializeField] private GameObject boat;
     [SerializeField] private GameObject minigunOne;
     [SerializeField] private GameObject minigunTwo;
-    [SerializeField] private GameObject onHitEffect;
+    [SerializeField] private GameObject onHitparticle;
     [SerializeField] private ParticleSystem particleExplotion;
     [SerializeField] private ParticleSystem particleSplash;
     Animator anim;
@@ -69,8 +69,8 @@ public class Helicopter : Health
     {
         health -= damage;
         audioController.Play("Hit", point);
-        if (onHitEffect != null)
-            Destroy(Instantiate(onHitEffect, point, Quaternion.identity), onHitEffectLifetime);
+        if (onHitparticle != null)
+            Destroy(Instantiate(onHitparticle, point, Quaternion.identity), onHitEffecttime);
         if (health <= halfHealth)
         {
             topRotor.transform.parent = null;
