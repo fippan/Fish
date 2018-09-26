@@ -28,7 +28,7 @@ public class State_MainMenu : GenericSingleton<State_MainMenu>, IState_Base
 		Debug.Log("Level has been loaded: " + SceneManager.GetActiveScene().name);
 
 		//CODE TO EXECUTE AFTER LEVEL LOADED HERE
-		GameManager.Instance.headsetFade.Fade(new Color(0f, 0f, 0f), 0.01f);
+		//GameManager.Instance.headsetFade.Fade(new Color(0f, 0f, 0f), 0.01f);
 		GameManager.Instance.headsetFade.Unfade(3f);
 
 	}

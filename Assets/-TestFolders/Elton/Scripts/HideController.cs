@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HideController : MonoBehaviour {
+public class HideController : MonoBehaviour
+{
     private bool didHideDefaultController;
 
-	void LateUpdate () {
+	void LateUpdate ()
+    {
         HideDefaultControllerIfNeeded();
 	}
 
@@ -13,7 +13,7 @@ public class HideController : MonoBehaviour {
     {
         if (!didHideDefaultController)
         {
-            Renderer[] renderers = this.transform.parent.GetComponentsInChildren<Renderer>();
+            Renderer[] renderers = transform.GetComponentsInChildren<Renderer>();
             for (int i = 0; i < renderers.Length; i++)
             {
                 if (renderers[i].material.name == "Standard (Instance)")
