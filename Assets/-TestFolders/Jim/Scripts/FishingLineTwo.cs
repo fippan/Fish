@@ -3,8 +3,6 @@
 [RequireComponent(typeof(LineRenderer))]
 public class FishingLineTwo : MonoBehaviour
 {
-    public bool reeledIn = true;
-
     [SerializeField]
     private Transform lineStart;
     [SerializeField]
@@ -36,9 +34,6 @@ public class FishingLineTwo : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //if (reeledIn) OnReeledIn();
-        //else OnThrown();
-
         restLenght = CalculateRestLenght();
         CalculateLineParticles();
         lineParticles[0].pos = lineStart.position;
@@ -50,20 +45,6 @@ public class FishingLineTwo : MonoBehaviour
 
         SetLineRenderPositions();
         lineRenderer.SetPositions(linePositions);
-    }
-
-    private void OnReeledIn()
-    {
-        restLenght = .15f / numberOfJoints;
-        lineEnd.position = lineParticles[lineParticles.Length - 1].pos;
-    }
-
-    private void OnThrown()
-    {
-        restLenght = CalculateRestLenght();
-        lineParticles[0].pos = lineStart.position;
-        lineParticles[lineParticles.Length - 1].pos = lineEnd.position;
-        CalculateLineParticles();
     }
 
     private void CalculateLineParticles()
@@ -112,15 +93,4 @@ public class FishingLineTwo : MonoBehaviour
             linePositions[i] = lineParticles[i].pos;
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    if (linePositions.Length == 0)
-    //        return;
-
-    //    for (int i = 0; i < linePositions.Length; i++)
-    //    {
-    //        Gizmos.DrawWireSphere(linePositions[i], .25f);
-    //    }
-    //}
 }

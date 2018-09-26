@@ -20,22 +20,22 @@ public class VelocityMeasurer : MonoBehaviour
         velocityEst = GetComponent<VRTK_VelocityEstimator>();
     }
 
-    void Update()
-    {
-        //Debug.Log("Veclocity: " + velocityEst.GetVelocityEstimate().magnitude);
-        if (holdingRod && fishingRod.thrown != true && fishingRod.throwable)
-        {
-            currentSpeed = velocityEst.GetVelocityEstimate();
-            if (currentSpeed.x > throwSpeed.x || currentSpeed.z > throwSpeed.z || currentSpeed.x < -throwSpeed.x || currentSpeed.z < -throwSpeed.z)
-            {
-                if (currentSpeed.x < throwSpeed.x / 2 || currentSpeed.z < throwSpeed.z / 2 || currentSpeed.x > -throwSpeed.x / 2 || currentSpeed.z > -throwSpeed.z / 2)
-                {
-                    //Debug.Log(currentSpeed);
-                    fishingRod.ThrowBob(currentSpeed);
-                }
-            }
-        }
-    }
+    //void Update()
+    //{
+    //    //Debug.Log("Veclocity: " + velocityEst.GetVelocityEstimate().magnitude);
+    //    if (holdingRod && fishingRod.thrown != true && fishingRod.throwable)
+    //    {
+    //        currentSpeed = velocityEst.GetVelocityEstimate();
+    //        if (currentSpeed.x > throwSpeed.x || currentSpeed.z > throwSpeed.z || currentSpeed.x < -throwSpeed.x || currentSpeed.z < -throwSpeed.z)
+    //        {
+    //            if (currentSpeed.x < throwSpeed.x / 2 || currentSpeed.z < throwSpeed.z / 2 || currentSpeed.x > -throwSpeed.x / 2 || currentSpeed.z > -throwSpeed.z / 2)
+    //            {
+    //                //Debug.Log(currentSpeed);
+    //                fishingRod.ThrowBob(currentSpeed);
+    //            }
+    //        }
+    //    }
+    //}
 
     public void StartThrow()
     {
