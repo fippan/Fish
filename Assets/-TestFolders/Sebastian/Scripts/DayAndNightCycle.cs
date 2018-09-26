@@ -5,10 +5,10 @@ using UnityEngine;
 public class DayAndNightCycle : MonoBehaviour {
 
     //TimeReturner tr;
-
+    /*
     private Transform _sunPivotPoint;                   //The rotation pivot for the sun
     private int _centreOfGameWorld = 50;               //A value to define position at the centre of the scene (SET THE CENTRE VALUE OF THE TERRAIN IN THE VALUE)
-
+    */
     [SerializeField] private float SecondMultiplier;
     public float TimeMultiplier
     {
@@ -28,7 +28,7 @@ public class DayAndNightCycle : MonoBehaviour {
     public float _counter;                              //Defines naming convention for the counter
 
     public int _years;                                  //Defines naming convention for years counter
-    public int _leapYearsCounter;                              //Defines naming conention for leap years
+    public int _leapYearsCounter;                       //Defines naming conention for leap years
     public int _calendarDays;                           //Defines naming conention for leap years
 
     public bool _january;                               //Defines if we are in the month of _january
@@ -81,19 +81,19 @@ public class DayAndNightCycle : MonoBehaviour {
     public int _dayWinterStartTime = 10;                     //Defines day start
     public int _duskWinterStartTime = 16;                    //Defines dusk start
     public int _nightWinterStartTime = 18;                   //Defines night start
-/*
+
     public float _sunDimTime = 0.01f;                   //speed at which sun dims
     public float _dawnSunIntensity = 0.5f;              //Dawn sun strength
     public float _daySunIntensity = 1f;                 //Day sun strength
     public float _duskSunIntensity = 0.25f;             //Dusk sun strength
-    public float _nightSunIntensity = 0f;               //Night sun strength
+    public float _nightSunIntensity = 0.5f;               //Night sun strength
 
     public float _ambientDimTime = 0.0001f;             //Defines speed at which ambient light is adjusted
     public float _dawnAmbientIntensity = 0.5f;          //Dawn ambient strength
     public float _dayAmbientIntensity = 1f;             //Day ambient strength
     public float _duskAmbientIntensity = 0.25f;         //Dusk ambient strength
-    public float _nightAmbientIntensity = 0f;           //Dawn ambient strength
-    */
+    public float _nightAmbientIntensity = 0.5f;           //Dawn ambient strength
+    
     public float _dawnSkyboxBlendFactor = 0.5f;         //Defines dawn skybox blend value
     public float _daySkyboxBlendFactor = 1f;            //Defines day skybox blend value
     public float _duskSkyboxBlendFactor = 0.25f;        //Defines dusk skybox blend value
@@ -107,12 +107,12 @@ public class DayAndNightCycle : MonoBehaviour {
 
 
     public DayPhases _dayPhases;                        //Defines naming convention for the phases of the day
-
+    /*
     public Color _dawnLightColor = new Color(0, 0, 0);
     public Color _dayLightColor = new Color(100, 100, 100);
     public Color _duskLightColor = new Color(200, 200, 200);
     public Color _nightLightColor = new Color(255, 255, 255);
-
+    */
 
     /*  public Light light;
 
@@ -138,16 +138,16 @@ public class DayAndNightCycle : MonoBehaviour {
 
         _dayPhases = DayPhases.Night;                   //Set day Phase to night on start up
 
-        //RenderSettings.ambientIntensity = _nightAmbientIntensity; //RenderSettings ambient intensity is equal to night startup
+        RenderSettings.ambientIntensity = _nightAmbientIntensity; //RenderSettings ambient intensity is equal to night startup
 
         //GetComponent<Light>().intensity = _nightSunIntensity; //Set sun intensity to night on start up
-
+        /*
         transform.position =                                //position is equal to
             new Vector3(                                    //a new vector 3 position
             (_centreOfGameWorld * 2),0,_centreOfGameWorld); //at this position
 
         transform.localEulerAngles = new Vector3(0, -90, 0);//Suns rotation is equal to these (x, x, x) values
-
+        */
 
 
     }
@@ -157,9 +157,11 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         StartCoroutine("TimeOfDayFiniteStateMachine");      //Start TimeOfDayFiniteStateMachine on start up
 
-        _hours = 5;                                         //hours equals five on start up
+        //_sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.0001f);
+
+        _hours = 6;                                         //hours equals five on start up
         _minutes = 59;                                      //minutes equals fifty nine on start up
-        _counter = 59;                                      //Counter equals fifty nine on start up
+        _counter = 55;                                      //Counter equals fifty nine on start up
 
         _days = 1;                                          //Days equals one on start up
 
@@ -176,7 +178,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
         _years = 2016;                                      //years equal 2016 on startup
         _leapYearsCounter = 4;                              //leap year counter equals 4 on startup
-
+        /*
         GameObject _sunPivotGO =                            //sun pivot game object is equal to
             GameObject.FindGameObjectWithTag("SunPivot");   //game object "SunPivot" tag
 
@@ -185,7 +187,7 @@ public class DayAndNightCycle : MonoBehaviour {
         _sunPivotPoint.transform.position =                 //Set sun pivot point
             new Vector3(                                    //to a new vector 3
                 _centreOfGameWorld,0,_centreOfGameWorld);   //at this position (centre of scene)
-
+        */
 
         DiverManager.Instance.WaveCount = _days;
 
@@ -195,12 +197,13 @@ public class DayAndNightCycle : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        _sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.1f);
+        //_sun.color = Color.Lerp(Color.white, Color.black, Time.time * 0.01f);
 
             SecondsCounter();                               //Call SecondsCounter function
             UpdateSkybox();                                 //Call UpdateSkybox function
-        SunRotationManager();                               //Call SunRotationManager function
+        SunColorManager();
         //lightColorManager();
+        //SunRotationManager();                               //Call SunRotationManager function
 
         //transform.RotateAround(Vector3.zero, Vector3.right, 10f * Time.deltaTime);
         transform.LookAt(Vector3.zero);
@@ -232,8 +235,32 @@ public class DayAndNightCycle : MonoBehaviour {
         }
 
     }
-    
-        /*  void lightColorManager()
+
+        void SunColorManager()
+    {
+        if (_hours >= _dawnAutumnStartTime)
+        {
+            _sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.01f);
+
+        }
+        if (_hours >= _duskAutumnStartTime)
+        {
+            _sun.color = Color.Lerp(Color.white, Color.grey, Time.time * 0.001f);
+
+        }
+        if (_hours >= _nightAutumnStartTime)
+        {
+            _sun.color = Color.Lerp(Color.grey, Color.black, Time.time * 0.01f);
+
+        }
+
+
+
+    }
+
+
+        /*
+          void lightColorManager()
         {
         if (_hours >= _dawnAutumnStartTime && _hours < _nightAutumnStartTime)
         {
@@ -270,14 +297,15 @@ public class DayAndNightCycle : MonoBehaviour {
             _dawnLightColor = new Color(1f, 0.8335249f, 0.4575472f, 1);
         }
         
-
+        
         r -= Time.deltaTime / smooth;
         g -= Time.deltaTime / smooth;
         light.color = new Color(r, g, b);
         if(r <= 0) {r = 0; }
-        if (g <= 0) {g = 0; }
-    }       */
+        if (g <= 0) {g = 0; }   
         
+        }       
+        */
     void SecondsCounter()
     {
         //Debug.Log("SecondsCounter");
@@ -535,7 +563,7 @@ public class DayAndNightCycle : MonoBehaviour {
         }
 
     }
-
+    /*
     void SunRotationManager()
     {
         //Debug.Log("SunRotationManager");
@@ -552,7 +580,7 @@ public class DayAndNightCycle : MonoBehaviour {
             _dayTemp = _winterDayLength / 10;               //then day temp equals winter day length divided by ten
 
 
-        _rotTemp = (_dayTemp / 270);                        //Rotation temp equals the day temp devided by (360 + 180) degrees
+        _rotTemp = (_dayTemp / SecondMultiplier);                        //Rotation temp equals the day temp devided by (360 + 180) degrees
 
         transform.RotateAround (                            //rotate sun around
             _sunPivotPoint.position,                        //the pivot point (axis)
@@ -560,7 +588,7 @@ public class DayAndNightCycle : MonoBehaviour {
             _rotTemp * Time.deltaTime);                     //by rotation temp times time.deltatime
 
     }
-
+    */
 
 
     void Dawn()
@@ -595,14 +623,14 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         //Debug.Log("DawnSunLightManager");
 
-        //if (RenderSettings.ambientIntensity == _dawnAmbientIntensity)       //if ambient intensity is equal to dawn ambient intensity
-        //    return;
+        if (RenderSettings.ambientIntensity == _dawnAmbientIntensity)       //if ambient intensity is equal to dawn ambient intensity
+            return;
 
-        //if (RenderSettings.ambientIntensity < _dawnAmbientIntensity) //if ambient intensity is less than dawn
-        //    RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
+        if (RenderSettings.ambientIntensity < _dawnAmbientIntensity) //if ambient intensity is less than dawn
+            RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
 
-        //if (RenderSettings.ambientIntensity > _dawnAmbientIntensity) //if ambient intensity is greater than dawn
-        //    RenderSettings.ambientIntensity = _dawnAmbientIntensity; //then make ambient intensity equal to dawn
+        if (RenderSettings.ambientIntensity > _dawnAmbientIntensity) //if ambient intensity is greater than dawn
+            RenderSettings.ambientIntensity = _dawnAmbientIntensity; //then make ambient intensity equal to dawn
 
 
     }
@@ -640,14 +668,14 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         //Debug.Log("DaySunLightManager");
 
-        //if (RenderSettings.ambientIntensity == _dayAmbientIntensity)       //if ambient intensity is equal to dawn ambient intensity
-        //    return;
+        if (RenderSettings.ambientIntensity == _dayAmbientIntensity)       //if ambient intensity is equal to dawn ambient intensity
+            return;
 
-        //if (RenderSettings.ambientIntensity < _dayAmbientIntensity) //if ambient intensity is less than day
-        //    RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
+        if (RenderSettings.ambientIntensity < _dayAmbientIntensity) //if ambient intensity is less than day
+            RenderSettings.ambientIntensity += _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
 
-        //if (RenderSettings.ambientIntensity > _dayAmbientIntensity) //if ambient intensity is greater than day
-        //    RenderSettings.ambientIntensity = _dayAmbientIntensity; //then make ambient intensity equal to day
+        if (RenderSettings.ambientIntensity > _dayAmbientIntensity) //if ambient intensity is greater than day
+            RenderSettings.ambientIntensity = _dayAmbientIntensity; //then make ambient intensity equal to day
 
 
     }
@@ -687,14 +715,14 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         //Debug.Log("DuskSunLightManager");
 
-        //if (RenderSettings.ambientIntensity == _duskAmbientIntensity)       //if ambient intensity is equal to dusk ambient intensity
-        //    return;
+        if (RenderSettings.ambientIntensity == _duskAmbientIntensity)       //if ambient intensity is equal to dusk ambient intensity
+            return;
 
-        //if (RenderSettings.ambientIntensity < _duskAmbientIntensity) //if ambient intensity is less than dusk
-        //    RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
+        if (RenderSettings.ambientIntensity < _duskAmbientIntensity) //if ambient intensity is less than dusk
+            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
 
-        //if (RenderSettings.ambientIntensity > _duskAmbientIntensity) //if ambient intensity is greater than dusk
-        //    RenderSettings.ambientIntensity = _duskAmbientIntensity; //then make ambient intensity equal to dusk
+        if (RenderSettings.ambientIntensity > _duskAmbientIntensity) //if ambient intensity is greater than dusk
+            RenderSettings.ambientIntensity = _duskAmbientIntensity; //then make ambient intensity equal to dusk
 
 
 
@@ -732,16 +760,16 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void NightAmbientLightManager()
     {
-        //Debug.Log("NightSunLightManager");
+        Debug.Log("NightSunLightManager");
 
-        //if (RenderSettings.ambientIntensity == _nightAmbientIntensity)       //if ambient intensity is equal to night ambient intensity
-        //    return;
+        if (RenderSettings.ambientIntensity == _nightAmbientIntensity)       //if ambient intensity is equal to night ambient intensity
+            return;
 
-        //if (RenderSettings.ambientIntensity > _nightAmbientIntensity) //if ambient intensity is less than night
-        //    RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
+        if (RenderSettings.ambientIntensity > _nightAmbientIntensity) //if ambient intensity is less than night
+            RenderSettings.ambientIntensity -= _ambientDimTime * Time.deltaTime; //then increase the intensity by the ambient dim time
 
-        //if (RenderSettings.ambientIntensity > _nightAmbientIntensity)  //if ambient intensity is greater than night
-        //    RenderSettings.ambientIntensity = _nightAmbientIntensity; //then make ambient intensity equal to night
+        if (RenderSettings.ambientIntensity > _nightAmbientIntensity)  //if ambient intensity is greater than night
+            RenderSettings.ambientIntensity = _nightAmbientIntensity; //then make ambient intensity equal to night
 
 
 
