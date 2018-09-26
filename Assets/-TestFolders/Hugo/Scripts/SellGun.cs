@@ -23,7 +23,7 @@ public class SellGun : MonoBehaviour
         {
             CurrencyManager.Instance.RemoveCurrency(cost);
             GameObject newGun = Instantiate(gun, transform.position, transform.rotation);
-            button.ToggleShop();
+            button.CloseShop();
         }
     }
 }

@@ -31,6 +31,7 @@ public class Pistol : Weapon
 
     private void OnGrab(object sender, InteractableObjectEventArgs e)
     {
+        Debug.Log("Grab");
         if (currentPrimaryGrabbingObject == null)
         {
             currentPrimaryGrabbingObject = e.interactingObject;
@@ -39,6 +40,7 @@ public class Pistol : Weapon
 
     private void OnUngrab(object sender, InteractableObjectEventArgs e)
     {
+        Debug.Log("Ungrab");
         if (e.interactingObject == currentPrimaryGrabbingObject)
         {
             currentPrimaryGrabbingObject = null;
