@@ -111,6 +111,8 @@ GameObject:
   - component: {fileID: 114952352036559144}
   - component: {fileID: 95907661803452138}
   - component: {fileID: 114370638054637648}
+  - component: {fileID: 114023220670760890}
+  - component: {fileID: 114678811431884312}
   m_Layer: 0
   m_Name: Weapon_Shotgun_01
   m_TagString: Metal
@@ -198,7 +200,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1668098778998034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1657865, y: 0.69, z: -0.6023022}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4849341487416420}
@@ -505,6 +507,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114023220670760890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1668098778998034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08759d780c0fba8498a91a99d5ae26b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 120763059338952688, guid: 9fb7f567c28d08a4688e5815757cd996,
+    type: 2}
+  lifetime: 0.1
+  useObjectPooling: 0
 --- !u!114 &114177926756500298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -628,6 +645,17 @@ MonoBehaviour:
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   usingState: 0
+--- !u!114 &114678811431884312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1668098778998034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e82137cf6037429dfbf2a1fd1f9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114761857948710190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -700,7 +728,6 @@ MonoBehaviour:
   casingForceMultiplier: 150
   magLifeTime: 0
   casingLifeTime: 3
-  bulletLineFrequency: 0
   explosionRadius: 0
   lifetime: 5
   speed: 20

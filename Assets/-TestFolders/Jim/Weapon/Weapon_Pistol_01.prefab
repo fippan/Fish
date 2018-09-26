@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 114109830473819876}
   - component: {fileID: 95168961796477032}
   - component: {fileID: 114057064849585472}
+  - component: {fileID: 114190269695642478}
+  - component: {fileID: 114634068757432738}
   m_Layer: 0
   m_Name: Weapon_Pistol_01
   m_TagString: Metal
@@ -221,7 +223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1369764378286848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.426, y: 0.614838, z: -0.169}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4531251607625702}
@@ -535,17 +537,16 @@ MonoBehaviour:
   hitScan: 1
   spreadingBullets: 0
   explosive: 0
-  damage: 15
+  damage: 10
   firingRate: 0.15
   minSpreadDegrees: {x: 0, y: 0}
   maxSpreadDegrees: {x: 0, y: 0}
-  shotsUntilReload: 17
-  reloadTime: 3
+  shotsUntilReload: 15
+  reloadTime: 1
   magForceMultiplier: 150
   casingForceMultiplier: 100
-  magLifeTime: 0
+  magLifeTime: 3
   casingLifeTime: 3
-  bulletLineFrequency: 0
   explosionRadius: 0
   lifetime: 5
   speed: 20
@@ -553,6 +554,21 @@ MonoBehaviour:
   onHitEffectLifetime: 1
   hapticStrenght: 0.533
   hapticDuration: 0.025
+--- !u!114 &114190269695642478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369764378286848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08759d780c0fba8498a91a99d5ae26b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  linePrefab: {fileID: 120763059338952688, guid: 9fb7f567c28d08a4688e5815757cd996,
+    type: 2}
+  lifetime: 0.1
+  useObjectPooling: 0
 --- !u!114 &114190878952858772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -581,6 +597,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e157110b6939bc14a8c421447193d994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114634068757432738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1369764378286848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8e82137cf6037429dfbf2a1fd1f9b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114752601545924684

@@ -23,6 +23,11 @@ public class CurrencyManager : MonoBehaviour
 
     public void AddCurrency (float loot)
     {
+        if (currentCurrency > 100)
+        {
+            DayAndNightCycle.Instance.TimeMultiplier = 844;
+        }
+
         currentCurrency += loot;
         totalCurrency += loot;
         money.text = moneyString + currentCurrency;

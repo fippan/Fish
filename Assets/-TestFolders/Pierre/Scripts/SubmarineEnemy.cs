@@ -23,40 +23,32 @@ public class SubmarineEnemy : Enemy
     public Vector2 minSpreadDegrees;
     public Vector2 maxSpreadDegrees;
 
-
+    private Transform player;
 
     // Use this for initialization
     void Start () {
         audioSource = GetComponent<AudioSource>();
-        transform.LookAt(playerTransform);
-        transform.rotation *= Quaternion.Euler(0, 45, 0);
-        if (playerTransform == null)
-        {
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        //transform.LookAt(playerTransform);
+        //transform.rotation *= Quaternion.Euler(0, -30, 0);
     }
 	
+    public void AimAtPlayer(Transform player)
+    {
+        this.player = player;
+        //transform.LookAt(new Vector3(player.position.x+40f, transform.position.y, player.position.z +40f));
+        //muzzleTransform.LookAt(new Vector3(player.position.x, muzzleTransform.position.y, player.position.z));
+    }
+
 	// Update is called once per frame
 	void Update () {
         Fire();
-
-        //if (Dead == true)
-        //{
-        //    if(shootBehave != null)
-        //    {
-        //        StopCoroutine(shootBehave);
-        //        GetComponentInParent<Submarine>().diveBack = true;
-        //        KillCountManager.Instance.AddKill();
-        //        //FindObjectOfType<DiverManager>().WaveCount++;
-        //        Destroy(gameObject);
-        //    }
-        //}
 	}
 
     public void Fire()
     {
         if(canFire)
         {
+            muzzleTransform.LookAt(player);
             Shoot();
             canFire = false;
             shootBehave = StartCoroutine(ShootBehaviour());
@@ -68,7 +60,7 @@ public class SubmarineEnemy : Enemy
         audioSource.Play();
         Quaternion rotation = CalculateProjectileRotation();
         var Bullet = Instantiate(bulletFX, muzzleTransform.position, rotation);
-        Destroy(Bullet, 2f);
+        Destroy(Bullet, 5f);
     }
 
     public IEnumerator ShootBehaviour()

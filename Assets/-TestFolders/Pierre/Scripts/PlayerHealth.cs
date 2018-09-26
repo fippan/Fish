@@ -1,10 +1,41 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.PostProcessing;
 
 public class PlayerHealth : Health
 {
+    public PostProcessingProfile ppp;
+
     [SerializeField] private GameObject endGame;
     private Coroutine RegenHealth;
+
+    protected override void Start()
+    {
+        base.Start();
+        var vig = ppp.vignette.settings;
+        vig.intensity = 0;
+        ppp.vignette.settings = vig;
+    }
+
+    public void Update()
+    {
+        var vig = ppp.vignette.settings;
+
+        if (currentHealth < maxHealth / 1.5f && currentHealth > maxHealth / 3)
+        {
+            vig.intensity = .66f;
+        }
+        if (currentHealth < maxHealth / 3)
+        {
+            vig.intensity = 1;
+        }
+        if (currentHealth > maxHealth / 1.5f)
+        {
+            vig.intensity = 0;
+        }
+
+        ppp.vignette.settings = vig;
+    }
 
     public override void TakeDamage(float amount, Vector3 point)
     {

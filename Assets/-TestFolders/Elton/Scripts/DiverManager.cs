@@ -49,6 +49,12 @@ public class DiverManager : MonoBehaviour
     [SerializeField]
     private int killedEnemies;
 
+    [SerializeField]
+    public GameObject player;
+
+    [SerializeField]
+    private float enemyAddition;
+
     public static DiverManager Instance { get; private set; }
 
 
@@ -75,17 +81,20 @@ public class DiverManager : MonoBehaviour
 
             Spawn();
 
-            if(killedEnemies >= waveCount * 2)
+            if(killedEnemies >= enemyAddition + waveCount * 2)
             {
                 waveActive = false;
             }
-            if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < waveCount * 2)
+            if(dayAndNight != null)
             {
-                dayAndNight.TimeMultiplier = 0;
-            }
-            else
-            {
-                dayAndNight.TimeMultiplier = 344f * 2;
+                if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < 5 + waveCount * 2)
+                {
+                    dayAndNight.TimeMultiplier = 0;
+                }
+                else
+                {
+                    dayAndNight.TimeMultiplier = 344f * 2;
+                }
             }
         }
         else if(!waveActive)
@@ -145,29 +154,29 @@ public class DiverManager : MonoBehaviour
             }
         }
 
-        if (enemyList.Count < waveCount * 2)
+        if (enemyList.Count < enemyAddition + waveCount * 2)
     {
-        if (subMarineList.Count < waveCount)
+        if (subMarineList.Count < waveCount / 2)
         {
             Vector2 randomPoint = Random.insideUnitCircle;
             Vector3 circleSpawn = new Vector3(randomPoint.x * 50f, -1f, randomPoint.y * 50f);
 
             var submarine = Instantiate(subMarine, transform.position + circleSpawn + new Vector3(0, -4, 0), new Quaternion(0, 0, 0, 0));
-
+                submarine.GetComponentInChildren<SubmarineEnemy>().AimAtPlayer(player.transform);
             subMarineList.Add(submarine);
             enemyList.Add(submarine);
-            randomSpawnTimer = Random.Range(10, 50);
+
             spawnedEnemies++;
         }
 
 
-        if (diverCount.Count < waveCount)
+        if (diverCount.Count < enemyAddition + waveCount)
         {
             Vector2 randomPoint = Random.insideUnitCircle;
-            Vector3 circleSpawn = new Vector3(randomPoint.x * 6f, -1f, randomPoint.y * 6f);
+            Vector3 circleSpawn = new Vector3(randomPoint.x * 6f, -2.5f, randomPoint.y * 6f);
 
             var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
-
+            diver.GetComponent<DiverAttackers>().LookAtPlayer(player.transform);
             diverCount.Add(diver);
             enemyList.Add(diver);
             //randomSpawnTimer = Random.Range(10, 15);
@@ -177,13 +186,14 @@ public class DiverManager : MonoBehaviour
         if(helicopterList.Count < waveCount / 5)
         {
                 var heli = Instantiate(helicopter, transform.position + new Vector3(50, 30, 50), new Quaternion(0, 0, 0, 0));
-
+                heli.GetComponent<Helicopter>().FindBoat(player.transform);
                 helicopterList.Add(heli);
                 enemyList.Add(heli);
                 //randomSpawnTimer = Random.Range(10, 15);
                 spawnedEnemies++;
             }
-    }
+            randomSpawnTimer = Random.Range(5, 20);
+        }
     }
 
     IEnumerator waveCoolDown()

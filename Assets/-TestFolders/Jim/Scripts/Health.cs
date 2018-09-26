@@ -5,6 +5,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField]
     protected float maxHealth;
+    [SerializeField]
     protected float currentHealth;
     [SerializeField]
     protected bool indestructible;

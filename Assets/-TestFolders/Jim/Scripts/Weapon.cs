@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
-using VRTK;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(BulletTrace))]
 public abstract class Weapon : MonoBehaviour
 {
     [Header("Prefabs")]
     public GameObject magPrefab;
     public GameObject casingPrefab;
     public GameObject onShootEffect;
-    public GameObject[] onHitEffects = new GameObject[3];
     public GameObject trail;
     public Projectile projectile;
 
@@ -18,10 +16,6 @@ public abstract class Weapon : MonoBehaviour
     public Transform magPoint;
     public Transform casingPoint;
     public Transform barrelEnd;
-    //public Transform primaryLeftHandGrabPoint;
-    //public Transform primaryRightHandGrabPoint;
-    //public Transform secondLeftHandGrabPoint;
-    //public Transform secondRightHandGrabPoint;
     protected Transform leftController;
     protected Transform rightController;
 
@@ -64,6 +58,7 @@ public abstract class Weapon : MonoBehaviour
     public float hapticDuration;
 
     protected WeaponAudioManager weaponAudioManager;
+    protected BulletTrace bulletTrace;
     protected AudioSource audioSource;
     protected Animator anim;
     protected GameObject currentMag;
@@ -74,62 +69,11 @@ public abstract class Weapon : MonoBehaviour
 
     protected virtual void Start()
     {
+        bulletTrace = GetComponent<BulletTrace>();
         weaponAudioManager = GetComponent<WeaponAudioManager>();
         anim = GetComponent<Animator>();
         if (magPrefab != null) currentMag = Instantiate(magPrefab, magPoint);
         spreadingBulletsEnabled = spreadingBullets;
-    }
-
-    protected void SetIKHand(GameObject controller, bool primary)
-    {
-        SDK_BaseController.ControllerHand hand = VRTK_DeviceFinder.GetControllerHand(controller);
-        switch (hand)
-        {
-            case SDK_BaseController.ControllerHand.None:
-                break;
-            case SDK_BaseController.ControllerHand.Left:
-                if (leftController == null) leftController = controller.transform;
-                //IKControl.leftHandObj = primary ? primaryLeftHandGrabPoint : secondLeftHandGrabPoint;
-                break;
-            case SDK_BaseController.ControllerHand.Right:
-                if (rightController == null) rightController = controller.transform;
-                //IKControl.rightHandObj = primary ? primaryRightHandGrabPoint : secondRightHandGrabPoint;
-                break;
-            default:
-                break;
-        }
-    }
-
-    /// <summary>
-    /// Reset both hands.
-    /// </summary>
-    protected void ResetIKHand()
-    {
-        if (leftController != null) IKControl.leftHandObj = leftController;
-        if (rightController != null) IKControl.rightHandObj = rightController;
-    }
-
-    /// <summary>
-    /// Reset one hand.
-    /// </summary>
-    /// <param name="controller"></param>
-    /// <param name="primary"></param>
-    protected void ResetIKHand(GameObject controller)
-    {
-        SDK_BaseController.ControllerHand hand = VRTK_DeviceFinder.GetControllerHand(controller);
-        switch (hand)
-        {
-            case SDK_BaseController.ControllerHand.None:
-                break;
-            case SDK_BaseController.ControllerHand.Left:
-                if (leftController != null) IKControl.leftHandObj = leftController;
-                break;
-            case SDK_BaseController.ControllerHand.Right:
-                if (rightController != null) IKControl.rightHandObj = rightController;
-                break;
-            default:
-                break;
-        }
     }
 
     public abstract void Shoot();
@@ -140,7 +84,14 @@ public abstract class Weapon : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(hitScanPoint.position, direction, out hit, 100f))
+        {
             TargetHit(hit.transform, hit.point);
+            bulletTrace.NewTrace(barrelEnd.position, hit.point);
+        }
+        else
+        {
+            bulletTrace.NewTrace(barrelEnd.position, barrelEnd.forward * 50f);
+        }
     }
 
     private Vector3 CalculateHitScanDirection()
@@ -230,7 +181,6 @@ public abstract class Weapon : MonoBehaviour
         newProjectile.speed = speed;
         newProjectile.explosive = explosive;
         newProjectile.explosionRadius = explosionRadius;
-        newProjectile.onHitEffect = onHitEffects[0];
         newProjectile.trail = trail;
     }
 

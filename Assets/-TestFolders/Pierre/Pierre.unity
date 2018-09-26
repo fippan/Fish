@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.018390378, g: 0.012898016, b: 0.011573634, a: 1}
+  m_IndirectSpecularColor: {r: 0.014976076, g: 0.010569376, b: 0.009498333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -698,7 +698,7 @@ Transform:
   - {fileID: 1425200490}
   - {fileID: 1875137922}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &260781281
 GameObject:
@@ -738,13 +738,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4220610383757882, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4220610383757882, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4220610383757882, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -768,7 +773,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4220610383757882, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114623122609262066, guid: faf314805c1400f4d8a434bf7202dd1b,
         type: 2}
@@ -785,6 +790,41 @@ Prefab:
       propertyPath: throwingStart
       value: 
       objectReference: {fileID: 1367819473}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].name
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bde4bfc62a178a4c9874747a19d6c21, type: 3}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].spatialBlend
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].minDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114069806693176902, guid: faf314805c1400f4d8a434bf7202dd1b,
+        type: 2}
+      propertyPath: sounds.Array.data[4].maxDistance
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faf314805c1400f4d8a434bf7202dd1b, type: 2}
   m_IsPrefabAsset: 0
@@ -830,7 +870,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4433433137651368, guid: 53a04029a0490724090f8976cf35f523, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114127137650689528, guid: 53a04029a0490724090f8976cf35f523,
         type: 2}
@@ -853,13 +893,14 @@ GameObject:
   m_Component:
   - component: {fileID: 417173521}
   - component: {fileID: 417173522}
+  - component: {fileID: 417173523}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &417173521
 Transform:
   m_ObjectHideFlags: 0
@@ -892,10 +933,24 @@ MonoBehaviour:
   helicopterList: []
   enemyList: []
   dayAndNight: {fileID: 0}
-  waveCount: 4
-  waveActive: 0
+  waveCount: 2
+  waveActive: 1
   canSpawn: 1
   killedEnemies: 0
+  player: {fileID: 1497631096}
+  enemyAddition: 5
+--- !u!114 &417173523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 417173520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d13356e408ef3e428531384965cfd55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killCount: 0
 --- !u!1001 &431132384
 Prefab:
   m_ObjectHideFlags: 0
@@ -1505,8 +1560,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c3c3a041abaad4a922ffa8c5cdb1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  indestructible: 0
+  onHitEffect: {fileID: 0}
+  onHitEffectLifetime: 0
   diveBack: 0
-  beepSFX: {fileID: 0}
   playerPos: {fileID: 174769321}
   spawnpos: {fileID: 0}
   explosionFX: {fileID: 0}
@@ -1974,7 +2033,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4920091731078556, guid: d68c8b9f6aa36744f897534967d4eea9, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1277846125134116, guid: d68c8b9f6aa36744f897534967d4eea9, type: 2}
       propertyPath: m_IsActive
@@ -2274,7 +2333,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731312662 stripped
 GameObject:
@@ -2465,7 +2524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1987018787
 MonoBehaviour:
@@ -2480,6 +2539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SecondMultiplier: 300
+  _sun: {fileID: 1987018788}
   _days: 0
   _hours: 0
   _minutes: 0
@@ -2530,16 +2590,6 @@ MonoBehaviour:
   _dayWinterStartTime: 10
   _duskWinterStartTime: 16
   _nightWinterStartTime: 18
-  _sunDimTime: 0.01
-  _dawnSunIntensity: 0.5
-  _daySunIntensity: 1
-  _duskSunIntensity: 0.25
-  _nightSunIntensity: 0
-  _ambientDimTime: 0.01
-  _dawnAmbientIntensity: 0.5
-  _dayAmbientIntensity: 1
-  _duskAmbientIntensity: 0.25
-  _nightAmbientIntensity: 0
   _dawnSkyboxBlendFactor: 0.5
   _daySkyboxBlendFactor: 1
   _duskSkyboxBlendFactor: 0.25
@@ -2549,6 +2599,10 @@ MonoBehaviour:
   _guiWidth: 100
   _guiHeight: 20
   _dayPhases: 0
+  _dawnLightColor: {r: 0, g: 0, b: 0, a: 1}
+  _dayLightColor: {r: 100, g: 100, b: 100, a: 1}
+  _duskLightColor: {r: 200, g: 200, b: 200, a: 1}
+  _nightLightColor: {r: 255, g: 255, b: 255, a: 1}
 --- !u!108 &1987018788
 Light:
   m_ObjectHideFlags: 0

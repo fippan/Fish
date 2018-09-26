@@ -35,8 +35,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4220610383757882}
   - component: {fileID: 95741025710986244}
-  - component: {fileID: 114793554563587010}
   - component: {fileID: 114623122609262066}
+  - component: {fileID: 114069806693176902}
   m_Layer: 0
   m_Name: Diver
   m_TagString: Untagged
@@ -1209,7 +1209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019172871890836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4955068262336046}
@@ -2350,12 +2350,62 @@ Animator:
   m_Controller: {fileID: 9100000, guid: fea0af481716f5d41ac7aa7230d81567, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114069806693176902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1019172871890836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Attack1
+    audioClip: {fileID: 8300000, guid: 21935752d1c43cf46a1677f0a1b2ee4e, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 150
+  - name: Attack2
+    audioClip: {fileID: 8300000, guid: c9b1cbf4475d6c74e812901e8a15dd13, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 150
+  - name: Attack3
+    audioClip: {fileID: 8300000, guid: 56457637c0179404590e74d8d07043fd, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 150
+  - name: Hit
+    audioClip: {fileID: 8300000, guid: 2e4c739c1349d9c408cf521521a5badf, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 1
+    minDistance: 10
+    maxDistance: 150
+  mixerGroup: {fileID: 243341260017872422, guid: 12f4b98caef71e242b7b18b1ececa609,
+    type: 2}
 --- !u!114 &114623122609262066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2367,27 +2417,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d58baa3641d1545bc7a084b428fe31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
-  Dead: 0
-  enemyModel: {fileID: 0}
-  hitFX: {fileID: 0}
+  maxHealth: 20
+  indestructible: 0
+  onHitEffect: {fileID: 0}
+  onHitEffectLifetime: 0
   diver: {fileID: 0}
-  Player: {fileID: 0}
-  throwingStart: {fileID: 0}
+  PlayerGameObject: {fileID: 0}
+  throwingStart: {fileID: 4372303333047420}
   bomb: {fileID: 1671788405914124, guid: 9f339d12b23a1884592b2f45f48a1890, type: 2}
---- !u!114 &114793554563587010
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1019172871890836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c241fdfa455e5564993da38a941e55c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  anim: {fileID: 0}
+  swimUp: 1
 --- !u!137 &137437187204068508
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

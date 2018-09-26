@@ -26,6 +26,7 @@ public class VelocityMeasurer : MonoBehaviour
             {
                 if (currentSpeed.x < throwSpeed.x / 2 || currentSpeed.z < throwSpeed.z / 2 || currentSpeed.x > -throwSpeed.x / 2 || currentSpeed.z > -throwSpeed.z / 2)
                 {
+                    Debug.Log(currentSpeed);
                     fishingRod.ThrowBob(currentSpeed);
                 }
             }
