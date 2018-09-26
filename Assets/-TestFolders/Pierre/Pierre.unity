@@ -892,11 +892,12 @@ MonoBehaviour:
   helicopterList: []
   enemyList: []
   dayAndNight: {fileID: 0}
-  waveCount: 4
+  waveCount: 2
   waveActive: 1
   canSpawn: 1
   killedEnemies: 0
   player: {fileID: 1497631096}
+  enemyAddition: 5
 --- !u!1001 &431132384
 Prefab:
   m_ObjectHideFlags: 0
@@ -1507,6 +1508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
+  currentHealth: 0
   indestructible: 0
   onHitEffect: {fileID: 0}
   onHitEffectLifetime: 0
