@@ -3,10 +3,8 @@
 public class Helicopter : Health
 {
     [SerializeField] private float health;
+    [SerializeField] private float onHitEffectLifetime;
     private float halfHealth;
-    
-
-    //private bool dead;
     private bool sploshed;
     private bool readyToAttack;
     AudioSource audio1;
@@ -17,6 +15,7 @@ public class Helicopter : Health
     [SerializeField] private GameObject boat;
     [SerializeField] private GameObject minigunOne;
     [SerializeField] private GameObject minigunTwo;
+    [SerializeField] private GameObject onHitEffect;
     [SerializeField] private ParticleSystem particleExplotion;
     [SerializeField] private ParticleSystem particleSplash;
     Animator anim;
@@ -38,8 +37,6 @@ public class Helicopter : Health
     {
         boat = player.gameObject;
     }
-
-    // TODO: Fix animation when hit and connect animations and stuff for when dead!
 
     public void Update()
     {
@@ -72,7 +69,8 @@ public class Helicopter : Health
     {
         health -= damage;
         audioController.Play("Hit", point);
-
+        if (onHitEffect != null)
+            Destroy(Instantiate(onHitEffect, point, Quaternion.identity), onHitEffectLifetime);
         if (health <= halfHealth)
         {
             topRotor.transform.parent = null;
