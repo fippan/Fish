@@ -9,7 +9,7 @@ public class Teleport : MonoBehaviour
     {
         Vector3 pos = new Vector3(-0.13f, 0f, 0f);
         VRTK_Root.position = pos;
-        VRTK_Root.rotation = Quaternion.Euler(new Vector3(0f, cameraEye.rotation.y, 0f));
+        VRTK_Root.rotation = Quaternion.Euler(new Vector3(0f, cameraEye.rotation.y + 180f, 0f));
     }
 
     public void SetDestination(Vector3 position)
