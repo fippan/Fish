@@ -1011,6 +1011,7 @@ MonoBehaviour:
   highest: 5
   rod: {fileID: 1082654102}
   bob: {fileID: 1208169610}
+  fishLookPos: {fileID: 1741364115}
   fishies:
   - {fileID: 1822760667942034, guid: 9456e21981c95de40b702562468e323d, type: 2}
   - {fileID: 1084349641036622, guid: 53db10431c1ebc846adb966d7a061036, type: 2}
@@ -1525,10 +1526,6 @@ Prefab:
       propertyPath: OnUnuse.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1351307787}
-    - target: {fileID: 1606768679573480, guid: 4c68fe28e2ee461438c7289225d63a7c, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 18
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c68fe28e2ee461438c7289225d63a7c, type: 2}
   m_IsPrefabAsset: 0
@@ -2795,6 +2792,11 @@ Transform:
   m_Father: {fileID: 380816408}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1741364115 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4451698696243874, guid: 4c68fe28e2ee461438c7289225d63a7c,
+    type: 2}
+  m_PrefabInternal: {fileID: 902785414}
 --- !u!4 &1749919331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4139373440928744, guid: dcc8cc1bb32801f4b9100157afc14595,

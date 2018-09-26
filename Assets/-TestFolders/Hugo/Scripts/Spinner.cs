@@ -37,7 +37,10 @@ public class Spinner : MonoBehaviour
         }
 
         if (!isGrabbed)
+        {
             reelIn.Stop();
+            playsound = false;
+        }
     }
 
     public void IsGrabbed ()
