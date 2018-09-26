@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 2
+  currentHealth: 0
   indestructible: 0
   onHitEffect: {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed,
     type: 2}

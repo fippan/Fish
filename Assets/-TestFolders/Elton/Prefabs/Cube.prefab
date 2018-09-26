@@ -108,8 +108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d58baa3641d1545bc7a084b428fe31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
-  Dead: 0
-  enemyModel: {fileID: 0}
+  maxHealth: 0
+  currentHealth: 0
+  indestructible: 0
+  onHitEffect: {fileID: 0}
+  onHitEffectLifetime: 0
   diver: {fileID: 1741462656337350}
-  Player: {fileID: 0}
+  PlayerGameObject: {fileID: 0}
+  throwingStart: {fileID: 0}
+  bomb: {fileID: 0}
+  swimUp: 1
