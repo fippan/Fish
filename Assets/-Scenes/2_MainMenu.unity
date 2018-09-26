@@ -4022,42 +4022,7 @@ Prefab:
         type: 2}
       propertyPath: sun
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
-        type: 2}
-      propertyPath: sizeX
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
-        type: 2}
-      propertyPath: displayProgress
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
-        type: 2}
-      propertyPath: sizeZ
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
-        type: 2}
-      propertyPath: material
-      value: 
-      objectReference: {fileID: 2100000, guid: fccc2d1bd18a3f84e91e73af7fc9a1aa, type: 2}
-    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
-        type: 2}
-      propertyPath: enableReflection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
-        type: 2}
-      propertyPath: enableRefraction
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114261497452183920, guid: 66de114178e96954b90588daa2c6c6d6,
-        type: 2}
-      propertyPath: receiveShadows
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1669153574}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66de114178e96954b90588daa2c6c6d6, type: 2}
   m_IsPrefabAsset: 0
@@ -4273,7 +4238,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartDelay: 2
-  name: 3_InGame
   moneyHighscore: {fileID: 1929490326}
   timeHighscore: {fileID: 732979350}
   enemiesHighscore: {fileID: 1065628972}
@@ -6406,12 +6370,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 167118063}
-  actualHeadset: {fileID: 732751738}
-  actualLeftController: {fileID: 110384218}
-  actualRightController: {fileID: 154989571}
-  modelAliasLeftController: {fileID: 2097698048}
-  modelAliasRightController: {fileID: 1542310529}
+  actualBoundaries: {fileID: 0}
+  actualHeadset: {fileID: 0}
+  actualLeftController: {fileID: 0}
+  actualRightController: {fileID: 0}
+  modelAliasLeftController: {fileID: 0}
+  modelAliasRightController: {fileID: 0}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
@@ -10620,15 +10584,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4462777801128218, guid: e6c47bf2ff9f04a4bb9da50030398d83, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.12
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 4462777801128218, guid: e6c47bf2ff9f04a4bb9da50030398d83, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.79
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4462777801128218, guid: e6c47bf2ff9f04a4bb9da50030398d83, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.16042
+      value: 0.037
       objectReference: {fileID: 0}
     - target: {fileID: 4462777801128218, guid: e6c47bf2ff9f04a4bb9da50030398d83, type: 2}
       propertyPath: m_LocalRotation.x
@@ -10656,11 +10620,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4462777801128218, guid: e6c47bf2ff9f04a4bb9da50030398d83, type: 2}
       propertyPath: m_LocalScale.y
-      value: 200
+      value: 77.2
       objectReference: {fileID: 0}
     - target: {fileID: 4462777801128218, guid: e6c47bf2ff9f04a4bb9da50030398d83, type: 2}
       propertyPath: m_LocalScale.z
-      value: 93.952
+      value: 98.5
       objectReference: {fileID: 0}
     - target: {fileID: 1652820073340880, guid: e6c47bf2ff9f04a4bb9da50030398d83, type: 2}
       propertyPath: m_StaticEditorFlags
