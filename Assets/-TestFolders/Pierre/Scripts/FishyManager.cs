@@ -36,6 +36,7 @@ public class FishyManager : MonoBehaviour
 	void Awake()
 	{
 		Instance = this;
+        theStates = FishingStates.NOTFISHING;
 	}
 
 	// Update is called once per frame

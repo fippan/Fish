@@ -3,6 +3,7 @@
 public class WaterContact : MonoBehaviour
 {
     public FishyManager fishM;
+    public bool fishing;
 
     public void Start()
     {
@@ -11,6 +12,9 @@ public class WaterContact : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (!fishing)
+            return;
+
         if (other.gameObject.tag == "Water")
         {
             fishM.StartFishing(transform);
