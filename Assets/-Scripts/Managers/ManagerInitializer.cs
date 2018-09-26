@@ -6,7 +6,6 @@ public class ManagerInitializer : MonoBehaviour
 {
 	private void Awake()
 	{
-		//Initialize the GameManager
 		GameManager.Instance.Initialize();
 	}
 }
