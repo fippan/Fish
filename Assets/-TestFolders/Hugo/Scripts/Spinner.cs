@@ -17,6 +17,7 @@ public class Spinner : MonoBehaviour
     private void Start()
     {
         rotationLast = transform.rotation.eulerAngles;
+        reelIn = GetComponent<AudioSource>();
     }
 
     private void Update()
