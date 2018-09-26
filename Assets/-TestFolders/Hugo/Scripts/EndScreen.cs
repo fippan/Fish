@@ -21,6 +21,7 @@ public class EndScreen : MonoBehaviour
     public void GameOver ()
     {
         ui.SetActive(true);
+        DiverManager.Instance.WaveIsActive = false;
 
         tr = DayAndNightCycle.Instance.GetTime();
 
