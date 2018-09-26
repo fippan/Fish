@@ -16,6 +16,8 @@ public class FishingLine : MonoBehaviour
     private LineParticle[] lineParticles;
     private Vector3[] linePositions;
 
+    public float lineSetting = .5f;
+
     private void Start()
     {
         lineRenderer = GetComponent<LineRenderer>();
@@ -87,8 +89,8 @@ public class FishingLine : MonoBehaviour
 
         var diff = (deltaLength - restLength) / deltaLength;
 
-        p1.pos += delta * diff * 0.5f;
-        p2.pos -= delta * diff * 0.5f;
+        p1.pos += delta * diff * lineSetting;
+        p2.pos -= delta * diff * lineSetting;
     }
 
     private void SetLineRenderPositions()

@@ -38,12 +38,12 @@ public class FishingRod : MonoBehaviour
     {
         float magnitude = GetHighestMagnitude(magnitudes);
 
-        if (magnitude < 2f)
-            return;
+        //if (magnitude < 1f)
+        //    return;
 
         bobRb.isKinematic = false;
         fishingLine.reeledIn = false;
-        thrown = true;
+        //thrown = true;
         closeEnough = false;
         bobRb.AddForce(throwPoint.forward * magnitude * throwingMultiplier);
         spinner.isGrabbed = false;

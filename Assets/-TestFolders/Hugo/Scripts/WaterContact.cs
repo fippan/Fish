@@ -2,6 +2,7 @@
 
 public class WaterContact : MonoBehaviour
 {
+    public FishingRod fishingRod;
     public FishyManager fishM;
     public bool fishing;
 
@@ -18,6 +19,7 @@ public class WaterContact : MonoBehaviour
         if (other.gameObject.tag == "Water")
         {
             fishM.StartFishing(transform);
+            fishingRod.thrown = true;
         }
     }
 

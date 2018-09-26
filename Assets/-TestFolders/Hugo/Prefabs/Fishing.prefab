@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 137841471079671856}
   - component: {fileID: 65889247574106102}
   - component: {fileID: 64228547623140204}
+  - component: {fileID: 64601832848900698}
   m_Layer: 0
   m_Name: Rod
   m_TagString: FishingRod
@@ -486,13 +487,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1598833045377712}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0.00721, z: -0.02871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4746165253874656}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!4 &4343760640279558
 Transform:
   m_ObjectHideFlags: 1
@@ -527,7 +528,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324520057620930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.377, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4076707199238128}
@@ -555,13 +556,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1073941529428764}
-  m_LocalRotation: {x: 0.3729265, y: -0, z: -0, w: 0.927861}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0.0071, z: 0.0424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4746165253874656}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 43.792004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!4 &4513061378090782
 Transform:
   m_ObjectHideFlags: 1
@@ -1115,6 +1116,20 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 0}
+--- !u!64 &64601832848900698
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990916296885310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
 --- !u!65 &65239989704819966
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1308,6 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d4cea46428f17459e3f27eddc5685e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishingRod: {fileID: 114047255586620752}
   fishM: {fileID: 0}
   fishing: 0
 --- !u!114 &114187772216324976
@@ -1654,6 +1670,7 @@ MonoBehaviour:
   lineStart: {fileID: 4725316096670562}
   lineEnd: {fileID: 4076707199238128}
   numberOfJoints: 10
+  lineSetting: 0.6
 --- !u!114 &114841945270635018
 MonoBehaviour:
   m_ObjectHideFlags: 1
