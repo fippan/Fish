@@ -21,21 +21,21 @@ public class State_Intro : GenericSingleton<State_Intro>, IState_Base
 	{
 		//Wait for scene to be completely loaded
 		if (op != null)
-		{
 			yield return new WaitUntil(() => op.isDone);
-			Debug.Log("Level has been loaded: " + SceneManager.GetActiveScene().name);
-		}
+		else if (GameManager.Instance.FinishedSetup == false)
+			yield return new WaitUntil(() => GameManager.Instance.FinishedSetup);
 
 		Debug.Log("Level has been loaded: " + SceneManager.GetActiveScene().name);
-		//Code to execute afte rlevel has been loaded
 
+		//CODE TO EXECUTE AFTER LEVEL LOADED HERE
+		GameManager.Instance.headsetFade.Fade(new Color(0f, 0f, 0f), 0f);
+		GameManager.Instance.headsetFade.Unfade(3f);
 
 	}
 
 	public void OnExitState()
 	{
-		Debug.Log("Exiting state");
-
+		Debug.Log("Exiting state: " + this.ToString());
 
 	}
 

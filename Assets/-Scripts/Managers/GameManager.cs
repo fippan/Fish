@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using VRTK;
 
 public static class GlobalVariables
 {
 	public const string introScene = "1_Intro";
 	public const string mainMenuScene = "2_MainMenu";
 	public const string inGameScene = "3_InGame";
-
 }
 
 public enum GameStates { State_Intro, State_MainMenu, State_InGame, State_PauseMenu, State_GameOver }
@@ -17,6 +16,9 @@ public enum GameStates { State_Intro, State_MainMenu, State_InGame, State_PauseM
 public class GameManager : GenericSingleton<GameManager>
 {
 	private Stack<IState_Base> gameStateStack = new Stack<IState_Base>();
+
+	[HideInInspector] public VRTK_HeadsetFade headsetFade;
+	public bool FinishedSetup { get; private set; }
 
 	/// <summary>
 	/// Dummy class for initializing GameManager
@@ -28,18 +30,20 @@ public class GameManager : GenericSingleton<GameManager>
 
 	private void Awake()
 	{
+		Debug.Log("Created Gamemanager");
 		ChangeState((GameStates)SceneManager.GetActiveScene().buildIndex);
-		Debug.Log("Created Game manager");
+
+		headsetFade = gameObject.AddComponent<VRTK_HeadsetFade>();
+
+		FinishedSetup = true;
 	}
 
 	/// <summary>
 	/// Remove current state and enter new state
 	/// </summary>
-	/// <param name="state"></param>
-	public void ChangeState(GameStates state)
+	/// <param name="newState"></param>
+	public void ChangeState(GameStates newState)
 	{
-		Debug.Log("Changing state to: " + state.ToString());
-
 		//Remove and clean up current state
 		if (gameStateStack.Count > 0)
 		{
@@ -47,8 +51,10 @@ public class GameManager : GenericSingleton<GameManager>
 			gameStateStack.Pop();
 		}
 
+		Debug.Log("Changing state to: " + newState.ToString());
+
 		//Add and initialize new state
-		gameStateStack.Push(GetStateObject(state));
+		gameStateStack.Push(GetStateObject(newState));
 		gameStateStack.Peek().OnEnterState();
 
 		Debug.Log("Currently " + gameStateStack.Count + " states in the gamestate stack.");
@@ -123,4 +129,6 @@ public class GameManager : GenericSingleton<GameManager>
 				return null;
 		}
 	}
+
+
 }
