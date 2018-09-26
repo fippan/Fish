@@ -10,6 +10,8 @@ public class FishingRod : MonoBehaviour
     public Transform throwPoint;
     public GameObject bobHolder;
 
+    [SerializeField] private AudioSource whoosh;
+
     [Space(20)]
     public float floaterSpeed = 11f;
 
@@ -40,7 +42,7 @@ public class FishingRod : MonoBehaviour
 
         //if (magnitude < 1f)
         //    return;
-
+        whoosh.Play();
         bobRb.isKinematic = false;
         fishingLine.reeledIn = false;
         //thrown = true;

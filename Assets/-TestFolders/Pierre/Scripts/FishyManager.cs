@@ -98,6 +98,7 @@ public class FishyManager : MonoBehaviour
 
     public void ExplodeFish()
     {
+        currentFish.transform.parent = null;
         currentFish.GetComponentInChildren<ParticleSystem>().Play();
         float amount = currentFish.GetComponent<FishWorth>().worth;
         CurrencyManager.Instance.AddCurrency(amount);

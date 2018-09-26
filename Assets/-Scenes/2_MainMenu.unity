@@ -6370,12 +6370,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 0}
-  actualHeadset: {fileID: 0}
-  actualLeftController: {fileID: 0}
-  actualRightController: {fileID: 0}
-  modelAliasLeftController: {fileID: 0}
-  modelAliasRightController: {fileID: 0}
+  actualBoundaries: {fileID: 167118063}
+  actualHeadset: {fileID: 732751738}
+  actualLeftController: {fileID: 110384218}
+  actualRightController: {fileID: 154989571}
+  modelAliasLeftController: {fileID: 2097698048}
+  modelAliasRightController: {fileID: 1542310529}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
