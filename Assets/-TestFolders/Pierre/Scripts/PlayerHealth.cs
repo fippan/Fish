@@ -9,10 +9,24 @@ public class PlayerHealth : Health
     [SerializeField] private GameObject endGame;
     private Coroutine RegenHealth;
 
+    protected override void Start()
+    {
+        base.Start();
+        var vig = ppp.vignette.settings;
+        vig.intensity = 0;
+        ppp.vignette.settings = vig;
+    }
+
     public override void TakeDamage(float amount, Vector3 point)
     {
         var vig = ppp.vignette.settings;
-        vig.intensity = 1;
+
+        if (currentHealth < maxHealth / 1.5f)
+            vig.intensity = .66f;
+        if (currentHealth < maxHealth / 3)
+            vig.intensity = 1;
+
+        ppp.vignette.settings = vig;
 
         StopCorotine();
         base.TakeDamage(amount, point);
@@ -27,6 +41,16 @@ public class PlayerHealth : Health
 
     private IEnumerator HealthGeneration()
     {
+        var vig = ppp.vignette.settings;
+
+        if (currentHealth > maxHealth / 1.5f)
+            vig.intensity = 0;
+        if (currentHealth > maxHealth / 3)
+            vig.intensity = .66f;
+
+        ppp.vignette.settings = vig;
+
+
         yield return new WaitForSeconds(5f);
         while (currentHealth < maxHealth)
         {

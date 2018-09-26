@@ -2,36 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class State_PauseMenu : State_Base
+public class State_PauseMenu : GenericSingleton<State_PauseMenu>, IState_Base
 {
-	//Static instance accessor
-	public static State_PauseMenu Instance { get; private set; }
-
-	private void Awake()
-	{
-		Instance = this;
-	}
-
-
-	public override void OnEnterState()
+	public void OnEnterState()
 	{
 		throw new System.NotImplementedException();
 
 	}
 
-	public override void OnExitState()
+	public void OnExitState()
 	{
 		throw new System.NotImplementedException();
 
 	}
 
-	public override void OnPauseState()
+	public void OnPauseState()
 	{
 		throw new System.NotImplementedException();
 
 	}
 
-	public override void OnResumeState()
+	public void OnResumeState()
 	{
 		throw new System.NotImplementedException();
 

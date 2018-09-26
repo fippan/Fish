@@ -21,7 +21,7 @@ public class MovementTracking : MonoBehaviour
 
 		//Set rotation, position and scale for body (Looking towards head all the time)
 		body.LookAt(transform.GetChild(0));
-        float distance = Vector3.Distance(body.position, body.position);
+        float distance = Vector3.Distance(body.position, head.position);
         Vector3 newScaleY = new Vector3(body.localScale.x, body.localScale.y, distance - head.localScale.z);
         body.localScale = newScaleY;
 	}

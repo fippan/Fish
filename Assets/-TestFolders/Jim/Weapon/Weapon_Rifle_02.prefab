@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 95880318182230608}
   - component: {fileID: 114349562574194572}
   - component: {fileID: 114215144691967048}
-  - component: {fileID: 114463416969441074}
   - component: {fileID: 114595446750967876}
   m_Layer: 0
   m_Name: Weapon_Rifle_02
@@ -294,7 +293,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437912708010896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.009, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4194656257540700}
@@ -614,21 +613,6 @@ MonoBehaviour:
     spatialBlend: 1
     minDistance: 1
     maxDistance: 500
---- !u!114 &114463416969441074
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437912708010896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08759d780c0fba8498a91a99d5ae26b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  linePrefab: {fileID: 120763059338952688, guid: 9fb7f567c28d08a4688e5815757cd996,
-    type: 2}
-  lifetime: 0.1
-  useObjectPooling: 0
 --- !u!114 &114480268928694314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -655,15 +639,15 @@ MonoBehaviour:
   hitScan: 1
   spreadingBullets: 1
   explosive: 0
-  damage: 20
+  damage: 15
   firingRate: 0.1
   minSpreadDegrees: {x: -7, y: -7}
   maxSpreadDegrees: {x: 7, y: 7}
   shotsUntilReload: 30
-  reloadTime: 3
+  reloadTime: 1.5
   magForceMultiplier: 200
   casingForceMultiplier: 150
-  magLifeTime: 0
+  magLifeTime: 3
   casingLifeTime: 3
   explosionRadius: 0
   lifetime: 5

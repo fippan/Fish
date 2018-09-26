@@ -724,7 +724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1948793071989088
 GameObject:
   m_ObjectHideFlags: 1
@@ -843,7 +843,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653824245810566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0.109}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4916583654783194}
@@ -2592,7 +2592,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.09547949, y: 0.24612904, z: 0.78}
+  m_Size: {x: 0.09547949, y: 0.24612904, z: 1.51}
   m_Center: {x: 0, y: -0.03, z: 0.28}
 --- !u!65 &65266142313796098
 BoxCollider:
@@ -2604,7 +2604,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.25, z: 0.5}
+  m_Size: {x: 0.1, y: 0.25, z: 0.29}
   m_Center: {x: 0, y: 0, z: 0.2}
 --- !u!65 &65268966453709264
 BoxCollider:
@@ -3373,7 +3373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6cb288af02dfa4b86bdd969051e5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 1515382256235842, guid: 6a32aa467eef1aa43a1046b50b75aa35, type: 2}
+  gun: {fileID: 1014518601432308, guid: 12c7fb34d7cdd1841806e5450dab369e, type: 2}
   cost: 600
   beenBought: 0
   costText: {fileID: 114016870345320572}

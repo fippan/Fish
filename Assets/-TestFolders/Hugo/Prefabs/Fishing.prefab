@@ -1197,7 +1197,7 @@ MonoBehaviour:
   bob: {fileID: 1937999167206094, guid: dcc30e6201a4215449c9fff9d877ad13, type: 2}
   throwPoint: {fileID: 4451698696243874}
   bobHolder: {fileID: 1286503073920422}
-  floaterSpeed: 7
+  floaterSpeed: 8
   closeEnough: 0
   throwable: 0
 --- !u!114 &114143539768288690
