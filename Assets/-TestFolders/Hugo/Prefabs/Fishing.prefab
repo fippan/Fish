@@ -376,6 +376,8 @@ GameObject:
   - component: {fileID: 4973232904839182}
   - component: {fileID: 137841471079671856}
   - component: {fileID: 65889247574106102}
+  - component: {fileID: 64228547623140204}
+  - component: {fileID: 64601832848900698}
   m_Layer: 0
   m_Name: Rod
   m_TagString: FishingRod
@@ -404,7 +406,7 @@ Transform:
   m_GameObject: {fileID: 1547442139293150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.28, y: 0.74474996, z: 1.709}
-  m_LocalScale: {x: 22.5, y: 22.5, z: 22.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4343760640279558}
   m_Father: {fileID: 4417238820759530}
@@ -485,13 +487,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1598833045377712}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalRotation: {x: 0.08715578, y: 0, z: 0, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 0.00721, z: -0.02871}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4746165253874656}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
 --- !u!4 &4343760640279558
 Transform:
   m_ObjectHideFlags: 1
@@ -500,7 +502,7 @@ Transform:
   m_GameObject: {fileID: 1366918883409108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.003, y: 0.003, z: 0.003}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 4076707199238128}
   m_RootOrder: 0
@@ -554,13 +556,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1073941529428764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0.0071, z: 0.0424}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4746165253874656}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!4 &4513061378090782
 Transform:
   m_ObjectHideFlags: 1
@@ -649,7 +651,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1816757053915978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.28, y: 0.585, z: 0.755}
+  m_LocalPosition: {x: 0.28, y: 0.683, z: 0.755}
   m_LocalScale: {x: 22.5, y: 22.5, z: 22.5}
   m_Children:
   - {fileID: 4973232904839182}
@@ -1100,6 +1102,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64228547623140204
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990916296885310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
+--- !u!64 &64601832848900698
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1990916296885310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
 --- !u!65 &65239989704819966
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1122,8 +1152,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0017683293, y: 0.0033496905, z: 0.073}
-  m_Center: {x: 0.000000002644335, y: 0.006444832, z: 0.0026705712}
+  m_Size: {x: 0.0017683293, y: 0.0033496912, z: 0.0637066}
+  m_Center: {x: 0.0000000026490954, y: 0.006444832, z: -0.001976151}
 --- !u!114 &114003535543061386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1257,12 +1287,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 947c0a05cbbf88841831132bed3181db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwingMultiplier: 400
+  throwingMultiplier: 300
   thrown: 0
   bob: {fileID: 1547442139293150}
   throwPoint: {fileID: 4451698696243874}
   bobHolder: {fileID: 1286503073920422}
-  floaterSpeed: 8
+  floaterSpeed: 10
   closeEnough: 0
   throwable: 0
 --- !u!114 &114143539768288690
@@ -1293,7 +1323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d4cea46428f17459e3f27eddc5685e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fishingRod: {fileID: 114047255586620752}
   fishM: {fileID: 0}
+  fishing: 0
 --- !u!114 &114187772216324976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1474,6 +1506,28 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: StartThrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: StartThrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   OnUnuse:
@@ -1481,6 +1535,28 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114047255586620752}
         m_MethodName: NotThrowable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: EndThrow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: EndThrow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1590,9 +1666,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f636989309cb49845bf1c2907fa414c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reeledIn: 1
   lineStart: {fileID: 4725316096670562}
   lineEnd: {fileID: 4076707199238128}
   numberOfJoints: 10
+  lineSetting: 0.6
 --- !u!114 &114841945270635018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1719,8 +1797,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.003730774
-        value: 0.008760452
+        time: 0.0069274902
+        value: 0.001405716
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1732,8 +1810,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.51256406, g: 1, b: 0, a: 1}
+      key1: {r: 0.51256406, g: 1, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

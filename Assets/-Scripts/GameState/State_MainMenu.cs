@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class State_MainMenu : GenericSingleton<State_MainMenu>, IState_Base
 {
 	public void OnEnterState()
@@ -20,20 +21,21 @@ public class State_MainMenu : GenericSingleton<State_MainMenu>, IState_Base
 	{
 		//Wait for scene to be completely loaded
 		if (op != null)
-		{
 			yield return new WaitUntil(() => op.isDone);
-			Debug.Log("Level has been loaded: " + SceneManager.GetActiveScene().name);
-		}
+		else if (GameManager.Instance.FinishedSetup == false)
+			yield return new WaitUntil(() => GameManager.Instance.FinishedSetup);
 
-		//Code to execute afte rlevel has been loaded
-		FindObjectOfType<MainMenuController>().name = "fippan";
+		Debug.Log("Level has been loaded: " + SceneManager.GetActiveScene().name);
+
+		//CODE TO EXECUTE AFTER LEVEL LOADED HERE
+		GameManager.Instance.headsetFade.Fade(new Color(0f, 0f, 0f), 0f);
+		GameManager.Instance.headsetFade.Unfade(2f);
 
 	}
 
 	public void OnExitState()
 	{
-		throw new System.NotImplementedException();
-
+		Debug.Log("Exiting state: " + this.ToString());
 	}
 
 	public void OnPauseState()

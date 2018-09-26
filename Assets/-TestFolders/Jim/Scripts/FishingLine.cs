@@ -3,6 +3,8 @@
 [RequireComponent(typeof(LineRenderer))]
 public class FishingLine : MonoBehaviour
 {
+    public bool reeledIn = true;
+
     [SerializeField]
     private Transform lineStart;
     [SerializeField]
@@ -13,6 +15,8 @@ public class FishingLine : MonoBehaviour
     private LineRenderer lineRenderer;
     private LineParticle[] lineParticles;
     private Vector3[] linePositions;
+
+    public float lineSetting = .5f;
 
     private void Start()
     {
@@ -28,10 +32,30 @@ public class FishingLine : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (reeledIn) OnReeledIn();
+        else OnThrown();
+        SetLineRenderPositions();
+        lineRenderer.SetPositions(linePositions);
+    }
+
+    private void OnReeledIn()
+    {
+        restLenght = .15f / numberOfJoints;
+        lineParticles[0].pos = lineStart.position;
+        CalculateLineParticles();
+        lineEnd.position = lineParticles[lineParticles.Length - 1].pos;
+    }
+
+    private void OnThrown()
+    {
         restLenght = CalculateRestLenght();
         lineParticles[0].pos = lineStart.position;
         lineParticles[lineParticles.Length - 1].pos = lineEnd.position;
+        CalculateLineParticles();
+    }
 
+    private void CalculateLineParticles()
+    {
         for (int i = 1; i < lineParticles.Length; i++)
         {
             Verlet(lineParticles[i], Time.deltaTime);
@@ -41,13 +65,6 @@ public class FishingLine : MonoBehaviour
         {
             PoleConstraint(lineParticles[i], lineParticles[i + 1], restLenght);
         }
-        
-        for (int i = 0; i < lineParticles.Length; i++)
-        {
-            linePositions[i] = lineParticles[i].pos;
-        }
-
-        lineRenderer.SetPositions(linePositions);
     }
 
     private float CalculateRestLenght()
@@ -72,8 +89,16 @@ public class FishingLine : MonoBehaviour
 
         var diff = (deltaLength - restLength) / deltaLength;
 
-        p1.pos += delta * diff * 0.5f;
-        p2.pos -= delta * diff * 0.5f;
+        p1.pos += delta * diff * lineSetting;
+        p2.pos -= delta * diff * lineSetting;
+    }
+
+    private void SetLineRenderPositions()
+    {
+        for (int i = 0; i < lineParticles.Length; i++)
+        {
+            linePositions[i] = lineParticles[i].pos;
+        }
     }
 
     //private void OnDrawGizmos()

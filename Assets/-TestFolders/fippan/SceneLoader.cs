@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class SceneLoader : MonoBehaviour
 {
-
 	private void Start()
 	{
-		Invoke("LoadScene", 5f);
+		Invoke("LoadScene", 3f);
 	}
 
 	void LoadScene()

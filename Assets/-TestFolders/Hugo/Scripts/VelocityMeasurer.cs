@@ -12,13 +12,17 @@ public class VelocityMeasurer : MonoBehaviour
     private bool holdingRod = false;
     private Vector3 throwSpeed = new Vector3(2, 2, 2);
 
+    private bool gettingVelocity;
+    private List<float> velocityMagnitudes;
+
     void Start()
     {
         velocityEst = GetComponent<VRTK_VelocityEstimator>();
     }
 
-    void Update ()
+    void Update()
     {
+        //Debug.Log("Veclocity: " + velocityEst.GetVelocityEstimate().magnitude);
         if (holdingRod && fishingRod.thrown != true && fishingRod.throwable)
         {
             currentSpeed = velocityEst.GetVelocityEstimate();
@@ -26,14 +30,36 @@ public class VelocityMeasurer : MonoBehaviour
             {
                 if (currentSpeed.x < throwSpeed.x / 2 || currentSpeed.z < throwSpeed.z / 2 || currentSpeed.x > -throwSpeed.x / 2 || currentSpeed.z > -throwSpeed.z / 2)
                 {
-                    Debug.Log(currentSpeed);
+                    //Debug.Log(currentSpeed);
                     fishingRod.ThrowBob(currentSpeed);
                 }
             }
         }
-	}
+    }
 
-    public void HoldingRod ()
+    public void StartThrow()
+    {
+        velocityMagnitudes = new List<float>();
+        gettingVelocity = true;
+        StartCoroutine(GetVelocity());
+    }
+
+    private IEnumerator GetVelocity()
+    {
+        while (gettingVelocity)
+        {
+            velocityMagnitudes.Add(velocityEst.GetVelocityEstimate().magnitude);
+            yield return null;
+        }
+    }
+
+    public void EndThrow()
+    {
+        gettingVelocity = false;
+        fishingRod.OnThrowBob(velocityMagnitudes);
+    }
+
+    public void HoldingRod()
     {
         holdingRod = !holdingRod;
     }
