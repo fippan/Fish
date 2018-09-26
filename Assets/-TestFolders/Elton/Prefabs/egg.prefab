@@ -121,7 +121,7 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 74f315abac0181a47aa60eb1843afaa9, type: 3}
     volume: 0.201
     volumeVariance: 0
-    pitch: 0
+    pitch: 1
     pitchVariance: 0
     spatialBlend: 1
     minDistance: 50
