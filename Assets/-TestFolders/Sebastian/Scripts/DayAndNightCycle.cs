@@ -104,8 +104,6 @@ public class DayAndNightCycle : MonoBehaviour {
 
     public int _guiWidth = 100;                         //Defines Gui label width
     public int _guiHeight = 20;                         //Defines Gui label width
-
-
     public DayPhases _dayPhases;                        //Defines naming convention for the phases of the day
     /*
     public Color _dawnLightColor = new Color(0, 0, 0);
@@ -157,11 +155,11 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         StartCoroutine("TimeOfDayFiniteStateMachine");      //Start TimeOfDayFiniteStateMachine on start up
 
-        //_sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.0001f);
+        //_sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.001f);
 
-        _hours = 6;                                         //hours equals five on start up
-        _minutes = 59;                                      //minutes equals fifty nine on start up
-        _counter = 55;                                      //Counter equals fifty nine on start up
+        _hours = 7;                                         //hours equals time set on start up
+        _minutes = 0;                                      //minutes equals time set on start up
+        _counter = 0;                                      //Counter equals time set on start up
 
         _days = 1;                                          //Days equals one on start up
 
@@ -197,14 +195,25 @@ public class DayAndNightCycle : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        //_sun.color = Color.Lerp(Color.white, Color.black, Time.time * 0.01f);
 
-            SecondsCounter();                               //Call SecondsCounter function
+        if (_hours <= _dawnAutumnStartTime)
+        {
+        _sun.color = Color.Lerp(Color.white, Color.black, Time.time * 0.01f);
+        }
+
+        if (_hours <= _nightAutumnStartTime)
+        {
+            _sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.01f);
+        }
+
+        SecondsCounter();                               //Call SecondsCounter function
             UpdateSkybox();                                 //Call UpdateSkybox function
-        SunColorManager();
-        //lightColorManager();
-        //SunRotationManager();                               //Call SunRotationManager function
+            //SunColorManager();
 
+        //  SunRotationManager();                               //Call SunRotationManager function
+        //  lightColorManager();
+
+        //_sun.color = Color.Lerp(Color.white, Color.black, Time.time * 0.01f);
         //transform.RotateAround(Vector3.zero, Vector3.right, 10f * Time.deltaTime);
         transform.LookAt(Vector3.zero);
     }
@@ -235,29 +244,21 @@ public class DayAndNightCycle : MonoBehaviour {
         }
 
     }
-
+    /*
         void SunColorManager()
     {
-        if (_hours >= _dawnAutumnStartTime)
+        
+        if (_hours <= _dawnAutumnStartTime && _hours < _nightAutumnStartTime)
         {
             _sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.01f);
 
         }
-        if (_hours >= _duskAutumnStartTime)
+        if (_hours <= _nightAutumnStartTime && _hours != _dawnAutumnStartTime)
         {
-            _sun.color = Color.Lerp(Color.white, Color.grey, Time.time * 0.001f);
-
+            _sun.color = Color.Lerp(Color.white, Color.black, Time.time * 0.01f);
         }
-        if (_hours >= _nightAutumnStartTime)
-        {
-            _sun.color = Color.Lerp(Color.grey, Color.black, Time.time * 0.01f);
-
-        }
-
-
-
     }
-
+    */
 
         /*
           void lightColorManager()
@@ -760,7 +761,7 @@ public class DayAndNightCycle : MonoBehaviour {
 
     void NightAmbientLightManager()
     {
-        Debug.Log("NightSunLightManager");
+        //Debug.Log("NightSunLightManager");
 
         if (RenderSettings.ambientIntensity == _nightAmbientIntensity)       //if ambient intensity is equal to night ambient intensity
             return;

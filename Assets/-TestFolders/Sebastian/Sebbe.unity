@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.15902482, g: 0.2876805, b: 0.37645698, a: 1}
+  m_IndirectSpecularColor: {r: 0.17458354, g: 0.38723254, b: 0.50700134, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -750,7 +750,7 @@ MonoBehaviour:
   _duskSkyboxBlendFactor: 0.25
   _nightSkyboxBlendFactor: 0
   _skyboxBlendFactor: 0
-  _skyboxBlendSpeed: 0.005
+  _skyboxBlendSpeed: 0.01
   _guiWidth: 100
   _guiHeight: 20
   _dayPhases: 0
@@ -1834,6 +1834,8 @@ MonoBehaviour:
   waveActive: 0
   canSpawn: 1
   killedEnemies: 0
+  player: {fileID: 0}
+  enemyAddition: 0
 --- !u!4 &1984618986
 Transform:
   m_ObjectHideFlags: 0
