@@ -18,8 +18,11 @@ public class WaterContact : MonoBehaviour
 
         if (other.gameObject.tag == "Water")
         {
-            fishM.StartFishing(transform);
-            fishingRod.thrown = true;
+            if (Vector3.Distance(transform.position, fishingRod.transform.position) > 10f)
+            {
+                fishM.StartFishing(transform);
+                fishingRod.thrown = true;
+            }
         }
     }
 
