@@ -23,7 +23,7 @@ public class CurrencyManager : MonoBehaviour
 
     public void AddCurrency (float loot)
     {
-        if (currentCurrency > 100)
+        if (currentCurrency > 101)
         {
             DayAndNightCycle.Instance.TimeMultiplier = 688;
         }
