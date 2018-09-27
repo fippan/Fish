@@ -40,17 +40,17 @@ public class FishingLine : MonoBehaviour
 
     private void OnReeledIn()
     {
-        restLenght = .15f / numberOfJoints;
-        lineParticles[0].pos = lineStart.position;
+        restLenght = .1f / numberOfJoints;
         CalculateLineParticles();
+        lineParticles[0].pos = lineStart.position;
         lineEnd.position = lineParticles[lineParticles.Length - 1].pos;
     }
 
     private void OnThrown()
     {
         restLenght = CalculateRestLenght();
-        lineParticles[0].pos = lineStart.position;
         lineParticles[lineParticles.Length - 1].pos = lineEnd.position;
+        lineParticles[0].pos = lineStart.position;
         CalculateLineParticles();
     }
 

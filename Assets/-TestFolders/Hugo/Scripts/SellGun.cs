@@ -8,8 +8,9 @@ public class SellGun : MonoBehaviour
 {
     public GameObject gun;
     public float cost;
-    public bool beenBought = false;
     public Text costText;
+
+    public ShopButton button;
 
     public void Start()
     {
@@ -18,12 +19,11 @@ public class SellGun : MonoBehaviour
 
     public void Sell ()
     {
-        if (CurrencyManager.Instance.CurrentCurrency() >= cost && beenBought == false)
+        if (CurrencyManager.Instance.CurrentCurrency() >= cost)
         {
             CurrencyManager.Instance.RemoveCurrency(cost);
             GameObject newGun = Instantiate(gun, transform.position, transform.rotation);
-            beenBought = true;
-            GetComponent<BoxCollider>().enabled = false;
+            button.ToggleShop();
         }
     }
 }

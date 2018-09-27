@@ -28,15 +28,14 @@ public class State_Intro : GenericSingleton<State_Intro>, IState_Base
 		Debug.Log("Level has been loaded: " + SceneManager.GetActiveScene().name);
 
 		//CODE TO EXECUTE AFTER LEVEL LOADED HERE
-		GameManager.Instance.headsetFade.Fade(new Color(0f, 0f, 0f), 0f);
-		GameManager.Instance.headsetFade.Unfade(3f);
+
 
 	}
 
 	public void OnExitState()
 	{
 		Debug.Log("Exiting state: " + this.ToString());
-
+		GameManager.Instance.headsetFade.Fade(new Color(0f, 0f, 0f), 0.3f);
 	}
 
 	public void OnPauseState()

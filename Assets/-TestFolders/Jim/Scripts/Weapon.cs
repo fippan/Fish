@@ -83,7 +83,7 @@ public abstract class Weapon : MonoBehaviour
         Vector3 direction = CalculateHitScanDirection();
         RaycastHit hit;
 
-        if (Physics.Raycast(hitScanPoint.position, direction, out hit, 100f))
+        if (Physics.Raycast(hitScanPoint.position, direction, out hit, 300f))
         {
             TargetHit(hit.transform, hit.point);
             bulletTrace.NewTrace(barrelEnd.position, hit.point);

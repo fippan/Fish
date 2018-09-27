@@ -30,8 +30,12 @@ public class ShopButton : MonoBehaviour
         }
         else
         {
-            allWeapons.SetActive(false);
-            StopCoroutine(autoClose);
+            if (canOpen)
+            {
+                allWeapons.SetActive(false);
+                StopCoroutine(autoClose);
+                StartCoroutine(Cooldown());
+            }
         }
     }
 
@@ -44,7 +48,7 @@ public class ShopButton : MonoBehaviour
 
     public IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         canOpen = true;
     }
 }

@@ -1068,8 +1068,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347006185776100}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.000000029802319, z: -0, w: 1}
+  m_LocalPosition: {x: 0.164, y: 0.166, z: -0.306}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4200577783201716}
@@ -3317,8 +3317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1369764378286848, guid: ed7cf645ad9dd7e4e8c96c2bd5615f31, type: 2}
   cost: 100
-  beenBought: 0
   costText: {fileID: 114107154846680842}
+  button: {fileID: 114563439439553858}
 --- !u!114 &114379052740127656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3343,8 +3343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1381575635962726, guid: 8c4bad39d09a1d94781acd5cdbb2d22c, type: 2}
   cost: 150
-  beenBought: 0
   costText: {fileID: 114622605251663194}
+  button: {fileID: 114563439439553858}
 --- !u!114 &114386351117947934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3375,8 +3375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1014518601432308, guid: 12c7fb34d7cdd1841806e5450dab369e, type: 2}
   cost: 600
-  beenBought: 0
   costText: {fileID: 114016870345320572}
+  button: {fileID: 114563439439553858}
 --- !u!114 &114401218873927830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4017,8 +4017,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1668098778998034, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
   cost: 500
-  beenBought: 0
   costText: {fileID: 114081945965786470}
+  button: {fileID: 114563439439553858}
 --- !u!114 &114767707865630538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4066,8 +4066,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1437912708010896, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
   cost: 250
-  beenBought: 0
   costText: {fileID: 114490438940777720}
+  button: {fileID: 114563439439553858}
 --- !u!114 &114790196174139486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4126,8 +4126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 1473778546336812, guid: 665c0ea85841dcc48946714aab51c4dd, type: 2}
   cost: 800
-  beenBought: 0
   costText: {fileID: 114255796295952564}
+  button: {fileID: 114563439439553858}
 --- !u!114 &114896169064907402
 MonoBehaviour:
   m_ObjectHideFlags: 1
