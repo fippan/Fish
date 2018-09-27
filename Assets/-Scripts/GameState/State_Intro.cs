@@ -36,7 +36,7 @@ public class State_Intro : GenericSingleton<State_Intro>, IState_Base
 	public void OnExitState()
 	{
 		Debug.Log("Exiting state: " + this.ToString());
-
+		GameManager.Instance.headsetFade.Fade(new Color(0f, 0f, 0f), 0.3f);
 	}
 
 	public void OnPauseState()

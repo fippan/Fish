@@ -18,11 +18,6 @@ public class FishingRod : MonoBehaviour
     Rigidbody bobRb;
     Spinner spinner;
 
-    //[HideInInspector]
-    public bool closeEnough = false;
-    [HideInInspector]
-    public bool throwable = false;
-
     private FishingLine fishingLine;
     private WaterContact waterContact;
 
@@ -38,18 +33,16 @@ public class FishingRod : MonoBehaviour
 
     public void OnThrowBob(List<float> magnitudes)
     {
-        float magnitude = GetHighestMagnitude(magnitudes);
+        if (thrown)
+            return;
 
-        //if (magnitude < 1f)
-        //    return;
         whoosh.Play();
         bobRb.isKinematic = false;
         fishingLine.reeledIn = false;
-        //thrown = true;
-        closeEnough = false;
+        float magnitude = GetHighestMagnitude(magnitudes);
         bobRb.AddForce(throwPoint.forward * magnitude * throwingMultiplier);
         spinner.isGrabbed = false;
-        waterContact.fishing = true;
+        Invoke("SetThrown", 1f);
     }
 
     private float GetHighestMagnitude(List<float> magnitudes)
@@ -63,15 +56,10 @@ public class FishingRod : MonoBehaviour
         return highestMagnitude;
     }
 
-    public void ThrowBob (Vector3 direction)
+    private void SetThrown()
     {
-        //bobRb.isKinematic = false;
-        //fishingLine.reeledIn = false;
-        //thrown = true;
-        //closeEnough = false;
-        //bobRb.AddForce(direction * throwingMultiplier);
-        //spinner.isGrabbed = false;
-        //waterContact.fishing = true;
+        thrown = true;
+        waterContact.fishing = true;
     }
 
     public void Update()
@@ -84,19 +72,7 @@ public class FishingRod : MonoBehaviour
             Vector3 pullDir = direction.normalized;
             if (bobRb.velocity.magnitude < 10f)
                 bobRb.velocity += (pullDir * floaterSpeed * Time.deltaTime) * spinner.rotationSpeed;
-            //Debug.Log(bobRb.velocity.magnitude);
         }
-
-        //if (distance > .3f && thrown == false)
-        //{
-        //    if (bob.transform.position.y < throwPoint.position.y - .3f)
-        //    {
-
-        //    }
-        //    Vector3 pullDirection = direction.normalized;
-        //    //pullDirection.y = pullDirection.y * 5;
-        //    bobRb.velocity = pullDirection * 2f/* * Time.deltaTime * 3.5f*/;
-        //}
 
         if (distance < 1f && thrown)
         {
@@ -110,18 +86,9 @@ public class FishingRod : MonoBehaviour
                 Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);
             }
 
+            waterContact.fishing = false;
             fishingLine.reeledIn = true;
             bobRb.isKinematic = true;
         }
-    }
-
-    public void Throwable()
-    {
-        throwable = true;
-    }
-
-    public void NotThrowable ()
-    {
-        throwable = false;
     }
 }

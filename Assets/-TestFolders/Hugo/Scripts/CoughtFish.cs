@@ -15,7 +15,7 @@ public class CoughtFish : MonoBehaviour
     {
         if (other.gameObject.tag == "FinishBox")
         {
-            fishingRod.closeEnough = true;
+            //fishingRod.closeEnough = true;
         }
     }
 }

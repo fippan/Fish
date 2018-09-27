@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class WaterContact : MonoBehaviour
 {
@@ -15,17 +16,30 @@ public class WaterContact : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (!fishing)
-            return;
-
         if (other.gameObject.tag == "Water")
         {
             splop.Play();
-            if (Vector3.Distance(transform.position, fishingRod.transform.position) > 10f)
+
+            if (fishing)
             {
-                fishM.StartFishing(transform);
-                fishingRod.thrown = true;
+                if (Vector3.Distance(transform.position, fishingRod.transform.position) > 10f)
+                {
+                    fishM.StartFishing(transform);
+                }
+                else
+                {
+                    StartCoroutine(CheckDistance());
+                }
             }
         }
+    }
+
+    private IEnumerator CheckDistance()
+    {
+        while (fishing && Vector3.Distance(transform.position, fishingRod.transform.position) < 10f)
+        {
+            yield return null;
+        }
+        fishM.StartFishing(transform);
     }
 }
