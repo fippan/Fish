@@ -1,16 +1,20 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
-public class FishingLine : MonoBehaviour
+public class FishingLineTwo : MonoBehaviour
 {
     public bool reeledIn = true;
 
     [SerializeField]
     private Transform lineStart;
     [SerializeField]
+    private Transform[] anchorPoints;
+    [SerializeField]
     private Transform lineEnd;
     [SerializeField]
     private int numberOfJoints = 10;
+    [SerializeField]
+    private float lineLenght;
     private float restLenght;
     private LineRenderer lineRenderer;
     private LineParticle[] lineParticles;
@@ -32,25 +36,33 @@ public class FishingLine : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (reeledIn) OnReeledIn();
-        else OnThrown();
+        //if (reeledIn) OnReeledIn();
+        //else OnThrown();
+
+        restLenght = CalculateRestLenght();
+        CalculateLineParticles();
+        lineParticles[0].pos = lineStart.position;
+        lineParticles[2].pos = anchorPoints[0].position;
+        lineParticles[5].pos = anchorPoints[1].position;
+        lineParticles[8].pos = anchorPoints[2].position;
+        lineParticles[11].pos = anchorPoints[3].position;
+        lineParticles[13].pos = lineEnd.position;
+
         SetLineRenderPositions();
         lineRenderer.SetPositions(linePositions);
     }
 
     private void OnReeledIn()
     {
-        restLenght = .1f / numberOfJoints;
-        CalculateLineParticles();
-        lineParticles[0].pos = lineStart.position;
+        restLenght = .15f / numberOfJoints;
         lineEnd.position = lineParticles[lineParticles.Length - 1].pos;
     }
 
     private void OnThrown()
     {
         restLenght = CalculateRestLenght();
-        lineParticles[lineParticles.Length - 1].pos = lineEnd.position;
         lineParticles[0].pos = lineStart.position;
+        lineParticles[lineParticles.Length - 1].pos = lineEnd.position;
         CalculateLineParticles();
     }
 
@@ -70,7 +82,7 @@ public class FishingLine : MonoBehaviour
     private float CalculateRestLenght()
     {
         var delta = lineEnd.position - lineStart.position;
-        var deltaLenght = delta.magnitude;
+        var deltaLenght = delta.magnitude + lineLenght;
         return deltaLenght / lineParticles.Length;
     }
 
