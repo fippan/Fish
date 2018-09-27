@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class FishingRod : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class FishingRod : MonoBehaviour
     public GameObject bob;
     public Transform throwPoint;
     public GameObject bobHolder;
+
+    [SerializeField] private AudioSource whoosh;
 
     [Space(20)]
     public float floaterSpeed = 11f;
@@ -20,18 +23,55 @@ public class FishingRod : MonoBehaviour
     [HideInInspector]
     public bool throwable = false;
 
+    private FishingLine fishingLine;
+    private WaterContact waterContact;
+
     private void Start()
     {
         bobRb = bob.GetComponent<Rigidbody>();
         spinner = FindObjectOfType<Spinner>();
+        fishingLine = GetComponent<FishingLine>();
+        waterContact = bob.GetComponent<WaterContact>();
+        bobRb.isKinematic = true;
+        waterContact.fishing = false;
+    }
+
+    public void OnThrowBob(List<float> magnitudes)
+    {
+        float magnitude = GetHighestMagnitude(magnitudes);
+
+        //if (magnitude < 1f)
+        //    return;
+        whoosh.Play();
+        bobRb.isKinematic = false;
+        fishingLine.reeledIn = false;
+        //thrown = true;
+        closeEnough = false;
+        bobRb.AddForce(throwPoint.forward * magnitude * throwingMultiplier);
+        spinner.isGrabbed = false;
+        waterContact.fishing = true;
+    }
+
+    private float GetHighestMagnitude(List<float> magnitudes)
+    {
+        float highestMagnitude = 0;
+        foreach (var item in magnitudes)
+        {
+            if (item > highestMagnitude)
+                highestMagnitude = item;
+        }
+        return highestMagnitude;
     }
 
     public void ThrowBob (Vector3 direction)
     {
-        thrown = true;
-        closeEnough = false;
-        bobRb.AddForce(direction * throwingMultiplier);
-        spinner.isGrabbed = false;
+        //bobRb.isKinematic = false;
+        //fishingLine.reeledIn = false;
+        //thrown = true;
+        //closeEnough = false;
+        //bobRb.AddForce(direction * throwingMultiplier);
+        //spinner.isGrabbed = false;
+        //waterContact.fishing = true;
     }
 
     public void Update()
@@ -42,26 +82,36 @@ public class FishingRod : MonoBehaviour
         if (spinner.isGrabbed)
         {
             Vector3 pullDir = direction.normalized;
-            bobRb.velocity += (pullDir * floaterSpeed * Time.deltaTime) * spinner.rotationSpeed;
+            if (bobRb.velocity.magnitude < 10f)
+                bobRb.velocity += (pullDir * floaterSpeed * Time.deltaTime) * spinner.rotationSpeed;
+            //Debug.Log(bobRb.velocity.magnitude);
         }
 
-        if (distance > .2f && thrown == false)
-        {
-            Vector3 pullDirection = direction.normalized;
-            pullDirection.y = pullDirection.y * 5;
-            bobRb.velocity += pullDirection * Time.deltaTime * 3.5f;
-        }
+        //if (distance > .3f && thrown == false)
+        //{
+        //    if (bob.transform.position.y < throwPoint.position.y - .3f)
+        //    {
 
-        if (distance < .4f && thrown)
+        //    }
+        //    Vector3 pullDirection = direction.normalized;
+        //    //pullDirection.y = pullDirection.y * 5;
+        //    bobRb.velocity = pullDirection * 2f/* * Time.deltaTime * 3.5f*/;
+        //}
+
+        if (distance < 1f && thrown)
         {
             thrown = false;
 
             if (FishyManager.Instance.HasFish())
             {
+                FishyManager.Instance.StopFishing();
                 FishyManager.Instance.ResetFish();
                 FishyManager.Instance.ExplodeFish();
                 Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);
             }
+
+            fishingLine.reeledIn = true;
+            bobRb.isKinematic = true;
         }
     }
 

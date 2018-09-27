@@ -7,52 +7,63 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-    public float StartDelay = 2f;
-    [Header("The name of the scene to load")]
-    public string name = "Hugo";
-    [Space(20)]
+	public float StartDelay = 2f;
+	//[Header("The name of the scene to load")]
+	//public string name = "Hugo";
+	[Space(20)]
 
-    public Text moneyHighscore;
-    public Text timeHighscore;
-    public Text enemiesHighscore;
+	public Text moneyHighscore;
+	public Text timeHighscore;
+	public Text enemiesHighscore;
 
-    VRTK_HeadsetFade fade;
-    Color black = new Color(0, 0, 0);
+	private Color black = new Color(0, 0, 0);
+	private bool gameHasBeenStarted = false;
+	private bool gameHasBeenExited = false;
 
-    private void Start()
-    {
-        fade = GetComponent<VRTK_HeadsetFade>();
-        GetHighscore();
-    }
+	private void Start()
+	{
+		GetHighscore();
+	}
 
-    public void GetHighscore ()
-    {
-        moneyHighscore.text = ("Most amount of money: ") + PlayerPrefs.GetFloat("MoneyHighscore", 0).ToString();
-        timeHighscore.text = ("Longest time survived: ") + PlayerPrefs.GetFloat("TimeHighscoreDays", 0).ToString() + " Days, " +PlayerPrefs.GetFloat("TimeHighscoreHours", 0).ToString() + " Hours";
-        enemiesHighscore.text = ("Most enemies killed: ") + PlayerPrefs.GetInt("EnemieHighscore", 0).ToString();
-    }
+	public void GetHighscore()
+	{
+		moneyHighscore.text = ("Most amount of money: ") + PlayerPrefs.GetFloat("MoneyHighscore", 0).ToString();
+		timeHighscore.text = ("Longest time survived: ") + PlayerPrefs.GetFloat("TimeHighscoreDays", 0).ToString() + " Days, " + PlayerPrefs.GetFloat("TimeHighscoreHours", 0).ToString() + " Hours";
+		enemiesHighscore.text = ("Most enemies killed: ") + PlayerPrefs.GetInt("EnemieHighscore", 0).ToString();
+	}
 
-    public void StartGame ()
-    {
-        StartCoroutine(GameStart());
-        fade.Fade(black, StartDelay);
-    }
+	public void StartGame()
+	{
+		if (gameHasBeenStarted)
+			return;
 
-    public IEnumerator GameStart()
-    {
-        yield return new WaitForSeconds(StartDelay);
-        SceneManager.LoadScene(name);
-    }
+		gameHasBeenStarted = true;
+		StartCoroutine(GameStart());
+		GameManager.Instance.headsetFade.Fade(black, StartDelay);
+	}
 
-    public void QuitGame ()
-    {
-        fade.Fade(black, 1);
-        StartCoroutine(Quit());
-    }
+	public IEnumerator GameStart()
+	{
+		yield return new WaitForSeconds(StartDelay + 0.1f);
+		//SceneManager.LoadScene(name);
 
-    public IEnumerator Quit()
-    {
-        yield return new WaitForSeconds(1);
-        Application.Quit();
-    }
+		GameManager.Instance.ChangeState(GameStates.State_InGame);
+	}
+
+	public void QuitGame()
+	{
+		if (gameHasBeenExited)
+			return;
+
+		gameHasBeenExited = true;
+
+		GameManager.Instance.headsetFade.Fade(black, 1);
+		StartCoroutine(Quit());
+	}
+
+	public IEnumerator Quit()
+	{
+		yield return new WaitForSeconds(1);
+		Application.Quit();
+	}
 }

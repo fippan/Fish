@@ -57,6 +57,12 @@ public class DiverManager : MonoBehaviour
 
     public static DiverManager Instance { get; private set; }
 
+    private bool hasStartedMusic = false;
+    private bool stopMusic = false;
+    private AudioController musicControl;
+
+    private Coroutine musicRoutine;
+
 
     private void Awake()
     {
@@ -84,16 +90,23 @@ public class DiverManager : MonoBehaviour
             if(killedEnemies >= enemyAddition + waveCount * 2)
             {
                 waveActive = false;
+                stopMusic = true;
+                StopBattleMusic();
             }
             if(dayAndNight != null)
             {
-                if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < 5 + waveCount * 2)
+                if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < enemyAddition + waveCount * 2)
                 {
                     dayAndNight.TimeMultiplier = 0;
                 }
                 else
                 {
                     dayAndNight.TimeMultiplier = 344f * 2;
+                }
+                if(dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dusk)
+                {
+                    stopMusic = false;
+                    StartBattleMusic();
                 }
             }
         }
@@ -191,10 +204,33 @@ public class DiverManager : MonoBehaviour
                 enemyList.Add(heli);
                 //randomSpawnTimer = Random.Range(10, 15);
                 spawnedEnemies++;
-            }
+        }
+            
             randomSpawnTimer = Random.Range(5, 20);
         }
     }
+
+    public void StartBattleMusic()
+    {
+        if(!hasStartedMusic)
+        {
+            musicControl = GetComponent<AudioController>();
+            musicControl.Play("BattleMusic", transform.position);
+            GetComponentInChildren<AudioSource>().loop = true;
+            hasStartedMusic = true;
+        }
+    }
+
+    public void StopBattleMusic()
+    {
+        if (hasStartedMusic && stopMusic)
+        {
+            musicControl.Stop("BattleMusic");
+            hasStartedMusic = false;
+            stopMusic = false;
+        }
+    }
+
 
     IEnumerator waveCoolDown()
     {

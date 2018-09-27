@@ -8,6 +8,9 @@ public class FishyManager : MonoBehaviour
 {
 	public int lowest;
 	public int highest;
+    public Transform rod;
+    public Transform bob;
+    public Transform fishLookPos;
 	private float waitTime;
 	private float timeCounter = 0f;
 	public GameObject[] fishies;
@@ -36,6 +39,7 @@ public class FishyManager : MonoBehaviour
 	void Awake()
 	{
 		Instance = this;
+        theStates = FishingStates.NOTFISHING;
 	}
 
 	// Update is called once per frame
@@ -48,10 +52,9 @@ public class FishyManager : MonoBehaviour
 			if (timeCounter >= waitTime)
 			{
 				int tempfish = Random.Range(0, fishies.Length);
-				currentFish = Instantiate(fishies[tempfish], spawnPos.transform.position, Quaternion.identity);
-                currentFish.GetComponent<FishFollowTransform>().Follow();
-
-                //fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
+				currentFish = Instantiate(fishies[tempfish], bob.position, Quaternion.identity);
+                currentFish.GetComponent<Fish>().GetTransform(bob, fishLookPos);
+                Haptics.Instance.StartHaptics(rod.gameObject, 1, 2, .01f);
 
                 caughtFish = true;
 				StopFishing();
@@ -91,6 +94,7 @@ public class FishyManager : MonoBehaviour
 
     public void ExplodeFish()
     {
+        currentFish.transform.parent = null;
         currentFish.GetComponentInChildren<ParticleSystem>().Play();
         float amount = currentFish.GetComponent<FishWorth>().worth;
         CurrencyManager.Instance.AddCurrency(amount);

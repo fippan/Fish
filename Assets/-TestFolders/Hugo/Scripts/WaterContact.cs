@@ -2,26 +2,30 @@
 
 public class WaterContact : MonoBehaviour
 {
+    public FishingRod fishingRod;
     public FishyManager fishM;
+    public bool fishing;
+    private AudioSource splop;
 
     public void Start()
     {
         fishM = FindObjectOfType<FishyManager>();
+        splop.GetComponent<AudioSource>();
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Water")
-        {
-            fishM.StartFishing(transform);
-        }
-    }
+        if (!fishing)
+            return;
 
-    public void OnTriggerExit(Collider other)
-    {
         if (other.gameObject.tag == "Water")
         {
-            fishM.StopFishing();
+            splop.Play();
+            if (Vector3.Distance(transform.position, fishingRod.transform.position) > 10f)
+            {
+                fishM.StartFishing(transform);
+                fishingRod.thrown = true;
+            }
         }
     }
 }
