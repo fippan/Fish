@@ -2417,10 +2417,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d58baa3641d1545bc7a084b428fe31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 100
+  currentHealth: 0
   indestructible: 0
-  onHitEffect: {fileID: 0}
-  onHitEffectLifetime: 0
+  onHitEffect: {fileID: 1208756815219792, guid: b888bc4dc9e5e294b92ca6247bfe6eed,
+    type: 2}
+  onHitEffectLifetime: 1
   diver: {fileID: 0}
   PlayerGameObject: {fileID: 0}
   throwingStart: {fileID: 4372303333047420}

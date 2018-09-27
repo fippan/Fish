@@ -172,7 +172,7 @@ public class DiverManager : MonoBehaviour
         if (subMarineList.Count < waveCount / 2)
         {
             Vector2 randomPoint = Random.insideUnitCircle;
-            Vector3 circleSpawn = new Vector3(randomPoint.x * 50f, -1f, randomPoint.y * 50f);
+            Vector3 circleSpawn = new Vector3((randomPoint.x * 50f) + 5f, -1f, (randomPoint.y * 50f) + 5f);
 
             var submarine = Instantiate(subMarine, transform.position + circleSpawn + new Vector3(0, -4, 0), new Quaternion(0, 0, 0, 0));
                 submarine.GetComponentInChildren<SubmarineEnemy>().AimAtPlayer(player.transform);
@@ -186,7 +186,7 @@ public class DiverManager : MonoBehaviour
         if (diverCount.Count < enemyAddition + waveCount)
         {
             Vector2 randomPoint = Random.insideUnitCircle;
-            Vector3 circleSpawn = new Vector3(randomPoint.x * 6f +2f, -2.5f, randomPoint.y * 6f +2f);
+            Vector3 circleSpawn = new Vector3(randomPoint.x * 6f +5f, -2.5f, randomPoint.y * 6f +5f);
 
             var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
             diver.GetComponent<DiverAttackers>().LookAtPlayer(player.transform);
@@ -200,7 +200,7 @@ public class DiverManager : MonoBehaviour
         {
 
                 Vector2 randomPoint = Random.insideUnitCircle;
-                Vector3 circleSpawn = new Vector3(randomPoint.x * 60f, 30f, randomPoint.y * 60f);
+                Vector3 circleSpawn = new Vector3(randomPoint.x * 60f + 10f, 30f, randomPoint.y * 60f + 10f);
 
                 var heli = Instantiate(helicopter, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
                 heli.GetComponent<Helicopter>().FindBoat(player.transform);

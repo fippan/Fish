@@ -23,7 +23,7 @@ public class WaterContact : MonoBehaviour
             if (fishing && !hasLandedInWater)
             {
                 hasLandedInWater = true;
-                if (Vector3.Distance(transform.position, fishingRod.transform.position) > 10f)
+                if (Vector3.Distance(transform.position, fishingRod.transform.position) > 7f)
                 {
                     fishM.StartFishing(transform);
                 }
@@ -37,7 +37,7 @@ public class WaterContact : MonoBehaviour
 
     private IEnumerator CheckDistance()
     {
-        while (fishing && Vector3.Distance(transform.position, fishingRod.transform.position) < 10f)
+        while (fishing && Vector3.Distance(transform.position, fishingRod.transform.position) < 7f)
         {
             yield return null;
         }

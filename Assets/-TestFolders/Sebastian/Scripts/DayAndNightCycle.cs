@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DayAndNightCycle : MonoBehaviour {
-
+    Animation anim;
     //TimeReturner tr;
     /*
     private Transform _sunPivotPoint;                   //The rotation pivot for the sun
@@ -73,7 +73,7 @@ public class DayAndNightCycle : MonoBehaviour {
     public int _nightSummerStartTime = 22;                   //Defines night start
 
     public int _dawnAutumnStartTime = 7;                    //Defines dawn start
-    public int _dayAutumnStartTime = 9;                     //Defines day start
+    public int _dayAutumnStartTime = 12;                     //Defines day start
     public int _duskAutumnStartTime = 18;                    //Defines dusk start
     public int _nightAutumnStartTime = 20;                   //Defines night start
 
@@ -105,6 +105,8 @@ public class DayAndNightCycle : MonoBehaviour {
     public int _guiWidth = 100;                         //Defines Gui label width
     public int _guiHeight = 20;                         //Defines Gui label width
     public DayPhases _dayPhases;                        //Defines naming convention for the phases of the day
+    public Animator lightAnims;
+    public Animation clip;
     /*
     public Color _dawnLightColor = new Color(0, 0, 0);
     public Color _dayLightColor = new Color(100, 100, 100);
@@ -146,7 +148,8 @@ public class DayAndNightCycle : MonoBehaviour {
 
         transform.localEulerAngles = new Vector3(0, -90, 0);//Suns rotation is equal to these (x, x, x) values
         */
-
+        lightAnims.SetBool("Playanim", true);
+        lightAnims.speed = 0.01f;
 
     }
 
@@ -155,11 +158,14 @@ public class DayAndNightCycle : MonoBehaviour {
     {
         StartCoroutine("TimeOfDayFiniteStateMachine");      //Start TimeOfDayFiniteStateMachine on start up
 
+        _dayPhases = DayPhases.Day;                 //Set day Phase to day
+
+
         //_sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.001f);
 
-        _hours = 7;                                         //hours equals time set on start up
-        _minutes = 0;                                      //minutes equals time set on start up
-        _counter = 0;                                      //Counter equals time set on start up
+        _hours = 11;                                         //hours equals time set on start up
+        _minutes = 59;                                      //minutes equals time set on start up
+        _counter = 55;                                      //Counter equals time set on start up
 
         _days = 1;                                          //Days equals one on start up
 
@@ -195,15 +201,29 @@ public class DayAndNightCycle : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
+        if(SecondMultiplier == 0)
+        {
+            lightAnims.speed = 0;
+        }
+        else if(SecondMultiplier > 0)
+        {
+            lightAnims.speed = ( 1 / 66.01f);
+        }
         if (_hours <= _dawnAutumnStartTime)
         {
-        _sun.color = Color.Lerp(Color.white, Color.black, Time.time * 0.01f);
+            //anim.GetComponentGameObject<LightColorAnim>();
+
+            
+            
+            //_sun.color = Color.Lerp(Color.white, Color.black, Time.deltaTime * 5);
         }
 
         if (_hours <= _nightAutumnStartTime)
         {
-            _sun.color = Color.Lerp(Color.black, Color.white, Time.time * 0.01f);
+            
+            
+            
+            //_sun.color = Color.Lerp(Color.black, Color.white, Time.deltaTime * 5);
         }
 
         SecondsCounter();                               //Call SecondsCounter function
