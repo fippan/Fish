@@ -25,12 +25,4 @@ public class WaterContact : MonoBehaviour
             }
         }
     }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Water")
-        {
-            fishM.StopFishing();
-        }
-    }
 }

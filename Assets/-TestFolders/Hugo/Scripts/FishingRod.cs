@@ -104,6 +104,7 @@ public class FishingRod : MonoBehaviour
 
             if (FishyManager.Instance.HasFish())
             {
+                FishyManager.Instance.StopFishing();
                 FishyManager.Instance.ResetFish();
                 FishyManager.Instance.ExplodeFish();
                 Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);

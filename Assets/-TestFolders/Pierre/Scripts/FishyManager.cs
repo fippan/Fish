@@ -52,13 +52,9 @@ public class FishyManager : MonoBehaviour
 			if (timeCounter >= waitTime)
 			{
 				int tempfish = Random.Range(0, fishies.Length);
-				currentFish = Instantiate(fishies[tempfish], /*spawnPos.transform.position*/ bob.position, Quaternion.identity);
+				currentFish = Instantiate(fishies[tempfish], bob.position, Quaternion.identity);
                 currentFish.GetComponent<Fish>().GetTransform(bob, fishLookPos);
-                //currentFish.GetComponent<FishFollowTransform>().Follow();
-
-                //TODO: Add haptics
-
-                //fish.GetComponent<VRTK_TransformFollow>().gameObjectToFollow = spawnPos.gameObject;
+                Haptics.Instance.StartHaptics(rod.gameObject, 1, 2, .01f);
 
                 caughtFish = true;
 				StopFishing();
