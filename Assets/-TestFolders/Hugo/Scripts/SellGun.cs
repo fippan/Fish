@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SellGun : MonoBehaviour
 {
+    public Transform shopCannonBarrelEnd;
     public GameObject gun;
     public float cost;
     public Text costText;
@@ -22,7 +23,8 @@ public class SellGun : MonoBehaviour
         if (CurrencyManager.Instance.CurrentCurrency() >= cost)
         {
             CurrencyManager.Instance.RemoveCurrency(cost);
-            GameObject newGun = Instantiate(gun, transform.position, transform.rotation);
+            GameObject newGun = Instantiate(gun, shopCannonBarrelEnd.position, shopCannonBarrelEnd.rotation);
+            shopCannonBarrelEnd.GetComponentInParent<ShopCannon>().Shoot(newGun);
             button.ToggleShop();
         }
     }
