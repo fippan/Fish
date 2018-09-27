@@ -20,6 +20,7 @@ public class FishingRod : MonoBehaviour
 
     private FishingLine fishingLine;
     private WaterContact waterContact;
+    private bool canThrow;
 
     private void Start()
     {
@@ -29,13 +30,15 @@ public class FishingRod : MonoBehaviour
         waterContact = bob.GetComponent<WaterContact>();
         bobRb.isKinematic = true;
         waterContact.fishing = false;
+        canThrow = true;
     }
 
     public void OnThrowBob(List<float> magnitudes)
     {
-        if (thrown)
+        if (canThrow)
             return;
 
+        canThrow = false;
         whoosh.Play();
         bobRb.isKinematic = false;
         fishingLine.reeledIn = false;
@@ -64,6 +67,9 @@ public class FishingRod : MonoBehaviour
 
     public void Update()
     {
+        if (!thrown)
+            return;
+
         Vector3 direction = throwPoint.position - bob.transform.position;
         float distance = direction.magnitude;
 
@@ -74,7 +80,7 @@ public class FishingRod : MonoBehaviour
                 bobRb.velocity += (pullDir * floaterSpeed * Time.deltaTime) * spinner.rotationSpeed;
         }
 
-        if (distance < 1f && thrown)
+        if (distance < 1f)
         {
             thrown = false;
 
@@ -86,7 +92,9 @@ public class FishingRod : MonoBehaviour
                 Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);
             }
 
+            canThrow = true;
             waterContact.fishing = false;
+            waterContact.hasLandedInWater = false;
             fishingLine.reeledIn = true;
             bobRb.isKinematic = true;
         }

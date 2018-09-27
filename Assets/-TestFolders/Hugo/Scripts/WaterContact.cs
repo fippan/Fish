@@ -7,6 +7,7 @@ public class WaterContact : MonoBehaviour
     public FishyManager fishM;
     public bool fishing;
     public AudioSource splop;
+    public bool hasLandedInWater;
 
     public void Start()
     {
@@ -19,8 +20,9 @@ public class WaterContact : MonoBehaviour
         {
             splop.Play();
 
-            if (fishing)
+            if (fishing && !hasLandedInWater)
             {
+                hasLandedInWater = true;
                 if (Vector3.Distance(transform.position, fishingRod.transform.position) > 10f)
                 {
                     fishM.StartFishing(transform);
