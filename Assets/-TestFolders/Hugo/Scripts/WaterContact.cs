@@ -6,12 +6,11 @@ public class WaterContact : MonoBehaviour
     public FishingRod fishingRod;
     public FishyManager fishM;
     public bool fishing;
-    private AudioSource splop;
+    public AudioSource splop;
 
     public void Start()
     {
         fishM = FindObjectOfType<FishyManager>();
-        splop.GetComponent<AudioSource>();
     }
 
     public void OnTriggerEnter(Collider other)
