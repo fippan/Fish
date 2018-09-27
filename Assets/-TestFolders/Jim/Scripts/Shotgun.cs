@@ -7,10 +7,13 @@ public class Shotgun : Weapon
     [Header("Shotgun settings.")]
     public int numberOfBulletsToBurst;
 
+    [SerializeField]
     private GameObject currentPrimaryGrabbingObject;
     private GameObject currentSecondaryGrabbingObject;
     private VRTK_InteractableObject interactableObject;
     private Rigidbody rb;
+
+    public bool primaryTaken;
 
     private void Awake()
     {
@@ -36,17 +39,22 @@ public class Shotgun : Weapon
         if (currentPrimaryGrabbingObject == null)
         {
             currentPrimaryGrabbingObject = e.interactingObject;
+            primaryTaken = true;
+            Debug.Log("Grabbed Primary");
         }
         else
         {
             currentSecondaryGrabbingObject = e.interactingObject;
+            Debug.Log("Grabbed secondary");
         }
+        Debug.Log(primaryTaken);
     }
 
     private void OnUngrab(object sender, InteractableObjectEventArgs e)
     {
         if (e.interactingObject == currentPrimaryGrabbingObject)
         {
+            primaryTaken = false;
             currentPrimaryGrabbingObject = null;
             currentSecondaryGrabbingObject = null;
             if (rb.isKinematic) rb.isKinematic = false;
