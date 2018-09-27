@@ -18,23 +18,23 @@ public class RightController : VRTK_InteractGrab
         Debug.Log("Picked up");
             if (e.target.GetComponent<Weapon>())
             {
-                Debug.Log("PickedUpWeapon");
-                if (e.target.GetComponent<Shotgun>())
-                {
-                Debug.Log("Picked up shotgun");
-                if (!e.target.GetComponent<Shotgun>().primaryTaken)
-                {
-                    inverseControl.rightHandObj = e.target.GetComponentsInChildren<SnapPoint>()[0].transform;
-                    Debug.Log("Primary not taken!");
-                }
+                //Debug.Log("PickedUpWeapon");
+                //if (e.target.GetComponent<Shotgun>())
+                //{
+                //Debug.Log("Picked up shotgun");
+                //if (!e.target.GetComponent<Shotgun>().primaryTaken)
+                //{
+                //    inverseControl.rightHandObj = e.target.GetComponentsInChildren<SnapPoint>()[0].transform;
+                //    Debug.Log("Primary not taken!");
+                //}
 
-                else if (e.target.GetComponent<Shotgun>().primaryTaken)
-                {
-                    inverseControl.rightHandObj = e.target.GetComponentsInChildren<SnapPoint>()[1].transform;
-                    e.target.transform.rotation = rightController.rotation;
-                    Debug.Log("Primary taken!");
-                }
-                }
+                //else if (e.target.GetComponent<Shotgun>().primaryTaken)
+                //{
+                //    inverseControl.rightHandObj = e.target.GetComponentsInChildren<SnapPoint>()[1].transform;
+                //    e.target.transform.rotation = rightController.rotation;
+                //    Debug.Log("Primary taken!");
+                //}
+                //}
 
         }
    }
