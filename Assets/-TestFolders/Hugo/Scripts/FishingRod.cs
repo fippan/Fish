@@ -42,7 +42,7 @@ public class FishingRod : MonoBehaviour
         float magnitude = GetHighestMagnitude(magnitudes);
         bobRb.AddForce(throwPoint.forward * magnitude * throwingMultiplier);
         spinner.isGrabbed = false;
-        waterContact.fishing = true;
+        Invoke("SetThrown", 1f);
     }
 
     private float GetHighestMagnitude(List<float> magnitudes)
@@ -54,6 +54,12 @@ public class FishingRod : MonoBehaviour
                 highestMagnitude = item;
         }
         return highestMagnitude;
+    }
+
+    private void SetThrown()
+    {
+        thrown = true;
+        waterContact.fishing = true;
     }
 
     public void Update()
@@ -80,6 +86,7 @@ public class FishingRod : MonoBehaviour
                 Haptics.Instance.StartHaptics(gameObject, 1, .5f, .1f);
             }
 
+            waterContact.fishing = false;
             fishingLine.reeledIn = true;
             bobRb.isKinematic = true;
         }
