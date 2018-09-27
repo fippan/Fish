@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114128347799178622}
   - component: {fileID: 114911763730378124}
   - component: {fileID: 82622458052051806}
+  - component: {fileID: 135602105652948794}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -283,7 +284,7 @@ MonoBehaviour:
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
-  holdButtonToGrab: 0
+  holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
@@ -327,4 +328,16 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.07
+  m_Center: {x: 0, y: 0.06, z: 0}
+--- !u!135 &135602105652948794
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1671788405914124}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
   m_Center: {x: 0, y: 0.06, z: 0}
