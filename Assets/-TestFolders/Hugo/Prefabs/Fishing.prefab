@@ -324,7 +324,7 @@ GameObject:
   m_TagString: Spinner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1608169565524902
 GameObject:
@@ -950,8 +950,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100004, guid: be566db4433898c4eb77a02d7824519e, type: 3}
-  - {fileID: 2100006, guid: be566db4433898c4eb77a02d7824519e, type: 3}
+  - {fileID: 2100000, guid: 8194fa4e0fd341e47b8a0b6a07bfcdc7, type: 2}
+  - {fileID: 2100000, guid: 8194fa4e0fd341e47b8a0b6a07bfcdc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1161,8 +1161,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: be566db4433898c4eb77a02d7824519e, type: 3}
-  - {fileID: 2100002, guid: be566db4433898c4eb77a02d7824519e, type: 3}
+  - {fileID: 2100000, guid: 8194fa4e0fd341e47b8a0b6a07bfcdc7, type: 2}
+  - {fileID: 2100000, guid: 8194fa4e0fd341e47b8a0b6a07bfcdc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   bob: {fileID: 1547442139293150}
   throwPoint: {fileID: 4451698696243874}
   bobHolder: {fileID: 1286503073920422}
-  whoosh: {fileID: 0}
+  whoosh: {fileID: 82058066583069058}
   floaterSpeed: 10
   closeEnough: 0
   throwable: 0
@@ -2414,9 +2414,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100008, guid: be566db4433898c4eb77a02d7824519e, type: 3}
-  - {fileID: 2100010, guid: be566db4433898c4eb77a02d7824519e, type: 3}
-  - {fileID: 2100012, guid: be566db4433898c4eb77a02d7824519e, type: 3}
+  - {fileID: 2100000, guid: 8194fa4e0fd341e47b8a0b6a07bfcdc7, type: 2}
+  - {fileID: 2100000, guid: 8194fa4e0fd341e47b8a0b6a07bfcdc7, type: 2}
+  - {fileID: 2100000, guid: 8194fa4e0fd341e47b8a0b6a07bfcdc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

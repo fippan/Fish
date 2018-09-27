@@ -17,6 +17,7 @@ public class Spinner : MonoBehaviour
     private void Start()
     {
         rotationLast = transform.rotation.eulerAngles;
+        reelIn = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -36,7 +37,10 @@ public class Spinner : MonoBehaviour
         }
 
         if (!isGrabbed)
+        {
             reelIn.Stop();
+            playsound = false;
+        }
     }
 
     public void IsGrabbed ()
