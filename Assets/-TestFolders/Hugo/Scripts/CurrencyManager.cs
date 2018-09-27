@@ -25,7 +25,7 @@ public class CurrencyManager : MonoBehaviour
     {
         if (currentCurrency > 100)
         {
-            DayAndNightCycle.Instance.TimeMultiplier = 844;
+            DayAndNightCycle.Instance.TimeMultiplier = 688;
         }
 
         currentCurrency += loot;
