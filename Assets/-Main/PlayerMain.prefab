@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 114807792091754088}
   - component: {fileID: 114163417594614096}
   - component: {fileID: 114154857722247928}
+  - component: {fileID: 114104378427547122}
   m_Layer: 0
   m_Name: PlayerMain
   m_TagString: Player
@@ -219,6 +220,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1552952374569394}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114104378427547122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816363662863558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f57e67e5b10a93b43bf96d363464c1d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VRTK_Root: {fileID: 0}
+  cameraEye: {fileID: 0}
 --- !u!114 &114154857722247928
 MonoBehaviour:
   m_ObjectHideFlags: 1
