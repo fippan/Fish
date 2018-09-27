@@ -49,13 +49,15 @@ public class EndScreen : MonoBehaviour
 
     public void Quit ()
     {
-        GetComponent<VRTK_HeadsetFade>().Fade((new Color(0, 0, 0)), 2);
+		GameManager.Instance.headsetFade.Fade(new Color(0, 0, 0), 2f);
+		//GetComponent<VRTK_HeadsetFade>().Fade((new Color(0, 0, 0)), 2);
         StartCoroutine(Fade());
     }
     
     public IEnumerator Fade()
     {
         yield return new WaitForSeconds(2);
-        LevelManager.Instance.MainMenu();
-    }
+		GameManager.Instance.ChangeState(GameStates.State_MainMenu);
+		//LevelManager.Instance.MainMenu();
+	}
 }

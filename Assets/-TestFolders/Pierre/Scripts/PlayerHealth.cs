@@ -20,19 +20,22 @@ public class PlayerHealth : Health
     public void Update()
     {
         var vig = ppp.vignette.settings;
+        float tmpHealth = currentHealth / maxHealth;
 
-        if (currentHealth < maxHealth / 1.5f && currentHealth > maxHealth / 3)
-        {
-            vig.intensity = .66f;
-        }
-        if (currentHealth < maxHealth / 3)
-        {
-            vig.intensity = 1;
-        }
-        if (currentHealth > maxHealth / 1.5f)
-        {
-            vig.intensity = 0;
-        }
+        vig.intensity = 1 - tmpHealth;
+
+        //if (currentHealth < maxHealth / 1.5f && currentHealth > maxHealth / 3)
+        //{
+        //    vig.intensity = .66f;
+        //}
+        //if (currentHealth < maxHealth / 3)
+        //{
+        //    vig.intensity = 1;
+        //}
+        //if (currentHealth > maxHealth / 1.5f)
+        //{
+        //    vig.intensity = 0;
+        //}
 
         ppp.vignette.settings = vig;
     }
