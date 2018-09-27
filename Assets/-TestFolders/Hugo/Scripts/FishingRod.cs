@@ -35,7 +35,7 @@ public class FishingRod : MonoBehaviour
 
     public void OnThrowBob(List<float> magnitudes)
     {
-        if (canThrow)
+        if (!canThrow)
             return;
 
         canThrow = false;
