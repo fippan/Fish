@@ -1043,7 +1043,7 @@ MonoBehaviour:
   waveActive: 0
   canSpawn: 1
   killedEnemies: 0
-  player: {fileID: 0}
+  player: {fileID: 1410820614}
   enemyAddition: 5
 --- !u!114 &417173523
 MonoBehaviour:
@@ -2817,6 +2817,11 @@ MonoBehaviour:
   targetListPolicy: {fileID: 0}
   navMeshData: {fileID: 0}
   navMeshLimitDistance: 0
+--- !u!1 &1410820614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1285451738496918, guid: 19da14ba32e871d4484c5211ef7d1355,
+    type: 2}
+  m_PrefabInternal: {fileID: 876513570}
 --- !u!1 &1425200489
 GameObject:
   m_ObjectHideFlags: 0
@@ -3827,6 +3832,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lowest: 0
   highest: 5
+  rod: {fileID: 0}
+  bob: {fileID: 0}
+  fishLookPos: {fileID: 0}
   fishies:
   - {fileID: 1084349641036622, guid: 53db10431c1ebc846adb966d7a061036, type: 2}
   theStates: 1
