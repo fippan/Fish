@@ -22,6 +22,10 @@ public class MainMenuController : MonoBehaviour
 
 	private void Start()
 	{
+        if (Time.timeScale < 1)
+        {
+            Time.timeScale = 1;
+        }
 		GetHighscore();
 	}
 

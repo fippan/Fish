@@ -720,8 +720,8 @@ MonoBehaviour:
   explosive: 0
   damage: 15
   firingRate: 0.2
-  minSpreadDegrees: {x: -10, y: -10}
-  maxSpreadDegrees: {x: 10, y: 10}
+  minSpreadDegrees: {x: -7.5, y: -7.5}
+  maxSpreadDegrees: {x: 7.5, y: 7.5}
   shotsUntilReload: 1
   reloadTime: 1
   magForceMultiplier: 0

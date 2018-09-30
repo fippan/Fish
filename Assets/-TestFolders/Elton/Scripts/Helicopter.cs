@@ -95,6 +95,7 @@ public class Helicopter : Health
             dead = true;
             audio1.Stop();
             Invoke("Death", 10f);
+            SlowMotion.Instance.StartSlowMotion(2);
         }
     }
 

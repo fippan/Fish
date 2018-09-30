@@ -3542,7 +3542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c3c3a041abaad4a922ffa8c5cdb1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 600
+  maxHealth: 750
   currentHealth: 0
   indestructible: 0
   onHitEffect: {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460,

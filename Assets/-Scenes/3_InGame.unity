@@ -729,7 +729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 176179465}
-  currentCurrency: 10000
+  currentCurrency: 0
 --- !u!4 &654139016
 Transform:
   m_ObjectHideFlags: 0
@@ -1458,22 +1458,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114283354987929834, guid: e063c1eb7595eb04899465c1c3adcc80,
-        type: 2}
-      propertyPath: shopCannonBarrelEnd
-      value: 
-      objectReference: {fileID: 1907474136}
-    - target: {fileID: 114776043680343688, guid: e063c1eb7595eb04899465c1c3adcc80,
-        type: 2}
-      propertyPath: shopCannonBarrelEnd
-      value: 
-      objectReference: {fileID: 1907474136}
-    - target: {fileID: 114705778545716926, guid: e063c1eb7595eb04899465c1c3adcc80,
-        type: 2}
-      propertyPath: shopCannonBarrelEnd
-      value: 
-      objectReference: {fileID: 1907474136}
     - target: {fileID: 114388915348090438, guid: e063c1eb7595eb04899465c1c3adcc80,
+        type: 2}
+      propertyPath: shopCannonBarrelEnd
+      value: 
+      objectReference: {fileID: 1907474136}
+    - target: {fileID: 114857928720435710, guid: e063c1eb7595eb04899465c1c3adcc80,
         type: 2}
       propertyPath: shopCannonBarrelEnd
       value: 
@@ -1483,7 +1473,17 @@ Prefab:
       propertyPath: shopCannonBarrelEnd
       value: 
       objectReference: {fileID: 1907474136}
-    - target: {fileID: 114857928720435710, guid: e063c1eb7595eb04899465c1c3adcc80,
+    - target: {fileID: 114705778545716926, guid: e063c1eb7595eb04899465c1c3adcc80,
+        type: 2}
+      propertyPath: shopCannonBarrelEnd
+      value: 
+      objectReference: {fileID: 1907474136}
+    - target: {fileID: 114283354987929834, guid: e063c1eb7595eb04899465c1c3adcc80,
+        type: 2}
+      propertyPath: shopCannonBarrelEnd
+      value: 
+      objectReference: {fileID: 1907474136}
+    - target: {fileID: 114776043680343688, guid: e063c1eb7595eb04899465c1c3adcc80,
         type: 2}
       propertyPath: shopCannonBarrelEnd
       value: 
