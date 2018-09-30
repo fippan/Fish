@@ -84,4 +84,13 @@ public class Bomb : MonoBehaviour
         Destroy(ps.gameObject, 3f);
         Destroy(gameObject);
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponentInParent<DiverAttackers>())
+        {
+            damage = 50;
+            Explode();
+        }
+    }
 }
