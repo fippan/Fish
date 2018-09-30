@@ -84,6 +84,7 @@ public class Helicopter : Health
 
         if (health <= 0 && !dead)
         {
+            CancelInvoke("Shooting");
             particleExplotion.Play();
             audio2.Play();
             anim.StopPlayback();
