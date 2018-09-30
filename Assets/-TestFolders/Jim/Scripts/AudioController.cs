@@ -27,6 +27,9 @@ public class AudioController : MonoBehaviour
 
     public void Play(string soundName, Vector3 worldPoint)
     {
+        if (NoAudioSourceWarning())
+            return;
+
         for (int i = 0; i < audioSources.Length; i++)
         {
             if (sounds[i].name == soundName)
@@ -40,6 +43,9 @@ public class AudioController : MonoBehaviour
 
     public void Stop(string soundName)
     {
+        if (NoAudioSourceWarning())
+            return;
+
         for (int i = 0; i < audioSources.Length; i++)
         {
             if (sounds[i].name == soundName)
@@ -51,6 +57,9 @@ public class AudioController : MonoBehaviour
 
     public void PlayOneShot(string soundName, Vector3 worldPoint)
     {
+        if (NoAudioSourceWarning())
+            return;
+
         for (int i = 0; i < audioSources.Length; i++)
         {
             if (sounds[i].name == soundName)
@@ -59,6 +68,19 @@ public class AudioController : MonoBehaviour
                 SetVolumeAndPitch(i);
                 audioSources[i].PlayOneShot(audioSources[i].clip);
             }
+        }
+    }
+
+    private bool NoAudioSourceWarning()
+    {
+        if (audioSources.Length == 0)
+        {
+            Debug.LogWarning("Null ref! No Audio Source found on: " + gameObject.name);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

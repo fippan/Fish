@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114654326149168872}
   - component: {fileID: 114263154590544088}
   - component: {fileID: 114166234483353560}
-  - component: {fileID: 114312670125672908}
   m_Layer: 0
   m_Name: Ocean
   m_TagString: Water
@@ -113,28 +112,6 @@ MonoBehaviour:
   gridTypeLite: 0
   displayProgress: 0
 --- !u!114 &114263154590544088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1989544624622400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43dc286aef4ea242a04505f26a601c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Hit
-    audioClip: {fileID: 8300000, guid: b563493a360b49045961ffcba9c134ab, type: 3}
-    volume: 1
-    volumeVariance: 0.048
-    pitch: 1
-    pitchVariance: 0.062
-    spatialBlend: 1
-    minDistance: 5
-    maxDistance: 100
-  mixerGroup: {fileID: 24300002, guid: 12f4b98caef71e242b7b18b1ececa609, type: 2}
---- !u!114 &114312670125672908
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

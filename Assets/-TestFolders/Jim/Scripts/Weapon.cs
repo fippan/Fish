@@ -107,8 +107,7 @@ public abstract class Weapon : MonoBehaviour
         hitScanPoint.Rotate(newRotation);
         Vector3 direction = hitScanPoint.forward;
         hitScanPoint.rotation = hitScanPointStartRotation;
-
-        Debug.Log(direction);
+        
         return direction;
     }
 
