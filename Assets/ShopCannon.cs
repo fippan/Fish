@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class ShopCannon : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ShopCannon : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().AddTorque(gameObject.transform.up * 10f);
         ps.Play();
         audio.Play();
+        SlowMotion.Instance.StartSlowMotion(2, 5.3f);
     }
 
     private Vector3 calcBallisticVelocityVector(Vector3 source, Vector3 target, float angle)
@@ -28,5 +30,24 @@ public class ShopCannon : MonoBehaviour
         // calculate velocity
         float velocity = Mathf.Sqrt(distance * Physics.gravity.magnitude / Mathf.Sin(2 * a));
         return velocity * direction.normalized;
+    }
+
+    private IEnumerator SlowMo ()
+    {
+        float myTime = 0;
+        while (myTime < 5.3f)
+        {
+            myTime += Time.unscaledDeltaTime;
+            yield return null;
+        }
+        Time.timeScale = 0.05f;
+        myTime = 0;
+        while (myTime < 2f)
+        {
+            myTime += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        Time.timeScale = 1;
     }
 }

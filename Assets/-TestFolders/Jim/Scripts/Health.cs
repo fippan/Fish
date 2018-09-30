@@ -10,9 +10,9 @@ public class Health : MonoBehaviour
     [SerializeField]
     protected bool indestructible;
     [SerializeField]
-    private GameObject onHitEffect;
+    protected GameObject onHitEffect;
     [SerializeField]
-    private float onHitEffectLifetime;
+    protected float onHitEffectLifetime;
 
     protected AudioController audioController;
     protected bool dead;

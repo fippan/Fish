@@ -899,6 +899,7 @@ GameObject:
   - component: {fileID: 114131994235239970}
   - component: {fileID: 65578703906514016}
   - component: {fileID: 114490452453444284}
+  - component: {fileID: 65014201300950364}
   m_Layer: 0
   m_Name: ptr_submarine
   m_TagString: Untagged
@@ -1558,7 +1559,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752166246681944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.625, y: 0.18919384, z: -0.48728788}
+  m_LocalPosition: {x: 9.871662, y: -1, z: 0.09354746}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4818640053488276}
@@ -3380,6 +3381,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758017527477404}
   m_Mesh: {fileID: 4300006, guid: b2a22edd3225cae488adbefe555f5e81, type: 3}
+--- !u!65 &65014201300950364
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752166246681944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.034743946, y: 0.015087466, z: 0.017217878}
+  m_Center: {x: -0.023827443, y: 0.013860128, z: -0.0007978439}
 --- !u!65 &65389988078280866
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -3402,8 +3415,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.23, y: 0.06, z: 0.06}
-  m_Center: {x: 0.02, y: 0, z: 0}
+  m_Size: {x: 0.22913009, y: 0.035182696, z: 0.03497421}
+  m_Center: {x: 0.020434951, y: -0.0077035674, z: 0.00009866834}
 --- !u!82 &82564300897764578
 AudioSource:
   m_ObjectHideFlags: 1

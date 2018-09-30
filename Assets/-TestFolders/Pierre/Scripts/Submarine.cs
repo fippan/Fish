@@ -49,8 +49,12 @@ public class Submarine : Health
 
     public override void TakeDamage(float amount, Vector3 point)
     {
+
         health -= amount;
         audioController.Play("Hit", point);
+
+        if (onHitEffect != null)
+            Destroy(Instantiate(onHitEffect, point, Quaternion.identity), onHitEffectLifetime);
 
         if (health <= 0)
         {
