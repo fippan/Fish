@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820287541655070}
   - component: {fileID: 114219923261062596}
+  - component: {fileID: 114936004490419896}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -223,7 +224,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 0
 --- !u!1 &1363761645576302
 GameObject:
@@ -501,7 +502,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 0
 --- !u!1 &1626625670634822
 GameObject:
@@ -630,7 +631,6 @@ GameObject:
   - component: {fileID: 136171200064846348}
   - component: {fileID: 114860178206943642}
   - component: {fileID: 114773069328710134}
-  - component: {fileID: 114917650886637826}
   m_Layer: 0
   m_Name: Camera (eye)
   m_TagString: Untagged
@@ -733,6 +733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4185986805967486}
   - component: {fileID: 114950618949016684}
+  - component: {fileID: 114566623981618214}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -838,7 +839,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1004224802092138}
   m_LocalRotation: {x: -0, y: -0.7071069, z: -0, w: 0.70710677}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: -0.13, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4522213238369610}
@@ -2676,7 +2677,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishingRod: {fileID: 0}
-  currentSpeed: {x: 0, y: 0, z: 0}
 --- !u!114 &114521663151927564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2727,6 +2727,17 @@ MonoBehaviour:
   right: {fileID: 1880388561774948}
   objects: []
   assignAllBeforeIdentified: 0
+--- !u!114 &114566623981618214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907829458347964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3871671645135844b3abb27139c0219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114593368712232030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2771,14 +2782,46 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  - ButtonIcon: {fileID: 0}
+    OnClick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_MethodName: SetDestination
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    OnHold:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    OnHoverEnter:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    OnHoverExit:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   buttonPrefab: {fileID: 139096, guid: 6b84885a25431a84595e546913f79de8, type: 2}
   generateOnAwake: 1
-  buttonThickness: 0.75
+  buttonThickness: 0.5
   buttonColor: {r: 1, g: 1, b: 1, a: 1}
   offsetDistance: 1
   offsetRotation: 0
   rotateIcons: 0
-  iconMargin: 0
+  iconMargin: 0.1
   isShown: 1
   hideOnRelease: 0
   executeOnUnclick: 1
@@ -3372,20 +3415,17 @@ MonoBehaviour:
   controllerEvents: {fileID: 0}
   interactTouch: {fileID: 0}
   interactGrab: {fileID: 0}
---- !u!114 &114917650886637826
+--- !u!114 &114936004490419896
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755407147048370}
+  m_GameObject: {fileID: 1012583058915562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Script: {fileID: 11500000, guid: e3871671645135844b3abb27139c0219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _head: {fileID: 4770420013985324}
-  _ears: {fileID: 4949470532665058}
-  wireframe: 0
 --- !u!114 &114950618949016684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3415,7 +3455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishingRod: {fileID: 0}
-  currentSpeed: {x: 0, y: 0, z: 0}
 --- !u!114 &114987110850998556
 MonoBehaviour:
   m_ObjectHideFlags: 1

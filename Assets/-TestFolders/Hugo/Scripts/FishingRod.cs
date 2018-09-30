@@ -25,7 +25,7 @@ public class FishingRod : MonoBehaviour
     {
         bobRb = bob.GetComponent<Rigidbody>();
         spinner = FindObjectOfType<Spinner>();
-        fishingLine = GetComponent<FishingLine>();
+        fishingLine = GetComponentInChildren<FishingLine>();
         waterContact = bob.GetComponent<WaterContact>();
         bobRb.isKinematic = true;
         waterContact.fishing = false;
