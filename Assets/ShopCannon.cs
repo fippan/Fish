@@ -9,7 +9,7 @@ public class ShopCannon : MonoBehaviour
 
     public void Shoot(GameObject gameObject)
     {
-        gameObject.GetComponent<Rigidbody>().velocity = calcBallisticVelocityVector(barrelEnd.position, target.position, Random.Range(40f, 60f));
+        gameObject.GetComponent<Rigidbody>().velocity = calcBallisticVelocityVector(barrelEnd.position, target.position, 40/*Random.Range(40f, 60f)*/);
         gameObject.GetComponent<Rigidbody>().AddTorque(gameObject.transform.up * 10f);
         ps.Play();
         audio.Play();
