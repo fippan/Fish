@@ -20,6 +20,10 @@ public class EndScreen : MonoBehaviour
 
     public void GameOver ()
     {
+        //TEST
+        Time.timeScale = 0;
+        //
+
         ui.SetActive(true);
         DiverManager.Instance.WaveIsActive = false;
 

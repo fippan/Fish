@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: {fileID: 176179465}
-  currentCurrency: 0
+  currentCurrency: 10000
 --- !u!4 &654139016
 Transform:
   m_ObjectHideFlags: 0
@@ -820,6 +820,34 @@ Prefab:
     - target: {fileID: 4965161416990302, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
       propertyPath: m_RootOrder
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815404726624620, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673318864468670, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274973696808414, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1667346391343710, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365896222991150, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627540146207456, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421126759567132, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b69c4d6a8fb77b46b6a3e83558ba948, type: 2}
@@ -1075,7 +1103,7 @@ GameObject:
   - component: {fileID: 941965705}
   - component: {fileID: 941965704}
   - component: {fileID: 941965703}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -1572,22 +1600,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114857928720435710, guid: e063c1eb7595eb04899465c1c3adcc80,
-        type: 2}
-      propertyPath: shopCannonBarrelEnd
-      value: 
-      objectReference: {fileID: 1907474136}
-    - target: {fileID: 114386140985383486, guid: e063c1eb7595eb04899465c1c3adcc80,
-        type: 2}
-      propertyPath: shopCannonBarrelEnd
-      value: 
-      objectReference: {fileID: 1907474136}
-    - target: {fileID: 114388915348090438, guid: e063c1eb7595eb04899465c1c3adcc80,
-        type: 2}
-      propertyPath: shopCannonBarrelEnd
-      value: 
-      objectReference: {fileID: 1907474136}
-    - target: {fileID: 114705778545716926, guid: e063c1eb7595eb04899465c1c3adcc80,
+    - target: {fileID: 114283354987929834, guid: e063c1eb7595eb04899465c1c3adcc80,
         type: 2}
       propertyPath: shopCannonBarrelEnd
       value: 
@@ -1597,7 +1610,22 @@ Prefab:
       propertyPath: shopCannonBarrelEnd
       value: 
       objectReference: {fileID: 1907474136}
-    - target: {fileID: 114283354987929834, guid: e063c1eb7595eb04899465c1c3adcc80,
+    - target: {fileID: 114705778545716926, guid: e063c1eb7595eb04899465c1c3adcc80,
+        type: 2}
+      propertyPath: shopCannonBarrelEnd
+      value: 
+      objectReference: {fileID: 1907474136}
+    - target: {fileID: 114388915348090438, guid: e063c1eb7595eb04899465c1c3adcc80,
+        type: 2}
+      propertyPath: shopCannonBarrelEnd
+      value: 
+      objectReference: {fileID: 1907474136}
+    - target: {fileID: 114386140985383486, guid: e063c1eb7595eb04899465c1c3adcc80,
+        type: 2}
+      propertyPath: shopCannonBarrelEnd
+      value: 
+      objectReference: {fileID: 1907474136}
+    - target: {fileID: 114857928720435710, guid: e063c1eb7595eb04899465c1c3adcc80,
         type: 2}
       propertyPath: shopCannonBarrelEnd
       value: 
