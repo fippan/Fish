@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1094687457465670
 GameObject:
@@ -43,7 +43,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1101628958315490
 GameObject:
@@ -60,7 +60,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1105864856896992
 GameObject:
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 114804027807764390}
   - component: {fileID: 114857928720435710}
   m_Layer: 0
-  m_Name: Sniper
+  m_Name: AVP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1213195292563544
 GameObject:
@@ -116,7 +116,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1245948778060474
 GameObject:
@@ -134,7 +134,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1266437476440130
 GameObject:
@@ -151,7 +151,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1294162352707408
 GameObject:
@@ -164,11 +164,11 @@ GameObject:
   - component: {fileID: 33860496727116688}
   - component: {fileID: 23125461784692524}
   m_Layer: 0
-  m_Name: SM_Wep_RifleBandit_01
+  m_Name: Rifle01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1299629035725078
 GameObject:
@@ -207,7 +207,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1325536301746190
 GameObject:
@@ -258,7 +258,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1347006185776100
 GameObject:
@@ -308,11 +308,11 @@ GameObject:
   - component: {fileID: 33640873283204476}
   - component: {fileID: 23665153950441752}
   m_Layer: 0
-  m_Name: SM_Wep_SniperSwat_01
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1472171078403272
 GameObject:
@@ -329,7 +329,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1527591673949602
 GameObject:
@@ -442,7 +442,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1598396615822220
 GameObject:
@@ -498,7 +498,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1636974328685578
 GameObject:
@@ -515,7 +515,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1650710689356564
 GameObject:
@@ -532,7 +532,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1653824245810566
 GameObject:
@@ -545,11 +545,11 @@ GameObject:
   - component: {fileID: 33859347897728800}
   - component: {fileID: 23792023780474096}
   m_Layer: 0
-  m_Name: SM_Wep_PistolBandit_01
+  m_Name: pistol02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1653935506594690
 GameObject:
@@ -566,7 +566,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1657792631112364
 GameObject:
@@ -622,7 +622,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1702163671454052
 GameObject:
@@ -635,11 +635,11 @@ GameObject:
   - component: {fileID: 33029457340706348}
   - component: {fileID: 23725872154370702}
   m_Layer: 0
-  m_Name: SM_Wep_RifleSwat_01
+  m_Name: Rilfe02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1744466788430902
 GameObject:
@@ -652,11 +652,11 @@ GameObject:
   - component: {fileID: 33032896050084274}
   - component: {fileID: 23702107565897786}
   m_Layer: 0
-  m_Name: SM_Wep_Shotgun_01
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1755100794218894
 GameObject:
@@ -673,7 +673,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1759727325183546
 GameObject:
@@ -708,7 +708,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1895382878615346
 GameObject:
@@ -757,7 +757,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1987189758866148
 GameObject:
@@ -770,11 +770,11 @@ GameObject:
   - component: {fileID: 33255068441631568}
   - component: {fileID: 23222671915812638}
   m_Layer: 0
-  m_Name: SM_Wep_PistolSwat_01
+  m_Name: Pistol01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1992552892304510
 GameObject:
@@ -791,7 +791,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &1992751860751324
 GameObject:
@@ -808,7 +808,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &4011524149607720
 Transform:
@@ -1068,8 +1068,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1347006185776100}
-  m_LocalRotation: {x: -0, y: 0.000000029802319, z: -0, w: 1}
-  m_LocalPosition: {x: 0.164, y: 0.166, z: -0.306}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4200577783201716}
@@ -2872,7 +2872,7 @@ MonoBehaviour:
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
@@ -2991,7 +2991,7 @@ MonoBehaviour:
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3039,7 +3039,7 @@ MonoBehaviour:
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3299,7 +3299,7 @@ MonoBehaviour:
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3315,8 +3315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6cb288af02dfa4b86bdd969051e5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopCannonBarrelEnd: {fileID: 0}
   gun: {fileID: 1369764378286848, guid: ed7cf645ad9dd7e4e8c96c2bd5615f31, type: 2}
-  cost: 100
+  cost: 80
   costText: {fileID: 114107154846680842}
   button: {fileID: 114563439439553858}
 --- !u!114 &114379052740127656
@@ -3341,8 +3342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6cb288af02dfa4b86bdd969051e5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopCannonBarrelEnd: {fileID: 0}
   gun: {fileID: 1381575635962726, guid: 8c4bad39d09a1d94781acd5cdbb2d22c, type: 2}
-  cost: 150
+  cost: 200
   costText: {fileID: 114622605251663194}
   button: {fileID: 114563439439553858}
 --- !u!114 &114386351117947934
@@ -3373,8 +3375,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6cb288af02dfa4b86bdd969051e5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopCannonBarrelEnd: {fileID: 0}
   gun: {fileID: 1014518601432308, guid: 12c7fb34d7cdd1841806e5450dab369e, type: 2}
-  cost: 600
+  cost: 750
   costText: {fileID: 114016870345320572}
   button: {fileID: 114563439439553858}
 --- !u!114 &114401218873927830
@@ -3552,7 +3555,7 @@ MonoBehaviour:
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
@@ -3874,7 +3877,7 @@ MonoBehaviour:
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
-  useOverrideButton: 7
+  useOverrideButton: 3
   allowedUseControllers: 0
   objectHighlighter: {fileID: 0}
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
@@ -4015,8 +4018,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6cb288af02dfa4b86bdd969051e5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopCannonBarrelEnd: {fileID: 0}
   gun: {fileID: 1668098778998034, guid: 6fb5ee756652b1d459cf7c2148fcc7de, type: 2}
-  cost: 500
+  cost: 400
   costText: {fileID: 114081945965786470}
   button: {fileID: 114563439439553858}
 --- !u!114 &114767707865630538
@@ -4064,8 +4068,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6cb288af02dfa4b86bdd969051e5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopCannonBarrelEnd: {fileID: 0}
   gun: {fileID: 1437912708010896, guid: 88b56b2e3f9c03e40b81e7f8f6b61bd8, type: 2}
-  cost: 250
+  cost: 400
   costText: {fileID: 114490438940777720}
   button: {fileID: 114563439439553858}
 --- !u!114 &114790196174139486
@@ -4124,8 +4129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6cb288af02dfa4b86bdd969051e5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shopCannonBarrelEnd: {fileID: 0}
   gun: {fileID: 1473778546336812, guid: 665c0ea85841dcc48946714aab51c4dd, type: 2}
-  cost: 800
+  cost: 1200
   costText: {fileID: 114255796295952564}
   button: {fileID: 114563439439553858}
 --- !u!114 &114896169064907402

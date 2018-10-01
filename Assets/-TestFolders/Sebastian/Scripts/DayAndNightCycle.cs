@@ -249,12 +249,18 @@ public class DayAndNightCycle : MonoBehaviour {
                     break;
                 case DayPhases.Day:
                     Day();
-                    DiverManager.Instance.CanSpawnEnemies = true;
+                    if(_days >= 2)
+                    {
+                        DiverManager.Instance.CanSpawnEnemies = true;
+                    }
                     break;
                 case DayPhases.Dusk:
                     Dusk();
-                    DiverManager.Instance.WaveCount = _days;
-                    DiverManager.Instance.WaveIsActive = true;
+                    if (_days >= 2)
+                    {
+                        DiverManager.Instance.WaveCount = _days;
+                        DiverManager.Instance.WaveIsActive = true;
+                    }
                     break;
                 case DayPhases.Night:
                     Night();

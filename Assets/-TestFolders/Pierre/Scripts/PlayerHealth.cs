@@ -24,19 +24,6 @@ public class PlayerHealth : Health
 
         vig.intensity = 1 - tmpHealth;
 
-        //if (currentHealth < maxHealth / 1.5f && currentHealth > maxHealth / 3)
-        //{
-        //    vig.intensity = .66f;
-        //}
-        //if (currentHealth < maxHealth / 3)
-        //{
-        //    vig.intensity = 1;
-        //}
-        //if (currentHealth > maxHealth / 1.5f)
-        //{
-        //    vig.intensity = 0;
-        //}
-
         ppp.vignette.settings = vig;
     }
 
@@ -72,5 +59,12 @@ public class PlayerHealth : Health
     {
         if (RegenHealth != null)
             StopCoroutine(RegenHealth);
+    }
+
+    void OnDisable()
+    {
+        var vig = ppp.vignette.settings;
+        vig.intensity = 0;
+        ppp.vignette.settings = vig;
     }
 }

@@ -718,7 +718,7 @@ MonoBehaviour:
   hitScan: 1
   spreadingBullets: 1
   explosive: 0
-  damage: 10
+  damage: 15
   firingRate: 0.2
   minSpreadDegrees: {x: -10, y: -10}
   maxSpreadDegrees: {x: 10, y: 10}

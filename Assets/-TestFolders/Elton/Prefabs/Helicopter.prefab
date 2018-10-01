@@ -1392,7 +1392,7 @@ MonoBehaviour:
   onHitEffect: {fileID: 1574628918287358, guid: 15a50b85bf4463d479733c287c4d0460,
     type: 2}
   onHitEffectLifetime: 1
-  health: 250
+  health: 300
   onHitEffecttime: 0
   topRotor: {fileID: 1439068881459840}
   botRotor: {fileID: 1217266173272858}

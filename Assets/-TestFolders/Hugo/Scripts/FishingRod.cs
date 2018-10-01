@@ -8,7 +8,6 @@ public class FishingRod : MonoBehaviour
     public bool thrown = false;
     public GameObject bob;
     public Transform throwPoint;
-    public GameObject bobHolder;
 
     [SerializeField] private AudioSource whoosh;
 
@@ -26,7 +25,7 @@ public class FishingRod : MonoBehaviour
     {
         bobRb = bob.GetComponent<Rigidbody>();
         spinner = FindObjectOfType<Spinner>();
-        fishingLine = GetComponent<FishingLine>();
+        fishingLine = GetComponentInChildren<FishingLine>();
         waterContact = bob.GetComponent<WaterContact>();
         bobRb.isKinematic = true;
         waterContact.fishing = false;
