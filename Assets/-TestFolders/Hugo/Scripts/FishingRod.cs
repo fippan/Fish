@@ -8,7 +8,6 @@ public class FishingRod : MonoBehaviour
     public bool thrown = false;
     public GameObject bob;
     public Transform throwPoint;
-    public GameObject bobHolder;
 
     [SerializeField] private AudioSource whoosh;
 
