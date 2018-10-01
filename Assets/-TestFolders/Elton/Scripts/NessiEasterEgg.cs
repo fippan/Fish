@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NessiEasterEgg : Health {
     [SerializeField] private GameObject nessi;
+    public Transform spawnPoint;
+
     protected override void Start()
     {
         base.Start();
@@ -11,7 +13,7 @@ public class NessiEasterEgg : Health {
 
     protected override void Death()
     {
-        Instantiate(nessi,transform);
+        Instantiate(nessi, spawnPoint.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

@@ -463,7 +463,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishingRod: {fileID: 0}
-  currentSpeed: {x: 0, y: 0, z: 0}
 --- !u!114 &172493108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,7 +524,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishingRod: {fileID: 0}
-  currentSpeed: {x: 0, y: 0, z: 0}
 --- !u!114 &249981654
 MonoBehaviour:
   m_ObjectHideFlags: 0

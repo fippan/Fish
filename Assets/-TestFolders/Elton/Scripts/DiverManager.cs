@@ -196,7 +196,7 @@ public class DiverManager : MonoBehaviour
             spawnedEnemies++;
         }
 
-        if(helicopterList.Count < waveCount / 5)
+        if(helicopterList.Count < waveCount / 3)
         {
 
                 Vector2 randomPoint = Random.insideUnitCircle;
