@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4431708717700028}
   - component: {fileID: 95262806445459640}
   - component: {fileID: 114380402048913534}
-  - component: {fileID: 114235368388246672}
   - component: {fileID: 114302966463114112}
   - component: {fileID: 114227358182281348}
   m_Layer: 8
@@ -279,29 +278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a58a79873917744b9df501e842e6a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114235368388246672
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1084349641036622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0b0f5dc57059c24c9b0b76b8f6f96ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectToFollow: {fileID: 0}
-  gameObjectToChange: {fileID: 0}
-  followsPosition: 1
-  smoothsPosition: 0
-  maxAllowedPerFrameDistanceDifference: 0.003
-  followsRotation: 0
-  smoothsRotation: 0
-  maxAllowedPerFrameAngleDifference: 1.5
-  followsScale: 0
-  smoothsScale: 0
-  maxAllowedPerFrameSizeDifference: 0.003
-  _moment: 1
 --- !u!114 &114302966463114112
 MonoBehaviour:
   m_ObjectHideFlags: 1
