@@ -90,7 +90,7 @@ public abstract class Weapon : MonoBehaviour
         }
         else
         {
-            bulletTrace.NewTrace(barrelEnd.position, barrelEnd.forward * 50f);
+            bulletTrace.NewTrace(barrelEnd.position, direction * 50f);
         }
     }
 
@@ -108,6 +108,7 @@ public abstract class Weapon : MonoBehaviour
         Vector3 direction = hitScanPoint.forward;
         hitScanPoint.rotation = hitScanPointStartRotation;
 
+        Debug.Log(direction);
         return direction;
     }
 

@@ -18,6 +18,12 @@ public class Helicopter : Health
     [SerializeField] private GameObject onHitparticle;
     [SerializeField] private ParticleSystem particleExplotion;
     [SerializeField] private ParticleSystem particleSplash;
+    [SerializeField] private Transform muzzleParent1;
+    [SerializeField] private Transform muzzleParent2;
+
+    Minigun shootingOne;
+    Minigun shootingTwo;
+
     Animator anim;
 
     protected override void Start()
@@ -30,7 +36,9 @@ public class Helicopter : Health
         halfHealth = health / 2;
         anim = gameObject.GetComponent<Animator>();
         transform.LookAt(boat.transform);
-        InvokeRepeating("Shooting", anim.GetCurrentAnimatorStateInfo(0).length, 0.2f);
+        shootingOne = minigunOne.GetComponent<Minigun>();
+        shootingTwo = minigunTwo.GetComponent<Minigun>();
+        InvokeRepeating("Shooting", anim.GetCurrentAnimatorStateInfo(0).length, 0.15f);
     }
 
     public void FindBoat(Transform player)
@@ -53,15 +61,10 @@ public class Helicopter : Health
 
     private void Shooting()
     {
-        if (minigunOne.GetComponent<Minigun>().firingRate == 0 || minigunTwo.GetComponent<Minigun>().firingRate == 0)
-        {
-            minigunTwo.GetComponent<Minigun>().firingRate = 0.2f;
-            minigunOne.GetComponent<Minigun>().firingRate = 0.2f;
-        }
+        muzzleParent1.LookAt(boat.transform);
+        muzzleParent2.LookAt(boat.transform);
 
-        Weapon shootingOne = minigunOne.GetComponent<Weapon>();
         shootingOne.Shoot();
-        Weapon shootingTwo = minigunTwo.GetComponent<Weapon>();
         shootingTwo.Shoot();
     }
 

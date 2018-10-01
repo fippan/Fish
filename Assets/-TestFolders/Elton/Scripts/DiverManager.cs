@@ -169,32 +169,32 @@ public class DiverManager : MonoBehaviour
 
         if (enemyList.Count < enemyAddition + waveCount * 2)
     {
-        if (subMarineList.Count < waveCount / 2)
-        {
-            Vector2 randomPoint = Random.insideUnitCircle;
-            Vector3 circleSpawn = new Vector3((randomPoint.x * 50f) + 5f, -1f, (randomPoint.y * 50f) + 5f);
+        //if (subMarineList.Count < waveCount / 2)
+        //{
+        //    Vector2 randomPoint = Random.insideUnitCircle;
+        //    Vector3 circleSpawn = new Vector3((randomPoint.x * 50f) + 5f, -1f, (randomPoint.y * 50f) + 5f);
 
-            var submarine = Instantiate(subMarine, transform.position + circleSpawn + new Vector3(0, -4, 0), new Quaternion(0, 0, 0, 0));
-                submarine.GetComponentInChildren<SubmarineEnemy>().AimAtPlayer(player.transform);
-            subMarineList.Add(submarine);
-            enemyList.Add(submarine);
+        //    var submarine = Instantiate(subMarine, transform.position + circleSpawn + new Vector3(0, -4, 0), new Quaternion(0, 0, 0, 0));
+        //        submarine.GetComponentInChildren<SubmarineEnemy>().AimAtPlayer(player.transform);
+        //    subMarineList.Add(submarine);
+        //    enemyList.Add(submarine);
 
-            spawnedEnemies++;
-        }
+        //    spawnedEnemies++;
+        //}
 
 
-        if (diverCount.Count < enemyAddition + waveCount)
-        {
-            Vector2 randomPoint = Random.insideUnitCircle;
-            Vector3 circleSpawn = new Vector3(randomPoint.x * 6f +5f, -2.5f, randomPoint.y * 6f +5f);
+        //if (diverCount.Count < enemyAddition + waveCount)
+        //{
+        //    Vector2 randomPoint = Random.insideUnitCircle;
+        //    Vector3 circleSpawn = new Vector3(randomPoint.x * 6f +5f, -2.5f, randomPoint.y * 6f +5f);
 
-            var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
-            diver.GetComponent<DiverAttackers>().LookAtPlayer(player.transform);
-            diverCount.Add(diver);
-            enemyList.Add(diver);
-            //randomSpawnTimer = Random.Range(10, 15);
-            spawnedEnemies++;
-        }
+        //    var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
+        //    diver.GetComponent<DiverAttackers>().LookAtPlayer(player.transform);
+        //    diverCount.Add(diver);
+        //    enemyList.Add(diver);
+        //    //randomSpawnTimer = Random.Range(10, 15);
+        //    spawnedEnemies++;
+        //}
 
         if(helicopterList.Count < waveCount / 3)
         {

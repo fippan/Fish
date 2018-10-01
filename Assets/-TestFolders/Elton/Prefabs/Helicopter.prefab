@@ -82,6 +82,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1267073593059970
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4657143434342692}
+  m_Layer: 0
+  m_Name: MuzzleParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1272821697363150
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,6 +154,21 @@ GameObject:
   - component: {fileID: 4582865538169566}
   m_Layer: 0
   m_Name: Fp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1402888112744142
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4822847808048644}
+  m_Layer: 0
+  m_Name: MuzzleParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,11 +393,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019951404210992}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4761952903520010}
+  m_Father: {fileID: 4657143434342692}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4386627820432768
@@ -390,10 +420,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1127066040877952}
   m_LocalRotation: {x: -0.0000018099951, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.5219991, y: -0.54558456, z: -0.5190777}
+  m_LocalPosition: {x: -2.5219991, y: -0.546, z: 0.923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4441008078843432}
+  - {fileID: 4822847808048644}
   m_Father: {fileID: 4673189804339440}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -416,11 +446,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1280261386387562}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4394509595463228}
+  m_Father: {fileID: 4822847808048644}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4541368629557694
@@ -463,6 +493,20 @@ Transform:
   m_Father: {fileID: 4146541491002982}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4657143434342692
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1267073593059970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4176436367963876}
+  m_Father: {fileID: 4761952903520010}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4673189804339440
 Transform:
   m_ObjectHideFlags: 1
@@ -470,7 +514,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685030288229418}
   m_LocalRotation: {x: 0.0000018099951, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.628523, y: 30, z: -250}
+  m_LocalPosition: {x: -0.025458217, y: 3.0631294, z: 4.3114486}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4034912844176320}
@@ -506,12 +550,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614478066793442}
   m_LocalRotation: {x: -0.0000018099951, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5100005, y: -0.54558456, z: -0.5190777}
+  m_LocalPosition: {x: 2.5100005, y: -0.546, z: 0.892}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4176436367963876}
+  - {fileID: 4657143434342692}
   m_Father: {fileID: 4673189804339440}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4822847808048644
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402888112744142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4441008078843432}
+  m_Father: {fileID: 4394509595463228}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23030984775870978
 MeshRenderer:
@@ -1269,9 +1327,9 @@ MonoBehaviour:
   - name: Fire
     audioClip: {fileID: 8300000, guid: 30050f455da8db34d8331e0b8bc61963, type: 3}
     volume: 1
-    volumeVariance: 0
+    volumeVariance: 0.119
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.832
     spatialBlend: 1
     minDistance: 10
     maxDistance: 500
@@ -1301,9 +1359,9 @@ MonoBehaviour:
   spreadingBullets: 1
   explosive: 0
   damage: 5
-  firingRate: 0
-  minSpreadDegrees: {x: -5, y: -5}
-  maxSpreadDegrees: {x: 5, y: 5}
+  firingRate: 0.01
+  minSpreadDegrees: {x: -2, y: -2}
+  maxSpreadDegrees: {x: 2, y: 2}
   shotsUntilReload: 50
   reloadTime: 5
   magForceMultiplier: 0
@@ -1344,6 +1402,8 @@ MonoBehaviour:
   onHitparticle: {fileID: 0}
   particleExplotion: {fileID: 198266229091739486}
   particleSplash: {fileID: 198157178770527850}
+  muzzleParent1: {fileID: 4822847808048644}
+  muzzleParent2: {fileID: 4657143434342692}
 --- !u!114 &114438547054486602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1384,9 +1444,9 @@ MonoBehaviour:
   spreadingBullets: 1
   explosive: 0
   damage: 5
-  firingRate: 0
-  minSpreadDegrees: {x: -5, y: -5}
-  maxSpreadDegrees: {x: 5, y: 5}
+  firingRate: 0.01
+  minSpreadDegrees: {x: -2, y: -2}
+  maxSpreadDegrees: {x: 2, y: 2}
   shotsUntilReload: 50
   reloadTime: 5
   magForceMultiplier: 0
@@ -1446,9 +1506,9 @@ MonoBehaviour:
   - name: Fire
     audioClip: {fileID: 8300000, guid: 30050f455da8db34d8331e0b8bc61963, type: 3}
     volume: 1
-    volumeVariance: 0
+    volumeVariance: 0.06
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.82
     spatialBlend: 1
     minDistance: 10
     maxDistance: 500
