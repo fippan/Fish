@@ -63,6 +63,8 @@ public class DiverManager : MonoBehaviour
 
     private Coroutine musicRoutine;
 
+    private Transform directionTransform;
+
 
     private void Awake()
     {
@@ -70,14 +72,12 @@ public class DiverManager : MonoBehaviour
     }
     private void Start()
     {
-        if(dayAndNight == null)
+        if (dayAndNight == null)
         {
             dayAndNight = FindObjectOfType<DayAndNightCycle>();
         }
-        //InvokeRepeating("SpawningDivers", 10f, 7);
 
-        //SpawningDivers();
-
+        directionTransform = GetComponentInChildren<Transform>();
     }
 
     private void Update()
@@ -87,13 +87,13 @@ public class DiverManager : MonoBehaviour
 
             Spawn();
 
-            if(killedEnemies >= enemyAddition + waveCount * 2)
+            if (killedEnemies >= enemyAddition + waveCount * 2)
             {
                 waveActive = false;
                 stopMusic = true;
                 StopBattleMusic();
             }
-            if(dayAndNight != null)
+            if (dayAndNight != null)
             {
                 if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dawn && killedEnemies < enemyAddition + waveCount * 2)
                 {
@@ -103,14 +103,14 @@ public class DiverManager : MonoBehaviour
                 {
                     dayAndNight.TimeMultiplier = 344f * 2;
                 }
-                if(dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dusk)
+                if (dayAndNight._dayPhases == DayAndNightCycle.DayPhases.Dusk)
                 {
                     stopMusic = false;
                     StartBattleMusic();
                 }
             }
         }
-        else if(!waveActive)
+        else if (!waveActive)
         {
             subMarineList.Clear();
             helicopterList.Clear();
@@ -118,7 +118,7 @@ public class DiverManager : MonoBehaviour
             enemyList.Clear();
             spawnedEnemies = 0;
             killedEnemies = 0;
-            if(spawnWave != null)
+            if (spawnWave != null)
             {
                 StopCoroutine(spawnWave);
             }
@@ -127,7 +127,7 @@ public class DiverManager : MonoBehaviour
 
     public void Spawn()
     {
-        if(canSpawn)
+        if (canSpawn)
         {
             SpawnSubmarine(waveCount);
             canSpawn = false;
@@ -168,55 +168,63 @@ public class DiverManager : MonoBehaviour
         }
 
         if (enemyList.Count < enemyAddition + waveCount * 2)
-    {
-        //if (subMarineList.Count < waveCount / 2)
-        //{
-        //    Vector2 randomPoint = Random.insideUnitCircle;
-        //    Vector3 circleSpawn = new Vector3((randomPoint.x * 50f) + 5f, -1f, (randomPoint.y * 50f) + 5f);
-
-        //    var submarine = Instantiate(subMarine, transform.position + circleSpawn + new Vector3(0, -4, 0), new Quaternion(0, 0, 0, 0));
-        //        submarine.GetComponentInChildren<SubmarineEnemy>().AimAtPlayer(player.transform);
-        //    subMarineList.Add(submarine);
-        //    enemyList.Add(submarine);
-
-        //    spawnedEnemies++;
-        //}
-
-
-        //if (diverCount.Count < enemyAddition + waveCount)
-        //{
-        //    Vector2 randomPoint = Random.insideUnitCircle;
-        //    Vector3 circleSpawn = new Vector3(randomPoint.x * 6f +5f, -2.5f, randomPoint.y * 6f +5f);
-
-        //    var diver = Instantiate(Diver, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
-        //    diver.GetComponent<DiverAttackers>().LookAtPlayer(player.transform);
-        //    diverCount.Add(diver);
-        //    enemyList.Add(diver);
-        //    //randomSpawnTimer = Random.Range(10, 15);
-        //    spawnedEnemies++;
-        //}
-
-        if(helicopterList.Count < waveCount / 3)
         {
+            if (subMarineList.Count < waveCount / 3)
+            {
+                Vector3 direction = GetRandomDirection();
+                float distance = Random.Range(16f, 25f);
 
-                Vector2 randomPoint = Random.insideUnitCircle;
-                Vector3 circleSpawn = new Vector3(randomPoint.x * 60f + 10f, 30f, randomPoint.y * 60f + 10f);
+                var submarine = Instantiate(subMarine, direction * distance + new Vector3(0f, -5f, 0f), Quaternion.identity);
+                submarine.GetComponentInChildren<SubmarineEnemy>().AimAtPlayer(player.transform);
+                subMarineList.Add(submarine);
+                enemyList.Add(submarine);
 
-                var heli = Instantiate(helicopter, transform.position + circleSpawn, new Quaternion(0, 0, 0, 0));
+                spawnedEnemies++;
+            }
+
+
+            if (diverCount.Count < enemyAddition + waveCount)
+            {
+                Vector3 direction = GetRandomDirection();
+                float distance = Random.Range(5f, 15f);
+
+                var diver = Instantiate(Diver, direction * distance + new Vector3(0f, -2.5f, 0f), Quaternion.identity);
+                diver.GetComponent<DiverAttackers>().LookAtPlayer(player.transform);
+                diverCount.Add(diver);
+                enemyList.Add(diver);
+
+                spawnedEnemies++;
+            }
+
+            if (helicopterList.Count < waveCount / 4)
+            {
+                Vector3 direction = GetRandomDirection();
+                float distance = Random.Range(16f, 25f);
+
+                var heli = Instantiate(helicopter, direction * distance + new Vector3(0f, 30f, 0f), Quaternion.identity);
                 heli.GetComponent<Helicopter>().FindBoat(player.transform);
                 helicopterList.Add(heli);
                 enemyList.Add(heli);
-                //randomSpawnTimer = Random.Range(10, 15);
+
                 spawnedEnemies++;
-        }
-            
+            }
+
             randomSpawnTimer = Random.Range(5, 20);
         }
     }
 
+    private Vector3 GetRandomDirection()
+    {
+        Vector3 rotation = new Vector3(0f, Random.Range(0f, 359f), 0f);
+        directionTransform.Rotate(rotation);
+        Vector3 direction = directionTransform.forward;
+
+        return direction;
+    }
+
     public void StartBattleMusic()
     {
-        if(!hasStartedMusic)
+        if (!hasStartedMusic)
         {
             musicControl = GetComponent<AudioController>();
             musicControl.Play("BattleMusic", transform.position);
@@ -238,7 +246,7 @@ public class DiverManager : MonoBehaviour
 
     IEnumerator waveCoolDown()
     {
-        if(waveActive)
+        if (waveActive)
         {
             yield return new WaitForSeconds(randomSpawnTimer);
             canSpawn = true;
