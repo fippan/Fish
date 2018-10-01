@@ -54,6 +54,7 @@ public class Submarine : Health
 
         if (health <= 0)
         {
+            GetComponentInChildren<SubmarineEnemy>().canFire = false;
             diveBack = true;
             KillCountManager.Instance.AddKill();
         }
