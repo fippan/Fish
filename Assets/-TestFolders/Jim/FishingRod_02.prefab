@@ -1208,8 +1208,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.040715247, y: 0.040991187, z: 1.6900457}
-  m_Center: {x: 0.000090405345, y: -0.0010053515, z: 0.7429331}
+  m_Size: {x: 0.040715247, y: 0.040991187, z: 1.4687151}
+  m_Center: {x: 0.000090405345, y: -0.0010053515, z: 0.6322678}
 --- !u!65 &65977792483430968
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1931,8 +1931,8 @@ LineRenderer:
   m_GameObject: {fileID: 1327141312802768}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 0
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -2021,8 +2021,8 @@ LineRenderer:
   m_GameObject: {fileID: 1556282431273526}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 0
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0

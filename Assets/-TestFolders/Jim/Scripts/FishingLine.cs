@@ -48,9 +48,9 @@ public class FishingLine : MonoBehaviour
     private void OnThrown()
     {
         restLenght = CalculateRestLenght();
+        CalculateLineParticles();
         lineParticles[lineParticles.Length - 1].pos = lineEnd.position;
         lineParticles[0].pos = lineStart.position;
-        CalculateLineParticles();
     }
 
     private void CalculateLineParticles()
