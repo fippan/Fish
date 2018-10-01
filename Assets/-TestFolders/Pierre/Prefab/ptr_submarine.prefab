@@ -3558,7 +3558,7 @@ MonoBehaviour:
   muzzleTransform: {fileID: 4106598250138344}
   bulletFX: {fileID: 1000012236321246, guid: c4677bd8090bcc24f946be214c6cf900, type: 2}
   fireSound: {fileID: 8300000, guid: c38b5abb8c702a04a8cc32307ee49ea5, type: 3}
-  minSpreadDegrees: {x: 0.1, y: -3}
+  minSpreadDegrees: {x: -5, y: -3}
   maxSpreadDegrees: {x: 5, y: 5}
 --- !u!114 &114490452453444284
 MonoBehaviour:
