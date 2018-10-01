@@ -22,9 +22,9 @@ public class FishingLine : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineParticles = new LineParticle[numberOfJoints];
-        linePositions = new Vector3[lineParticles.Length];
-        lineRenderer.positionCount = lineParticles.Length;
-        for (int i = 0; i < lineParticles.Length; i++)
+        linePositions = new Vector3[numberOfJoints];
+        lineRenderer.positionCount = numberOfJoints;
+        for (int i = 0; i < numberOfJoints; i++)
         {
             lineParticles[i] = new LineParticle();
         }
@@ -35,7 +35,6 @@ public class FishingLine : MonoBehaviour
         if (reeledIn) OnReeledIn();
         else OnThrown();
         SetLineRenderPositions();
-        lineRenderer.SetPositions(linePositions);
     }
 
     private void OnReeledIn()
@@ -99,6 +98,8 @@ public class FishingLine : MonoBehaviour
         {
             linePositions[i] = lineParticles[i].pos;
         }
+
+        lineRenderer.SetPositions(linePositions);
     }
 
     //private void OnDrawGizmos()
@@ -108,7 +109,10 @@ public class FishingLine : MonoBehaviour
 
     //    for (int i = 0; i < linePositions.Length; i++)
     //    {
-    //        Gizmos.DrawWireSphere(linePositions[i], .25f);
+    //        Gizmos.color = Color.green;
+    //        Gizmos.DrawWireSphere(linePositions[i], .007f);
+    //        Gizmos.color = Color.red;
+    //        Gizmos.DrawWireSphere(lineParticles[i].pos, .005f);
     //    }
     //}
 }
